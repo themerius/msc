@@ -1,0 +1,140 @@
+\newcommand{\abstractHtwg}{Text der Zusammenfassung etwa 150 Worte. Es soll der 
+  Lösungsweg beschrieben sein.}
+\newcommand{\ausgabedatum}{$[$Datum$]$}
+\newcommand{\abgabedatum}{$[$Datum$]$}
+\newcommand{\autorStrasse}{$[$Stra"se$]$}
+\newcommand{\autorPLZ}{$[$PLZ$]$}
+\newcommand{\autorOrt}{$[$Ort$]$}
+\newcommand{\autorGeburtsort}{$[$Geburtsort$]$}
+\newcommand{\autorGeburtsdatum}{$[$Datum$]$}
+\newcommand{\prueferA}{$[$Titel, Vor- und Zuname des 1. Pr"ufers$]$}
+\newcommand{\prueferB}{$[$Titel, Vor- und Zuname des 2. Pr"ufers$]$}
+\newcommand{\firma}{$[$HTWG oder Firmenname$]$}
+\newcommand{\studiengang}{Master of Science Informatik}
+
+\newcommand{\typesetTitle}{
+
+% Cover
+
+  \begin{titlepage}
+
+  \vspace*{-3.5cm}
+
+  \begin{flushleft}
+  \hspace*{-1cm} \includegraphics[width=15.7cm]{Titlepages/htwg-logo}
+  \end{flushleft}
+
+  \vspace{2.5cm}
+
+  \begin{center}
+    \huge{
+      \textbf{\thema} \\[5cm]
+    }
+    \Large{
+      \textbf{\autor}} \\[6.5cm]
+    \large{
+      \textbf{Konstanz, \today} \\[2.3cm]
+    }
+    
+    \Huge{
+      \textbf{{\sf MASTERARBEIT}}
+    }
+  \end{center}
+
+  \end{titlepage}
+
+% Title
+
+  \thispagestyle{empty}
+  {
+  \setlength{\parskip}{0.5cm}
+          \begin{center}
+          \textbf{\huge MASTERARBEIT}
+
+          \textbf{zur Erlangung des akademischen Grades}
+
+          \textbf{\Large Master of Science (M. Sc.)}
+
+          \textbf{an der}
+
+          \textsf{\huge Hochschule Konstanz}\\
+          {\small Technik, Wirtschaft und Gestaltung}
+
+          \textsf{\Large Fakultät Informatik} \\
+          Studiengang \studiengang
+          \end{center}
+  }
+  \begin{center}
+
+  \vspace*{2cm}
+
+  \begin{tabular}{p{3cm}p{10cm}}
+  Thema: & \textbf{\large \thema} \\[10ex]
+  Masterkandidat: & \autor, \autorStrasse, \autorPLZ  \autorOrt \\[10ex]
+  1. Prüfer: & \prueferA \\
+  2. Prüfer: & \prueferB \\[20ex]
+  Ausgabedatum: & \ausgabedatum \\
+  Abgabedatum: & \abgabedatum \\
+  \end{tabular}
+  \end{center}
+
+% Abstract
+
+  \begin{center}
+  {\Large \textbf{Zusammenfassung (Abstract)}}
+  \end{center}
+
+  \bigskip
+
+  \begin{center}
+    \begin{tabular}{p{2.8cm}p{10cm}}
+      Thema: & \thema \\
+       & \\
+      Masterkandidat: & \autor \\
+       & \\
+      Firma: & \firma \\
+       & \\
+      Betreuer: & \prueferA  \\[.5ex]
+       &  \prueferB \\
+       & \\
+      Abgabedatum: & \abgabedatum \\
+       & \\
+      Schlagworte: & \keywords \\
+       & \\
+    \end{tabular}
+  \end{center}
+
+  \bigskip
+
+  \noindent
+  \abstractHtwg
+
+% Affidavit
+
+  \newpage
+  \sectionchapter{Ehrenwörtliche Erklärung}
+
+  Hiermit erkläre ich
+  \textit{\autor, geboren am \autorGeburtsdatum in \autorGeburtsort}, dass ich\\
+
+  \begin{tabular}{lp{12cm}}
+  (1) & meine Masterarbeit mit dem Titel \\[1em]
+  & \textbf{\thema} \\[1em]
+  & bei der \firma\ unter Anleitung von \prueferA\ selbständig und ohne fremde Hilfe angefertigt und keine anderen als die angeführten Hilfen benutzt habe;\\[1em]
+  (2) & die Übernahme wörtlicher Zitate, von Tabellen, Zeichnungen, Bildern und
+  Programmen aus der Literatur oder anderen Quellen (Internet) sowie die Verwendung
+  der Gedanken anderer Autoren an den entsprechenden Stellen innerhalb der Arbeit
+  gekennzeichnet habe.\\
+  \end{tabular}
+
+  \vspace*{1cm}
+
+  \noindent
+  Ich bin mir bewusst, dass eine falsche Erklärung rechtliche Folgen haben wird.\\
+
+  \vspace*{3cm}
+
+  \noindent
+  Konstanz, \abgabedatum \hfill \begin{tabular}{c} \\ \\ \rule{5cm}{1pt} \\ (Unterschrift)\end{tabular}
+
+}
