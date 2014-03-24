@@ -1,38 +1,151 @@
-\chapter{Introduction}
+\chapter{Einleitung}
 
-\section{Unicode support}
 
-Ein Zitat ohne Klammern \citet{default}.
-Mit Seitenangabe \citep[siehe][S.~15]{default}.
-Ohne Seitenangabe \citep{default}.
+\chapter{Grundlagen, Grundbegriffe und Technologien}
 
-\begin{quote}
-Zitierter Text.
-\end{quote}
 
-\noindent Ein „inline Zitat“.
+\section{Gestaltungsregeln wissenschaftlicher Dokumente}
 
-\subsection{English}
-All \emph{human beings} are born free and equal in dignity and rights.
- 
-\subsection{Tiếng Việt}
-Tất cả mọi người sinh ra đều được tự do và bình đẳng về nhân phẩm và 
-quyền lợi.
- 
-\section{Legacy syntax}
-When he goes---``Hello World!''\\
-She replies—“Hello dear!”
- 
-$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
+Neben Gestaltungsregeln, soll hier auch ein Thesaurus zu finden sein.
+DIN Normen, DocBook, Buchwissenschaft sollen als Grundlage dienen.
+Daraus soll dann in einem extra Kapitel ein Metamodell für wiss. Dokumente
+entstehen.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+Auch auf die Normseite eingehen: http://de.wikipedia.org/wiki/Normseite
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+\section{Aktoren}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+Was sind Aktoren?
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+Es gibt einige Scala Aktoren Frameworks: Vorstellen und kleiner Vergleich?
+Performanz? Features?
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+Ein paar Worte zu TestKit. Verweis auf MWE in Appendix?
+
+
+\section{Domäneneditoren}
+
+Hier exemplarisch eingesetzte Editoren. Hinweis: Es könnten noch mehr
+Editoren implementiert werden
+
+\subsection{Spray}
+
+Kurze Einführung zu Spray und deren Webkomponente und wie diese hier genutzt
+wird.
+
+\subsection{Ketcher}
+
+...
+
+
+\section{UIMA}
+
+Was ist das und wie kommt es hier zum Einsatz.
+
+
+\section{Auswahl des Serverframeworks}                         \label{sec.server}
+
+Alle Frameworks werden noch aktiv entwickelt und gepflegt.
+
+Untersuchte Scala Frameworks:
+
+Spray.io Version 1.2.0
+Unterstützt keine Websockets, ist erst für die Zukunft geplant.
+Entwickelt seit 2011. (siehe Changelog)
+Im Hintergrund (als Server) läuft pures Akka?
+http://spray.io/
+
+Play Framework Version Version 2.2.2
+Sehr vielversprechend und stabil mit großer Entwicklergemeinde.
+Jedoch läuft der Scala Interpreter hier nicht, da eine extra VM gestartet
+wird, was durch das play sbt plugin geschuldet ist.
+Entwickelt seit 2007. (Wikipedia - besser Quelle suchen)
+Im Hintergrund läuft JBoss Netty.
+http://www.playframework.com/
+
+Socko Web Server Version 0.4.1
+Interessante Funktionen, aber für mich eine schwierige und umständliche API.
+Entwickelt seit 2012? (Nur ungefährt aus Github Version 0.1)
+Im Hintergrund läuft JBoss Netty.
+http://sockoweb.org/
+
+Xiturm Version 3.5
+Mit Abstand die beste und schönste API und wird schon seit 2010 aktiv entwickelt.
+Wird laut Author in echten Projekten schon erfolgreich eingesetzt.
+Die Dokumentation ist auch recht umfangreich und gut verständlich.
+Im Hintergrund läuft JBoss Netty.
+http://ngocdaothanh.github.io/xitrum/
+About: https://groups.google.com/forum/#!topic/xitrum-framework/Jx6bwGciNR0
+
+% --------------------------------------------------------------- end sec.server
+
+
+\chapter{Entwicklung des Prototypen}
+
+
+\section{Abstrakter Syntax Baum}
+
+Jeder Knoten im AST ist ein Aktor. Der AST entspricht einem gerichteten Graph.
+Zeigen, dass es ein Baum-Graph ist!
+
+
+\subsection{Algorithmus: Aufdecken der Kapitel Nummern im gerichteten Graph}
+
+Aufdecken der Section Nummern im gerichteten Graph.
+
+Gerichteter Graph G: a -> b -> x -> c
+a,b,c sind Sections
+x ist keine Section
+N = Knoten
+E = Kanten
+
+a schickt die Nachricht "Durchzählen(1)" durch G.
+
+b erhält eine Nachricht von a.
+b erhöht Durchzählen um 1 auf Durchzählen(2).
+b setzt seinen eigenen Nummerzähler auf Durchzählen(2).
+b schickt "Druchzählen(2)" weiter durch den Graph.
+
+x reicht die "Durchzählen" Nachricht weiter, ohne Aktion.
+
+c erhält eine Nachricht die von a und b (etc.) bearbeitet wurden.
+c erhöht Durchzählen um 1 auf Durchzählen(3)
+c setzt seinen eigenen Nummerzähler auf Durchzählen(3).
+Da c keinen Nachfolger mehr hat, kann nichts weitergeleitet werden.
+
+Damit werden maximal |E| Nachrichten benötigt, um für jeden Section Knoten
+die korrekte Nummer zu bestimmen.
+
+
+Bei SubSection und SubSubSection einfach mit der
+Nachricht Durchzählen(1, true, 1, false, 1, false) beginnen.
+Wobei die Boolwerte anzeigen, welcher Wert zuletzt aktualisiert wurde.
+So kann jede SubSection oder SubSubSection herausfinden, zu welcher
+übergeordneten Section/SubSection sie gehört.
+
+a ! Durchzählen(1, true, 1, false, 1, false)
+b ! Durchzählen(2, true, 1, false, 1, false)
+aa ! Durchzählen(2, false, 1, true, 1, false)
+bb ! Durchzählen(2, false, 2, true, 1, false)
+aaa ! Durchzählen(2, false, 2, false, 1, true)
+bbb ! Durchzählen(2, false, 2, false, 2, true)
+c ! Durchzählen(3, true, 1, false, 1, false)
+...
+
+Das ist ein recht natürlicher Ansatz, um die Nummerierungen zu bestimmen.
+Auf diese Art können Section, SubSection und SubSubSection gleichzeitig
+mit einer einzigen Nachrichtenkette aktualisiert werden.
+Der Aufwand bleibt also bei maximal |E| Nachrichten.
+
+
+\chapter{Ergebnisse und Analyse}
+
+
+\chapter{Fazit}
+
+
+\chapter{Ausblick}
+
+
+% http://tex.stackexchange.com/questions/49643/making-appendix-for-thesis
