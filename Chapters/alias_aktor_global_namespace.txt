@@ -1,0 +1,274 @@
+>> Section:
+
+Aliasnamen (Variablen) für Aktoren
+
+
+>> Text:
+
+Ziel:
+Es soll möglich sein einen einzigartigen Namen jedem Aktor zuzuweisen.
+Quasi ein Variablenname oder Alias, welcher vom Benutzer vergeben werden kann.
+(Vergleichbar mit \label von LaTeX.)
+Vorerst sollen sich alle Aktoren in einer Art globalen Namensraum befinden.
+
+Ausgangssituation:
+Die Aktoren sind als gerichteter Graph miteinander verbunden.
+Durch Nachrichtenaustausch zwischen den Aktoren soll ermittelt werden,
+ob die Variable im globalen Namensraum schon durch einen anderen Aktor
+belegt ist oder noch verfügbar ist.
+
+Notiz: Implizite Namensräume z.B. dass alle Sections, SubSections, etc.
+im Namensraum section/aliasName (oder section.aliasName) oder ähnlichem sind?
+Wie könnte man ein idiomisches Namensraumsystem hier aufbauen?
+
+
+>> SubSection sec.alias:
+
+Überprüfung ob Variable bzw. Alias verfügbar
+
+
+>> Text:
+
+G: root -> a -> b -> c -> d -> e
+
+e bekommt die Nachricht Varname(into) vom Benutzer.
+Bevor e die Variable setzen darf, muss sichergestellt werden, dass kein
+anderen Knoten bereits Anspruch auf die Variable erhebt.
+e sendet NewVarname(intro, e) an root, diese Nachricht wird durch den
+gesamten Graph geschickt.
+a, b, c, d merken sich, dass intro zu e gehört.
+
+Vorgehensweise: 'Ich beanspruche die Variable so lange, bis jemand meckert.'
+Wenn jemand gemeckert hat, dann hatte er die Variable schon vorher.
+Das heißt ich setze meine Variable wieder zurück
+(und gebe dem Benutzer bescheid).
+
+Kollisionsszenario I:
+e hat Varname(intro) schon gesetzt.
+d bekommt Varname(intro) und will ihn setzen, hat jedoch noch nicht die
+NewVarname(intro, e) Nachricht bekommen.
+d sendet NewVarname(intro, d) an root, diese Nachricht wird durch den
+gesamten Graph geschickt.
+a hat jedoch NewVarname(intro, e) schon erhalten und sich das gemerkt und
+sendet zu d die VarnameAlreadyInUse(intro, by=e) Nachricht.
+d benachrichtigt den Benutzer darüber, dass die Variable (im globalen Namespace)
+schon vergeben ist.
+
+Kollisionsszenario II:
+e und d bekommen genau zur gleichen Zeit Varname(intro).
+e und d schicken genau zur gleichen Zeit NewVarname(intro, e bzw. d) an root.
+Da Aktoren eine Nachrichten Queue einsetzen, wird eine der beiden NewVarname
+Nachrichten im head liegen und wird als erstes verarbeitet.
+Das heißt eine der beiden Nachrichten landet zuerst bei a;
+a merkt sich den Variablennamen mit der zugehörigen Aktorreferenz.
+a leitet dann diese Nachricht durch den Graph weiter.
+Jetzt hat ein Aktor quasi gewonnen und der andere erhält von a die
+VarnameAlreadyInUse(intro, by=winner) Nachricht.
+So kann sichergestellt werden, pro Variablenname auch nur ein einziger
+Aktor angesprochen wird. Damit ist der Variablenname einzigartig.
+
+Notiz: Dieses Verhalten kann man mit einem Compiler vergleichen?
+Also zumindest die Überprüfung ob eine Variable doppelt im Scope
+vergeben wurde. Im Bereich Semantische Analyse?
+http://de.wikipedia.org/wiki/Compiler
+(Was ist wenn man jedes einzelne AST Objekt als Aktor abbildet?
+(Also nicht nur in Bezug auf einen AST für Dokumente)
+Dann hätte man eine Programmiersprache wo man direkt auf einen reaktiven
+AST arbeitet. Der AST selbst könnte auch noch direkt Code generieren oder sogar
+direkt Maschinencode.
+Vor allen Dingen könnte er sich auch in unterschiedliche Programmiersprachen
+persistieren...)
+
+OPTIMIERUNG: Statt in jedem Aktor saemtliche Aliasse zu speichern,
+koennte man diese Information auch z.B. im root Aktor speichern.
+Immer wenn ein Aktor generieren will, schickt er eine Nachricht an
+den root Aktor der den aktuellen Stand der Referenzen herausgibt.
+Im ersten Modell hat man eher Speicherplatz der drauf geht, und beim
+erstellen der Referenz mehr Nachrichten.
+Hier hat man dafuer beim jedes mal wenn generiert wird einen Mehraufwand
+an Nachrichten... Muss man dann noch abwaegen....
+
+
+>> SubSection:
+
+Variablenauflösung und Code-Generierung
+
+
+>> Text:
+
+Ausgangssituation:
+Jeder Aktor kennt alle Variablennamen und den jeweilig zugehörigen Aktor.
+Es wurde sichergestellt, dass die Variablennamen einzigartig sind.
+
+Das Folgende spielt sich innerhalb des Aktors ab,
+wenn er die Referenzen auflösen soll.
+Das heißt es muss Code von Aktor generiert und interpretiert werden.
+
+G: root -> a -> b -> c -> d -> e
+
+a hat den Alias intro.
+c hat den Alias fig.
+b referenziert auf intro und fig.
+
+a, b und c haben sich die Aliasse, aller mit Alias versehenen Aktoren,
+gemerkt (wie in $sec.alias.nr beschrieben):
+intro=a und fig=c
+
+b generiert:
+
+------------Generiert----------------
+import a.UserClass  // nachricht an a, GiveMeYourImports
+import c.UserClass
+
+val a.alias = new a.UserClass  // GiveMeYourValues
+val c.alias = new c.UserClass
+
+a.alias.fromJson(a.state)  // GiveMeYourDeserialize and State
+c.alias.fromJson(c.state)
+
+val content = s"""$this.content"""
+content
+
+------------Beispiel----------------
+import A
+import C
+
+val intro = new A
+val fig = new C
+
+intro.fromJson("{nr: 1}")
+fig.fromJson("{nr: 1}")
+
+val content = s"""Some Text with ref ${intro.nr} und ref ${fig.nr}"""
+content
+---------------------------------------
+
+Um weniger zentrales Wissen zu haben, kann man natuelrich die Codegenerierung
+staerker an die Aktoren auslagern (zum Preis von mehr Nachrichten).
+Das kann guenstig sein, wenn z.B. eine UserClass noch weitere Imports
+braucht um zu funktionieren, oder mehrere Klassen instanziiert werden sollen, etc.
+
+>> SubSection:
+
+Scala Code erstellen und verwenden (nicht nur zur Referenzaufloesung)
+
+
+>> Text with Markdown:
+
+Kann ich jetzt z.B. ein ScalaCode Aktor verwenden und darauf verweisen
+und dessen dort erstelle Klasse_n_ benutzen?
+Der Interpreter selbst, kann ja keine packages machen sondern nur benutzen...
+
+ScalaCode as myCode:
+
+package my.thing
+object Foo {
+  def bar = "something"
+}
+
+Jetzt innerhalb eines anderen Aktors, z.B. ein Text Aktor:
+
+Zugriff auf ${my.thing.Foo.bar} oder ${myCode.Foo.bar}?
+Das ist enthalten in ${myCode.varname}
+und ist aus folgenden dem Quellcode enstanden: ${myCode.code}.
+
+Notiz: Dazu muesste der Code generiert werden, abgelegt (oder geht das
+auch in memory?), scalac muesste ihn in .class oder .jar verwandeln,
+und schlussendlich dem Interpreter der auch das $-Zeug auswertet in
+den Classpath gesetzt werden.
+
+http://stackoverflow.com/questions/864316
+http://unix.stackexchange.com/questions/63923 (namend pipe, process substitution)
+
+Interessant waere auch eine solche Anbindung an C.
+C Code schreiben, bei update compilieren und darauf zugreifen. (wie momentan
+bei Python mit print)
+
+Statt via print miteinander zu kommunizieren, koennte man auch eine spezielle
+retrun_to_scaltex lib schreiben welche ueber eine Datenbank, Socket, ZeroMQ,
+JSON, RPC, Corba-like die Rueckgaben verwaltet.
+So eine Art Objejtwrapper der zurueck kommt? Also quasi RPC/Corba-aehnlich?
+
+
+>> SubSection:
+
+Irgendein "Random" Element "projectional" machen
+
+
+>> Text:
+
+Wie kann man das moeglichst elegant erreichen, _irgendein_ Element projectional
+zu machen? Beispiel:
+
+Ein Text Entity:
+"Das ist ein Text welches auf @Math(meineFormel){x^2 = 5} hinweist."
+
+Ein CAS Entity "meineFormelSolved" koennte das nun verwenden:
+"cas = new MathFormula(${meineFormel})
+ solved = cas.solve('x')
+ return_to_scaltex({num: float(solved), formel: solved})"
+
+Ein anderes Text Entity:
+"Das numerische Ergebnis von ${meineFormel} ist ${meineFormelSolved.num},
+ das analytische Ergebnis ist ${meineFormelSolved.formel}."
+
+Was dann gesetzt so aehnlich aussieht:
+"Das numerische Ergebnis von x^2 = 5 ist 2.2361,
+ das analytische Ergebnis ist x = √5."
+
+Jetzt koennte man z.B. mit dem numerischen Ergebnis mit einem anderen
+Skript weiterrechnen...
+
+Das ist vergleichbar mit dem "Annotieren", vergleichbar mit dem was
+man von UIMA kennt?
+
+ERWEITERTES BEISPIEL:
+Ein Text Entity:
+"Das ist ein Text welches auf @Math(meineFormel){@Var(xVal){x}^2 = 5} hinweist."
+
+Ein CAS Entity "meineFormelSolved" koennte das nun verwenden:
+"cas = new MathFormula(${meineFormel})
+ solved = cas.solve('${xVal}')
+ return_to_scaltex({num: float(solved), formel: solved})"
+
+Wenn man jetzt die Formel aendert bzw. sogar das x umbenennt, wird dies
+automatisch auch im CAS Code vorgenommen.
+Natuerlich sollten die Annotationen im Editor nicht so schrecklich aussehen -- 
+das ist nur die semantische/persistente Sicht. Man koennte sich vorstellen,
+dass man eher das man mit Var oder Math annotierte Bereiche mit einer Farbe
+hinterlegt; und wenn man mit dem Mauszeiger darueber faehrt wird es vervorgehoben
+und angezeigt was es ist...
+
+
+-------------------- NUR EIN PAAR Syntax Spinnereien ---------------------------
+
+Solch ein einfaches Textfile Dokument als Persistenz fuer Scaltex?
+Das kann man sich wieder reinladen in Scaltex um es zu beleben und 
+komfortabel zu bearbeiten?
+Aber: Wenn man ein solches plain Text Teil hat, kann man auch in einem
+einfachen Texteditor das Dokument betrachten und bearbeiten!
+Und ausgereifte Tools wie git, diff, merge verwenden.
+Und es waere besser lesbar als ein XMI/XML...
+
+>> Text with Markdown with MathJax txt.someName:
+
+Hier ein _Beispiel_:
+
+$$P(E)   = {n \choose k} p^k (1-p)^{ n-k}$$
+
+Oder auch inline $P(E)$ anzeigen.
+Kann man da jetzt auch Python reinmischeln?
+Wie kann man jetzt diese Matheformeln zum Leben erwecken, indem man
+das mit einer CAS verbindet?
+
+
+@ Section {
+  Test. Das @ als Annotation
+}
+
+@ Text{
+  Auch Inline Annotationen wie z.B. @ IUPACName {1,3,7-Trimethylxanthin}
+  steht fuer Koffein. Oder auch ${Chemistry(trivial=Koffein).toIUPAC}
+}
+
+Test  @ Section
