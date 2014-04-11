@@ -4,7 +4,7 @@ MAINTEX = Document
 CHAPTER = Chapters/
 TITLEPAGES = Titlepages/
 BUILDPATH = _build/
-BUILDNAME = NameOfWork_M.Mustermann-E.Musterfrau_2013
+BUILDNAME = S.Hodapp_2014_Masterarbeit
 
 pdf:
 	$(MAKE) once

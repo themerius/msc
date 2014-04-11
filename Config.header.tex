@@ -1,5 +1,8 @@
 \documentclass[11pt, a4paper]{report}  % article, report, book
 
+\usepackage{ifthen}
+\newboolean{draft}
+
 \input{Config.methods}
 
 % Recommended for XeLaTeX
@@ -25,6 +28,8 @@
   %\usepackage[a4paper]{geometry}
   %\usepackage{stdpage}
 
+% Global \noindent
+  \setlength\parindent{0pt}
 
 % Vertical Line Spacing
   \usepackage{setspace}

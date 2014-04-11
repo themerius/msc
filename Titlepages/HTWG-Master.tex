@@ -1,7 +1,5 @@
-\newcommand{\abstractHtwg}{Text der Zusammenfassung etwa 150 Worte. Es soll der 
-  Lösungsweg beschrieben sein.}
 \newcommand{\ausgabedatum}{$[$Datum$]$}
-\newcommand{\abgabedatum}{$[$Datum$]$}
+\newcommand{\abgabedatum}{\today}
 \newcommand{\autorStrasse}{$[$Stra"se$]$}
 \newcommand{\autorPLZ}{$[$PLZ$]$}
 \newcommand{\autorOrt}{$[$Ort$]$}
@@ -28,12 +26,12 @@
 
   \begin{center}
     \huge{
-      \textbf{\thema} \\[5cm]
+      \textbf{\thema} \\[4cm]
     }
     \Large{
-      \textbf{\autor}} \\[6.5cm]
+      \textbf{\autor}} \\[4cm]
     \large{
-      \textbf{Konstanz, \today} \\[2.3cm]
+      \textbf{Konstanz, \abgabedatum \ifdraft ~(ENTWURF) \fi} \\[2cm]
     }
     
     \Huge{
@@ -46,7 +44,6 @@
 % Title
 
   \thispagestyle{empty}
-  {
   \setlength{\parskip}{0.5cm}
           \begin{center}
           \textbf{\huge MASTERARBEIT}
@@ -63,16 +60,18 @@
           \textsf{\Large Fakultät Informatik} \\
           Studiengang \studiengang
           \end{center}
-  }
+
   \begin{center}
 
-  \vspace*{2cm}
+  \vspace*{2.5cm}
 
   \begin{tabular}{p{3cm}p{10cm}}
-  Thema: & \textbf{\large \thema} \\[10ex]
-  Masterkandidat: & \autor, \autorStrasse, \autorPLZ  \autorOrt \\[10ex]
+  Thema: & \textbf{\large \thema} \\[3ex]
+  Masterkandidat: & \autor, \autorStrasse, \autorPLZ  \autorOrt \\[3ex]
+  Firma: & \firma \\[3ex]
   1. Prüfer: & \prueferA \\
-  2. Prüfer: & \prueferB \\[20ex]
+  2. Prüfer: & \prueferB \\[7ex]
+  Schlagworte: & \keywords \\[7ex]
   Ausgabedatum: & \ausgabedatum \\
   Abgabedatum: & \abgabedatum \\
   \end{tabular}
@@ -80,34 +79,10 @@
 
 % Abstract
 
-  \begin{center}
-  {\Large \textbf{Zusammenfassung (Abstract)}}
-  \end{center}
-
-  \bigskip
-
-  \begin{center}
-    \begin{tabular}{p{2.8cm}p{10cm}}
-      Thema: & \thema \\
-       & \\
-      Masterkandidat: & \autor \\
-       & \\
-      Firma: & \firma \\
-       & \\
-      Betreuer: & \prueferA  \\[.5ex]
-       &  \prueferB \\
-       & \\
-      Abgabedatum: & \abgabedatum \\
-       & \\
-      Schlagworte: & \keywords \\
-       & \\
-    \end{tabular}
-  \end{center}
-
-  \bigskip
-
-  \noindent
-  \abstractHtwg
+  \newpage
+  \setcounter{page}{3}  % Count the title pages (Conform with DIN 1422-4 Section 4.1)
+  \sectionchapter{Kurzreferat (Abstract)}
+  \abstract
 
 % Affidavit
 
@@ -115,7 +90,7 @@
   \sectionchapter{Ehrenwörtliche Erklärung}
 
   Hiermit erkläre ich
-  \textit{\autor, geboren am \autorGeburtsdatum in \autorGeburtsort}, dass ich\\
+  \textit{\autor, geboren am \autorGeburtsdatum~ in \autorGeburtsort}, dass ich\\
 
   \begin{tabular}{lp{12cm}}
   (1) & meine Masterarbeit mit dem Titel \\[1em]
@@ -127,12 +102,11 @@
   gekennzeichnet habe.\\
   \end{tabular}
 
-  \vspace*{1cm}
 
   \noindent
   Ich bin mir bewusst, dass eine falsche Erklärung rechtliche Folgen haben wird.\\
 
-  \vspace*{3cm}
+  \vspace*{0.5cm}
 
   \noindent
   Konstanz, \abgabedatum \hfill \begin{tabular}{c} \\ \\ \rule{5cm}{1pt} \\ (Unterschrift)\end{tabular}
