@@ -4,10 +4,50 @@
 
 Test $123$ \citep{6902013}
 
+Man kann sich das vorstellen wie LaTeX mit on the fly compile,
+mit interaktive Bearbeitung durch den Nutzer des Dokuments im Web ala
+Google Docs, in Verbindung mit verschiedenen Programmiersprachen
+die zusammen kooperieren können, um dynamische Inhalte zu erzeugen,
+welche wiederum an verschiedene domänenspezifische Editoren angebunden sind.
+
 \chapter{Grundlagen, Grundbegriffe und Technologien}
 
+\section{Semantik}
 
-\section{Gestaltungsregeln wissenschaftlicher Dokumente}
+\begin{quote}Semantik [...] nennt man die Theorie oder Wissenschaft von der Bedeutung der Zeichen.
+Zeichen können in diesem Fall Wörter, Phrasen oder Symbole sein. Die Semantik beschäftigt sich 
+typischerweise mit den Beziehungen zwischen den Zeichen und den Bedeutungen dieser Zeichen.
+\end{quote}
+\url{http://de.wikipedia.org/wiki/Semantik}
+
+\begin{quote}Formale Semantik beschäftigt sich mit der exakten Bedeutung von künstlichen
+oder natürlichen Sprachen. Dabei kann sowohl die Bedeutung bestehender Sprachen untersucht
+als auch die Bedeutung neu geschaffener Sprachen festgelegt werden.
+In Abgrenzung zur Semantik im allgemeinen Sinn, wie sie vor allem in Philosophie und Linguistik
+betrieben wird, arbeitet die formale Semantik mit rein formalen, logisch-mathematischen Methoden.
+\end{quote}
+\url{http://de.wikipedia.org/wiki/Formale_Semantik}
+
+\begin{quote}Die semantische Analyse überprüft die statische Semantik,
+also über die syntaktische Analyse hinausgehende Bedingungen an das Programm.
+Zum Beispiel muss eine Variable in der Regel deklariert worden sein, bevor sie verwendet wird,
+und Zuweisungen müssen mit kompatiblen (verträglichen) Datentypen erfolgen.
+\end{quote}
+\url{http://de.wikipedia.org/wiki/Compiler#Semantische_Analyse}
+
+\begin{quote}Das Semantische Web [...] ist ein Konzept bei der Entwicklung des World Wide Webs und des 
+Internets. [...] All die in menschlicher Sprache ausgedrückten Informationen im Internet sollen mit
+einer eindeutigen Beschreibung ihrer Bedeutung (Semantik) versehen werden, die auch von Computern 
+verstanden oder zumindest verarbeitet werden kann. Die maschinelle Verwendung der Daten aus dem von 
+Menschen geflochtenen Netz der Daten ist nur möglich, wenn die Maschinen deren Bedeutung eindeutig 
+zuordnen können; nur dann stellen sie Informationen dar.
+\end{quote}
+\url{http://de.wikipedia.org/wiki/Semantisches_Web}
+
+Wenn in dieser Arbeit von \emph{der Semantik} gesprochen wird, ist die Zuweisung einer
+exakten Bedeutung zu einem Objekt gemeint.
+
+\section{Taxonomie wissenschaftlicher Publikationen}
 
 Neben Gestaltungsregeln, soll hier auch ein Thesaurus zu finden sein.
 DIN Normen, DocBook, Buchwissenschaft sollen als Grundlage dienen.
@@ -16,6 +56,41 @@ entstehen.
 
 Auch auf die Normseite eingehen: http://de.wikipedia.org/wiki/Normseite
 
+\subsection{Glossar}
+
+Ein alphabetisch sortiertes Glossar über die einzelnen Dokumentbestandteile.
+
+\begin{multicols}{2}
+  \begin{description}
+    \item[abstract, Abstract, Kurzreferat]
+    Ein Abstract ist definiert als eine gekürzte präzise Darstellung des Inhalts eines Dokuments. (ANSI)
+  \end{description}
+\end{multicols}
+
+\subsection{Hierarchie}
+
+In englisch könnte man \emph{Dokumentbestandteile Hierarchie} als
+\emph{document element hierachy} bezeichnen?
+
+Da die Begriffe zum einen Teil aus deutschen und zum anderen Teil aus englischen Quellen
+stammen, werden hier immer nach Möglichkeit beide Begriffe aufgelistet.
+Die deutschen Begriffe stammen insbesondere aus TODO(Referenzen) DIN/Buchlexika,
+die englischen Begriffe insbesondere aus TODO(Referenzen) DoCO.
+Die englischen Begriffe sind für die Implementierung relevant und daher zuerst aufgelistet.
+
+Contraints werden der Einfachheit halber in eckigen Klammern angegeben.
+
+\subsubsection{container element (Behälter Bestandteile)}
+
+\input{Chapters/container_element}
+
+\subsubsection{meta element (Meta Bestandteile)}
+
+\input{Chapters/meta_element}
+
+\subsubsection{structure element (Struktur Bestandteile)}
+
+\input{Chapters/structure_element}
 
 \section{Aktoren}
 
@@ -92,8 +167,10 @@ About: \url{https://groups.google.com/forum/#!topic/xitrum-framework/Jx6bwGciNR0
 Jeder Knoten im AST ist ein Aktor. Der AST entspricht einem gerichteten Graph.
 Zeigen, dass es ein Baum-Graph ist!
 
+\url{http://de.wikipedia.org/wiki/Abstract_Syntax_Tree}
 
-\subsection{Algorithmus: Aufdecken der Kapitel Nummern im gerichteten Graph}
+
+\subsection{Algorithmus: Aufdecken der Kapitel Benummerung im gerichteten Graph}
 
 Aufdecken der Section Nummern im gerichteten Graph.
 

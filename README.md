@@ -145,6 +145,12 @@ http://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
     Put your code here.
     \end{lstlisting}
 
+Inline Multicolumn Pagelayout
+
+    \begin{multicols}{2}[\textbf{Example for a two column text}]
+      some text
+    \end{multicols}
+
 Bibliography
 ------------
 

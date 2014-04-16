@@ -58,6 +58,13 @@
 % Caption options (left align)
   \usepackage[justification=justified,singlelinecheck=false]{caption}
 
+% Make inlike Multicolum pages
+  \usepackage{multicol}
+
+% Marginal Note: \mpar{A note} (http://de.wikibooks.org/wiki/LaTeX-Wörterbuch:_marginpar)
+  \newcommand\mpar[1]{\marginpar {\flushleft\footnotesize #1}}
+  \setlength{\marginparwidth}{3cm}
+
 % PDF with Links
   \usepackage[
     colorlinks=false,

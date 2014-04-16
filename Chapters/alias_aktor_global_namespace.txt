@@ -219,6 +219,14 @@ Was dann gesetzt so aehnlich aussieht:
 Jetzt koennte man z.B. mit dem numerischen Ergebnis mit einem anderen
 Skript weiterrechnen...
 
+[[ TeX Code
+Das ist ein Text welcher auf $x^2 = 5$ hinweist.
+
+Das numerische Ergebnis von $x^2 = 5$ ist  $2.2361$ und das analytische Ergebnis 
+ist $x = \sqrt{5}$. Jetzt koennte man z.B. mit dem numerischen Ergebnis mit einem anderen
+Skript weiterrechnen...
+]]
+
 Das ist vergleichbar mit dem "Annotieren", vergleichbar mit dem was
 man von UIMA kennt?
 

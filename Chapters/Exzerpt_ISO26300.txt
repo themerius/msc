@@ -1,0 +1,116 @@
+Enthaelt Informationen wie im Allgemeinen Office Dokumente aufgebaut werden koennen.
+(Text, Drawing, Presentation, Spreadsheet, Chart, Image Dokumente)
+Fuer unseren Anwendungsfalls interessieren nur die Textdokumente.
+
+(2.3.1) Text Dokumente
+
+Text Dokumente bestehen aus einer Sequenz die eine beliebige Anzahl von:
+
+* paragraphs (and headings)
+* tables
+* indices
+* text frames
+* text sections
+* graphical elements
+
+enthaelt. Es kann auch aus einer "single page sequence" bestehen.
+
+text-content:
+* text-h
+* text-p
+* text-list
+* text-numbered-paragraph
+* table-table
+* draw-a
+* text-section
+* text-table-of-content
+* text-illustration-index
+* text-table-index
+* text-object-index
+* text-user-index
+* text-alphabetical-index
+* text-bibliography
+* shape
+* change-marks
+
+
+(3) Vordefinierte Metadaten Elemente
+
+Generator, Title, Description, Subject, Keywords, Initial Creator,
+Creator, Printed By, Creation Date and Time, Modification Date and Time,
+Print Date and Time, Language, Editing Cycles, Editing Duration, Document Statistics
+
+Document Template, Automatic Reload, Hyperlink Behavior ==>
+   Sind das richige (relevante) Meta-Daten? Das Dokumententemplate enthaelt nicht
+   wirklich semantisch relevante Informationen. Das ist nur z.B. das Layout welches
+   gesetzt wurde. Natuerlich rein fuer die technische Funktionsweise von Office Programmen
+   ist das eine Meta Information. Wichtiger waere aber z.B. der Dokumententyp etc.
+
+
+(4) Text Content
+
+Jeglicher Text Inhalt muss in einem paragraph element eingebettet sein,
+das sind <text:h> (heading) und <text:p> (paragraph).
+
+Headings definieren die Kapitelstruktur des Dokuments.
+  - Heading Level: wird durch text:outline-level Attribut gesetzt
+  - Heading Numbering: koennen auch zurueckgesetzt werden.
+
+Paragraphs bilden die Elementare Texteinheit.
+
+(4.2) Page Sequences
+Sequenz von Master-Seiten. Wenn ein Dokument eine page sequenz hat, besteht das
+dokument genau aus der Anzahl an dort spezifizierten Seiten.
+Dokumente mit page sequenzes haben keinen "Textflow"
+der aus headings und paragraphs besteht.
+-> Der Inhalt besteht nur noch aus Textboxen oder gezeichneten Objekten.
+
+Das <text:page> Element definiert eine einzelne Seite innerhalb einer page sequenz.
+
+(4.4) Text Sections koennen paragraphen enthalten.
+
+(5.1) Basic Text Content (Paragraph Elements Content)
+* White-space Characters
+* Soft Hypthens, Hyphens, Non-breaking Blanks
+* Attributed Text  (auf einen <text:span> einen <text:style-name> oder <text:class-name> anwenden) === Auszeichnung?
+* Hyperlinks
+
+(5.3) Notes <text:note>
+Das Note element repreaesentiert text notizen welche zu einer speziellen
+Textposition/Textstelle angehaengt sind.
+Fussnoten <text:note-class="footnote"> sind ein Spezialfall davon.
+=== Anmerkung?
+
+(5.4) Ruby. http://de.wikipedia.org/wiki/Ruby_Annotation
+Ist ein zusaetzlicher Text der ueber oder unter ein Text beigefuegt wird.
+Z.B. um in asiatischen Texten Informationen ueber aussprache beizufuegen.
+
+(5.5) Text Annotation
+Es sind Annotationen innerhalb von paragraphen elementen erlaubt.
+
+
+(6) Text Fields
+(6.2) Document Fields. Fields: Date, Time, Page Number,
+Page Continuation Text, Sender, Author, Chapter, File Name, Document Template Name,
+Sheet Name (Spreadsheet)
+(6.4) Metadata Fields. Siehe 3.
+(6.6.5) Reference Fields. Verweise auf Objekte wie notes, bookmarks, references, sequences.
+Beispielsweise page number, chapter number.
+
+
+(7) Text Indices
+* Index Marks
+* Index Structure
+* Table Of Content
+* Index of Illustrations
+* Index of Tables
+* Index of Objects
+* User-Defined Index
+* Alphabetical Index
+* Bibliography
+
+
+(12) Common Content
+(12.1) Details ueber Annotationen
+
+
