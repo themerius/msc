@@ -1,5 +1,99 @@
 \chapter{Einleitung}
 
+Die Erstellung von qualitativ hochwertigen (wissenschaftlichen) Dokumenten ist keine einfache Sache.
+Das Computerzeitalter konnte zwar schon viel verbessern, aber es gibt noch
+immer Situationen, in denen die Dokumentenerstellung sehr mühselig werden kann.
+
+Zum einen kostet es u.U. sehr viel Zeit, Querreferenzierungen im Dokument zu
+pflegen und konsistent zu halten.
+Hierfür hat insbesondere LaTeX eine solide Lösung, jedoch stößt man auf der Meta-Ebene
+(der LaTeX Code selbst) wieder auf das Problem. Beispiel: Man definiert ein
+Label und referenziert an anderen Stellen darauf. Wird das Label irgendwann umbenannt
+(weil sich z.B. die Überschrift geändert hat), muss es an allen referenzierten
+Stellen auch umbenannt werden (klassisches Refactoring) -- und das geschieht
+leider nicht automatisch.
+
+Zum anderen verstehen die Anwendungen oft nur die Domäne „Dokument“,
+wenn man z.B. chemische Formeln zeichnen will, müssen diese über externe
+Ressourcen hinzugefügt werden. Dabei gibt es keinen wirklichen Zugriff
+mehr auf die Meta-Informationen, die eigentlich durch das Domänenmodell
+-- die chemische Formel -- mitgeliefert wird. Das kann wiederum zu inkonsistenten
+Dokumenten führen. Wenn z.B. nachträglich an der chemischen Formel etwas
+geändert wird und nur die Abbildung von Benutzer aktualisiert wurde,
+dann sind u.U. die Verweise
+(z.B. auf die Masse des chemischen Moleküls)
+in den beschreibenden Sätzen nicht mehr korrekt;
+also fehlt das semantische Verständnis seitens des Dokuments.
+Das Dokument weiß also nicht, was die chemische Formel zu bedeuten hat.
+
+Zudem liegt hinter keinem derzeit verfassten Dokument ein echtes/sauberes \emph{Metamodell}.
+Das heißt ein Modell, welches eine Struktur vorschreibt, wann welche Dokumentbestandteile
+zulässig sind.
+Dies kann einen Dokumentenverfasser dabei helfen ein Dokument gemäß definierter
+Vereinbarungen aufzubauen, dabei braucht er kein Wissen über die genauen Vereinbarung und kann
+dennoch ein formal korrektes Dokument erstellen.
+Weiterhin kann man ganze Dokuementklassen aus einem solchen Metamodell ableiten;
+also all jene Dokumente, welchen das gleiche
+Metamodell übergeordnet ist, gehören somit ganz formal zur gleichen Dokumentklasse.
+Beispiele für solche Klassen sind: Master-Arbeit, Journal-Paper oder EU-Patent.
+
+Das wirft die Frage folgende Frage auf:
+\emph{Kann man ein Autorensystem erschaffen,
+welches die o.g. Defizite aufhebt?}
+
+
+\section{Methode}
+
+Es soll ein Prototyp entwickelt werden
+
+\section{Anforderungen}
+
+Konsistenz, Semantik, Domänenwissen (dort können wiederum wissenschaftliche Modelle hinterlegt sein), Metamodell, WWW einheimisch
+
+\section{Idee}
+
+Prinzipielle Idee, wie man das Problem lösen könnte.
+das Dokument als Modell auffassen
+
+\section{Wissenschaftliche Fragen}
+
+Können Aktoren ein als AST eingesetzt werden?
+Was ergibt sich daraus? Architekturell? Was ergibt das für Vor- und Nachteile?
+  - Projektions Editoren
+  - Code Generatoren
+
+Metamodelle in Dokumenten und das Dokument als Modell, macht das Sinn?
+  - Gibt es ein Metametamodell?
+  - Die "was ist zugelassen Matrix"?
+  - Lassen sich Dokumente verifizieren?
+  - Anbindung der domänenspezifischen Editoren
+
+Brauchen wir mehr explizite Semantik? Was ist der Vorteil wenn sie direkt
+vom Autor transportiert wird? (Und das Dokument / der Editor helfen dabei
+um diesen Vorgang zu erleichtern)
+  - Verifizierbare Dokumente? Das Dokument kann sich in gewisser Weise selbst verifizieren?
+  - Konsistentere Dokumente?
+
+Wo siedelt sich das neue Autorensystem an? (Zwischen Latex und Word?)
+
+Was sind wiss. Dokumente?
+  - Sprache == API für Knowledge
+  - Wiss. Dokumente erweitern das Wissensgebiet
+  - Wiss. Dokumente arbeiten selbst immer mit Modellen (allg. Modelltheorie)
+  - Allgemeine Taxonomie wissenschaftlicher Publikationen
+
+Use Cases
+  - Warum ist es für Spray ein ideales Dokumentationswerkzeug?
+
+
+% --------------
+
+\chapter{Theorie}
+
+\chapter{Technologie}
+
+\chapter{Reactive Abstract Syntax Tree Interface Definition}
+
 \citep{default}
 
 Test $123$ \citep{6902013}
@@ -9,6 +103,16 @@ mit interaktive Bearbeitung durch den Nutzer des Dokuments im Web ala
 Google Docs, in Verbindung mit verschiedenen Programmiersprachen
 die zusammen kooperieren können, um dynamische Inhalte zu erzeugen,
 welche wiederum an verschiedene domänenspezifische Editoren angebunden sind.
+
+Szenarien die laufen sollen:
+
+(1) Anbindung an UIMA, d.h. Elemente müssen als Annotation gekennzeichnet sein
+und auch editierbar.
+(2) Es ist möglich Spray Modelle mit dem System du dokumentieren.
+(3) Eventuell: Diese Masterarbeit damit verfasst, zeigt die Tauglichkeit
+auch für wissenschaftliche Texte.
+
+All das mit möglichst viel Semantik dahinter.
 
 \chapter{Grundlagen, Grundbegriffe und Technologien}
 
@@ -160,6 +264,34 @@ About: \url{https://groups.google.com/forum/#!topic/xitrum-framework/Jx6bwGciNR0
 
 
 \chapter{Entwicklung des Prototypen}
+
+
+\section{Basiskonzepte}
+
+\subsection{Referenzierungen}
+
+Referenzierungen angereichert mit (Programmcode) Ausdrücken.
+Expression returnt eine Scala Klasse auf die toString angewendet wurde,
+aber diese Klasse kann auch ihren Typ verraten so dass dieser direkt
+als Annotation der Referenz verwendet werden kann.
+
+2 Modelle:
+
+(1) Aktor hat content String mit Code (Expression) der zu Aktor-Referenzen zeigt
+
+(2) Aktor hat Kind-Aktoren als "content" und die Kinder enthalten Code-Expressions
+    oder reinen Text.
+
+UMIA zu Scaltex:
+zu (1): Wenn Text gefunden einfach an content anhängen, wenn spezielle
+Annotation gefunden dann entsprechenden Aktor erstellen (unsichtbar) und
+eine \verb|${ Aktor-UUID.gewünschte_repräsentation}| darauf erstellen und an
+den content-String anhängen.
+
+
+\section{Verwendete Technologien}
+
+html5: contenteditable
 
 
 \section{Abstrakter Syntax Baum}

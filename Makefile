@@ -14,6 +14,9 @@ pdf:
 	$(MAKE) move
 	$(MAKE) clean
 
+verbose:
+	xelatex $(MAINTEX).tex
+
 once:
 	xelatex $(MAINTEX).tex 1> /dev/null
 
