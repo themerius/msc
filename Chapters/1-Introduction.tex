@@ -80,13 +80,41 @@ Entwicklung eines Protoypes macht bei dieser Masterarbeit Sinn, da am Prototypen
 \section{Anforderungen}
 
 Bei den Anforderungen an den Prototypen kann man schon
-konkreter in Richtung Implementierung schauen.
+konkreter in Richtung Implementierung blicken.
 
+Um die Problemstellungen zu lösen:
 
-Reaktives System, keine compile Zeiten, Refacotring-Problem abfedern, ...
-Konsistenz, Semantik, Domänenwissen (dort können wiederum wissenschaftliche Modelle hinterlegt sein), Metamodell, WWW einheimisch
+Die kleinste Einheit im System ist das \emph{Dokumentenelement}.
+Beispiele für Dokumentenelemente sind: Abschnitte, Absätze, Tabellen, Abbildungen, Fußnoten, etc.
+\todo{Im Abschnitt "Modelle" den Begriff genauer def und unterteilen -> REF hier her.}
+
+Dokumentelemente sollen in der Lage sein, konkretes "lebendinges" Domänenwissen zu beinhalten.
+Das heißt, dass z.B. eine Zeichnung eines chemischen Moleküls im Hintergrund tatsächlich
+auf einem formalen Molekülmodell basiert.
+
+Reichhaltige Verweisungen unter den Dokumentelementen sollen möglich sein.
+Das heißt, dass z.B. das formale Modell des Moleküls
+anderen Dokumentelementen weitere (u.U. berechnete) Informationen bereitstellen kann.
+
+Ein Metamodell definiert die im Dokument vorkommenden Dokumentelemente formal.
+Das Dokument selbst soll folglich als Modell (Instanz) aufgefasst werden.
+
+Um die Software benutzbar zu machen:\todo{Besser? Weiche Anforderungen? Benutzbarkeit / Bequemlichkeitsfunktionen}
+
+\begin{itemize}
+  \item Es soll ein reaktives System sein, welches sofort auf Eingaben des Benutzers bzw. Veränderungen des Systemzustands reagiert.
+  \item Es soll also ein "lebendiges" Dokument werden, d.h. es sollen keine Kompilierzeiten um das Dokument zu erstellen entstehen
+  \item Da es in wissenschaftlichen Dokumenten meist zu komplizierten Verweisungen kommt, müssen diese in jedem Fall konsistent gehalten werden. Es soll daher das Verweisvariablen-Refacotring-Problem\todo{Unschönes Wort!} abgefedert werden.
+  \item Es soll ein einheimischer des WWW werden, d.h. Web Standards übernehmen das Setzen des Dokuments, bieten dem Benutzer eine Editierschnittstelle, ermöglichen Kollaboration und bieten eine ubiquitäre Wissensrepräsentation.
+\end{itemize}
+
+Durch einige diese Anforderungen gewinnen wir implizit einen Projektionseditor und
+sogar Potential für ein Dokument "Query Interface"\todo{REF zum entspr Kapitel mit Erklärung}
 
 \section{Idee}
+
+Idee gesucht um BSc weiterzuentwickeln -> Vorlesung 1. master sem -> MPS/mbeddr -> Projectional Editing. http://confluence.jetbrains.com/display/MPSD31/FAQ
+Und so entwickelten sich diese überlegungen...
 
 Prinzipielle Idee, wie man das Problem unter den gegebenen Anforderungen lösen könnte.
 das Dokument als Modell auffassen
