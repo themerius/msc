@@ -1,5 +1,7 @@
 \chapter{Einleitung}
 
+\section{Motivation}
+
 Die Erstellung von qualitativ hochwertigen (wissenschaftlichen) Dokumenten ist keine einfache Sache.
 Das Computerzeitalter konnte zwar schon viel verbessern, aber es gibt noch
 immer Situationen, in denen die Dokumentenerstellung sehr mühselig werden kann.
@@ -30,36 +32,72 @@ Zudem liegt hinter keinem derzeit verfassten Dokument ein echtes/sauberes \emph{
 Das heißt ein Modell, welches eine Struktur vorschreibt, wann welche Dokumentbestandteile
 zulässig sind.
 Dies kann einen Dokumentenverfasser dabei helfen ein Dokument gemäß definierter
-Vereinbarungen aufzubauen, dabei braucht er kein Wissen über die genauen Vereinbarung und kann
+Vereinbarungen (z.B. wie ein Paper der Fraunhofer Gesellschaft zu sein hat) aufzubauen,
+dabei braucht er kein Wissen über die genauen Vereinbarung und kann
 dennoch ein formal korrektes Dokument erstellen.
 Weiterhin kann man ganze Dokuementklassen aus einem solchen Metamodell ableiten;
 also all jene Dokumente, welchen das gleiche
 Metamodell übergeordnet ist, gehören somit ganz formal zur gleichen Dokumentklasse.
-Beispiele für solche Klassen sind: Master-Arbeit, Journal-Paper oder EU-Patent.
+Beispiele für solche Klassen sind: Master-Arbeit, Journal-Paper oder EU-Patent etc.
+% Konventionen einer Wissenschaft können hier auch eingebracht werden,
+% wie soll welches Element oder Teile davon ausgezeichnet werden,
+% oder innerhalb eines Domäneneditors welches Namenskonvention gibt es etc.
 
-Das wirft die Frage folgende Frage auf:
+\section{Problemstellung}\label{sec.problemstellung}
+
+Aus der Motivation gehen also folgende Defizite bzw. Problemfelder, die bei
+bisherigen Systemen vorliegen, hervor:
+
+\begin{enumerate}[(i)]
+  \item Mangel an \emph{Konsistenz}: In bisherigen Textverarbeitungssystemen ist es sehr leicht Inkostistenzen ins Dokument einzubringen.
+  \item Mangel an \emph{Domänenwissen}: Dokumente "verstehen" die Konvetionen, Konzepte oder Modelle einer Wissenschaft nicht.
+  \item Mangel an \emph{Semantik}: Bedeutungen einzelner Bestandteile eines Dokuments werden oft nicht explizit sichtbar bzw. überhaupt erst verfügbar gemacht.
+  \item Mangel an \emph{Metamodellierung}: Es fehlen\footnote{Oder gehen nicht weit genug, wie z.B. im Falle von ~\LaTeX.}\todo{Fußnote: Verweis auf Kapitel wo das erklärt wird, warum latex nicht weit genug geht} formale Vereinbarungen die eine Dokumentenklasse ausmachen und dem Benutzer bei der Strukturierung helfen.
+\end{enumerate}
+
+Das wirft die folgende Frage auf:
 \emph{Kann man ein Autorensystem erschaffen,
 welches die o.g. Defizite aufhebt?}
 
 
 \section{Methode}
 
-Es soll ein Prototyp entwickelt werden
+In erster Linie soll ein Prototyp entwickelt werden, der einen konkreten Lösungsvorschlag
+für die Problemstellungen aus Abschnitt \ref{sec.problemstellung} vorlegt.
+
+Da ein Prototyp wunderbar untersucht werden kann, ist es möglich theoretische Ideen
+besser zu veranschaulichen oder überhaupt erst greifbar zu machen.
+Zudem können unterschiedliche Anwendungsfälle demonstiert werden, um potentiellen Interessenten
+dieser Technologie Anschauungsmaterial zu liefern.
+
+Entwicklung eines Protoypes macht bei dieser Masterarbeit Sinn, da am Prototypen:
+
+\begin{itemize}
+  \item theoretische Konzepte aufgezeigt und empirisch validiert\footnote{Funktioniert das Konzept richtig?} werden können, und
+  \item leicht Anwendungsfälle ausprobiert werden können, um die praktische Tauglichkeit der Softwarearchitektur zu verifizieren\footnote{Ist das System richtig gebaut?}.
+\end{itemize}
 
 \section{Anforderungen}
 
+Bei den Anforderungen an den Prototypen kann man schon
+konkreter in Richtung Implementierung schauen.
+
+
+Reaktives System, keine compile Zeiten, Refacotring-Problem abfedern, ...
 Konsistenz, Semantik, Domänenwissen (dort können wiederum wissenschaftliche Modelle hinterlegt sein), Metamodell, WWW einheimisch
 
 \section{Idee}
 
-Prinzipielle Idee, wie man das Problem lösen könnte.
+Prinzipielle Idee, wie man das Problem unter den gegebenen Anforderungen lösen könnte.
 das Dokument als Modell auffassen
 
-\section{Wissenschaftliche Fragen}
+\subsection{Szenario}
+
+\section{Frangen von wissenschaftlichem Interesse}
 
 Können Aktoren ein als AST eingesetzt werden?
 Was ergibt sich daraus? Architekturell? Was ergibt das für Vor- und Nachteile?
-  - Projektions Editoren
+  - Projektions Editoren (wie macht das MPS?)
   - Code Generatoren
 
 Metamodelle in Dokumenten und das Dokument als Modell, macht das Sinn?
@@ -82,8 +120,12 @@ Was sind wiss. Dokumente?
   - Wiss. Dokumente arbeiten selbst immer mit Modellen (allg. Modelltheorie)
   - Allgemeine Taxonomie wissenschaftlicher Publikationen
 
-Use Cases
+Anwendungsfälle / Use Cases. Ist die Editorarchitektur so flexibel um in den
+verschiedensten Szenarien funktionierende, fast schon maßgeschneiderte Lösungen
+anzubieten?
   - Warum ist es für Spray ein ideales Dokumentationswerkzeug?
+  - Darstellung und Editierung von UIMA CAS Dokumenten (Annotationen)
+  - ...?
 
 
 % --------------
