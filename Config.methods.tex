@@ -19,6 +19,15 @@
 
 \input{Titlepages/HTWG-Master}  % Choose one Titlepage (must provide \typesetTitle)
 
+\newcommand{\fig}[2]{
+  \begin{figure}[h!]
+    \centering
+    \advance\leftskip-2.5cm
+    \fbox{\includegraphics[width=1.45\textwidth]{Figures/#1.pdf}}
+    \caption{#2}\label{fig.#1}
+  \end{figure}
+}
+
 \newcommand{\titlepageAreal}{
   \pagenumbering{roman}
   \thispagestyle{empty}

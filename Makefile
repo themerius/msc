@@ -12,10 +12,10 @@ pdf:
 	$(MAKE) once
 	$(MAKE) once
 	$(MAKE) move
-	$(MAKE) clean
+	echo "$$(tput setaf 0)$$(tput setab 2)Generated $(BUILDPATH)$(BUILDNAME).pdf$$(tput sgr 0)"
 
 verbose:
-	xelatex $(MAINTEX).tex
+	xelatex -file-line-error $(MAINTEX).tex
 
 once:
 	xelatex $(MAINTEX).tex 1> /dev/null
@@ -26,6 +26,8 @@ bib:
 move:
 	mkdir -p $(BUILDPATH)
 	mv $(MAINTEX).pdf $(BUILDPATH)$(BUILDNAME).pdf
+
+open:
 	open $(BUILDPATH)$(BUILDNAME).pdf
 
 clean:
