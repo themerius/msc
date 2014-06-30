@@ -183,37 +183,59 @@ Auf Abbildung \ref{fig.szenario} sieht man das schlussendlich vom System gesetzt
 
 \section{Fragen von wissenschaftlichem Interesse}
 
-Können Aktoren ein als AST eingesetzt werden?
-Was ergibt sich daraus? Architekturell? Was ergibt das für Vor- und Nachteile?
-  - Projektions Editoren (wie macht das MPS?)
-  - Code Generatoren
+Bereiche in denen (wiss.) Fragestellungen durch den Prototypen beantwortet werden können:
 
-Metamodelle in Dokumenten und das Dokument als Modell, macht das Sinn?
-  - Gibt es ein Metametamodell?
-  - Die "was ist zugelassen Matrix"?
-  - Lassen sich Dokumente verifizieren?
-  - Anbindung der domänenspezifischen Editoren
+\begin{itemize}
+  \item Softwaretechnik
 
-Brauchen wir mehr explizite Semantik? Was ist der Vorteil wenn sie direkt
-vom Autor transportiert wird? (Und das Dokument / der Editor helfen dabei
-um diesen Vorgang zu erleichtern)
-  - Verifizierbare Dokumente? Das Dokument kann sich in gewisser Weise selbst verifizieren?
-  - Konsistentere Dokumente?
+  \begin{itemize}
+    \item Modellgetriebene Software-Entwicklung\\
+          Ist es sinnvoll Dokumente als Modell aufzufassen?
+          Wie könnte eine sinnvolle Modellierung von Dokumenten aussehen?
+          Gibt es ein gemeinsames Metamodell?
+    \item Programmiersprachen, Compilerbau (Scala, Akka)
+          Kann ein Aktorsystem verwendet werden, um einen abstrakten Syntaxbaum zu implementieren?
+          Taugt dieser AST als sinnvolle Architekturgrundlage für einen Projektionseditor, und damit auch als Code Generator?
+  \end{itemize}
 
-Wo siedelt sich das neue Autorensystem an? (Zwischen Latex und Word?)
+  \item Knowledge Engineering / Management; Semantik, Ontologie\\
+        Brauchen wir mehr explizite Semantik innerhalb von Dokumenten?
+        Ergeben sich Vorteile, wenn diese Semantik direkt vom Autor transportiert wird?
+        Ist es möglich, dass sich Dokumente zu einem gewissen Grad selbst verifizieren\footnote{Ist das Dokument zu einer Spezifikation konform?} und damit konsistenter machen?
 
-Was sind wiss. Dokumente?
-  - Sprache == API für Knowledge
-  - Wiss. Dokumente erweitern das Wissensgebiet
-  - Wiss. Dokumente arbeiten selbst immer mit Modellen (allg. Modelltheorie)
-  - Allgemeine Taxonomie wissenschaftlicher Publikationen
+  \item Bibliotheks- und Informationswissenschaften\\
+        Gibt es eine allgemeingültige Taxonomie für wiss. Publikationen?
+\end{itemize}
 
-Anwendungsfälle / Use Cases. Ist die Editorarchitektur so flexibel um in den
-verschiedensten Szenarien funktionierende, fast schon maßgeschneiderte Lösungen
-anzubieten?
-  - Warum ist es für Spray ein ideales Dokumentationswerkzeug?
-  - Darstellung und Editierung von UIMA CAS Dokumenten (Annotationen)
-  - ...?
+% Können Aktoren ein als AST eingesetzt werden?
+% Was ergibt sich daraus? Architekturell? Was ergibt das für Vor- und Nachteile?
+%   - Projektions Editoren (wie macht das MPS?)
+%   - Code Generatoren
+
+% Metamodelle in Dokumenten und das Dokument als Modell, macht das Sinn?
+%   - Gibt es ein Metametamodell?
+%   - Die "was ist zugelassen Matrix"?
+%   - Lassen sich Dokumente verifizieren?
+%   - Anbindung der domänenspezifischen Editoren
+
+% Brauchen wir mehr explizite Semantik? Was ist der Vorteil wenn sie direkt
+% vom Autor transportiert wird? (Und das Dokument / der Editor helfen dabei
+% um diesen Vorgang zu erleichtern)
+%   - Verifizierbare Dokumente? Das Dokument kann sich in gewisser Weise selbst verifizieren?
+%   - Konsistentere Dokumente?
+
+% Was sind wiss. Dokumente?
+%   - Sprache == API für Knowledge
+%   - Wiss. Dokumente erweitern das Wissensgebiet
+%   - Wiss. Dokumente arbeiten selbst immer mit Modellen (allg. Modelltheorie)
+%   - Allgemeine Taxonomie wissenschaftlicher Publikationen
+
+% Anwendungsfälle / Use Cases. Ist die Editorarchitektur so flexibel um in den
+% verschiedensten Szenarien funktionierende, fast schon maßgeschneiderte Lösungen
+% anzubieten?
+%   - Warum ist es für Spray ein ideales Dokumentationswerkzeug?
+%   - Darstellung und Editierung von UIMA CAS Dokumenten (Annotationen)
+%   - ...?
 
 
 % --------------
@@ -403,6 +425,8 @@ Der Aufwand bleibt also bei maximal |E| Nachrichten.
 
 
 \chapter{Ergebnisse und Analyse}
+
+Wo siedelt sich das neue Autorensystem an? (Zwischen Latex und Word?)
 
 \section{Validierung der theoretischen Konzepte}
 
