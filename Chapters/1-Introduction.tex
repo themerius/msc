@@ -155,6 +155,32 @@ Die Aktoren können Nachrichten (grüne Pfeile) austauschen, z.B. um Benummerung
 
 \subsection{Szenario}
 
+Hier ist ein kleines Beispiel. In der Auflistung ist jeweils der Aktor und der
+Quellcode ausdem der jeweils gesetzte Absatz entstehen soll.
+Die mit (meta) markierten Aktoren / Dokumentelemente werden beim Setzen des
+Dokuments nicht berücksichtigt.
+Auf Abbildung \ref{fig.szenario} sieht man das schlussendlich vom System gesetzte Dokument.
+
+\begin{itemize}
+
+  \item Mathe Aktor "meineFormel" (meta)\\
+  \verb|x^2 = 5|
+
+  \item Absatz Aktor\\
+  \verb|Das ist ein Text welcher auf ${meineFormel} hinweist.|
+
+  \item CAS Aktor "solved" (meta)\\
+  \verb|solved = new MathFormula(${meineFormel}) .solve("x")|\\
+  \verb|return_to_document({num: float(solved), formel: solved})|
+
+  \item Absatz Aktor\\
+  \verb|Das numerische Ergebnis von ${meineFormel} ist   ${solved.num}, das analytische Ergebnis  ist ${solved.formel}. Jetzt koennte man z.B. mit dem numerischen Ergebnis mit einem anderen Skript weiterrechnen...|
+
+\end{itemize}
+
+\fig{szenario}{Das gesetzte Dokument des Szenario.}
+
+
 \section{Fragen von wissenschaftlichem Interesse}
 
 Können Aktoren ein als AST eingesetzt werden?
