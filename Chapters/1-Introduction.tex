@@ -104,12 +104,12 @@ Um die Software benutzbar zu machen:\todo{Besser? Weiche oder Zusatz Anforderung
 
 \begin{itemize}
   \item Es soll ein reaktives System sein, welches sofort auf Eingaben des Benutzers bzw. Veränderungen des Systemzustands reagiert.
-  \item Es soll also ein "lebendiges" Dokument werden, d.h. es sollen keine (spürbaren) Kompilierzeiten um das Dokument zu erstellen entstehen.
-  \item Da es in wissenschaftlichen Dokumenten meist zu komplizierten Verweisungen kommt, müssen diese in jedem Fall konsistent gehalten werden. Es soll daher das Verweisvariablen-Refacotring-Problem\todo{Unschönes Wort!} abgefedert werden.
-  \item Es soll ein einheimischer des WWW werden, d.h. Web Standards sind das Ausgabeformet. Sie übernehmen das Setzen des Dokuments, bieten dem Benutzer eine Editierschnittstelle, ermöglichen Kollaboration und bieten eine ubiquitäre Wissensrepräsentation.
+  \item Es soll also ein "lebendiges" Dokument werden, d.h. es sollen keine (spürbaren) Kompilierzeiten, um das Dokument zu erstellen, entstehen.
+  \item Da es in wissenschaftlichen Dokumenten meist zu komplizierten Verweisungen kommt, müssen diese in jedem Fall konsistent gehalten werden. Es soll daher das Verweisvariablen-Refactoring-Problem\todo{Unschönes Wort!} abgefedert werden.
+  \item Es soll ein Einheimischer des WWW werden, d.h. Web Standards sind das Ausgabeformat. Sie übernehmen das Setzen des Dokuments, bieten dem Benutzer eine Editierschnittstelle, ermöglichen Kollaboration und bieten eine ubiquitäre Wissensrepräsentation.
 \end{itemize}
 
-Durch einige diese Anforderungen gewinnen wir implizit einen Projektionseditor und
+Durch einige dieser Anforderungen gewinnen wir implizit einen Projektionseditor und
 sogar Potential für ein Dokument "Query Interface"\todo{REF zum entspr Kapitel mit Erklärung}
 
 \section{Idee}
@@ -117,20 +117,20 @@ sogar Potential für ein Dokument "Query Interface"\todo{REF zum entspr Kapitel 
 % Idee gesucht um BSc weiterzuentwickeln -> Vorlesung 1. master sem -> MPS/mbeddr -> Projectional Editing. http://confluence.jetbrains.com/display/MPSD31/FAQ
 % Und so entwickelten sich diese überlegungen...
 
-Im Vordergrund stand die Idee meine Bachelorarbeit so weiter zu entwickeln, dass Dokumente
+Im Vordergrund stand die Idee, meine Bachelorarbeit so weiter zu entwickeln, dass Dokumente
 in einem Struktureditor oder Projektionseditor\todo{REF auf Kapitel das ProjEdit genauer erklärt} verfasst werden können und mit domänenspezifischen Dokumentelementen
 interagiert werden kann.
 
 In diesem Kapitel wird also kurz die prinzipielle Idee umrissen,
 wie man die Problemstellung unter den gegebenen Anforderungen lösen könnte.
 
-Grundsatz der Idee ist dass jedes Dokumentelement auf ein Aktor abgebildet wird.
+Grundsatz der Idee ist, dass jedes Dokumentelement auf ein Aktor abgebildet wird.
 Ein Aktor kann Nachrichten senden und empfangen, zudem kapselt er einen Zustand und ein Verhalten.
 
-Aktoren können, ebenso wie ein Dokument, hierarchisch angeornet werden.
+Aktoren können, ebenso wie ein Dokument, hierarchisch angeordnet werden.
 Das heißt ein Aktor kann Kinder und Geschwister haben.
 Diese Anordnung ergibt eine baumartige Graphenstruktur, worin ein Aktor
-einem Knoten entspricht und eine Referenz\footnote{Über eine solche Aktor Referenz können Nachrichten an andere Aktoren übermittelt werden.} auf einen anderen Aktor eine Kante.
+einem Knoten entspricht und eine Referenz\footnote{Über eine solche Aktor Referenz können Nachrichten an andere Aktoren übermittelt werden.} auf einen anderen Aktor einer Kante.
 
 Diese Baumstruktur kann als \emph{abstrakter Syntaxbaum}\footnote{
 Englisch: abstract syntax tree. Kurzschreibweise: AST.} (AST) der Dokumentenstruktur aufgefasst werden.
@@ -143,7 +143,7 @@ da er dank der Aktoren (quasi gratis) besondere Eigenschaften erhält:
 \begin{itemize}
   \item Verteilbarkeit, Fehlertoleranz und massive Parallelität.\\
         AST kann z.B. auf ein Cluster gebracht werden, z.B. zur Kompilierung des Dokuments in "der Cloud"; Anwendung von MapReduce auf Dokument oder Dokumentenserie; Jeder Aktor ist autonom, d.h. z.B. asynchrone Datanbankzugriffe oder schnelle Reaktionszeiten auf Änderungen.
-  \item Möglichkeit zum Query Interafce ausgebaut zu werden.\\
+  \item Möglichkeit zum Query Interface ausgebaut zu werden.\\
         Das Dokument bzw. Dokumentelement kann auf Nachrichten reagieren. Beispielsweise zur Aggregation neuer Informationen.
   \item Möglichkeit mit anderen (Aktoren-) Systemen (z.B. Dokumenten) zu interagieren.\\
         Beispielsweise via Akka Remoting Protokoll oder Anbindung an REST-Schnittstellen.
@@ -155,7 +155,7 @@ Die Aktoren können Nachrichten (grüne Pfeile) austauschen, z.B. um Benummerung
 
 \subsection{Szenario}
 
-\section{Frangen von wissenschaftlichem Interesse}
+\section{Fragen von wissenschaftlichem Interesse}
 
 Können Aktoren ein als AST eingesetzt werden?
 Was ergibt sich daraus? Architekturell? Was ergibt das für Vor- und Nachteile?
@@ -222,175 +222,28 @@ Struktureditoren oder Projektionseditoren oder projectional editors...
 
 \chapter{Anwendungsfälle}
 
+\section{Spray Modell-Dokumentationstool}
 
+Werkzeug zur technischen Dokumentation von Spray (Software) Modellen.
+Also ein Doku Tool für modellgetriebene SW Entwicklung.
 
-\citep{default}
+\section{UIMA CAS Editor}
 
-Test $123$ \citep{6902013}
+Zum störungsfreien Anzeigen von Annotationen.
+Rekonstruktion eines Originaldokuments.
+Originaldokument um neue Informationen anreichern.
+Ein Dokument im Volltext wieder editierbar machen.
 
-Man kann sich das vorstellen wie LaTeX mit on the fly compile,
-mit interaktive Bearbeitung durch den Nutzer des Dokuments im Web ala
-Google Docs, in Verbindung mit verschiedenen Programmiersprachen
-die zusammen kooperieren können, um dynamische Inhalte zu erzeugen,
-welche wiederum an verschiedene domänenspezifische Editoren angebunden sind.
+\section{Erstellung wissenschaftlicher Publikationen}
 
-Szenarien die laufen sollen:
-
-(1) Anbindung an UIMA, d.h. Elemente müssen als Annotation gekennzeichnet sein
-und auch editierbar.
-(2) Es ist möglich Spray Modelle mit dem System du dokumentieren.
-(3) Eventuell: Diese Masterarbeit damit verfasst, zeigt die Tauglichkeit
-auch für wissenschaftliche Texte.
-
-All das mit möglichst viel Semantik dahinter.
-
-\chapter{Grundlagen, Grundbegriffe und Technologien}
-
-\section{Semantik}
-
-\begin{quote}Semantik [...] nennt man die Theorie oder Wissenschaft von der Bedeutung der Zeichen.
-Zeichen können in diesem Fall Wörter, Phrasen oder Symbole sein. Die Semantik beschäftigt sich 
-typischerweise mit den Beziehungen zwischen den Zeichen und den Bedeutungen dieser Zeichen.
-\end{quote}
-\url{http://de.wikipedia.org/wiki/Semantik}
-
-\begin{quote}Formale Semantik beschäftigt sich mit der exakten Bedeutung von künstlichen
-oder natürlichen Sprachen. Dabei kann sowohl die Bedeutung bestehender Sprachen untersucht
-als auch die Bedeutung neu geschaffener Sprachen festgelegt werden.
-In Abgrenzung zur Semantik im allgemeinen Sinn, wie sie vor allem in Philosophie und Linguistik
-betrieben wird, arbeitet die formale Semantik mit rein formalen, logisch-mathematischen Methoden.
-\end{quote}
-\url{http://de.wikipedia.org/wiki/Formale_Semantik}
-
-\begin{quote}Die semantische Analyse überprüft die statische Semantik,
-also über die syntaktische Analyse hinausgehende Bedingungen an das Programm.
-Zum Beispiel muss eine Variable in der Regel deklariert worden sein, bevor sie verwendet wird,
-und Zuweisungen müssen mit kompatiblen (verträglichen) Datentypen erfolgen.
-\end{quote}
-\url{http://de.wikipedia.org/wiki/Compiler#Semantische_Analyse}
-
-\begin{quote}Das Semantische Web [...] ist ein Konzept bei der Entwicklung des World Wide Webs und des 
-Internets. [...] All die in menschlicher Sprache ausgedrückten Informationen im Internet sollen mit
-einer eindeutigen Beschreibung ihrer Bedeutung (Semantik) versehen werden, die auch von Computern 
-verstanden oder zumindest verarbeitet werden kann. Die maschinelle Verwendung der Daten aus dem von 
-Menschen geflochtenen Netz der Daten ist nur möglich, wenn die Maschinen deren Bedeutung eindeutig 
-zuordnen können; nur dann stellen sie Informationen dar.
-\end{quote}
-\url{http://de.wikipedia.org/wiki/Semantisches_Web}
-
-Wenn in dieser Arbeit von \emph{der Semantik} gesprochen wird, ist die Zuweisung einer
-exakten Bedeutung zu einem Objekt gemeint.
-
-\section{Taxonomie wissenschaftlicher Publikationen}
-
-Neben Gestaltungsregeln, soll hier auch ein Thesaurus zu finden sein.
-DIN Normen, DocBook, Buchwissenschaft sollen als Grundlage dienen.
-Daraus soll dann in einem extra Kapitel ein Metamodell für wiss. Dokumente
-entstehen.
-
-Auch auf die Normseite eingehen: http://de.wikipedia.org/wiki/Normseite
-
-\subsection{Glossar}
-
-Ein alphabetisch sortiertes Glossar über die einzelnen Dokumentbestandteile.
-
-\begin{multicols}{2}
-  \begin{description}
-    \item[abstract, Abstract, Kurzreferat]
-    Ein Abstract ist definiert als eine gekürzte präzise Darstellung des Inhalts eines Dokuments. (ANSI)
-  \end{description}
-\end{multicols}
-
-\subsection{Hierarchie}
-
-In englisch könnte man \emph{Dokumentbestandteile Hierarchie} als
-\emph{document element hierachy} bezeichnen?
-
-Da die Begriffe zum einen Teil aus deutschen und zum anderen Teil aus englischen Quellen
-stammen, werden hier immer nach Möglichkeit beide Begriffe aufgelistet.
-Die deutschen Begriffe stammen insbesondere aus TODO(Referenzen) DIN/Buchlexika,
-die englischen Begriffe insbesondere aus TODO(Referenzen) DoCO.
-Die englischen Begriffe sind für die Implementierung relevant und daher zuerst aufgelistet.
-
-Contraints werden der Einfachheit halber in eckigen Klammern angegeben.
-
-\subsubsection{container element (Behälter Bestandteile)}
-
-\input{Chapters/container_element}
-
-\subsubsection{meta element (Meta Bestandteile)}
-
-\input{Chapters/meta_element}
-
-\subsubsection{structure element (Struktur Bestandteile)}
-
-\input{Chapters/structure_element}
-
-\section{Aktoren}
-
-Was sind Aktoren?
-
-Es gibt einige Scala Aktoren Frameworks: Vorstellen und kleiner Vergleich?
-Performanz? Features?
-
-Ein paar Worte zu TestKit. Verweis auf MWE in Appendix?
-
-
-\section{Domäneneditoren}
-
-Hier exemplarisch eingesetzte Editoren. Hinweis: Es könnten noch mehr
-Editoren implementiert werden
-
-\subsection{Spray}
-
-Kurze Einführung zu Spray und deren Webkomponente und wie diese hier genutzt
-wird.
-
-\subsection{Ketcher}
-
-...
-
-
-\section{UIMA}
-
-Was ist das und wie kommt es hier zum Einsatz.
-
-
-\section{Auswahl des Serverframeworks}                         \label{sec.server}
-
-Alle Frameworks werden noch aktiv entwickelt und gepflegt.
-
-Untersuchte Scala Frameworks:
-
-Spray.io Version 1.2.0
-Unterstützt keine Websockets, ist erst für die Zukunft geplant.
-Entwickelt seit 2011. (siehe Changelog)
-Im Hintergrund (als Server) läuft pures Akka?
-\url{http://spray.io/}
-
-Play Framework Version Version 2.2.2
-Sehr vielversprechend und stabil mit großer Entwicklergemeinde.
-Jedoch läuft der Scala Interpreter hier nicht, da eine extra VM gestartet
-wird, was durch das play sbt plugin geschuldet ist.
-Entwickelt seit 2007. (Wikipedia - besser Quelle suchen)
-Im Hintergrund läuft JBoss Netty.
-\url{http://www.playframework.com/}
-
-Socko Web Server Version 0.4.1
-Interessante Funktionen, aber für mich eine schwierige und umständliche API.
-Entwickelt seit 2012? (Nur ungefährt aus Github Version 0.1)
-Im Hintergrund läuft JBoss Netty.
-\url{http://sockoweb.org/}
-
-Xiturm Version 3.5
-Mit Abstand die beste und schönste API und wird schon seit 2010 aktiv entwickelt.
-Wird laut Author in echten Projekten schon erfolgreich eingesetzt.
-Die Dokumentation ist auch recht umfangreich und gut verständlich.
-Im Hintergrund läuft JBoss Netty.
-\url{http://ngocdaothanh.github.io/xitrum/}
-About: \url{https://groups.google.com/forum/#!topic/xitrum-framework/Jx6bwGciNR0}
-
-% --------------------------------------------------------------- end sec.server
+Könnte sich als Werkzeug zum erstellen wiss. Arbeiten etablieren.
+Bei den MINT Wissenschaften.
+Editor kann beim Erstellung assisiteren, z.B. ein Paragraph kann automatisch
+eine Volltextsuche in Literaturbeständen durchführen und Vorschläge machen,
+falls vermutet wird ein Zitat aus einer Quelle gefunden zu haben.
+Quelle kann dann automatisch mit allen nötigen nachweisen auf magische weise
+hinzugefügt werden.
+Szenario von Spezialelementen mit Domänenwissen (z.B. Chemie).
 
 
 \chapter{Entwicklung des Prototypen}
@@ -431,7 +284,39 @@ html5: contenteditable
 
 \subsection{Akka Toolkit}
 
-\subsection{Xitrum Toolkit}
+\subsection{Xitrum Server Framework}
+
+Alle Frameworks werden noch aktiv entwickelt und gepflegt.
+
+Untersuchte Scala Frameworks:
+
+Spray.io Version 1.2.0
+Unterstützt keine Websockets, ist erst für die Zukunft geplant.
+Entwickelt seit 2011. (siehe Changelog)
+Im Hintergrund (als Server) läuft pures Akka?
+\url{http://spray.io/}
+
+Play Framework Version Version 2.2.2
+Sehr vielversprechend und stabil mit großer Entwicklergemeinde.
+Jedoch läuft der Scala Interpreter hier nicht, da eine extra VM gestartet
+wird, was durch das play sbt plugin geschuldet ist.
+Entwickelt seit 2007. (Wikipedia - besser Quelle suchen)
+Im Hintergrund läuft JBoss Netty.
+\url{http://www.playframework.com/}
+
+Socko Web Server Version 0.4.1
+Interessante Funktionen, aber für mich eine schwierige und umständliche API.
+Entwickelt seit 2012? (Nur ungefährt aus Github Version 0.1)
+Im Hintergrund läuft JBoss Netty.
+\url{http://sockoweb.org/}
+
+Xiturm Version 3.5
+Mit Abstand die beste und schönste API und wird schon seit 2010 aktiv entwickelt.
+Wird laut Author in echten Projekten schon erfolgreich eingesetzt.
+Die Dokumentation ist auch recht umfangreich und gut verständlich.
+Im Hintergrund läuft JBoss Netty.
+\url{http://ngocdaothanh.github.io/xitrum/}
+About: \url{https://groups.google.com/forum/#!topic/xitrum-framework/Jx6bwGciNR0}
 
 
 \section{Abstrakter Syntax Baum}
@@ -497,10 +382,15 @@ Der Aufwand bleibt also bei maximal |E| Nachrichten.
 
 \section{Verifikation der Anwendungsfälle}
 
+
 \chapter{Fazit}
 
 
 \chapter{Ausblick}
+
+Geschäftsmodell: Marktplatz für "Spezialelemente" und Services wie z.B. Literatur Volltextrecherche + autom. Quellenauflösung etc.? Offene Platform um Papers / Arbeiten reviewen zu lassen von anderen Autoren -> Zuweisung von DOIs, Reviewer können Geld bekommen, Wenn zitiert wird kann man Geld bekommen, Autoren/Reviewer haben Repurtationssystem ...
+
+Elemente z.T. als Docker Container?
 
 
 % http://tex.stackexchange.com/questions/49643/making-appendix-for-thesis
