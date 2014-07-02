@@ -193,9 +193,9 @@ Bereiche in denen (wiss.) Fragestellungen durch den Prototypen beantwortet werde
           Ist es sinnvoll Dokumente als Modell aufzufassen?
           Wie könnte eine sinnvolle Modellierung von Dokumenten aussehen?
           Gibt es ein gemeinsames Metamodell?
-    \item Programmiersprachen, Compilerbau (Scala, Akka)
+    \item Programmiersprachen, Compilerbau\\
           Kann ein Aktorsystem verwendet werden, um einen abstrakten Syntaxbaum zu implementieren?
-          Taugt dieser AST als sinnvolle Architekturgrundlage für einen Projektionseditor, und damit auch als Code Generator?
+          Taugt dieser abstrakte Syntaxbaum als sinnvolle Architekturgrundlage für einen Projektionseditor, und damit auch als Code Generator?
   \end{itemize}
 
   \item Knowledge Engineering / Management; Semantik, Ontologie\\
@@ -246,13 +246,101 @@ Hier werden theoretische Konzepte erarbeitet.
 
 \section{Modell und Metamodell}
 
-Insbesondere in Bezug auf Dokumente
+\begin{quote}
+Modellierung ist das uns angeborene Verfahren, das komplexe Universum auf eine überschaubare Welt zu reduzieren. Indem wir sichtbare und unsichtbare Phänomene auf Begriffe abbilden und nur noch mit diesen umgehen, wird die Gesamtzahl der zu betrachtenden Gegenstände beherrschbar[...]
+\citep[S.~7]{ludewig}
+\end{quote}
+
+Gerade auch in der Wissenschaft spielen Modelle \emph{die} zentrale Rolle, denn
+"Das Resultat einer Forschung ist in jedem Falle ein Modell, eine Theorie." \citep[S.~8]{ludewig}
+Warum sollte man also nicht den Weg ganz konsequent gehen, und ebenfalls die wissenschaftliche
+Dokumentation selbst als Modellierung betrachten?
+Warum sollte das Dokument selbst nicht Modelle aus einer Wissenschaft bereitstellen?
+Das heißt, dass eine Wissenschaftlerin bzw. ein Wissenschaftler seine Modelle \emph{direkt}
+im Dokument verwenden kann?
+
+\subsection{Modellmerkmale}\label{sec.modellmerkmale}
+
+In \citep[S.~9]{ludewig} ist eine griffige Zusammenfassung der drei zwingenden Merkmale
+die nach \citep{stachowiak} vorliegen müssen, um als Modell zu gelten,
+aufgeführt. Diese werden hier sinngemäß zusammengefasst und durch Abbildung \ref{fig.modell}
+veranschaulicht:
+
+\begin{itemize}
+  \item Abbildung \\ Ein Modell ist immer ein Abbild eines Originals.
+  Die Abbilder können beliebig geartet sein, d.h. das Modell muss dem
+  Original äußerlich nicht ähneln. Das Original auf welches sich das Modell
+  bezieht, kann neben natürlichen Objekten auch künstlich, geplant oder vermutet sein.
+  \item Verkürzung \\ Ein Modell erfasst nicht alle Merkmale des Originals.
+  Durch Verkürzung fallen Attribute weg, diese werden übergangen oder präteriert genannt.
+  Das Modell kann jedoch zusätzliche Attribute haben, die so im Original nicht vorkommen,
+  diese werden überflüssig oder abundant genannt.
+  \item Pragmatismus \\ Ein Modell muss einen Sinn haben, um unter bestimmten Fragestellungen das Original ersetzen können.
+  Das heißt, es wird das Modell statt des Originals untersucht, um daran die Nützlichkeit für eine Zielgruppe (für wen, wann, wozu?) festzustellen.
+\end{itemize}
+
+\fig{modell}{Schematische Zeichnung der Original-Modell-Beziehung. \citep[Entnommen aus][S.~9]{ludewig}}
+
+\subsection{Modell eines Dokuments}
+
+Bevor ein passendes Modell für Dokumente gefunden werden kann,
+muss man sich bewusst sein dass es dem Abbildungsmerkmal,
+Verkürzungsmerkmal und dem pragmatischen Merkmal,
+welche in Kapitel \ref{sec.modellmerkmale} beschrieben sind, genügen muss.
+
+Das Original ist in jedem Fall ein gesetztes statisches Dokument, z.B.
+ein auf Papier gedrucktes Buch oder ein (wiss.) Bericht im PDF-Dateiformat.
+
+Dort interessieren uns als Autor in erster Linie aber nur die wirklich inhaltstragenden
+Attribute des Originals.
+Auf einer höheren Abstraktionsebene entsprechen diese den Dokumentelementen\todo{Def Dokelem in ein Glossar?}, wie z.B.
+Abschnitte, Absätze, Abbildungen etc.
+Im Falle von z.B. Abschnitten ist nur der Titel maßgeblich, die Benummerung kann
+auch erst später (durch Berechnung) hinzugefügt werden.
+Das heißt hier wäre der Titel ein Attribut welches
+vom Original in das Modell abgebildet wird; die Benummerung wäre jedoch ein abudantes
+Attribut welches erst innerhalb des Modells erstellt wird.
+Layoutinformationen, Schriftarten oder Papiersorte spielen dafür keine Rolle und
+können somit weggelassen werden.
+
+Wenn der Autor an seinem Dokument arbeitet, dann stets über das Modell,
+wo er sich ausschlißlich auf die Dokumentelemente konzentrieren kann.
+Das Modell kann präskriptiv sein, d.h. aus dem Modell kann wieder ein Original entspringen.
+
+Hier wird der \emph{abstrakte Syntaxbaum} als Modell für das Dokuments dienen,
+indem jedes Dokumentelement aus ein Knoten des abstrakten Syntaxbaum aufgefasst wird.
+Mehr zum abstrakten Syntaxbaum in Abschnitt \ref{sec.ast}.
+
+\subsubsection{Beweis}
+\paragraph{Abbildungsmerkmal}
+Der abstrakte Syntaxbaum („das Modell“) ist z.B. ein Abbild eines
+gedruckten Buches, da Dokumentelemente als Knoten im Syntaxbaum vorkommen.
+\paragraph{Verkürzungsmerkmal}
+Nur die Attribute aus dem Original werden modelliert, die den maßgeblichen Inhalt des
+Dokuments transportieren (z.B. Text). Diese Inhalte werden als Dokumentelemente
+modelliert.
+\paragraph{Pragmatischen Merkmal}
+Der Autor greift auf das Modell zurück, um daran die herausgelößten und essentiellen
+Dokumentelemente zu untersuchen bzw. zu manipulieren.
+
+Alle Bedingungen für den Modellbegriff nach \citep{stachowiak} sind erfüllt. $\blacksquare$
+
+\subsection{Metamodelle}
+
+Metamodelle definieren Modelle...
+
+Hier werden die Dokumentelement definiert.
+
+Eigentliches Metamodell ist der Scala Code
+
+Templates für die Projektionen (deklariert auf der gleichen Ebene wie das Metamodell?)...
+Das Metamodell für die Projektionen sind die Templates, z.B. Mustache-HTML + CSS + JS ...
 
 \section{Semiotik: Syntax, Semantik, Pragmatik, Sigmatik}
 
 \subsection{Domäneneditoren}
 
-\section{Abstrakter Syntaxbaum}
+\section{Abstrakter Syntaxbaum}\label{sec.ast}
 
 Hier sowas wie "Reactive Abstract Syntax Tree Interface Definition"?
 
