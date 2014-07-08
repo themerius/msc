@@ -242,7 +242,7 @@ Bereiche in denen (wiss.) Fragestellungen durch den Prototypen beantwortet werde
 
 \chapter{Theorie}
 
-Hier werden theoretische Konzepte erarbeitet.
+In diesem Kapitel werden theoretische Konzepte erarbeitet.
 
 \section{Modell und Metamodell}
 
@@ -325,28 +325,191 @@ Dokumentelemente zu untersuchen bzw. zu manipulieren.
 
 Alle Bedingungen für den Modellbegriff nach \citep{stachowiak} sind erfüllt. $\blacksquare$
 
-\subsection{Metamodelle}
+\subsection{Metamodellbegriff}\label{sec.metamodellbegriff}
 
-Metamodelle definieren Modelle...
+\begin{quote}
+Werden Modelle und Modellbildung selbst zum Gegenstand der Modellierung, so spricht man von Metamodellen. \citep{stra}
+\end{quote}
 
-Hier werden die Dokumentelement definiert.
+\citep{stra} hat versucht den Metamodellbegriff anhand der Sprachstufentheorie der Logik,
+durch Übertragung auf die Modellierungswelt, zu prägen.
+Nach \citep{buehler} hat Sprache drei Funktionen:
+(1) Darstellung von Sachverhalten, (2) Appell zur Verhaltenssteuerung und
+(3) Ausdruck von Gefühlen.
+Für den Metamodellbegriff ist jedoch nur die Darstellungsfunktion
+interessant.
 
-Eigentliches Metamodell ist der Scala Code
+Sprache stellt "ein mögliches Instrument zur Darstellung von Modellen" dar.
 
-Templates für die Projektionen (deklariert auf der gleichen Ebene wie das Metamodell?)...
-Das Metamodell für die Projektionen sind die Templates, z.B. Mustache-HTML + CSS + JS ...
+\citep{stra} führt fort, dass in der Logik üblicherweise zwischen Objektsprache und Metasprache
+unterschieden wird.
+Die Objektsprache ist Gegenstand der Untersuchung.
+In der Metasprache erfolgt die Untersuchung.
+Da die Metasprache selbst auch wieder Gegenstand einer Untersuchung werden kann,
+ist dieses Prinzip rekursiv anwendbar.
+Um endlose Rekursion zu vermeiden, sollte als oberstes Glied der Kette ein selbstbeschreibendes
+Metamodell stehen.\todo{Welche Literatur?}
+
+Wird "die Sprachstufentheorie auf die Modellbildung [...] übertragen, so" kann
+im einfachsten Fall ein Metamodell "als ein Modell eines Modells" beschrieben werden.
+
+\begin{quote}
+Wird die Objektsprache, in der das Modell der untersten Stufe formuliert ist, abgebildet in einem Beschreibungsmodell, so handelt es sich um ein Metamodell.\citep[S.~3]{stra}
+\end{quote}
+
+"Beschreibungsmodelle dienen der systematischen Beschreibung des betrachteten Gegenstandsbereiches und bestehen aus ausschließlich deskriptiven Satzsystemen."
+Das heißt, ein Beschreibungsmodell ist ein Modell welches so forumliert wird, dass es
+ein Original sprachlich beschreibt.\todo{Kann man das so nennen?}
+
+Abbildung \ref{fig.metamodellbegriff} veranschaulicht den Zusammenhang von
+Modell und dessen Metamodell.
+
+\fig{metamodellbegriff}{Der sprachbasierte Metamodellbegriff.
+Die "Miniwelt" entspricht dem Original. \citep[Grafik entnommen aus][S.~3]{stra}}
+
+
+\subsection{Metamodell des Dokumentmodells}\label{sec.meta}
+
+Auf Abbildung \ref{fig.docmodell} ist das eigentliche Modell visualisiert.
+Dieses soll vom Metamodell beschrieben werden.
+
+\fig{docmodell}{Das hier verwendete Dokumentmodell.
+Das Dreieck symbolisiert die Wurzel.
+Die Rauten symbolisieren jeweils einen Aktor bzw. ein Dokumentelement.
+Die stark gezeichneten Pfeile symbolisieren das erste Kind,
+die gestrichelte Linie symoblisiert die zugehörigen anderen Kinder.
+Die schwach gezeichneten Pfeile symbolisieren die nächstes Geschwister.
+Dadurch wird die Dokumenthierarchie aufgespannt.}
+
+Abbildung \ref{fig.metamodell} zeigt das Modell welches das Dokumentmodell beschreibt,
+also das "Metamodell".
+In der Mitte liegt der Basis Aktor, dieser hält Referenzen zu seinem ersten Kind
+und zu seinem unmittelbaren Geschwister.
+Zudem hält der Basis Aktor Inststanzen aller verfügbaren Dokumentelemente,
+wovon jedoch immer nur eine \emph{aktiv} ist.
+Welche Dokumentelemente verfügbar sind, wird vom Programmierer spezifiziert -- dazu
+muss er ein Scala Trait (entspricht einem Interface) implementieren und dem
+Basis Aktor bekannt machen.
+Man kann sagen, dass er das Metamodell an dieser Stelle (gewollt) verändert.
+Der Wurzel Aktor hält nochmals alle Topologieinformationen, daher kennt er
+alle im System vorhandenen Basis Aktoren.
+Jeder Basis Aktor kennt auch seine zugehörige Wurzel, welche er bei ggf. anstehenden
+lokalen Topologieveränderungen benachrichtigen muss.
+
+\fig{metamodell}{Das Metamodell des Dokumentmodells.}
+
+Genügt das hier besprochende Metamodell dem in Abschnitt
+\ref{sec.metamodellbegriff} behandelten Metamodellbegriff?
+
+Die Besonderheit bei dem hier entstandenen System ist, dass das
+Modell gleichzeitig die Sprache ist, in der es modelliert wird.
+Dies ist möglich, da das System als Projektionseditor designed ist.
+Die Objektsprache in der das Modell formuliert ist,
+entspricht somit quasi der Projektion\todo{Erst Projektion beschreiben?}
+~die direkt aus dem abstrakten Syntaxbaum entspringt.
+Man könnte von einem Modell-Objektsprache-Dualismus sprechen --
+es ist gleichzeitig Modell und Objektsprache, je nach Betrachtungspunkt.
+
+Das Modell indem wiederum die Objektsprache modelliert ist, muss ein Beschreibungsmodell sein,
+damit dies einem Metamodell entspricht.
+Das hier vorgestellte "Metamodell" beschreibt systematisch und rein deskriptiv
+die prinzipielle Struktur des abstrakten Syntaxbaumes.
+Der betrachtete Gegenstandsbereich ist der abstrakte Syntaxbaum, dieser ist
+wiederum das Modell des Dokuments.
+Somit genügt es dem Metamodellbegriff. $\blacksquare$
+
+Auf Abbildung \ref{fig.metamodellschema} ist nochmals eine Übersichtsgrafik der Zusammenhänge von
+Modell und Metamodell.
+
+\fig{metamodellschema}{Übersicht der Zusammenhänge des Dokumentmodells und Dokumentmetamodells.}
+
+% Templates für die Projektionen (deklariert auf der gleichen Ebene wie das Metamodell?)...
+% Das Metamodell für die Projektionen sind die Templates, z.B. Mustache-HTML + CSS + JS ...
+
 
 \section{Semiotik: Syntax, Semantik, Pragmatik, Sigmatik}
 
 \subsection{Domäneneditoren}
 
+
 \section{Abstrakter Syntaxbaum}\label{sec.ast}
 
-Hier sowas wie "Reactive Abstract Syntax Tree Interface Definition"?
+In diesem Kapitel werden die prinzipiellen Eigenschaften von abstrakten Syntaxbäumen,
+kurz AST, beschrieben.
+
+Laut \citep{dragonbook} ist der AST eine Datenstruktur, die von einem Übersetzer als
+Zwischenrepräsentation eines Quellcodes generiert wird.
+Er repräsentiert die hierarchische syntaktische Struktur eines Programms.
+Aus einer solchen Zwischenrepräsentation wird schlussendlich das Zielprogramm generiert.
+
+Wärend der Syntaxanalyse (parsing) werden Syntaxbaum-Knoten erstellt, welche wiederum
+signifikate Programmkonstrukte repräsentieren.
+Die Kinder des Knoten sind die bedeutungstragenden Komponenten des Konstrukts.
+Beispielsweise (s. Abb. \ref{fig.ast}): Gegeben ist ein AST für einen Ausdruck (expression),
+dann repräsentiert jeder innere Knoten einen Operator und die Kinder des Knoten
+sind die Operanden.
+Man beachte jedoch, dass Syntaxbäume für beliebige Konstrukte erstellt werden können
+und nicht auf Ausdrücke beschränkt sind.
+Jedes Konstrukt ist durch einen Knoten repräsentiert, dessen Kinder semantisch
+bedeutungsvolle Komponenten des Konstruktes sind.
+Durch fortschreitende Analyse können Informationen vom Übersetzer
+zu den Knoten als Attribute hinzugefügt werden. (ebd.)
+
+\fig{ast}{Abstrakter Syntaxbaum für den Ausdruck $9-5+2$. \citep[Entnommen aus][S.~70]{dragonbook}}
+
+\subsection{Allgemeine Implementierung}
+
+Wenn ein Operator, also ein innerer Knoten, beliebig viele Operanden, also Kinder des Knoten,
+haben darf, spricht man von einem
+\emph{n-stelligen}\footnote{Der Begriff Stelligkeit (engl. arity, „Artigkeit“)
+steht für die Anzahl der Argumente einer Verknüpfung, einer Abbildung bzw. eines
+Operators oder in der Informatik für die Parameteranzahl von Funktionen,
+Prozeduren oder Methoden. (Aus \url{https://de.wikipedia.org/wiki/Stelligkeit})}
+bzw. n-ary AST. \citep{edwards}
+Eine solche Struktur ist auf Grafik \ref{fig.astimpl} veranschaulicht.
+
+\fig{astimpl}{Generellste Implementierung eines AST. \citep[Entnommen aus][]{edwards}}
+
+\subsection{Übertragung auf den Prototypen}
+
+Die zentrale Struktur des hier vorgestellten Prototyps ist ebenfalls ein abstrakter Syntaxbaum.
+Das ist legitim, da Syntaxbäume beliebige Konstrukte repräsentieren können.
+Jedoch handelt es sich nicht ausschließlich um eine Datenstruktur, da Aktoren als die
+Baum-Knoten fungieren und Aktoren neben der reinen Datenhaltung auch auf Nachrichten reagieren können.
+Man könnte quasi davon sprechen, dass der abstrakte Syntaxbaum in dem hier vorgestellten System
+eine „lebendige Datenstruktur“ ist.
+Das kann dahingehend von Vorteil sein, da der AST dadruch befähigt ist,
+selbstständig eine Analysephase durchzuführen.
+
+In einer solche Analysephase werden u.U. weitere Informationen zu den Knoten hinzugefügt.
+Beispiel: Eine Hierarchie von Kapiteln kann während der Analyse die jeweils richtige
+Benummerung ermitteln und jeder Aktor (also Knoten) speichert sich diese Benummerung
+intern als Attribut ab.
+
+Der Basis Aktor aus Abbildung \ref{fig.metamodell} entspricht quasi 1:1 der
+generellen Implementierung aus Abbildung \ref{fig.astimpl}.
+Das hier vorgestellte Metamodell (s. Abschnitt \ref{sec.meta}) beschreibt also eindeutig einen AST.
+Die Knoten entsprechen den Aktoren, welche wiederum die einzelnen Dokumentelemente
+des Dokuments repräsentieren.
+Dieser AST, gesehen als Programmsyntax, beschreibt somit den hierarchischen Aufbau des Dokuments.
+
+Die inneren Knoten, die z.B. Operatoren repräsentieren können, entsprechen hier
+hierarchiebildenden oder gliedernden Elementen.
+Diese können (müssen aber nicht) im Dokument sichtbar sein.
+Beispiele dafür sind z.B. Kapitel, Abschnitte oder die Titelei.
+Die Kinder dieser Knoten sind bedeutungsvolle Komponenten für den Knoten dahingehend,
+dass sie entweder weiter die Hierarchie des Dokuments aufspannen und somit das
+Dokument weiter gliedern oder im Falle von Blättern, die eigentlich inhaltstragenden
+Elemente sind.
+Die Blätter müssen auf jeden Fall im Dokument sichtbar sein.
+Beispiele dafür sind z.B. Absätze oder Abbildungen.
+
 
 \section{Dokumentstruktur Matrix}
 
+
 \section{Ontologie/Taxonomie wissenschaftlicher Publikationen}
+
 
 \section{Struktureditoren}
 
