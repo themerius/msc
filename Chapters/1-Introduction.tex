@@ -328,12 +328,12 @@ Alle Bedingungen für den Modellbegriff nach \citep{stachowiak} sind erfüllt. $
 \subsection{Metamodellbegriff}\label{sec.metamodellbegriff}
 
 \begin{quote}
-Werden Modelle und Modellbildung selbst zum Gegenstand der Modellierung, so spricht man von Metamodellen. \citep{stra}
+Werden Modelle und Modellbildung selbst zum Gegenstand der Modellierung, so spricht man von Metamodellen. \citep[S.~1]{stra}
 \end{quote}
 
 \citep{stra} hat versucht den Metamodellbegriff anhand der Sprachstufentheorie der Logik,
 durch Übertragung auf die Modellierungswelt, zu prägen.
-Nach \citep{buehler} hat Sprache drei Funktionen:
+\citep[S.~1]{stra} erklärt, dass nach \citep{buehler} die Sprache drei Funktionen leistet:
 (1) Darstellung von Sachverhalten, (2) Appell zur Verhaltenssteuerung und
 (3) Ausdruck von Gefühlen.
 Für den Metamodellbegriff ist jedoch nur die Darstellungsfunktion
@@ -341,14 +341,15 @@ interessant.
 
 Sprache stellt "ein mögliches Instrument zur Darstellung von Modellen" dar.
 
-\citep{stra} führt fort, dass in der Logik üblicherweise zwischen Objektsprache und Metasprache
+\citep[S.~1]{stra} führt fort, dass in der Logik üblicherweise zwischen Objektsprache und Metasprache
 unterschieden wird.
 Die Objektsprache ist Gegenstand der Untersuchung.
 In der Metasprache erfolgt die Untersuchung.
 Da die Metasprache selbst auch wieder Gegenstand einer Untersuchung werden kann,
 ist dieses Prinzip rekursiv anwendbar.
 Um endlose Rekursion zu vermeiden, sollte als oberstes Glied der Kette ein selbstbeschreibendes
-Metamodell stehen.\todo{Welche Literatur?}
+Metamodell stehen. Beispielsweise die Meta Object Facility (MOF) der OMG\footnote{Definiert in
+ISO/IEC 19508.} geht so vor, um endlose Meta-Rekursionen zu vermeiden.
 
 Wird "die Sprachstufentheorie auf die Modellbildung [...] übertragen, so" kann
 im einfachsten Fall ein Metamodell "als ein Modell eines Modells" beschrieben werden.
@@ -359,7 +360,7 @@ Wird die Objektsprache, in der das Modell der untersten Stufe formuliert ist, ab
 
 "Beschreibungsmodelle dienen der systematischen Beschreibung des betrachteten Gegenstandsbereiches und bestehen aus ausschließlich deskriptiven Satzsystemen."
 Das heißt, ein Beschreibungsmodell ist ein Modell welches so forumliert wird, dass es
-ein Original sprachlich beschreibt.\todo{Kann man das so nennen?}
+ein Original anschaulich macht bzw. Eigenschaften des Originals sprachlich spezifiziert.
 
 Abbildung \ref{fig.metamodellbegriff} veranschaulicht den Zusammenhang von
 Modell und dessen Metamodell.
@@ -412,16 +413,21 @@ es ist gleichzeitig Modell und Objektsprache, je nach Betrachtungspunkt.
 
 Das Modell indem wiederum die Objektsprache modelliert ist, muss ein Beschreibungsmodell sein,
 damit dies einem Metamodell entspricht.
-Das hier vorgestellte "Metamodell" beschreibt systematisch und rein deskriptiv
-die prinzipielle Struktur des abstrakten Syntaxbaumes.
-Der betrachtete Gegenstandsbereich ist der abstrakte Syntaxbaum, dieser ist
-wiederum das Modell des Dokuments.
-Somit genügt es dem Metamodellbegriff. $\blacksquare$
-
+Das hier vorgestellte "Metamodell" spezifiziert die Eigenschaften des Originals
+(dies geschieht in den einzelnen Dokumentelementen)
+und die prinzipielle Struktur (anschaulich gemacht durch Wurzel/Basis Aktor)
+des abstrakten Syntaxbaumes.
+Der betrachtete Gegenstandsbereich ist der abstrakte Syntaxbaum, dieser in seiner 
+Gesamtheit ist wiederum das Modell des Dokuments.
 Auf Abbildung \ref{fig.metamodellschema} ist nochmals eine Übersichtsgrafik der Zusammenhänge von
 Modell und Metamodell.
+Somit genügt es dem Metamodellbegriff. $\blacksquare$
 
-\fig{metamodellschema}{Übersicht der Zusammenhänge des Dokumentmodells und Dokumentmetamodells.}
+\fig{metamodellschema}{Übersicht der Zusammenhänge des Dokumentmodells und Dokumentmetamodells
+in Anlehnung an Abbildung \ref{fig.metamodellbegriff}.
+Die erweiterte Backus-Naur-Form (EBNF) kann als Metametamodell dienen --
+denn mit EBNF können Programmiersprachen beschrieben werden und zudem ist EBNF
+in der Lage sich selbst zu beschreiben.}
 
 % Templates für die Projektionen (deklariert auf der gleichen Ebene wie das Metamodell?)...
 % Das Metamodell für die Projektionen sind die Templates, z.B. Mustache-HTML + CSS + JS ...
@@ -434,7 +440,7 @@ Modell und Metamodell.
 
 \section{Abstrakter Syntaxbaum}\label{sec.ast}
 
-In diesem Kapitel werden die prinzipiellen Eigenschaften von abstrakten Syntaxbäumen,
+In diesem Abschnitt werden die prinzipiellen Eigenschaften von abstrakten Syntaxbäumen,
 kurz AST, beschrieben.
 
 Laut \citep{dragonbook} ist der AST eine Datenstruktur, die von einem Übersetzer als
