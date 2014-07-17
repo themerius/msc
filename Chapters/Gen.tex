@@ -272,7 +272,7 @@ Für gewöhnlich arbeiten Programmierer mit Quellcode-Editoren, das heißt es we
 Projektionseditoren gehen anders vor: Der Editor arbeitet direkt auf dem abstrakten Syntaxbaum (s. Abschnitt \ref{ast}), d.h. der Programmierer editiert nicht mehr eine Datei die durch den Übersetzer in eine Baumstruktur umgewandelt wird, sondern seine editier-Operationen verändern direkt die Baumstruktur des Programms. \citep[S.~68]{Voelter} Nun kann aus der abstrakten Syntax (entspricht der Baumstruktur) eine Variation an konkreten Syntaxen erstellt werden, die sogenannten Projektionen. Diese Projektionen können wieder textuell sein, aber auch grafisch -- jedoch sind diese in ihrer Darstellung deutlich flexibler als bei der parserbasierten Editoren. Eine kurze schematische Grafik (Abb. \ref{parserprojectional}) verdeutlicht den Unterschied zwischen Quellcode-Editoren und Projektionseditoren.
 
  
-Im englischen\footnote{vgl. Wikipedia: en.wikipedia.org/wiki/Projectional\_editor} Sprachraum gibt es mehrere Bezeichnungen: structure editor, structured editor oder projectional editor. Man kann diese mit Struktureditor oder Projetkionseditor übersetzten.
+Im englischen\footnote{vgl. Wikipedia: \url{http://en.wikipedia.org/wiki/Projectional_editor}} Sprachraum gibt es mehrere Bezeichnungen: structure editor, structured editor oder projectional editor. Man kann diese mit Struktureditor oder Projetkionseditor übersetzten.
 
  
 Die Idee von Projektionseditoren ist nicht neu, bereits 1971 hat Wilfred J. Hansen ein System entwickelt, welches auf solch einem Ansatz beruht. Jedoch haben sich zur damaligen Zeit diese Editor-Formen nicht durchgesetzt, wegen der unzureichenden Benutzerfreundlichkeit. \citep[S.~91]{Gomolka} In heutigen Zeiten (insbesondere mit den fortgeschrittenen Web Standards) sollte es aber möglich sein, einen Benutzerfreundlichen Projektionseditor zu bauen, der die Produktivität und den Komfort erhöht.
@@ -401,25 +401,25 @@ Wenn ein Zeichen, Signal, Symbol, etc. alle der oben genannten vier Aspekte aufz
  
 \subsection{Anwendung auf (wiss.) Dokumente}\label{}
  
-Diese vier Aspekte kommen auch implizit in jedem Text zum tragen, da insb. wiss. Dokumente ein klassischer Informationsträger sind. In der Wissenschaft ist es üblich mit Modellen zu arbeiten. Diese Modelle sollen von anderen Wissenschaftlern möglichst leicht verstanden und benutzt werden. Für das Verstehen eines Modells ist es unerlässlich, die Bedeutungen jedes einzelnen Aspekts des Modells zu erfassen. Damit ein Leser einfach und gezielt Wissen aus dem Dokument ziehen kann, wäre es sicher nützlich, wenn die Semantik möglichst explizit zur Verfügung stünde. Die Mechanik dazu könnte folgendermaßen aussehen: „Man fährt mit dem Mauszeiger über ein interessantes Objekt und erhält sofort weitere Informationen dazu.“
+Diese vier Aspekte kommen auch implizit in jedem Text zum tragen, da insb. wiss. Dokumente ein klassischer Informationsträger sind. In der Wissenschaft ist es üblich mit Modellen zu arbeiten. Diese Modelle sollen von anderen Wissenschaftlern möglichst leicht verstanden und benutzt werden. Für das Verstehen eines Modells ist es unerlässlich, die Bedeutungen jedes einzelnen Aspekts des Modells zu erfassen. Damit ein Leser einfach und gezielt Wissen aus dem Dokument ziehen kann, wäre es sicher nützlich, wenn diese Semantik möglichst explizit zur Verfügung stünde. Die Mechanik dazu könnte folgendermaßen aussehen: „Man fährt mit dem Mauszeiger über ein interessantes Objekt und erhält sofort weitere Informationen dazu, um mehr über die Bedeutung des Objektes zu erfahren.“
 
  
-Wenn man die vier Konzepte allgemein auf den hier vorgestellten Prototypen übertragt, stellt man fest was wie sich die Konzepte innerhalb eines Dokuments auswirken:
+Wenn man die vier Konzepte allgemein auf den hier vorgestellten Prototypen übertragt, stellt man fest wie sich die Konzepte innerhalb eines Dokuments auswirken. Betrachtet wird ein einzelnes Dokumentelement:
 
  
 \begin{itemize}
 
-\item Zeichen: Entspricht der Projektion des abstrakten Syntaxbaumes (z.B. ein Abschnitt-Dokumentelement gesetzt als „Kapitel 1. Einleitung“)
+\item Zeichen: Entspricht einer Projektion des abstrakten Syntaxbaumes (z.B. ein Abschnitt-Dokumentelement gesetzt als „Kapitel 1. Einleitung“)
 \item Bezeichnetes: Ist ein Dokumentelement.
 \item Bedeutung: Erster gliedernder Abschnitt des Dokuments.
 \item Funktion: Der Autor fungiert während des Schreibens als Sender und Empfänger.
 \item Struktur: Entspricht dem abstrakten Syntaxbaum selbst bzw. dessen Metamodell.
 \end{itemize}
  
-Man kann argumentieren, dass hinter jedem Dokumentelement (z.B. Abschnitt, Absatz, Tabelle, ...) ein entsprechendes Domänenmodell steckt. Beispielsweise hinter einem Chemie-Dokumentelement stecke ein Moleküleditor, der ein entsprechendes Modell eines Moleküls produziert, sowie eine grafische Repräsentation (Bild eines Moleküls). Idealerweise liegt das Domänenmodell als domänenspezifische Sprache (DSL) vor. Im Bezug auf das Chemie-Dokumentelement könnte das die IUPAC-, Molfile- oder SMILES-Molekülnotation sein.Das würde bedeuten, dass der hier vorgestellte Syntaxbegriff auch gleichzeitig das Domänenmodell vertritt.
+Man kann argumentieren, dass hinter jedem Dokumentelement (z.B. Abschnitt, Absatz, Tabelle, ...) ein entsprechendes Domänenmodell steckt. Beispielsweise hinter einem Chemie-Dokumentelement stecke ein Moleküleditor, der ein entsprechendes Modell eines Moleküls produziert, sowie eine grafische Repräsentation (Bild eines Moleküls). Idealerweise liegt das Domänenmodell als domänenspezifische Sprache (DSL) vor. Im Bezug auf das Chemie-Dokumentelement könnte das die IUPAC-, Molfile- oder SMILES-Molekülnotation sein. Das würde bedeuten, dass der hier vorgestellte Syntaxbegriff auch gleichzeitig das Domänenmodell vertritt.
 
  
-Das heißt, dass bei der Erstellung eines Dokuments Dokumentelemente vom Autor entworfen werden können, welche Modelle der jeweiligen Wissenschaft enthalten können. Das ermöglicht dem Autor deutlich strukturierter, formaler und konsistenter an die Dokumentation seins Projektes heranzugehen. Zudem werden dem Leser dadurch explizite semantische Informationen bereitgestellt, welche direkt vom dahinterstehenden Modell stammen. Der Leser kann ggf. das Modell seines Kollegen in eigenen Dokumenten wiederverwenden. Vorteil hierbei wäre, dass weniger Fehler entstehen, da man direkt auf die Gedanken (welche in das Modell gegossen wurden) es Original-Autors zurückgreifen kann.
+Das heißt, dass bei der Erstellung eines Dokuments Dokumentelemente vom Autor entworfen werden können, welche Modelle der jeweiligen Wissenschaft enthalten können. Das ermöglicht dem Autor deutlich strukturierter, formaler und konsistenter an die Dokumentation seins Projektes heranzugehen. Zudem werden dem Leser dadurch explizite semantische Informationen bereitgestellt, welche direkt vom dahinterstehenden Modell stammen. Der Leser kann ggf. das Modell seines Kollegen in eigenen Dokumenten wiederverwenden. Vorteil hierbei wäre, dass weniger Fehler entstehen, da direkt auf die Gedanken (welche in das Modell gegossen wurden) des Original-Autors zurückgegriffen werden kann.
 
  
 Üblicherweise gibt es unter Dokumentelementen Verweise. Zum Beispiel ein Absatz-Dokumentelement möchte auf die Molekülmasse des Chemie-Dokumentelements verweisen. Dann sieht die Semiotik folgendermaßen aus:
@@ -428,21 +428,111 @@ Das heißt, dass bei der Erstellung eines Dokuments Dokumentelemente vom Autor e
 \begin{itemize}
 
 \item Zeichen: „Die Molekülmasse ist 144 g/mol.“ (So angezeigt durch den Absatz)
-\item Bezeichnetes: Chemie-Dokumentelement. (Welches das Modell des Moleküls enthält)
+\item Bezeichnetes: Chemie(molekül)-Dokumentelement. (Welches das Modell des Moleküls enthält)
 \item Bedeutung: Masse von Koffein in Gramm pro Mol. (Interessantes Objekt wäre „144 g/mol“)
 \item Funktion: Verweis
 \item Struktur: „{ koffein.masse }“ (hieraus folgt „144 g/mol“)
 \end{itemize}
  
-Mechanik: Der Programmierausdruck „koffein.masse“ (koffein wäre der Name des Chemie-Dokumentelements und masse eine bereitgestellte Methode des Chemie-Dokumentelement-Objektes) liefert ein semantisches Objekt, z.B. in Form eines Scala-Objekts des Typ z.B. Moleculemass. Moleculemass könnte an eine SI-Einheiten-Onologie angekoppelt sein und ausgestattet mit den Properties mass, name, unit mehr Informationen über seine Bedeutung(en) bereitstellen. Wenn der Leser mit seinem Mauszeiger über „144 g/mol“ fährt, kann diese Information aus dem Moleculemass-Objekt geholt werden und in Form einer farbigen Annotation angezeigt werden.
+Mechanik: Der Programmierausdruck „koffein.masse“ (koffein wäre der Name des Chemie-Dokumentelements und masse eine bereitgestellte Methode des Chemie-Dokumentelement-Objektes) liefert ein semantisches Objekt, z.B. in Form eines Scala-Objekts des Typs Moleculemass. Moleculemass könnte mit den Properties mass, name, unit ausgestattet sein, um mehr Informationen über seine Bedeutung(en) bereitstellen zu können. Zudem könnte es noch an eine SI-Einheiten-Onologie angekoppelt sein, um die semantischen Informationen mit dem Semantic Web zu teilen. Wenn der Leser mit seinem Mauszeiger über „144 g/mol“ fährt, kann diese Information aus dem Moleculemass-Objekt geholt werden und in Form einer farbigen Annotation angezeigt werden.
 
  
 \section{Taxonomie wissenschaftlicher Publikationen}\label{}
  
-Über die Jahrhunderte in denen wissenschaftliche Texte verfasst wurden, haben sich einige Konventionen und erprobte Vorgehensmodelle entwickelt. Diese Konventionen sind weit, über nationale Grenzen hinweg, verbreitet. In Recherchen ist jedoch aufgefallen, dass diese noch nicht sonderlich stark formalisiert wurden und somit auch noch nicht versucht wurde ein möglichst allgemeingültiges System zu finden. Das Bibliothekswesen hat schon sehr viel unternommen und formalisiert, jedoch fast ausschließlich auf der Metadaten-Ebene. Aber hier soll der innere Aufbau von Dokumenten erörtert werden.
+Über die Jahrhunderte in denen wissenschaftliche Texte verfasst wurden, haben sich gewisse Konventionen und Vorgehensmodelle, wie ein Dokument von seinem inneren Aufbau her beschaffen sein soll, herauskristallisiert. Diese Konventionen haben sich sogar über nationale Grenzen hinweg sehr ähnlich entwickelt, was es der Wissenschaftsgemeinde leichter macht, ihr intellektuelles Vermächtnis zu teilen.
 
+ 
+In Recherchen ist aufgefallen, dass es schon (wenn auch wenige) Versuche gegeben hat, eine möglichst allgemeingültige Systematik (z.T. formal) des inneren Dokumentenaufbaus herauszudestillieren. Jedoch sind diese Konzepte bisher kaum verbreitet, insbesondere bei der direkten Erstellung von (wiss.) Texten durch den Autor. Heutigen Autorensysteme unterstützen kaum explizite Semantik über das Domänenwissen mit dem sie gerade arbeiten -- dies fördert Fehler und Inkonsistenzen im Dokument.
+
+ 
+Die DIN-Normen \citep{DIN1421}, \citep{DIN1422-1}, \citep{DIN1422-3} und \citep{DIN1422-4} geben Empfehlungen, wie Texte gegliedert und benummert werden sollen bzw. wie im allgemeinen Manuskripte oder Forschungsberichte gestaltet werden sollen. Dies sind keine formalen Vorgaben, sondern vielmehr eine Zusammenfassung der hiesigen guten fachlichen Praxis in Wissenschaft, Technik, Wirtschaft und Verwaltung. Anders hingegen geht \citep{NISO} vor, hier wird formal mittels XML Schemas eine allgemein gültige Menge an XML-Tags für den Aufbau von Fachzeitschriftenartikeln zusammengestellt. Jedoch haben diese auch für anderen Publikationen ihre Gültigkeit, wie z.B. Briefe, Leitartikel oder Buchkritiken. \citep{Peroni} stellt eine Ontologie (in OWL 2) über einzelnen Komponenten, die in einem Dokument vorkommen können, zur Verfügung. Hier werden die Beziehungen die die Komponenten untereinander pflegen sichtbar gemacht. Es wird dabei zwischen strukturierenden (z.B. Abschnitt, Absatz) und rhetorischen Komponenten (z.B. Einleitung, Abbildung, Anhang) unterschieden.
+
+ 
+Hier soll versucht werden die Erkenntnisse der o.g. Quellen zu generalisieren, in der Hoffnung die Basis für ein formaleres bzw. präskriptiveres Autorensystem zu schaffen.
+
+ 
+\subsection{Dokumentelemente}\label{dokumentelemente}
+ 
+Dokumentelemente bilden das Grundgerüst eines jeden Dokuments. Hier wird versucht den Begriff genauer zu fassen und zu definieren. Es ergeben sich drei abstrakte Ausprägungen der Dokumentelemente:
+
+ 
+\begin{itemize}
+
+\item Struktur Elemente: Repräsentieren Komponenten, die textuellen bzw. grafischen Inhalt des Dokuments beinhalten. Sie tragen maßgeblich zum gedanklichen Gebäude des Dokuments bei.
+\item Container Elemente: Beinhalten andere Dokumentelemente (als Kinder), und haben daher für gewöhnlich keine Repräsentation die aktiv zum eigentlichen intellektuellen Inhalt des Dokuments beiträgt. Sie gruppieren also Elemente zu größeren Dokument-Bestandteilen; dies gibt Vorteile bei der Verarbeitung und Semantik des Dokuments. Beispielsweise werden Dokumente oft in Titelei und Hauptteil unterteilt, wobei die Titelei gerne römisch nummeriert wird und der Hauptteil arabisch. Hat man hier eine explizite Hierarchievorgabe zur Hand, erleichtert das die Verarbeitung; wie im Beispiel die gewollten Nummerierungskonventionen durchzusetzen.
+\item Metadaten Elemente: Sind Elemente die andere Elemente beschreiben bzw. allgemein gesprochen enthalten sie Daten über Daten. Beispielsweise eine Literatureintrag beschreibt lediglich einen Original-Artikel; oder eine Fußnote enthält eine Anmerkung über ein anderes Dokumentelement (die Fußnote verändert den Inhalt den das Dokument transportieren will an sich nicht, aber sie macht ihn verständlicher).
+\end{itemize}
+ 
+Die Dokumentelemente können zudem auch noch Attribute oder Properties enthalten. Diese enthalten Fakten über das betreffende Element, z.B. ob es sich bei einer Liste um eine geordnete Liste oder ungeordnete Liste handelt. Im Falle des hier vorgestellten Prototypen, kann man argumentieren, dass in den Attributen auch das jeweils vorliegende Domänenmodell des Dokumentelements abgelegt wird.
+
+ 
+In DoCO wird ein Unterschied zwischen strukturierenden (z.B. Abschnitt, Absatz) und rhetorischen Komponenten (z.B. Einleitung, Diskussion, Abbildung) unterschieden. Hier wird jedoch nur das Struktur Element benötigt, da die rhetorische Bedeutung über die Attribute des Elements hinzugefügt werden kann. Allgemein gesprochen gehört die rhetorische Bedeutung zur Semantik des Elements. Die Semantik des Elements wird wiederum maßgeblich über das Domänenmodell gewonnen und dieses ist wiederum in den Attributen ansässig. Daher muss kein Unterschied zwischen strukturierenden und rhetorischen Komponenten gemacht werden.
+
+ 
+\subsubsection{Bedeutung für das Dokumentmodell}\label{}
+
+ 
+Im Dokumentmodell, also dem abstrakten Syntaxbaum entsprechen die Struktur Elemente den Blättern und die Container Elemente entsprechen den inneren Knoten. Metadaten Elemente kommen entweder wie Struktur Elemente vor oder werden in ein extra „Metadokument“ ausgelagert, falls die Metadaten Elemente nur einzelne Attribute bereitstellen sollen und nicht in Gänze angezeigt werden.
+
+ 
+\subsubsection{Verweisungen}\label{}
+
+ 
+\citep{Peroni} und \citep{NISO} modellieren mehr Dokumentelemente als in der vorgestellten Taxonomie (s. Abschnitt \ref{taxonomiesec}). Das liegt zum einen daran, dass hier viele dieser „Elemente“ in dem hier vorgestellten Modell als Attribute abgelegt werden. Hier treten nur die Komponenten explizit als Dokumentelement auf, bei denen es Sinn macht auch als ein Knoten des abstrakten Syntaxbaumes abgebildet zu werden. Zum anderen werden in den Modellen von (ebd.) Verweisungen, die sich innerhalb des Dokuments abspielen (z.B. auf Kapitel oder Abbildungen), auch explizit als Dokumentelement modelliert. Dies macht aber in dem hier vorgestellten Dokumentmodell wenig Sinn.
+
+ 
+Denn hier treten Verweisungen nicht in Form von Knoten auf, sondern sie entsprechen den Kanten des Dokumentengraphs. Wenn ein Knoten (also Dokumentelement) eine Information von einem anderen Knoten erhalten will, werden Nachrichten mit den Informationen ausgetauscht. Durch diesen Mechanismus werden die Verweisungen im Dokument schlussendlich aufgelöst. Wir haben also ein ganz klares Modell: Inhalte in die Blätter, Hierarchie in die inneren Knoten, Semantik und Modelle in die Attribute und Verweisungen fließen über die Kanten, also in der Implementierung des Prototypen als Nachrichten-Kommunikation.
+
+ 
+\subsection{Taxonomie}\label{taxonomiesec}
+ 
+In der Tabelle auf Abb. \ref{taxonomie} sind nochmals alle drei Ausprägungen der Dokumentelemente (s. Abschnitt \ref{dokumentelemente}) übersichtlich dargestellt. Sie sind von abstrakt zu konkreter werdend geordnet. In der vorletzten Spalte sind die eigentlichen Kernelemente aufgezeigt, welche auch so im Dokument vorkommen können. In der letzten Spalte sind mögliche Attribute, Properties bzw. Methoden aufgelistet, die dem Element zusätzliche (semantische) Informationen hinzufügen.
+
+ 
+Mit den in der Tabelle (Abb. \ref{taxonomie}) aufgelisteten Dokumentelementen kann man ein typisches, aber sehr allgemein gehaltenes, wissenschaftliches Dokument aufbauen. Die Gesamtheit der hier vorliegenden Dokumentelemente beschreibt somit eine ganz bestimmte Dokumentklasse, welche als allgemeiner „wissenschaftlicher Bericht“ oder „Report“ bezeichnet werden kann. Aber es gibt auch noch beliebige andere Klassen (z.B. Patente, Normen, Softwaredokumentation, etc.), die möglicherweise einen (leicht) anderen Aufbau haben und somit ggf. andere Dokuementelemente benötigen. Neu definierte Dokumentelemente (z.B. für eine andere Dokumentklasse) sollten sich leicht in diese Taxonomie eingliedern lassen. Damit liegen sie nicht mehr als implizite Aufbauvorschrift (gemeint ist so etwas wie ein Corporate Design) vor, sondern sind explizit, für die Nutzung in einem Autorensystem welches die Taxonomie umsetzt, formalisiert.
+
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/taxonomie.svg.pdf} }
+\caption{ Taxonomie des inneren Aufbaus von wissenschaftlichen Dokumenten. Sortiert von abstrakt zu konkret. }\label{taxonomie}
+\end{figure}
  
 \subsection{Dokumentstruktur Matrix}\label{}
  
+Damit das Autorensystem beim Erstellen eines formal korrekten Dokuments helfen kann, wird ein Regelwerk benötigt welches vorschreibt „welches Element nach wem erlaubt ist“ (erlaube Geschwister-Beziehungen) und „wo darf welches Element vorkommen“ (erlaube Eltern-Kind-Beziehungen).
 
  
+Durch diese Formalisierung kann der Autor wie auf Schienen durch den Aufbau geführt werden.Er muss sich also nicht mehr selbst darum kümmern die impliziten Vorgaben der Dokumentklasse durchzusetzen.Das heißt er macht weniger Fehler beim Aufbau des Dokuments, da das System assistierend zur Seite steht, um die gewählte Dokumentklasse ihrem Regelwerk konform zu halten und er sich stärker auf die Erstellung des Inhalt konzentrieren kann.Zudem liefert jedes Dokumentelement ein Set an Attributen mit, was es ermöglicht mehr explizite Semantik in das Dokument zu bringen und das Dokument insgesamt konsistenter zu halten.
+
+ 
+\subsubsection{Erlaube Verschachtelungen}\label{}
+
+ 
+Auf Abbildung \ref{matrixkind} sind die erlaubten Eltern-Kind-Beziehungen der vorliegenden Dokumentklasse definiert. Die hier dargestellte Matrix ist eine Vereinfachung, also nur eine Auswahl an Dokumentelementen, der Taxonomie aus Tabelle auf Abb. \ref{taxonomie}. Diese Matrix definiert die erlaube Schachtelung der vorliegenden Dokumentklasse.
+
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/matrixkind.svg.pdf} }
+\caption{ Stellt die erlaubten Eltern-Kind-Beziehungen zwischen den Dokumentelementen dar. Hier wird also definiert mit welchen Elementen die Hierarchie des Dokuments aufgespannt werden darf. }\label{matrixkind}
+\end{figure}
+ 
+\subsubsection{Erlaube Abfolgen}\label{}
+
+ 
+Auf Abbildung \ref{matrixgeschwister} sind die erlauben Nachfolger-Vorgänger-Bezeihungen der hier beispielhaft vorliegenden Dokumentklasse als Matrix dargestellt. Hier wird also die Frage geklärt, welches Dokumentelemente aneinander gereiht werden dürfen, um ein wohlgeformtes Dokument der vorliegenden Dokumentklasse zu bilden.
+
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/matrixgeschwister.svg.pdf} }
+\caption{ Stellt die erlaubten Geschwister-Beziehungen (Nachfolger/Vorgänger) zwischen den Dokumentelementen dar. Hier wird also definiert welche Elementen aneinandergereiht werden dürfen. }\label{matrixgeschwister}
+\end{figure}
+ 
+\subsection{Deutung}\label{}
+ 
+Wenn man also ein Set an Dokumentelementen definiert und in die Taxonomie eingegliedert hat, zudem noch die erlaubten Beziehungen zwischen den Dokumentelementen in Matrixform definiert hat, dann erhält man eine präzise definierte Dokumentklasse. Nützlich ist das nicht nur um dem Autor „Schienen“ für die Dokumenterstellung bereitzustellen, sondern auch für Klassifikationsaufgaben. Beispiel: Im Zuge von Information Retrieval hat man verschiedene mit OCR aufbereitete PDFs, welche man gerne einer Dokumentklasse zuordnen möchte, um sie wieder in ein „sauberes“ oder aktuelles Template zu überführen. Wenn nun ein Klassifikator die aufbereiteten PDFs in ihre Dokumentelemente zerlegt, kann über die Gesamtheit der im PDF gefunden Dokumentelemente und deren Anordnung bzw. Verschachtelung, dank der aufgestellten Taxonomien bzw. Matrizen, auf die Dokumentklasse (z.B. EU-Patent, US-Patent, DIN-Norm, etc.) zurückgeschlossen werden.
