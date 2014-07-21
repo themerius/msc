@@ -536,3 +536,82 @@ Auf Abbildung \ref{matrixgeschwister} sind die erlauben Nachfolger-Vorgänger-Be
 \subsection{Deutung}\label{}
  
 Wenn man also ein Set an Dokumentelementen definiert und in die Taxonomie eingegliedert hat, zudem noch die erlaubten Beziehungen zwischen den Dokumentelementen in Matrixform definiert hat, dann erhält man eine präzise definierte Dokumentklasse. Nützlich ist das nicht nur um dem Autor „Schienen“ für die Dokumenterstellung bereitzustellen, sondern auch für Klassifikationsaufgaben. Beispiel: Im Zuge von Information Retrieval hat man verschiedene mit OCR aufbereitete PDFs, welche man gerne einer Dokumentklasse zuordnen möchte, um sie wieder in ein „sauberes“ oder aktuelles Template zu überführen. Wenn nun ein Klassifikator die aufbereiteten PDFs in ihre Dokumentelemente zerlegt, kann über die Gesamtheit der im PDF gefunden Dokumentelemente und deren Anordnung bzw. Verschachtelung, dank der aufgestellten Taxonomien bzw. Matrizen, auf die Dokumentklasse (z.B. EU-Patent, US-Patent, DIN-Norm, etc.) zurückgeschlossen werden.
+
+ 
+\chapter{Anwendungsfälle}\label{}
+ 
+\section{Erstellung wissenschaftlicher Dokumente}\label{}
+ 
+In erster Linie soll das System Autoren bei der Erstellung hochwertiger wissenschaftlicher Arbeiten helfen.
+
+ 
+\begin{itemize}
+
+\item Einführung/Motivation/Szenario/Ziel
+\item Erhoffte Verbesserung/Nutzen
+\item Beschreiben wie die allgemeine Nutzung ablaufen soll; Bedienvorteile
+\item Gibt es Modelle? Wird Semantik explizit sichtbar gemacht? Besser für die Konsistenz?
+\end{itemize}
+ 
+\section{UIMA CAS Editor}\label{}
+ 
+Edit me!
+
+ 
+\section{Dokumentation von Spray-Modellen}\label{}
+ 
+Spray\footnote{Webseite des Spray Projekts: eclipselabs.org/p/spray/} ist ein Forschungsprojekt im Bereich der modellgetriebenen Softwareentwicklung, an der HTWG Konstanz. Spray erstellt Editoren für visuelle domänenspezifische Sprachen (DSL). Das heißt mit Spray können z.B. Diagramme wie Petrinetze, UML, etc. formal definiert werden und aus diesen Definitionen kann ein Editor generiert werden. Mit einem solchen Editor kann dann das jeweilige Diagramm gezeichnet bzw. modelliert werden kann. Vorteil ist, dass durch die Grammatik der visuellen DSL genau spezifiziert ist, welche Verbindungen zwischen den einzelnen Knoten erlaubt sind und welche nicht, d.h. der Diagramm Editor kann zu einem gewissen Grad die Korrektheit des Modells überprüfen.
+
+ 
+Das heißt ein mit Spray generierter Editor arbeitet auf einer abstrakteren Ebene -- der Modellebene. Das Modell selbst sollte jedoch auf einer noch abstrakteren Ebene beschrieben werden: in einer natürlichen Sprache. Andernfalls ist es einem Menschen kaum möglich ein Modell und dessen Zweckbezug, ohne große Hürden, zu verstehen. Einfacher ausgedrückt: das Modell muss dokumentiert werden, damit andere Projektbeteiligte auch etwas damit anfangen können. Man kann also argumentieren, dass Dokumentation in der Abstraktionsebene nochmals über dem eigentlichen Modell liegt, und das Modell um benötigte sprachliche Erklärungen anreichert. Die Dokumentation fügt also explizit den Pragmatismus zum Modell hinzu: für wen, wann und wozu gibt es das Modell?
+
+ 
+\subsection{Erhoffter Nutzen}\label{}
+ 
+Die hier vorgestellten Konzepte bzw. Prototyp ermöglichen quasi das gleichzeitige Modellieren und Dokumentieren. Die Dokumentationssoftware ist in der Lage direkt mit dem Modell zu interagieren und daher ist die Dokumentation in einem sehr hohen Maß konsistent. Zudem ist das Dokumentieren dann kein isolierter Prozess mehr „den man machen muss“, sondern gehört zum Arbeitsablauf der Modellierung dazu. Das heißt von der Idee bis zum fertigen Modell kann die Dokumentation das Gedankengebäude des Entwicklers sinnvoll unterstützen.
+
+ 
+Und ich persönlich denke, dass sich durch ein solches Dokumentationswerkzeug ein System wie Spray von anderen Lösungen absetzt und daher ein großes Erfolgspotential entwickeln kann. Gibt es bereits ein solches Werkzeug im Bereich der modellgetriebenen Softwareentwicklung, wo Dokumentation und Modellierung derart integriert werden können und zudem in einem veröffentlichungsbereiten Format vorliegen, welches wissenschaftlichen Standards entspricht?
+
+ 
+\subsection{Konzeptionelle Umsetzung}\label{}
+ 
+Der vorgestellte Anwendungsfall wurde beispielhaft im hier entwickelten Prototypen umgesetzt. Das Forschungsteam um Spray hat die Software von einer reinen Java/Eclipse Implementierung ins Web gebracht, das heißt die generierten Diagramm-Editoren liegen auch als Webanwendung mit REST-Schnittstelle vor. Der Prototyp selbst ist auch mit Web Standards gebaut und kann daher recht mühelos mit „Spray Online“ interagieren.
+
+ 
+Es wurde in Wrapper entwickelt, der es ermöglicht den Spray Online Editor in Form eines Dokumentelements anzubieten. Jedes Dokumentelement kann beliebige Ansichten oder Projektionen haben. Hier gibt es zum einen eine Editierungsansicht (dort können DSLs oder Domäneneditoren platziert werden) und zum anderen eine reine Anzeigeansicht (z.B. als Webseite). Das Spray-Dokumentelement bettet den originalen Spray-Editor in Form einen iframes in die Editierungsansicht ein. Der Benutzer kann dann direkt Änderungen an seinem Spray-Modell vornehmen. Wenn der Benutzer die Änderungen speichert, holt sich das Spray-Dokumentelement den aktuellen Zustand des Modells aus der Spray-Persistenz via REST-Schnittstelle. Im Zustand des Modells sind alle Informationen über das Modell gespeichert, wie z.B. die Namen der einzelnen Diagramm-Knoten. Dadurch dass das Spray-Dokumentelement Zugriff auf die Attribute des Spray-Modells hat, kann im Dokument auf diese Attribute durch Verweisungen zugegriffen werden. Mit diesem Zugriff kann das Dokument mit dem Modell konsistent gehalten werden und es besteht die Möglichkeit Semantik explizit zu machen, indem zusätzliche Informationen über die Bedeutung des referenzierten Attributes angezeigt werden. Für die Anzeigeansicht holt sich das Spray-Dokumentelement ein svg-Bild des Diagramms -- dieses kann über einen HTTP-Request vom Spray Online Editor abgefragt werden.
+
+ 
+Auf Abbildung \ref{sprayanzeigen} ist das Szenario aufgezeigt. Ziel ist es, Attribute aus dem Spray-Modell als Verweis innerhalb des Textes anzuzeigen. Hier im Beispiel soll der Name einer Stelle aus einem Petrinetz im Text referenziert werden.
+
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/sprayanzeigen.png.pdf} }
+\caption{ Im blau gestrichelten Kasten ist das Spray-Dokumentelement in seiner Anzeigeansicht zu sehen. Szenario: Der Name einer Stelle des Petrinetz-Diagramms soll im Text erwähnt werden (roter Pfeil). }\label{sprayanzeigen}
+\end{figure}
+ 
+Wenn der Benutzer das Spray-Dokumentelement anklickt, öffnet sich eine Editieransicht in der das Modell manipuliert werden kann. (Dargestellt auf Abbildung \ref{sprayeditieren}) Dort wird der (1) Domäneneditor „Spray Online“ dargestellt. Der Editor hat ein Petrinetz-Modell geladen, welches vom Benutzer manipuliert werden kann. Das Spray-Dokumentelement kann (2) einen Namen erhalten, um es später beim Verweisen auf das Modell (komfortabel) wieder zu finden. Wenn der Benutzer (3) die Änderungen speichert, holt sie das Spray-Dokumentelement die aktuellen Informationen über den momentanen Zustand des Modells (wie z.B. die Namen der einzelnen Diagramm-Komponenten).
+
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/sprayeditieren.png.pdf} }
+\caption{ Ansicht zum Bearbeiten des Spray-Dokumentelement. In (1) ist der Domäneneditor, welcher das Modell in Diagrammform anzeigt und durch den Benutzer manipulierbar macht. Das Modell kann benannt werden für die spätere Verweisung im Text (2). Speichern der Veränderungen (3) veranlassen das Spray-Dokumentelement die aktuellen Modell-Informationen zu laden. }\label{sprayeditieren}
+\end{figure}
+ 
+In Abbildung \ref{sprayreferenzieren} wird die Editieransicht eines Abschnitts gezeigt. Dieser Abschnitt soll auf das Modell verweisen, und sich bei Änderungen des Modells selbst aktualisieren zu können. Der Programmausdruck holt sich die entsprechenden Informationen über das Modell direkt beim Spray-Dokumentelement ab. Der rot unterstrichene Teil-Programmausdruck zeigt alle verfügbaren Modell-Informationen (s. Pfeil),  die es gerade über alle Stellen im Petrinetz gibt, an. So kann sich der Autor auch eine einzelne Stelle des Petrinetzes herauspicken und ihren (aktuellen) Namen abfragen. Abbildung \ref{sprayanzeigen} zeigt das Resultat.
+
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/sprayreferenzieren.png.pdf} }
+\caption{ Hier wird auf das Spray-Dokumentelement verwiesen. Mit einem Programmausdruck kann der aktuelle Zustand des Modells abgefragt werden und bei Bedarf auf einzelne Attribute verwiesen werden. Bei Modelländerungen (z.B. Umbenennungen eines Diagrammknotens) bleibt der Text konsistent. }\label{sprayreferenzieren}
+\end{figure}
+ 
+\section{Transformation in andere Formate}\label{}
+ 
+Das wird immer gebraucht! Dokumente für Langzeitarchive rüsten, neue Formatkonventionen -> Update auf aktuelle Version -> Lesbarkeit für aktuelle Programmversionen, alte Formatkonventionen -> Lesbarkeit für lagacy Programmversionen, Verwendung anderer Datenmodelle / Datenbanken, Dokument auf Anwendungsgebiet spezialisieren (z.B. zum Lesen, zum Bearbeiten, für Knowledge Discovery / Semantic Web / Data Mining, Ausrichtung an bestimmte Leserschaft/Publikum), eBooks
