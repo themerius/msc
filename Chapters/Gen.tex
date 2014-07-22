@@ -416,7 +416,7 @@ Wenn man die vier Konzepte allgemein auf den hier vorgestellten Prototypen über
 \item Struktur: Entspricht dem abstrakten Syntaxbaum selbst bzw. dessen Metamodell.
 \end{itemize}
  
-Man kann argumentieren, dass hinter jedem Dokumentelement (z.B. Abschnitt, Absatz, Tabelle, ...) ein entsprechendes Domänenmodell steckt. Beispielsweise hinter einem Chemie-Dokumentelement stecke ein Moleküleditor, der ein entsprechendes Modell eines Moleküls produziert, sowie eine grafische Repräsentation (Bild eines Moleküls). Idealerweise liegt das Domänenmodell als domänenspezifische Sprache (DSL) vor. Im Bezug auf das Chemie-Dokumentelement könnte das die IUPAC-, Molfile- oder SMILES-Molekülnotation sein. Das würde bedeuten, dass der hier vorgestellte Syntaxbegriff auch gleichzeitig das Domänenmodell vertritt.
+Man kann argumentieren, dass hinter jedem Dokumentelement (z.B. Abschnitt, Absatz, Tabelle, ...) ein entsprechendes Domänenmodell steckt. Beispielsweise hinter einem Chemie-Dokumentelement stecke ein Moleküleditor, der ein entsprechendes Modell eines Moleküls produziert, sowie eine grafische Repräsentation (Bild eines Moleküls). Idealerweise liegt das Domänenmodell als domänenspezifische Sprache (DSL) vor. Im Bezug auf das Chemie-Dokumentelement könnte das die IUPAC-, Molfile-\footnote{Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe de.wikipedia.org/wiki/Chemoinformatik „Repräsentation chemischer Strukturen“.} oder SMILES-Molekülnotation sein. Das würde bedeuten, dass der hier vorgestellte Syntaxbegriff auch gleichzeitig das Domänenmodell vertritt.
 
  
 Das heißt, dass bei der Erstellung eines Dokuments Dokumentelemente vom Autor entworfen werden können, welche Modelle der jeweiligen Wissenschaft enthalten können. Das ermöglicht dem Autor deutlich strukturierter, formaler und konsistenter an die Dokumentation seins Projektes heranzugehen. Zudem werden dem Leser dadurch explizite semantische Informationen bereitgestellt, welche direkt vom dahinterstehenden Modell stammen. Der Leser kann ggf. das Modell seines Kollegen in eigenen Dokumenten wiederverwenden. Vorteil hierbei wäre, dass weniger Fehler entstehen, da direkt auf die Gedanken (welche in das Modell gegossen wurden) des Original-Autors zurückgegriffen werden kann.
@@ -540,23 +540,87 @@ Wenn man also ein Set an Dokumentelementen definiert und in die Taxonomie eingeg
  
 \chapter{Anwendungsfälle}\label{}
  
-\section{Erstellung wissenschaftlicher Dokumente}\label{}
+\section{Erstellung wissenschaftlicher Dokumente}\label{wiss-dok-abschnitt}
  
-In erster Linie soll das System Autoren bei der Erstellung hochwertiger wissenschaftlicher Arbeiten helfen.
+In erster Linie soll das System Autoren bei der Erstellung hochwertiger wissenschaftlicher Berichte helfen.
 
  
-\begin{itemize}
+Diese Masterarbeit selbst, wurde mit dem mit dem in ihr beschriebenen Prototypen erstellt. Dies veranschaulicht die Tragfähigkeit der Konzepte, bzw. die Stabilität der momentanen Prototypen-Implementierung.
 
-\item Einführung/Motivation/Szenario/Ziel
-\item Erhoffte Verbesserung/Nutzen
-\item Beschreiben wie die allgemeine Nutzung ablaufen soll; Bedienvorteile
-\item Gibt es Modelle? Wird Semantik explizit sichtbar gemacht? Besser für die Konsistenz?
-\end{itemize}
  
-\section{UIMA CAS Editor}\label{}
- 
-Edit me!
+Damit das Dokument später auch der Hochschule bzw. Fakultät vorgelegt werden kann, muss es auch noch in einem printfähigen Format (insb. mit Paginierung) vorliegen.  Da zur Zeit noch keine Paginierung der Web-Ansicht erfolgt, muss auch noch auf ein anderes Werkzeug zurückgegriffen werden, um ein printfähiges Format zu erhalten. Da das System, dank des abstrakten Syntaxbaumes, fähig ist das Dokument in verschiedene Ansichten zu präsentieren, kann auch LaTeX-Code generiert werden.  Nähere Erklärungen zu solchen Transformationen in Abschnitt \ref{transformation}. Das heißt die Print-Version der Masterarbeit kann zudem noch via LaTeX erzeugt werden. In Zukunft sollte es jedoch kein Problem darstellen eine Print-Paginierung in die Web-Ansicht zu integrieren, dazu kann der Layouter „scaltex.js“, welcher in der Bachelorarbeit \citep{Hodapp} entstanden ist, eingesetzt werden.
 
+ 
+Um einen wissenschaftlichen Text, wie eine Masterarbeit, verfassen zu können, müssen einige (Basis) Dokumentelemente vom Prototyp bereitgestellt werden, zudem müssen Verweise unter den Dokumentelementen möglich sein. Beispielsweise (mit den Implementierungsnamen): Chapter, Section, SubSection, SubSubSection und Figure mit automatischer Benummerung; Paragraph, List, ArabicList, RomanList, Quotation, Footnote; FrontMatter, BodyMatter, BackMatter.
+
+ 
+\subsection{Szenario: Chemie}\label{}
+ 
+Für Demonstrationszwecke wurde auch ein Chemie-Dokumentelement erstellt, welches einen Moleküleditor anbietet. Damit wäre der Autor komfortabel in der Lage in seinem Dokument direkt chemische Moleküle zu zeichnen und darauf zu verweisen. Der Moleküleditor produziert Molfiles\footnote{Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe de.wikipedia.org/wiki/Chemoinformatik „Repräsentation chemischer Strukturen“.} als Ausgabe- bzw. Austauschformat, dieses Molfile ist also ein (persistentes) Modell für ein Molekül. Das Chemie-Dokumentelement könnte noch an eine Chemie-Bibliothek, die Molfiles verarbeiten kann, angebunden werden. Eine solche Programmbibliothek kann weitere Informationen zu den verwiesenen Molekülen bereitstellen, und damit einen erheblichen Beitrag zur expliziten Semantik und Konsistenz des Dokument beitragen.
+
+ 
+Auf Abbildung \ref{Aspirin} ist ein durch das Chemie-Dokumentelement generiertes Molekül abgebildet. Wenn man darauf klickt, wird der Domäneneditor Ketcher geöffnet (s. Abb. \ref{chemieeditieren}). Ketcher\footnote{Webseite des Ketcher Projekts: ggasoftware.com/opensource/ketcher} ist ein in Javascript geschriebener Moleküleditor für den Webbrowser. Das Chemie-Dokumentelement umhüllt diesen Moleküleditor lediglich und verwendet die Ketcher-API, um ein svg-Bild aus dem Molekül für die reine Ansicht zu generieren.
+
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/Aspirin.svg.pdf} }
+\caption{ Generiertes Molekül Aspirin. }\label{Aspirin}
+\end{figure}
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/chemieeditieren.png.pdf} }
+\caption{ Bildschirmaufnahme der Editier-Ansicht des Chemie-Dokumentelements. Es ist der Domäneneditor „Ketcher“ (1) zu sehen, der gerade das Aspirin Molekül anzeigt und zum editieren einlädt. Zudem wird das Modell (2) des Aspirin Moleküls im Molfile-Format angezeigt. }\label{chemieeditieren}
+\end{figure}
+ 
+\section{UIMA CAS Editor}\label{uima-cas-kapitel}
+ 
+Apache UIMA\footnote{Webseite des Apache UIMA (Unstructured Information Management Architecture) Projekts: uima.apache.org } ist ein Softwaresystem mit dessen Hilfe neues, für den Benutzer relevantes, Wissen aus großen unstrukturierten Datenmengen gewonnen werden kann.
+
+ 
+Ein einfacher Text kann um Anmerkungen, den Annotationen, angereichert werden. Diese Annotationen sorgen dafür einzelne Entitäten des Texts zu identifizieren, wie z.B. Personen, Orte, Organisationen etc. oder Relationen wie „arbeitet für“.
+
+ 
+CAS (Common Analysis System) Objekte bieten Zugriff auf das Typsystem, Indexe, Iteratoren und Filter von UIMA. Insbesondere ist es möglich Annotationen mit dem CAS Objekt zu erstellen. Das heißt in einem CAS Objekt kann ein Dokument mit Annotationen gespeichert werden. Ein solches CAS Objekt kann in das XML Metadata Interchange (XMI) Format serialisiert werden, wodurch es möglich ist annotierte Dokumente zu persistieren und auszutauschen.
+
+ 
+Mit einem CAS\footnote{UIMA CAS Objekt Dokumentation: uima.apache.org/downloads/releaseDocs/2.3.0-incubating/docs/api/org/apache/uima/cas/CAS.html} Editor würde ein Autor also gerne im betrachteten Dokument mit Annotationen arbeiten:
+
+ 
+\begin{enumerate}
+
+\item Annotationen anzeigen,
+\item Annotation bearbeiten und
+\item Annotationen hinzufügen.
+\end{enumerate}
+ 
+\subsection{Konzeptuelle Umsetzung}\label{}
+ 
+Für jeden Annotations-Typ (z.B. Person, Ort, etc.) müsste ein entsprechendes Dokumentelement angelegt werden, d.h. das Metamodell des Dokuments muss entsprechend erweitert werden. Wenn das Metamodell um die gewünschte Menge an Annotations-Typen erweitert ist, kann der Prototyp automatisch mit den neuen Dokumentelementen bzw. Annotationen umgehen. Da jedes Dokumentelement das Modell seiner Domäne vertritt, können hier auch zusätzliche (semantische) Informationen, die für die jeweilige Annotation wichtig sind, abgelegt werden.
+
+ 
+\begin{quote}
+ Annotation bedeutet „Anmerkung“, „Beifügung“, „Hinzufügung“. In diesem Sinn haben Annotationen bei Stichworten, Begriffsklärungen oder ausführlichen Texten den Charakter der Erklärung beziehungsweise Ergänzung. Annotationen halten Dinge fest, die zwar nicht als wesentlich für das Hauptstichwort oder den Haupttext erachtet werden, aber wichtige Zusatzinformationen darstellen. Sie sind es immerhin wert, ausdrücklich festgehalten zu werden, und auf diese Weise erhalten die bezeichneten Inhalte einen Platz in der Ordnung des Ganzen, ohne die Struktur zu stören oder die Sinnlinie der Aussage zu unterbrechen. \citep{WikiAnnotation}
+\end{quote}
+ 
+Das heißt, Annotationen sind nicht zwingender Bestandteil des eigentlichen Dokuments, welches den intellektuellen Inhalt liefert. Sie sind eher Stützen welche das Dokument leichter verständlich machen. Daher können sie den Metadaten Dokumentelementen zugeordnet werden.
+
+ 
+Für diesen Zweck wurde im Prototyp ein Metadokument implementiert. Dieses enthält Zusätze oder Aussagen, die vom eigentlichen Dokument separiert sein sollen. Das Metadokument erbt die gesamte Infrastruktur des Hauptdokuments. Sie haben einen  gemeinsamen Dokumentelement-Pool und können daher gegenseitig auf die vorkommenden Dokumentelemente zugreifen (z.B. via Verweis). Schöner Nebeneffekt: Die Annotationen können im Metadokument übersichtlich angeordnet und dort ggf. dokumentiert werden.
+
+ 
+Annotationen werden durch ein „mouse over“ im Browser farbig hervorgehoben (s. Abb. \ref{annotation}). Im Metadokument können neue Annotationen hinzugefügt werden und via Verweis in ein beliebiges Dokumentelement gebracht werden. Im Metadokument können sie auch bearbeitet werden. Für Demonstrationszwecke wurde das Dokumentelement „Annotation“ implementiert. Als Beispieldokumente dienen Patentschriften die durch das vom Fraunhofer SCAI geleitete Projekt \emph{UIMA-HPC}\footnote{Webseite des UIMA-HPC Projekts: uima-hpc.org} digitalisiert, durchsuchbar und annotiert wurden. Das SCAI.BIO abteilungsinterne Werkzeug „The Interfacer“ kann CAS Objekte (in denen die Patentschriften u.a. vorliegen) in Datenstrukturen des Prototypen übersetzen und somit für den Prototypen mühelos nutzbar machen.
+
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/annotation.png.pdf} }
+\caption{ Entnommen aus Screenshots des Prototypen. Es wird dargestellt, wie Annotationen vom Meta Dokument in das Haupt Dokument (über Verweisung) fließen können. Im Haupt Dokument werden bei „mouse over“ alle Annotationen vom gleichen Annotations-Typ „Annotation“ farbig hervorgehoben. Es ist möglich beliebige Annotations-Typen (als Dokumentelement) zu kreieren. }\label{annotation}
+\end{figure}
  
 \section{Dokumentation von Spray-Modellen}\label{}
  
@@ -576,7 +640,7 @@ Und ich persönlich denke, dass sich durch ein solches Dokumentationswerkzeug ei
  
 \subsection{Konzeptionelle Umsetzung}\label{}
  
-Der vorgestellte Anwendungsfall wurde beispielhaft im hier entwickelten Prototypen umgesetzt. Das Forschungsteam um Spray hat die Software von einer reinen Java/Eclipse Implementierung ins Web gebracht, das heißt die generierten Diagramm-Editoren liegen auch als Webanwendung mit REST-Schnittstelle vor. Der Prototyp selbst ist auch mit Web Standards gebaut und kann daher recht mühelos mit „Spray Online“ interagieren.
+Der vorgestellte Anwendungsfall wurde beispielhaft im hier entwickelten Prototypen umgesetzt. Das Forschungsteam um Spray hat die Software von einer reinen Java/Eclipse Implementierung ins Web gebracht, das heißt die generierten Diagramm-Editoren liegen auch als Webanwendung\footnote{Momentan liegt die Spray Online Webanwendung nur intern im VPN-Netz der HTWG Konstanz vor.} mit REST-Schnittstelle vor. Der Prototyp selbst ist auch mit Web Standards gebaut und kann daher recht mühelos mit „Spray Online“ interagieren.
 
  
 Es wurde in Wrapper entwickelt, der es ermöglicht den Spray Online Editor in Form eines Dokumentelements anzubieten. Jedes Dokumentelement kann beliebige Ansichten oder Projektionen haben. Hier gibt es zum einen eine Editierungsansicht (dort können DSLs oder Domäneneditoren platziert werden) und zum anderen eine reine Anzeigeansicht (z.B. als Webseite). Das Spray-Dokumentelement bettet den originalen Spray-Editor in Form einen iframes in die Editierungsansicht ein. Der Benutzer kann dann direkt Änderungen an seinem Spray-Modell vornehmen. Wenn der Benutzer die Änderungen speichert, holt sich das Spray-Dokumentelement den aktuellen Zustand des Modells aus der Spray-Persistenz via REST-Schnittstelle. Im Zustand des Modells sind alle Informationen über das Modell gespeichert, wie z.B. die Namen der einzelnen Diagramm-Knoten. Dadurch dass das Spray-Dokumentelement Zugriff auf die Attribute des Spray-Modells hat, kann im Dokument auf diese Attribute durch Verweisungen zugegriffen werden. Mit diesem Zugriff kann das Dokument mit dem Modell konsistent gehalten werden und es besteht die Möglichkeit Semantik explizit zu machen, indem zusätzliche Informationen über die Bedeutung des referenzierten Attributes angezeigt werden. Für die Anzeigeansicht holt sich das Spray-Dokumentelement ein svg-Bild des Diagramms -- dieses kann über einen HTTP-Request vom Spray Online Editor abgefragt werden.
@@ -612,6 +676,15 @@ In Abbildung \ref{sprayreferenzieren} wird die Editieransicht eines Abschnitts g
 \caption{ Hier wird auf das Spray-Dokumentelement verwiesen. Mit einem Programmausdruck kann der aktuelle Zustand des Modells abgefragt werden und bei Bedarf auf einzelne Attribute verwiesen werden. Bei Modelländerungen (z.B. Umbenennungen eines Diagrammknotens) bleibt der Text konsistent. }\label{sprayreferenzieren}
 \end{figure}
  
-\section{Transformation in andere Formate}\label{}
+\section{Transformation in andere Formate}\label{transformation}
  
-Das wird immer gebraucht! Dokumente für Langzeitarchive rüsten, neue Formatkonventionen -> Update auf aktuelle Version -> Lesbarkeit für aktuelle Programmversionen, alte Formatkonventionen -> Lesbarkeit für lagacy Programmversionen, Verwendung anderer Datenmodelle / Datenbanken, Dokument auf Anwendungsgebiet spezialisieren (z.B. zum Lesen, zum Bearbeiten, für Knowledge Discovery / Semantic Web / Data Mining, Ausrichtung an bestimmte Leserschaft/Publikum), eBooks
+Dokumente in andere Formate zu überführen war schon immer notwendig, und in modernen Zeiten immer wichtiger. Beispielsweise werden von wissenschaftlichen Berichten (wie Diplomarbeiten) Manuskripte angefertigt. Diese werden später vom Verleger überarbeitet und in ein Buch (oder eBook) gesetzt, vgl. \citep{DIN1422-1}. Daran hat sich nichts geändert, nur dass die Schreibmaschine durch ein Textverarbeitungsprogramm ersetzt wurde und der Vorgang dadurch etwas komfortabler geworden ist.
+
+ 
+Für Format Transformationen gibt es in jüngster Zeit auch noch andere Anwendungsgebiete. Beispielsweise möchte man historische Dokumente digitalisieren und mit möglichst vielen Zusatzinformationen anreichern (vgl. Abschnitt \ref{uima-cas-kapitel}). Oder möchte Dokumente in digitalen Langzeitarchiven speichern. Oder möchte Dokumente von alten Layout-Konventionen in die Neuen überführen. Oder möchte gleichzeitig Dokumente sowohl für legacy Software als auch für aktuelle Software zugänglich halten. Oder möchte das Dokument für andere Arbeitsgebiete aufbrechen, wie z.B. Knowledge Discovery, Semantic Web. Oder möchte ein Dokument auf ein bestimmtes Publikum spezialisieren oder in eine andere Dokumentklasse überführen (Journal Artikel in eine Präsentation). All das erfordert u.U. vollkommen unterschiedliche Formate!
+
+ 
+Hier kommt der abstrakte Syntaxbaum (AST) ins Spiel: Ein AST ist innerhalb eines Übersetzers eine Zwischenrepräsentation für ein Programm, woraus schlussendlich Maschinencode produziert wird -- Details in Abschnitt \ref{ast}. Hier wird direkt auf dem AST gearbeitet (Projektionseditor). Der AST repräsentiert zudem auch direkt das Modell des Dokuments. Und jedes Dokumentelement hat wiederum Wissen über seine Domäne. Es sind also genügend Informationen vorhanden, um quasi beliebige Formate zu produzieren. Es muss also nur eine weitere Projektion zum AST hinzugefügt werden (als Template), damit ein entsprechendes Format erzeugt werden kann. Das heißt statt klassisch Maschinencode zu produzieren, kann hier auch ein anderes Dokumentformat produziert werden, wie z.B. \citep{NISO} konformes XML, XMI für CAS Objekte, ePub, etc.
+
+ 
+Hier wurde beispielhaft, neben der HTML-Projektion mit Editier-Funktion, LaTeX-Code als Projektion umgesetzt. Aus diesem LaTeX-Code kann wiederum ein (paginiertes) PDF generiert werden. Dies wird auch so genutzt, um diese Masterarbeit zu schreiben -- siehe Abschnitt \ref{wiss-dok-abschnitt}.
