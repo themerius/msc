@@ -37,7 +37,7 @@ Mangel an Semantik: Bedeutungen einzelner Bestandteile eines Dokuments werden of
 
 
 \item
-Mangel an Metamodellierung: Es fehlen\footnote{Oder gehen nicht weit genug, wie z.B. im Falle von LaTeX.} formale Vereinbarungen, die eine Dokumentenklasse ausmachen und dem Benutzer bei der Strukturierung helfen.
+Mangel an Metamodellierung: Es fehlen\footnote{~Oder gehen nicht weit genug, wie z.B. im Falle von LaTeX.} formale Vereinbarungen, die eine Dokumentenklasse ausmachen und dem Benutzer bei der Strukturierung helfen.
 
 
 \end{enumerate}
@@ -55,11 +55,11 @@ Da ein Prototyp wunderbar untersucht werden kann, ist es möglich, theoretische 
  
 \begin{itemize}
 
-\item theoretische Konzepte aufgezeigt und empirisch validiert\footnote{Funktioniert das Konzept richtig?} werden können, und
-\item leicht Anwendungsfälle ausprobiert werden können, um die praktische Tauglichkeit der Softwarearchitektur zu verifizieren\footnote{Verifikation prüft ob ein System richtig gebaut ist. Oder im Falle von Dokumenten: Ist das Dokument zu einer Spezifikation konform?}.
+\item theoretische Konzepte aufgezeigt und empirisch validiert\footnote{~Funktioniert das Konzept richtig?} werden können, und
+\item leicht Anwendungsfälle ausprobiert werden können, um die praktische Tauglichkeit der Softwarearchitektur zu verifizieren\footnote{~Verifikation prüft ob ein System richtig gebaut ist. Oder im Falle von Dokumenten: Ist das Dokument zu einer Spezifikation konform?}.
 \end{itemize}
  
-\section{Anforderungen}\label{}
+\section{Anforderungen}\label{anforderungen-sec}
  
 Bei den Anforderungen an den Prototypen kann man schon konkreter in Richtung Implementierung blicken. Hier die Basisanforderungen, um die Problemstellungen zu lösen:
 
@@ -92,7 +92,7 @@ Durch einige dieser Anforderungen gewinnen wir implizit einen Projektionseditor 
  
 \section{Idee}\label{}
  
-Im Vordergrund stand die Idee, meine Bachelorarbeit so weiter zu entwickeln, dass Dokumente in einem Struktureditor oder Projektionseditor verfasst werden können und mit domänenspezifischen Dokumentelementen interagiert werden kann.
+Im Vordergrund stand die Idee, meine Bachelorarbeit \citep{Hodapp} so weiter zu entwickeln, dass Dokumente in einem Struktureditor oder Projektionseditor verfasst werden können und mit domänenspezifischen Dokumentelementen interagiert werden kann.
 
  
 In diesem Kapitel wird also kurz die prinzipielle Idee umrissen, wie man die Problemstellung unter den gegebenen Anforderungen lösen könnte.
@@ -101,7 +101,7 @@ In diesem Kapitel wird also kurz die prinzipielle Idee umrissen, wie man die Pro
 Grundsatz der Idee ist, dass jedes Dokumentelement auf ein Aktor abgebildet wird. Ein Aktor kann Nachrichten senden und empfangen, zudem kapselt er einen Zustand und ein Verhalten.
 
  
-Aktoren können, ebenso wie ein Dokument, hierarchisch angeordnet werden. Das heißt ein Aktor kann Kinder und Geschwister haben. Diese Anordnung ergibt eine baumartige Graphenstruktur, worin ein Aktor einem Knoten entspricht und eine Referenz\footnote{Über eine solche Aktor Referenz können Nachrichten an andere Aktoren übermittelt werden.} auf einen anderen Aktor einer Kante.
+Aktoren können, ebenso wie ein Dokument, hierarchisch angeordnet werden. Das heißt ein Aktor kann Kinder und Geschwister haben. Diese Anordnung ergibt eine baumartige Graphenstruktur, worin ein Aktor einem Knoten entspricht und eine Referenz\footnote{~Über eine solche Aktor Referenz können Nachrichten an andere Aktoren übermittelt werden.} auf einen anderen Aktor einer Kante.
 
  
 Diese Baumstruktur kann als abstrakter Syntaxbaum (AST) der Dokumentenstruktur aufgefasst werden. Der AST kann als ein Modell für ein Dokument aufgefasst werden. Dies wird auf Abbildung \ref{idee} veranschaulicht. Zudem kann mit Hilfe eines AST ein Struktureditor umgesetzt werden. Der hier mit den Aktoren umgesetzte AST könnte als „reaktiver AST“ bezeichnet werden, da er dank der Aktoren (quasi gratis) besondere Eigenschaften erhält:
@@ -139,7 +139,7 @@ Programmiersprachen, Compilerbau: Kann ein Aktorsystem verwendet werden, um eine
 
 
 \item
-Knowledge Engineering / Management; Semantik, Ontologie: Brauchen wir mehr explizite Semantik innerhalb von Dokumenten? Ergeben sich Vorteile, wenn diese Semantik direkt vom Autor transportiert wird? Ist es möglich, dass sich Dokumente zu einem gewissen Grad selbst verifizieren\footnote{Verifikation prüft ob ein System richtig gebaut ist. Oder im Falle von Dokumenten: Ist das Dokument zu einer Spezifikation konform?} und damit konsistenter machen?
+Knowledge Engineering / Management; Semantik, Ontologie: Brauchen wir mehr explizite Semantik innerhalb von Dokumenten? Ergeben sich Vorteile, wenn diese Semantik direkt vom Autor transportiert wird? Ist es möglich, dass sich Dokumente zu einem gewissen Grad selbst verifizieren\footnote{~Verifikation prüft ob ein System richtig gebaut ist. Oder im Falle von Dokumenten: Ist das Dokument zu einer Spezifikation konform?} und damit konsistenter machen?
 
 
 \item
@@ -272,7 +272,7 @@ Für gewöhnlich arbeiten Programmierer mit Quellcode-Editoren, das heißt es we
 Projektionseditoren gehen anders vor: Der Editor arbeitet direkt auf dem abstrakten Syntaxbaum (s. Abschnitt \ref{ast}), d.h. der Programmierer editiert nicht mehr eine Datei die durch den Übersetzer in eine Baumstruktur umgewandelt wird, sondern seine editier-Operationen verändern direkt die Baumstruktur des Programms. \citep[S.~68]{Voelter} Nun kann aus der abstrakten Syntax (entspricht der Baumstruktur) eine Variation an konkreten Syntaxen erstellt werden, die sogenannten Projektionen. Diese Projektionen können wieder textuell sein, aber auch grafisch -- jedoch sind diese in ihrer Darstellung deutlich flexibler als bei der parserbasierten Editoren. Eine kurze schematische Grafik (Abb. \ref{parserprojectional}) verdeutlicht den Unterschied zwischen Quellcode-Editoren und Projektionseditoren.
 
  
-Im englischen\footnote{vgl. Wikipedia: \url{http://en.wikipedia.org/wiki/Projectional_editor}} Sprachraum gibt es mehrere Bezeichnungen: structure editor, structured editor oder projectional editor. Man kann diese mit Struktureditor oder Projetkionseditor übersetzten.
+Im englischen\footnote{~vgl. Wikipedia: \url{http://en.wikipedia.org/wiki/Projectional\_editor}} Sprachraum gibt es mehrere Bezeichnungen: structure editor, structured editor oder projectional editor. Man kann diese mit Struktureditor oder Projetkionseditor übersetzten.
 
  
 Die Idee von Projektionseditoren ist nicht neu, bereits 1971 hat Wilfred J. Hansen ein System entwickelt, welches auf solch einem Ansatz beruht. Jedoch haben sich zur damaligen Zeit diese Editor-Formen nicht durchgesetzt, wegen der unzureichenden Benutzerfreundlichkeit. \citep[S.~91]{Gomolka} In heutigen Zeiten (insbesondere mit den fortgeschrittenen Web Standards) sollte es aber möglich sein, einen Benutzerfreundlichen Projektionseditor zu bauen, der die Produktivität und den Komfort erhöht.
@@ -299,7 +299,7 @@ Der hier vorgestellte Prototyp ist augenscheinlich ein Projektionseditor. Sein B
 \citep{Strahringer} hat versucht den Metamodellbegriff anhand der Sprachstufentheorie der Logik, durch Übertragung auf die Modellierungswelt, zu prägen. \citep[S.~1]{Strahringer} erklärt, dass nach \citep{Buehler} die Sprache drei Funktionen leistet: (1) Darstellung von Sachverhalten, (2) Appell zur Verhaltenssteuerung und (3) Ausdruck von Gefühlen. Für den Metamodellbegriff ist jedoch nur die Darstellungsfunktion interessant. Sprache stellt „ein mögliches Instrument zur Darstellung von Modellen“ (ebd.) dar.
 
  
-\citep[S.~1]{Strahringer} führt fort, dass in der Logik üblicherweise zwischen Objektsprache und Metasprache unterschieden wird. Die Objektsprache ist Gegenstand der Untersuchung. In der Metasprache erfolgt die Untersuchung. Da die Metasprache selbst auch wieder Gegenstand einer Untersuchung werden kann, ist dieses Prinzip rekursiv anwendbar. Um endlose Rekursion zu vermeiden, sollte als oberstes Glied der Kette ein selbstbeschreibendes Metamodell stehen. Beispielsweise die Meta Object Facility (MOF) der OMG\footnote{Definiert in ISO/IEC 19508.} geht so vor, um endlose Meta-Rekursionen zu vermeiden.
+\citep[S.~1]{Strahringer} führt fort, dass in der Logik üblicherweise zwischen Objektsprache und Metasprache unterschieden wird. Die Objektsprache ist Gegenstand der Untersuchung. In der Metasprache erfolgt die Untersuchung. Da die Metasprache selbst auch wieder Gegenstand einer Untersuchung werden kann, ist dieses Prinzip rekursiv anwendbar. Um endlose Rekursion zu vermeiden, sollte als oberstes Glied der Kette ein selbstbeschreibendes Metamodell stehen. Beispielsweise die Meta Object Facility (MOF) der OMG\footnote{~Definiert in ISO/IEC 19508.} geht so vor, um endlose Meta-Rekursionen zu vermeiden.
 
  
 Wird „die Sprachstufentheorie auf die Modellbildung [...] übertragen, so“ (ebd.) kann im einfachsten Fall ein Metamodell „als ein Modell eines Modells“ (ebd.) beschrieben werden.
@@ -416,7 +416,7 @@ Wenn man die vier Konzepte allgemein auf den hier vorgestellten Prototypen über
 \item Struktur: Entspricht dem abstrakten Syntaxbaum selbst bzw. dessen Metamodell.
 \end{itemize}
  
-Man kann argumentieren, dass hinter jedem Dokumentelement (z.B. Abschnitt, Absatz, Tabelle, ...) ein entsprechendes Domänenmodell steckt. Beispielsweise hinter einem Chemie-Dokumentelement stecke ein Moleküleditor, der ein entsprechendes Modell eines Moleküls produziert, sowie eine grafische Repräsentation (Bild eines Moleküls). Idealerweise liegt das Domänenmodell als domänenspezifische Sprache (DSL) vor. Im Bezug auf das Chemie-Dokumentelement könnte das die IUPAC-, Molfile-\footnote{Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe de.wikipedia.org/wiki/Chemoinformatik „Repräsentation chemischer Strukturen“.} oder SMILES-Molekülnotation sein. Das würde bedeuten, dass der hier vorgestellte Syntaxbegriff auch gleichzeitig das Domänenmodell vertritt.
+Man kann argumentieren, dass hinter jedem Dokumentelement (z.B. Abschnitt, Absatz, Tabelle, ...) ein entsprechendes Domänenmodell steckt. Beispielsweise hinter einem Chemie-Dokumentelement stecke ein Moleküleditor, der ein entsprechendes Modell eines Moleküls produziert, sowie eine grafische Repräsentation (Bild eines Moleküls). Idealerweise liegt das Domänenmodell als domänenspezifische Sprache (DSL) vor. Im Bezug auf das Chemie-Dokumentelement könnte das die IUPAC-, Molfile-\footnote{~Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe de.wikipedia.org/wiki/Chemoinformatik „Repräsentation chemischer Strukturen“.} oder SMILES-Molekülnotation sein. Das würde bedeuten, dass der hier vorgestellte Syntaxbegriff auch gleichzeitig das Domänenmodell vertritt.
 
  
 Das heißt, dass bei der Erstellung eines Dokuments Dokumentelemente vom Autor entworfen werden können, welche Modelle der jeweiligen Wissenschaft enthalten können. Das ermöglicht dem Autor deutlich strukturierter, formaler und konsistenter an die Dokumentation seins Projektes heranzugehen. Zudem werden dem Leser dadurch explizite semantische Informationen bereitgestellt, welche direkt vom dahinterstehenden Modell stammen. Der Leser kann ggf. das Modell seines Kollegen in eigenen Dokumenten wiederverwenden. Vorteil hierbei wäre, dass weniger Fehler entstehen, da direkt auf die Gedanken (welche in das Modell gegossen wurden) des Original-Autors zurückgegriffen werden kann.
@@ -554,12 +554,12 @@ Damit das Dokument später auch der Hochschule bzw. Fakultät vorgelegt werden k
 Um einen wissenschaftlichen Text, wie eine Masterarbeit, verfassen zu können, müssen einige (Basis) Dokumentelemente vom Prototyp bereitgestellt werden, zudem müssen Verweise unter den Dokumentelementen möglich sein. Beispielsweise (mit den Implementierungsnamen): Chapter, Section, SubSection, SubSubSection und Figure mit automatischer Benummerung; Paragraph, List, ArabicList, RomanList, Quotation, Footnote; FrontMatter, BodyMatter, BackMatter.
 
  
-\subsection{Szenario: Chemie}\label{}
+\subsection{Szenario: Chemie}\label{chemie-szenario}
  
-Für Demonstrationszwecke wurde auch ein Chemie-Dokumentelement erstellt, welches einen Moleküleditor anbietet. Damit wäre der Autor komfortabel in der Lage in seinem Dokument direkt chemische Moleküle zu zeichnen und darauf zu verweisen. Der Moleküleditor produziert Molfiles\footnote{Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe de.wikipedia.org/wiki/Chemoinformatik „Repräsentation chemischer Strukturen“.} als Ausgabe- bzw. Austauschformat, dieses Molfile ist also ein (persistentes) Modell für ein Molekül. Das Chemie-Dokumentelement könnte noch an eine Chemie-Bibliothek, die Molfiles verarbeiten kann, angebunden werden. Eine solche Programmbibliothek kann weitere Informationen zu den verwiesenen Molekülen bereitstellen, und damit einen erheblichen Beitrag zur expliziten Semantik und Konsistenz des Dokument beitragen.
+Für Demonstrationszwecke wurde auch ein Chemie-Dokumentelement erstellt, welches einen Moleküleditor anbietet. Damit wäre der Autor komfortabel in der Lage in seinem Dokument direkt chemische Moleküle zu zeichnen und darauf zu verweisen. Der Moleküleditor produziert Molfiles\footnote{~Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe de.wikipedia.org/wiki/Chemoinformatik „Repräsentation chemischer Strukturen“.} als Ausgabe- bzw. Austauschformat, dieses Molfile ist also ein (persistentes) Modell für ein Molekül. Das Chemie-Dokumentelement könnte noch an eine Chemie-Bibliothek, die Molfiles verarbeiten kann, angebunden werden. Eine solche Programmbibliothek kann weitere Informationen zu den verwiesenen Molekülen bereitstellen, und damit einen erheblichen Beitrag zur expliziten Semantik und Konsistenz des Dokument beitragen.
 
  
-Auf Abbildung \ref{Aspirin} ist ein durch das Chemie-Dokumentelement generiertes Molekül abgebildet. Wenn man darauf klickt, wird der Domäneneditor Ketcher geöffnet (s. Abb. \ref{chemieeditieren}). Ketcher\footnote{Webseite des Ketcher Projekts: ggasoftware.com/opensource/ketcher} ist ein in Javascript geschriebener Moleküleditor für den Webbrowser. Das Chemie-Dokumentelement umhüllt diesen Moleküleditor lediglich und verwendet die Ketcher-API, um ein svg-Bild aus dem Molekül für die reine Ansicht zu generieren.
+Auf Abbildung \ref{Aspirin} ist ein durch das Chemie-Dokumentelement generiertes Molekül abgebildet. Wenn man darauf klickt, wird der Domäneneditor Ketcher geöffnet (s. Abb. \ref{chemieeditieren}). Ketcher\footnote{~Webseite des Ketcher Projekts: http://ggasoftware.com/opensource/ketcher} ist ein in Javascript geschriebener Moleküleditor für den Webbrowser. Das Chemie-Dokumentelement umhüllt diesen Moleküleditor lediglich und verwendet die Ketcher-API, um ein svg-Bild aus dem Molekül für die reine Ansicht zu generieren.
 
  
 \begin{figure}[h!]
@@ -578,7 +578,7 @@ Auf Abbildung \ref{Aspirin} ist ein durch das Chemie-Dokumentelement generiertes
  
 \section{UIMA CAS Editor}\label{uima-cas-kapitel}
  
-Apache UIMA\footnote{Webseite des Apache UIMA (Unstructured Information Management Architecture) Projekts: uima.apache.org } ist ein Softwaresystem mit dessen Hilfe neues, für den Benutzer relevantes, Wissen aus großen unstrukturierten Datenmengen gewonnen werden kann.
+Apache UIMA\footnote{~Webseite des Apache UIMA (Unstructured Information Management Architecture) Projekts: uima.apache.org } ist ein Softwaresystem mit dessen Hilfe neues, für den Benutzer relevantes, Wissen aus großen unstrukturierten Datenmengen gewonnen werden kann.
 
  
 Ein einfacher Text kann um Anmerkungen, den Annotationen, angereichert werden. Diese Annotationen sorgen dafür einzelne Entitäten des Texts zu identifizieren, wie z.B. Personen, Orte, Organisationen etc. oder Relationen wie „arbeitet für“.
@@ -587,7 +587,7 @@ Ein einfacher Text kann um Anmerkungen, den Annotationen, angereichert werden. D
 CAS (Common Analysis System) Objekte bieten Zugriff auf das Typsystem, Indexe, Iteratoren und Filter von UIMA. Insbesondere ist es möglich Annotationen mit dem CAS Objekt zu erstellen. Das heißt in einem CAS Objekt kann ein Dokument mit Annotationen gespeichert werden. Ein solches CAS Objekt kann in das XML Metadata Interchange (XMI) Format serialisiert werden, wodurch es möglich ist annotierte Dokumente zu persistieren und auszutauschen.
 
  
-Mit einem CAS\footnote{UIMA CAS Objekt Dokumentation: uima.apache.org/downloads/releaseDocs/2.3.0-incubating/docs/api/org/apache/uima/cas/CAS.html} Editor würde ein Autor also gerne im betrachteten Dokument mit Annotationen arbeiten:
+Mit einem CAS\footnote{~UIMA CAS Objekt Dokumentation: uima.apache.org/downloads/releaseDocs/2.3.0-incubating/docs/api/org/apache/uima/cas/CAS.html} Editor würde ein Autor also gerne im betrachteten Dokument mit Annotationen arbeiten:
 
  
 \begin{enumerate}
@@ -612,7 +612,7 @@ Das heißt, Annotationen sind nicht zwingender Bestandteil des eigentlichen Doku
 Für diesen Zweck wurde im Prototyp ein Metadokument implementiert. Dieses enthält Zusätze oder Aussagen, die vom eigentlichen Dokument separiert sein sollen. Das Metadokument erbt die gesamte Infrastruktur des Hauptdokuments. Sie haben einen  gemeinsamen Dokumentelement-Pool und können daher gegenseitig auf die vorkommenden Dokumentelemente zugreifen (z.B. via Verweis). Schöner Nebeneffekt: Die Annotationen können im Metadokument übersichtlich angeordnet und dort ggf. dokumentiert werden.
 
  
-Annotationen werden durch ein „mouse over“ im Browser farbig hervorgehoben (s. Abb. \ref{annotation}). Im Metadokument können neue Annotationen hinzugefügt werden und via Verweis in ein beliebiges Dokumentelement gebracht werden. Im Metadokument können sie auch bearbeitet werden. Für Demonstrationszwecke wurde das Dokumentelement „Annotation“ implementiert. Als Beispieldokumente dienen Patentschriften die durch das vom Fraunhofer SCAI geleitete Projekt \emph{UIMA-HPC}\footnote{Webseite des UIMA-HPC Projekts: uima-hpc.org} digitalisiert, durchsuchbar und annotiert wurden. Das SCAI.BIO abteilungsinterne Werkzeug „The Interfacer“ kann CAS Objekte (in denen die Patentschriften u.a. vorliegen) in Datenstrukturen des Prototypen übersetzen und somit für den Prototypen mühelos nutzbar machen.
+Annotationen werden durch ein „mouse over“ im Browser farbig hervorgehoben (s. Abb. \ref{annotation}). Im Metadokument können neue Annotationen hinzugefügt werden und via Verweis in ein beliebiges Dokumentelement gebracht werden. Im Metadokument können sie auch bearbeitet werden. Für Demonstrationszwecke wurde das Dokumentelement „Annotation“ implementiert. Als Beispieldokumente dienen Patentschriften die durch das vom Fraunhofer SCAI geleitete Projekt \emph{UIMA-HPC}\footnote{~Webseite des UIMA-HPC Projekts: uima-hpc.org} digitalisiert, durchsuchbar und annotiert wurden. Das SCAI.BIO abteilungsinterne Werkzeug „The Interfacer“ kann CAS Objekte (in denen die Patentschriften u.a. vorliegen) in Datenstrukturen des Prototypen übersetzen und somit für den Prototypen mühelos nutzbar machen.
 
  
 \begin{figure}[h!]
@@ -622,9 +622,9 @@ Annotationen werden durch ein „mouse over“ im Browser farbig hervorgehoben (
 \caption{ Entnommen aus Screenshots des Prototypen. Es wird dargestellt, wie Annotationen vom Meta Dokument in das Haupt Dokument (über Verweisung) fließen können. Im Haupt Dokument werden bei „mouse over“ alle Annotationen vom gleichen Annotations-Typ „Annotation“ farbig hervorgehoben. Es ist möglich beliebige Annotations-Typen (als Dokumentelement) zu kreieren. }\label{annotation}
 \end{figure}
  
-\section{Dokumentation von Spray-Modellen}\label{}
+\section{Dokumentation von Spray-Modellen}\label{doku-spray}
  
-Spray\footnote{Webseite des Spray Projekts: eclipselabs.org/p/spray/} ist ein Forschungsprojekt im Bereich der modellgetriebenen Softwareentwicklung, an der HTWG Konstanz. Spray erstellt Editoren für visuelle domänenspezifische Sprachen (DSL). Das heißt mit Spray können z.B. Diagramme wie Petrinetze, UML, etc. formal definiert werden und aus diesen Definitionen kann ein Editor generiert werden. Mit einem solchen Editor kann dann das jeweilige Diagramm gezeichnet bzw. modelliert werden kann. Vorteil ist, dass durch die Grammatik der visuellen DSL genau spezifiziert ist, welche Verbindungen zwischen den einzelnen Knoten erlaubt sind und welche nicht, d.h. der Diagramm Editor kann zu einem gewissen Grad die Korrektheit des Modells überprüfen.
+Spray\footnote{~Webseite des Spray Projekts: eclipselabs.org/p/spray/} ist ein Forschungsprojekt im Bereich der modellgetriebenen Softwareentwicklung, an der HTWG Konstanz. Spray erstellt Editoren für visuelle domänenspezifische Sprachen (DSL). Das heißt mit Spray können z.B. Diagramme wie Petrinetze, UML, etc. formal definiert werden und aus diesen Definitionen kann ein Editor generiert werden. Mit einem solchen Editor kann dann das jeweilige Diagramm gezeichnet bzw. modelliert werden kann. Vorteil ist, dass durch die Grammatik der visuellen DSL genau spezifiziert ist, welche Verbindungen zwischen den einzelnen Knoten erlaubt sind und welche nicht, d.h. der Diagramm Editor kann zu einem gewissen Grad die Korrektheit des Modells überprüfen.
 
  
 Das heißt ein mit Spray generierter Editor arbeitet auf einer abstrakteren Ebene -- der Modellebene. Das Modell selbst sollte jedoch auf einer noch abstrakteren Ebene beschrieben werden: in einer natürlichen Sprache. Andernfalls ist es einem Menschen kaum möglich ein Modell und dessen Zweckbezug, ohne große Hürden, zu verstehen. Einfacher ausgedrückt: das Modell muss dokumentiert werden, damit andere Projektbeteiligte auch etwas damit anfangen können. Man kann also argumentieren, dass Dokumentation in der Abstraktionsebene nochmals über dem eigentlichen Modell liegt, und das Modell um benötigte sprachliche Erklärungen anreichert. Die Dokumentation fügt also explizit den Pragmatismus zum Modell hinzu: für wen, wann und wozu gibt es das Modell?
@@ -640,7 +640,7 @@ Und ich persönlich denke, dass sich durch ein solches Dokumentationswerkzeug ei
  
 \subsection{Konzeptionelle Umsetzung}\label{}
  
-Der vorgestellte Anwendungsfall wurde beispielhaft im hier entwickelten Prototypen umgesetzt. Das Forschungsteam um Spray hat die Software von einer reinen Java/Eclipse Implementierung ins Web gebracht, das heißt die generierten Diagramm-Editoren liegen auch als Webanwendung\footnote{Momentan liegt die Spray Online Webanwendung nur intern im VPN-Netz der HTWG Konstanz vor.} mit REST-Schnittstelle vor. Der Prototyp selbst ist auch mit Web Standards gebaut und kann daher recht mühelos mit „Spray Online“ interagieren.
+Der vorgestellte Anwendungsfall wurde beispielhaft im hier entwickelten Prototypen umgesetzt. Das Forschungsteam um Spray hat die Software von einer reinen Java/Eclipse Implementierung ins Web gebracht, das heißt die generierten Diagramm-Editoren liegen auch als Webanwendung\footnote{~Momentan liegt die Spray Online Webanwendung nur intern im VPN-Netz der HTWG Konstanz vor.} mit REST-Schnittstelle vor. Der Prototyp selbst ist auch mit Web Standards gebaut und kann daher recht mühelos mit „Spray Online“ interagieren.
 
  
 Es wurde in Wrapper entwickelt, der es ermöglicht den Spray Online Editor in Form eines Dokumentelements anzubieten. Jedes Dokumentelement kann beliebige Ansichten oder Projektionen haben. Hier gibt es zum einen eine Editierungsansicht (dort können DSLs oder Domäneneditoren platziert werden) und zum anderen eine reine Anzeigeansicht (z.B. als Webseite). Das Spray-Dokumentelement bettet den originalen Spray-Editor in Form einen iframes in die Editierungsansicht ein. Der Benutzer kann dann direkt Änderungen an seinem Spray-Modell vornehmen. Wenn der Benutzer die Änderungen speichert, holt sich das Spray-Dokumentelement den aktuellen Zustand des Modells aus der Spray-Persistenz via REST-Schnittstelle. Im Zustand des Modells sind alle Informationen über das Modell gespeichert, wie z.B. die Namen der einzelnen Diagramm-Knoten. Dadurch dass das Spray-Dokumentelement Zugriff auf die Attribute des Spray-Modells hat, kann im Dokument auf diese Attribute durch Verweisungen zugegriffen werden. Mit diesem Zugriff kann das Dokument mit dem Modell konsistent gehalten werden und es besteht die Möglichkeit Semantik explizit zu machen, indem zusätzliche Informationen über die Bedeutung des referenzierten Attributes angezeigt werden. Für die Anzeigeansicht holt sich das Spray-Dokumentelement ein svg-Bild des Diagramms -- dieses kann über einen HTTP-Request vom Spray Online Editor abgefragt werden.
@@ -688,3 +688,462 @@ Hier kommt der abstrakte Syntaxbaum (AST) ins Spiel: Ein AST ist innerhalb eines
 
  
 Hier wurde beispielhaft, neben der HTML-Projektion mit Editier-Funktion, LaTeX-Code als Projektion umgesetzt. Aus diesem LaTeX-Code kann wiederum ein (paginiertes) PDF generiert werden. Dies wird auch so genutzt, um diese Masterarbeit zu schreiben -- siehe Abschnitt \ref{wiss-dok-abschnitt}.
+
+ 
+\chapter{Entwicklung des Prototypen}\label{}
+ 
+Um die wissenschaftlichen Fragen zu beantworten wurde als Methode die Entwicklung eines Prototypen gewählt. Anhand des Prototypen können Aussagen getroffen werden, ob die vorgestellten Ideen und Konzepte tragfähig sind. Zudem können die Konzepte verfeinert und neue Impulse für neue Ideen bzw. Theorien gefunden werden.
+
+ 
+Zunächst wird das Vorgehen mit den Test-Spezifikationen erläutert. Gefolgt von den Basiskonzepten, die dem Prototypen inne wohnen. Daraus ergibt sich eine Architektur, die von Grob zu Detailreich beleuchtet wird. Am Ende des Kapitels wird der erreichte Funktionsumfang diskutiert und mit einer kleinen Statistik über den Codeumfang des Prototypen abgeschlossen.
+
+ 
+Der Quellcode ist auf GitHub öffentlich zugänglich und wird via Zendodo.org zitierbar gemacht, d.h. Version 0.6.0 des Prototypen erhält eine DOI (digital object identifier) und liegt im Langzeitarchiv von Zenodo. Im Quellcode ist eine README Datei welche als Anhang für die Masterarbeit dient. Dort ist u.a. beschrieben, wie die Software installiert werden kann, welche Releases (Meist Zwischenstände für Vorträge) es gegeben hat.
+
+ 
+\section{Vorgehen}\label{}
+ 
+Als Entwicklungsmethode wird das Behavior-Driven development (BDD) eingesetzt, welches von \citep{North} geprägt wurde. (Unit) Tests werden dort in Form von Spezifikationen verfasst. Jede Spezifikation soll ein bestimmtes Verhalten der Software dokumentieren und verifizieren. Das Framework ScalaTest\footnote{~Tests als Spezifikationen aus der Dokumentation von ScalaTest: http://www.scalatest.org/user\_guide/tests\_as\_specifications} bietet die Möglichkeit nach BDD Softwaresysteme zu entwickeln. Die Aktoren-Implementierung des Prototypen wird mit ScalaTest getestet.
+
+ 
+Bei jedem git push auf GitHub wird automatisch Travis CI aktiv. Hierbei handelt es sich um eine Continuous Integration Platform, welche die richtige Umgebung zum Ausführen von ScalaTest\footnote{~Travis CI für das Git Repositorium des Prototypen: https://travis-ci.org/themerius/scaltex-2} einrichtet. Es werden automatisch die benötigen Scala Abhängigkeiten herunterladen und kompiliert, sowie eine CouchDB für die Tests zur Persistenz bereitgestellt. Ob die Tests fehlschlagen oder glücken, wird in einem Protokoll festgehalten.
+
+ 
+\subsection{Getestete Spezifikationen}\label{}
+ 
+Hier sind die 41 Spezifikationen die an den Prototypen gestellt sind aufgelistet. Die Spezifikationen sind in englischer Sprache gehalten, da dies die übliche Weise ist, Software zu dokumentieren. Die Spezifikationen sind so formuliert, dass sie möglichst selbsterklärend sind. Nachfolgend die Ausgabe von ScalaTest:
+
+ 
+\begin{verbatim}
+RootSpec:
+The Root Actor
+- should hold topological informations about the document
+- should digg for the firstChilds
+- should digg for the next references
+- should be able to claculate the correct order of the document elements
+- should be able to insert (new) elements and remove elements from topology
+- should setup the document actors with a given topology
+- should be able to initiate the Update through the entire document
+- should pass messages to the selected id
+
+RemoveElementSpec:
+Remove of a non-leaf
+- should repair the topology and put the removed subtree into the graveyard
+Remove of a leaf
+- should repair the topology and put the removed element into the graveyard
+
+MoveElementSpec:
+Move of a non-leaf
+- should change the topology (hang a entire subtree to a destination)
+- should change the topology (hang a entire subtree to a destination II)
+- should move the entire subtree into another hierarchy level
+Move of a leaf
+- should change the topology and recreate the actor at the desired position
+- should also work if moved to a position of a first child
+
+ReportSpec:
+A REPORT document meta model element
+- should save it's unique id into it's state
+- should be able to change it's current assigned document element
+- should be able to obtain a reference to the next actor
+- should send update to the next actors
+- should have a content (source, representation and result from evaluation)
+- should send deltas when the topology changes
+  + When a new element is inserted after a leaf 
+  + Then updater should receive a delta (topology change set) 
+  + And the new-elem should register itself to root 
+  + When a new element is inserted after a non-leaf 
+  + Then updater should receive a delta to the lastChild 
+  + When a new element is inserted as first child (extend hierarchy) 
+  + Then updater should receive a delta 
+A element with a variable (short) name
+- should be part of the base actor state
+- should be changeable
+
+OutlineSpec:
+The SECTION document elements
+- should have `title` and `numbering` properties
+- should change the `title` attribute when the content changes
+- should be able to discover it's (primary) section number
+- should be able to discover it's (secundary) section number
+- should be able to discover it's (tertiary) section number
+
+TableOfContentsSpec:
+The TableOfContents element
+- should ask every Chapter and *Section within BodyMatter
+
+InterpreterSpec:
+A INTERPRETER
+- should evaluate a string which contains scala code
+- should return None if evaluation fails
+
+DiscoverReferencesSpec:
+The References Discovery
+- should find all ActorRefs within a Sting
+- should generate code of the classes the user may use
+- should collect the complete code and put the evaluated repr into contentRepr
+Unified content
+- should be an array with the expression details
+
+CouchDbSpec:
+Root
+- should be able to load a document from CouchDB persistance
+- should NOT integrate _id and _rev from CouchDB into the topology
+- should persist the topology on changes
+Each such created element
+- should aquire it's state from persistance 'to life'
+- should save state, if changed, back to persistance
+- should save state if it's not persisted yet
+\end{verbatim}
+ 
+\section{Basiskonzepte}\label{basiskonzepte}
+ 
+Der Prototyp versucht die Anforderungen aus Abschnitt \ref{anforderungen-sec} umzusetzen. Hier nochmals kurz in Stichpunkten zusammengefasst:
+
+ 
+\begin{enumerate}
+
+\item Abstraktion für Dokumentelemente
+\item Domänenspezifische Inhalte in Dokumentelementen
+\item Reichhaltige Verweisungen für explizite Semantik und mehr Konsistenz
+\item Metamodell definiert erlaube Dokumentelemente
+\item Projektionseditor für Dokumente, mit Web Standards umgesetzt
+\end{enumerate}
+ 
+(1) Es ist möglich ein Dokument als abstrakten Syntaxbaum darzustellen, wobei jeder Knoten einem Dokumentelement entspricht. (2) Jedes Dokumentelement kann Teile seiner Domäne in den Attributen abspeichern und einen Domäneneditor, der im Browser ausgeführt wird, bereitstellen. (3) Dokumentelemente können durch Nachrichtenaustausch Attribute eines anderen Dokumentelements abfragen und in den eigenen Kontext einbauen. Diese Abfragen werden in der Programmiersprache Scala notiert und von einem Scala-Interpreter ausgewertet. (4) Jedes Dokumentelement implementiert eine Scala Klasse wodurch es repräsentiert wird. Der Scala-Interpreter kann diese Klassen instanziieren und ausführen. Das Resultat kann z.B. an ein anderes Dokumentelement geschickt werden. (5) Nachrichten aus einem Websocket können zum abstrakten Syntaxbaum geleitet werden, und umgekehrt. Dieser kann darauf reagieren bzw. entsprechende Maßnahmen ausführen. Beispielsweise kann er sich selbst modifizieren (Knoten hinzufügen/entfernen) oder analysieren (Neue Attribute der Knoten entdecken, wie z.B. Benummerungen zu Abschnitten hinzufügen).
+
+ 
+Bedient wird das Autorensystem über den Browser. Es spiegelt direkt eine Repräsentation des abstrakten Syntaxbaumes des Dokuments wieder. Der Benutzer arbeitet also direkt mit abstrakten Syntaxbaum, bekommt jedoch nur ausgewählte bzw. relevante Attribute als „konkrete Syntax“ angezeigt. Der Autor bekommt also eine möglichst komfortable Ansicht des Dokuments. Wenn er auf ein Dokumentelement klickt, wird ein Fenster geöffnet. Dort werden nähere Informationen zum Dokumentelement eingeblendet und das Dokumentelement kann dort bearbeitet werden. In dieser Ansicht können neben textuellen Eingaben (z.B. in Form von DSLs) auch domänenspezifische Editoren (wie z.B. ein chemischer Moleküleditor) angezeigt werden.
+
+ 
+\section{Architektur}\label{}
+ 
+Auf Abbildung \ref{architektur-fig} ist eine Übersicht über die Architektur des Prototypen. Der Dreh- und Angelpunkt ist das Dokumentmodell (vgl. Abschnitt \ref{dokumentModell}), mit dem der Autor quasi direkt kommunizieren kann. Das Dokumentmodell wird von seinem Metamodell (vgl. Abbildung \ref{metamodell}) abgeleitet, dort sind u.a. die einzelnen Dokumentelemente definiert.
+
+ 
+Jedes einzelne Dokumentelement, also Aktor, persistiert bei Änderungen des Zustandes diesen in CouchDB. CouchDB ist eine dokumentenorientierte NoSQL-Datenbank, welche JSON-Objekte speichern kann. Eine Besonderheit der Datenbank ist, dass jede Änderung am JSON-Objekt mit einer neuen Version versehen wird, d.h. es ist möglich die Entstehungsgeschichte eines jeden Dokumentelements nachzuvollziehen. Es ist also möglich ein Dokument zerstörungsfrei zu erstellen. Neben der Versionskontrolle ist die REST-Schnittstelle zur Datenbank ein Basiskonzept von CouchDB, s. \citep{Anderson}.
+
+ 
+Xitrum ist ein controller-first Web Framework geschrieben in Scala. Die Aufgabe von Xitrum ist Websockets für die Kommunikation mit dem Browser bereitzustellen und die statische Dateien, wie HTML-Templates, CSS, JavaScript oder Bilder auszuliefern. Das Dokumentmodell hat einen Update Aktor, welcher die Änderungen vom Browser bzw. vom Modell handhabt. Der Update Aktor kann mit mehreren Websockets gleichzeitig sprechen. Dies ermöglicht es, das mehrere Browser das gleiche Dokument betrachten können und live die Änderungen der anderen Parteien mitbekommen. Jeder Browser ist mit einem Websocket verbunden.
+
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/architektur.svg.pdf} }
+\caption{ Die Architektur des Prototypen. Die Pfeile stellen die Kommunikation zwischen den einzelnen Komponenten dar. Die Kommunikation läuft zum einen über das Websocket-Protokoll und zum anderen über HTTP-Calls. Die Daten werden stets als JSON-String übertragen, außer bei der Auslieferung der statischen Daten durch Xitrum. Der gestrichelte Pfeil ist eine einmalige Kommunikation, die nur zum Initialisieren des Aktor Systems (bzw. abstrakten Syntaxbaumes) verwendet wird. Bei der Initialisierung holt sich jedes Dokumentelement den gespeicherten Zustand aus der Datenbank. Wenn sich der Zustand eines Dokumentelements ändert, wird dies in der Datenbank als neue Version gespeichert. }\label{architektur-fig}
+\end{figure}
+ 
+\subsection{Wurzel Aktor}\label{}
+ 
+Der Wurzel oder Root Aktor enthält die Topologie des Dokuments. Zudem werden hier alle Aufgaben die mit der Topologie zusammenhängen verarbeitet, da der Root Aktor als einziger Aktor die Gesamtübersicht über das Dokument hat. Zwar speichert jeder Dokumentelement-Aktor seine lokalen Beziehungen (Kinder, Geschwister), aber diese werden nicht in die Datenbank geschrieben. Somit wird verhindert, dass durch eine Wiederherstellung einer Version eines Dokumentelements irgendwelche Topologie-Lücken aufgerissen werden. Nur der Root Aktor speichert topologische Informationen in der Datenbank ab. Wenn Versionen des Root Aktors wiederherstellt werden, wird somit ausschließlich die Topologie wiederhergestellt. Das heißt die Topologie kann unabhängig von den aktuellen Inhalten der einzelnen Dokumentelemente restauriert werden. Stichwortartig zusammengefasst:
+
+ 
+\begin{itemize}
+
+\item Enthält die (gesamte) Topologie des Dokuments
+\item Persistiert die Topologie in die Datenbank
+\item Kann Topologie-Änderungen initiieren (wie z.B. hinzufügen, entfernen und verschieben von Knoten)
+\item Kann Topologie-Informationen bereitstellen (wie z.B. Position der einzelnen Dokumentelemente)
+\item Ist der Einstiegspunkt für das Dokument
+\end{itemize}
+ 
+\subsection{Basis Aktor}\label{}
+ 
+Der Basis Aktor repräsentiert einen Knoten im abstrakten Syntaxbaum. Zudem enthält der Basis Aktor eine Instanz einer Scala Klasse, welche das Dokumentelement mit all seinen Attributen und Methoden beschreibt. Der Basis Aktor trägt also das Dokumentelement quasi huckepack. Der Basis Aktor verwaltet die Nachrichtenkommunikation mit den anderen Aktoren und hält Beziehungen zu seinen Kindern (insbesondere dem ersten Kind) und seinen Geschwistern (insbesondere der Nachfolger). Der Basis Aktor kann bei Änderungen kann eine Analysephase des gesamten abstrakten Syntaxbaumes auslösen. Dort werden die Dokumentelemente aufgerufen zu überprüfen, ob noch alle Attribute aktuell sind. Beispielsweise kann ein Abschnitt-Dokumentelement seine Benummerung nochmals überdenken. Nochmals in Stichworten:
+
+ 
+\begin{itemize}
+
+\item Ist ein Knoten des abstrakten Syntaxbaumes
+\item Trägt eigentliche Dokumentelemente (mit ihrem Domänenwissen) huckepack
+\item Verwaltet die Nachrichtenkommunikation
+\item Kennt die lokale Topologie des Dokuments (sein erstes Kind, sein nächstes Geschwister)
+\item Bei Änderungen wird eine Analysephase ausgeführt, die auch an das Dokumentelement getragen wird
+\end{itemize}
+ 
+\subsection{Metamodell erweitern}\label{metamodell-impl}
+ 
+Ein Teil des Metamodells sind die Dokumentelement Definitionen. Hier wird spezifiziert, welche Dokumentelemente im eigentlichen Dokumentmodell vorkommen dürfen. Weiter wird dort spezifiziert, welche Eigenschaften das Dokumentelement besitzt. Jedes Dokumentelement implementiert das gleiche Interface:
+
+ 
+\begin{verbatim}
+class Figure extends DocumentElement {
+
+
+  // 1. Attribute
+  this.state.title = ""
+  this.state.numbering = ""
+
+
+  // 2. Analysephase
+  def _gotUpdate(actorState: Json[_], refs: Refs) = {
+    // ...
+    super._gotUpdate(actorState, refs)
+  }
+
+
+  // 3. Analysephase
+  def _processMsg(m: M, refs: Refs) = {
+    // ...
+  }
+
+
+}
+\end{verbatim}
+ 
+Im o.g. Quelltext wird ein Dokumentelement „Figure“ (Abbildung) spezifiziert. Es hat (1) ein Menge an Attributen festgelegt, die während der z.B. der Analysephase ändern können. Wenn der Basis Aktor über Änderungen benachrichtig wird, teilt er das über Methode (2) auch dem Dokumentelement mit. Es erhält Zugriff auf den Zustand des Basis Aktors (hier ist z.B. contentSrc gespeichert, also die rohen Eingaben des Autors) und auf die Referenzen die der Aktor zu anderen Aktoren pflegt. Auf diese Weise kann das Dokumentelement Anfragen an andere Aktoren bzw. Dokumentelemente, im Form von Nachrichten, stellen. Zudem kann es vorkommen, dass es Nachrichten gibt, die an das betreffende Dokumentelement gerichtet sind. Diese werden in (3) verarbeitet. Beispielsweise kann Methode (2) einer Abbildung eine Nachricht an alle anderen Abbildungen schicken, um die korrekte Benummerung herauszufinden. Diese Nachricht würde bei jeder anderen Abbildung in Methode (3) zur weiteren Verarbeitung landen.
+
+ 
+Beliebige weitere Methoden, die für das Dokumentelement bzw. dessen Domäne nützlich sein könnten, können an diese Scala Klasse hinzugefügt werden. Das ermöglicht den Aktoren reichhaltige Verweisungen untereinander durchzuführen. Es wird also ermöglicht, dass ein Dokumentelement aus den Attributen eine Information berechnen kann und diese an den anfragenden Aktor weitergibt.
+
+ 
+\subsection{Verweisungen auflösen}\label{verweise-aufloesen}
+ 
+Reichhaltige Verweisungen sind ein grundlegendes Konzept des Prototypen. Hieraus entstehen neben den üblichen Verweisungen, wie man sie aus wiss. Dokumenten kennt (Verw. auf Abbildungen, Abschnitte oder Literatur), neue Möglichkeiten für Semantik und Konsistenz.
+
+ 
+Dokumentelemente liegen als Scala Klasse vor und eine Verweisung greift darauf direkt zu. Das heißt innerhalb eines Textes wird mit einem Scala Programmausdruck notiert, auf welches Attribut oder Methode zugegriffen werden soll und welches Dokumentelement adressiert werden soll. Prinzipieller Ablauf:
+
+ 
+\begin{enumerate}
+
+\item Ein Basis Aktor findet einen Programmausdruck in seinem, durch den Autor eingegeben, Text (contentSrc).
+\item Der Basis Aktor findet heraus, an welche anderen Basis Aktoren der Programmausdruck gerichtet ist.
+\item Die anderen Basis Aktor schicken ihren jeweils aktuellen Zustand, in Form von generiertem Scala Code, an den anfragenden Aktor.
+\item Der Basis Aktor sammelt den Code der anderen Aktoren ein. Das heißt er hat nun den Code, um alle Verweise die er gefunden hat aufzulösen. Der aggregierte Code wird an einen Scala Interpreter (auch ein Aktor) weitergeleitet.
+\item Der Scala Interpreter instanziiert die Scala Klassen mit dem Zustand der anderen Aktoren.
+\item Das Resultat des Interpreters wird, bei gelingen, an die Stelle des Programmausdrucks kopiert.
+\item Wenn alle Programmausdrücke aufgelöst sind wird der neue String als contentRepr bereitgestellt.
+\item Neben contentRepr gibt es contentUnified. Dies ist eine JSON-Struktur, welche den Text, die Programmausdrücke sowie die jeweiligen Resultate enthält. (An dieser Stelle könnten, für mehr Semantik, Scala Typesystem Informationen bereitgestellt werden.)
+\item Die Anzeige im Browser kann contentSrc, contentRepr, contentUnified und alle anderen Attribute des Dokumentelements nach belieben verwenden. (In einem Template.)
+\end{enumerate}
+ 
+\section{Eingesetzte Technologien}\label{}
+ 
+Hier soll geklärt werden, welche Technologien eingesetzt werden, um den Prototypen zu bauen. Zudem wird begründet, warum genau diese Technologien ausgewählt wurden.
+
+ 
+\subsection{Scala}\label{}
+ 
+Scala ist eine statisch typisierte Sprache, welche auf der Java Virtual Machine ausgeführt wird. Scala verheiratet auf sehr geschickte weise das funktionale mit dem objektorientierten Programmierparadigma. Es ergibt sich eine an Java angelehnte, aber sehr aufgeräumte Sprachsyntax. Das ermöglicht sehr mächtige und abstrakte Programmierkonstrukte. Die Besonderheiten dabei sind, dass Methoden wie Operatoren auftreten können, Klammern, Semikolons oder Punkte können oftmals weggelassen werden. Dies ermöglicht ein sehr klares und sauberes Sprachbild und eignet sich wunderbar für interne DSLs, s. \citep{Hodapp}.
+
+ 
+Zudem gibt es für Scala noch das Akka Toolkit für Aktoren. Diese Implementierung ist neben der bekannten Aktoren-Implementierung aus Erlang die Erfolgreichste auf dem Markt. Scala hat ein ausgesprochen mächtiges Typsystem, welches für zusätzliche Informationen (u.a. Semantik) angezapft werden kann. Diese Eigenschaft könnte für die Zukunft des Projektes interessant sein.
+
+ 
+\subsection{Akka}\label{}
+ 
+Akka ist ein in Scala geschriebenen Toolkit. Es bietet Lösungen zur nebenläufigen und verteilten Programmierung an. Akka ermöglicht den Entwicklern, diese schwierige Aufgabe, effizient zu meistern. Insbesondere Skalierungsprobleme sollen vereinfacht werden. Die Basiseinheit mit der vom Programmierer gearbeitet wird, sind die Aktoren. Die ursprüngliche Idee des Aktor Modells stammt von \citep{Hewitt}. Ein Aktor kann nach Empfangen einer Nachricht folgendes tun, vgl. \citep{Hewitt2}:
+
+ 
+\begin{itemize}
+
+\item Senden von Nachrichten an Adressen von Aktoren
+\item Erstellen von neuen Aktoren
+\item Entscheiden wie mit den nächsten Nachrichten die empfangen werden umgegangen wird
+\end{itemize}
+ 
+Daraus ergeben sich die Kernoperationen der Akka Aktoren \citep[S.~23]{Roestenburg}:
+
+ 
+\begin{itemize}
+
+\item CREATE: Ein Aktor kann einen anderen Aktor erstellen.
+\item SEND: Ein Aktor kann Nachrichten zu einem anderen Aktor senden.
+\item BECOME: Das Verhalten (wie auf Nachrichten reagiert wird) von einem Aktor kann dynamisch verändert werden.
+\item SUPERVISE: Ein Aktor kann seine Kinder überwachen und bei deren Fehlfunktion (z.B. Neustart des Kindes) eingreifen.
+\end{itemize}
+ 
+Ein Aktor entspricht also quasi einem leichtgewichtigen Thread. Ein Betriebsystem (Linux x64) kann ca. 4096 normale Threads pro ein Gigabyte Arbeitsspeicher halten, aber jedoch ca. 2.7 Millionen Akka Aktoren \citep[S.~20]{Roestenburg}. Das Aktoren Modell wurde erstmals sehr erfolgreich von Ericsons Programmiersprache Erlang eingesetzt, im ADX301 switch mit einer Verfügbarkeit von 99.9999999 Prozent \citep[S.~12]{Roestenburg}. Daher ähnelt die API der Akka Aktoren auch der API der erfolgreichen Erlang Aktoren \citep[S.~69]{Typesave}. Laut Akka-Projektwebseite http://akka.io/ setzen viele Firmen das Toolkit produktiv ein, was die Reife des Projekts verdeutlicht.
+
+ 
+\citep[S.~7]{Typesave} nennt einige Anwendungsszenarien von Akka, aber der Einsatz als Fundament für einen abstrakten Syntaxbaum ist dort nicht aufgeführt. Das Aktoren-Modell sollte sich jedoch für den Bau eines abstrakten Syntaxbaumes eignen, da die Aktoren selbst ein hierarchisches System organisieren können bzw. im Fall von Akka auch explizit eines sind \citep[S.~22]{Roestenburg}. Der hier entwickelte Prototyp wird Akka verwenden, um einen abstrakten Syntaxbaum zu bauen und prüfen, ob das eine gute Idee ist.
+
+ 
+\subsection{Xitrum}\label{}
+ 
+Xitrum ist ein controller-first Web Framework geschrieben in Scala. Es zeichnet sich durch eine sehr klare und verständliche API aus. Akka Aktoren werden von Xitrum eingesetzt um Requests zu handhaben, insbesondere die Websocket-API von Xitrum sietzt auf Aktoren. Dies ermöglicht eine sehr einfache Anbindung an das Dokumentmodell aka. abstrakter Syntaxbaum aka. Aktorensystem.
+
+ 
+Es wurden auch noch andere Scala Web Frameworks untersucht und auf Tauglichkeit geprüft:
+
+ 
+\begin{itemize}
+
+\item Spray.io v1.2.0: Setzt komplett auf Akka, auch als Webserver. Unterstützt keine Websockets; ist jedoch für die Zukunft geplant. Wird seit 2011 entwickelt. (Entnommen aus Changelog)
+\item Play Framework v.2.2.2: Sehr vielversprechend und stabil mit großer Entwicklergemeinde. Jedoch läuft der Scala Interpreter hier nicht korrekt, da eine extra VM gestartet wird, was durch das sbt plugin von Play geschuldet ist. Wird seit 2007 entwickelt. (Entnommen aus Wikipedia) Als Webserver wird Netty eingesetzt.
+\item Socko Web Server v0.4.1: Interessante Funktionen, aber (für mich) eine schwierige und umständliche API. Wird seit ca. 2012 entwickelt. (Entnommen aus GitHub Commit Logs) Als Webserver wird Netty eingesetzt.
+\item Xitrum v.3.13: Mit Abstand die beste und schönste API und wird schon seit 2010 aktiv entwickelt. Wird laut Author in echten Projekten schon erfolgreich eingesetzt. Die Dokumentation ist auch recht umfangreich und gut verständlich. Als Webserver wird Netty eingesetzt.
+\end{itemize}
+ 
+\subsection{Web Standards}\label{}
+ 
+Mit Web Standards ist die Benutzeroberfläche, welche sich im Browser abspielt, realisiert. Das heißt die Anzeige des Dokuments, sowie die Editor-Schnittstelle für den Autor sitzt im Browser. Das „Web“ besteht aus vielerlei Standards verschiedener Standardisierungsgremien wie, z.B. W3C, IANA, ECMA, Unicode oder IETF, siehe \citep[S.~6]{Sikos}. Im Prototyp wurden vor allen Dingen HTTP, Websockets, HTML5, CSS3 und ECMAScript Edition 5 (JavaScript) verwendet.
+
+ 
+\subsubsection{Websockets}\label{}
+
+ 
+Websockets\footnote{~Technische Spezifikation der WebSocket API: http://www.w3.org/TR/2012/CR-websockets-20120920/} sind noch ein relativ junger Standard, die technischen Anforderungen stehen schon fest, jedoch fehlt noch die endgültige Ratifizierung (Candidate Recommendation zu Recommendation). Viele Browser haben daher schon die Websocket API implementiert.
+
+ 
+Über einen Websocket werden Daten als JSON-String von und an den abstrakten Syntaxtree übermittelt. Der Vorteil der Websockets ist, dass die Verbindung zum Browser, und damit zum Autor, immer offen bleibt, also nicht bei jeder Aktion des Autors neu aufgebaut werden muss. Des weiteren ist die Verbindung bidirektional, das heißt der Server kann dem Client bei Änderungen benachrichtigen -- der heißt der Client muss kein Polling betreiben um über serverseitige Änderungen benachrichtig zu werden. Wenn der abstrakte Syntaxbaum (Teil des Servers) seine Analysephase abschließt, kann er sofort den Browser über die Änderungen benachrichtigen.
+
+ 
+\subsubsection{Javascript Module}\label{}
+
+ 
+JavaScript steht in der Kritik ein schlechtes Abhängigkeits- und Modulmanagement zu haben. Das heißt der Programmierer von client side JavaScript gerät oft in Konflikt mit Namespace Pollution\footnote{~Von Global Namespace Pollution spricht man dann, wenn Variablen im ersten bzw. globalen Namensraum angelegt werden. Auf diesen Namensraum können alle Funktionen eines Programms zugreifen. Wenn eine fremde JavaScript-Bibliothek, die man im eigenen Programm verwenden will, viele Variablen global hält, gibt es die Möglichkeit unwissend diese zu überschreiben -- also eine potentielle Fehlerquelle.}. CommonJS versucht Empfehlungen für JavaScript-APIs zu geben. Dazu gehört auch Asynchronous Module Definition (AMD)\footnote{~CommonJS: Asynchronous Module Definition API-Spezifikation: http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition}, um Module in JavaScript zu definieren und deren Abhängigkeiten zu managen, um die Namespace Pollution zu vermeiden. Require.js\footnote{~Require.js Projektwebseite: http://requirejs.org/} ist ein Projekt, welches die AMD Spezifikationen für client side JavaScript, also für den Browser, umsetzt. Der Prototyp setzt Require.js ein, um strukturiert mit dem client side JavaScript Programmcode umgehen zu können.
+
+ 
+Bower ist ein Kommandozeilen Programm, welches client side JavaScript Bibliotheken automatisch herunterladen und verwalten kann. Es ist also ein Werkzeug um Abhängigkeiten aufzulösen. In der bower.json Datei wird spezifiziert, welche Bibliotheken in welcher Version von Bower heruntergeladen werden sollen. Bower wird auch vom Prototypen verwendet, um die eingesetzten JavaScript Bibliotheken zu verwalten:
+
+ 
+\begin{itemize}
+
+\item requirejs: JavaScript Module Definitionen
+\item ketcher: Chemischer Moleküleditor (Ein Domäneneditor)
+\item bootstrap: Layout Framework
+\item at.js: Autovervollständigung
+\item jquery: Komfortable API zur XML-Baummodifikation (DOM)
+\item mustache.js: Template Engine
+\end{itemize}
+ 
+\subsection{Dokumentelemente und Domäneneditoren}\label{}
+ 
+Um dem Autor eine übersichtliche Repräsentation bzw. die Möglichkeit zur Bearbeitung eines Modells einer Domäne zu geben, sind die hier sogenannten Domäneneditoren nützlich. Jedes Dokumentelement kapselt eine spezifische Domäne, sei es z.B. „Chemiemolekül“, „Petrinetz“, oder „Abschnitt“, „Nummerierte Liste“ oder eine „Quellenangabe“. Für jede dieser Domänen gibt es ein Modell auf das sie sich beziehen. Dieses Modell kann textuell (als DSL) oder grafisch beschrieben werden. Ein Domäneneditor vereinfacht die Interaktion zwischen Autor und Modell. Im einfachsten Fall bietet der Domäneneditor eine DSL an, für komplexere Modelle, wie die eines Chemiemoleküls, bieten sich grafische Editoren (umgesetzt in Web Standards) an.
+
+ 
+Dokumentelemente bestehen aus einer konkreten Scala Klasse (siehe \ref{metamodell-impl}) auf Serverseite. Der Client (also Browser) erhält lediglich den aktuellen Zustand als JSON-String des Dokumentelements. Für jedes Dokumentelement gibt es auf Clientseite mindestens ein Mustache HTML-Template. Das Template rendert dies direkt im Browser zu einer konkreten Repräsentation. Das heißt eine beliebige andere Repräsentation wird durch anpassen des Templates erreicht.
+
+ 
+\subsubsection{Ketcher}\label{}
+
+ 
+Ketcher\footnote{~Webseite des Ketcher Projekts: http://ggasoftware.com/opensource/ketcher} ist ein für sich allein stehender, in JavaScript geschriebener, Editor für chemische Moleküle. Damit lassen sich Moleküle darstellen und zeichnen. Ein chemisches Molekül kann als Molfile\footnote{~Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe de.wikipedia.org/wiki/Chemoinformatik „Repräsentation chemischer Strukturen“.} abgespeichert werden. Das Molfile kann als Modell des Moleküls betrachtet werden und wird hier als Attribut im Dokumentelement abgespeichert.
+
+ 
+Ein Wrapper macht Ketcher als Domäneneditor nutzbar. Neben dem der Scala Klasse und dem HTML-Template existiert noch ein JavaScript-Modul welches die Logik enthält, um Ketcher kompatibel zur Editor-Schnittstelle zu machen.
+
+ 
+\subsubsection{Spray}\label{}
+
+ 
+Spray ist eine Web Applikation, welches es ermöglicht formale Diagramme zu zeichnen. Ausführliche Erklärungen in Kapitel \ref{doku-spray}.
+
+ 
+Anderes als bei Ketcher handelt es sich hier um eine Web Applikation, die auf einem anderen Server läuft. Das heißt hier gibt es keinen direkten Zugriff auf den JavaScript Quellcode, aber APIs um die Web Applikation anzusprechen. Auch hier wurde ein Wrapper gebaut, der sogar sehr ähnlich zu dem von Ketcher aufgebaut ist.
+
+ 
+\subsubsection{Markdown und BibTeX}\label{}
+
+ 
+Die Listen Dokumentelemente nehmen Markdown als DSL an. Eine Liste konvertiert mit Hilfe einer Scala Bibliothek aus der Markdown-Notation eine XML-Notation. Die XML-Notation wird in Attribute des Dokumentelements umgewandelt, so dass ein Template diese nach belieben benutzen kann.
+
+ 
+Die Buchreferenzen Dokumentelemente nehmen BibTeX als DSL an. Eine Scala BibTeX Bibliothek verwandelt die BibTeX-Notation in Attribute es Dokumentelements, so dass ein Template diese nach belieben darstellen kann. Explizit werden authors, title und year als Attribute extrahiert.
+
+ 
+\subsection{Algorithmen und Datenstrukturen}\label{}
+ 
+Hier werden einige wichtige Algorithmen kurz erklärt, die während der Entwicklung entstanden sind. Dazu gehört ein Algorithmus zur effizienten Benummerung von Kapiteln bzw. Abschnitten mittels Nachrichtenaustausch. Eine Datenstruktur zur Speicherung der Dokumenten-Topologie mit einem Algorithmus zur Auswertung der Reihenfolge der einzelnen Elemente der Topologie. Und die Funktionsweise der Code Generierung zur Auflösung der „reichhaltigen“ Verweisungen.
+
+ 
+\subsubsection{Benummern im gerichteten Graph}\label{}
+
+ 
+Abbildungen und Kapitel bzw. Abschnitte werden in wissenschaftlichen Dokumenten für gewöhnlich benummert. Der abstrakte Syntaxbaum muss also während der Analysephase die genauen Benummerungen einzelner Dokumentelemente (je nach Typ) bestimmen können. Hier wird ein Algorithmus vorgestellt der durch Nachrichtenaustausch innerhalb eines gerichteten Graphen Benummerungen zuweisen kann.
+
+ 
+Gegeben ist ein gerichteter Graph \(G = (V, E)\). Wobei \(V = { a, b, x, c }\) die Menge der Knoten (Dokumentelemente) darstellt und \(E = { (a,b), (b,x), (x,c) }\) die Kanten (Nachrichtenkanal). \({ a, b, c }\) sind die Abschnitte die benummert werden sollen.
+
+ 
+\begin{verbatim}
+
+Einfache Visualisierung von G: a → b → x → c.
+
+a schickt die Nachricht "Durchzählen(1)" durch G.
+
+b erhält eine Nachricht von a.
+b erhöht Durchzählen um 1 auf Durchzählen(2).
+b setzt seinen eigenen Nummerzähler auf Durchzählen(2).
+b schickt "Druchzählen(2)" weiter durch den Graph.
+
+x reicht die "Durchzählen" Nachricht weiter, ohne Aktion.
+
+c erhält eine Nachricht die von a und b (etc.) bearbeitet wurden.
+c erhöht Durchzählen um 1 auf Durchzählen(3)
+c setzt seinen eigenen Nummerzähler auf Durchzählen(3).
+Da c keinen Nachfolger mehr hat, kann nichts weitergeleitet werden.
+\end{verbatim}
+ 
+Damit werden maximal \(|E|\) Nachrichten benötigt, um für jeden Abschnitts-Knoten die korrekte Benummerung zu bestimmen. Die Komplexität bezüglich der Laufzeit beträgt also \(O(|E|)\).
+
+ 
+Analog kann für Unterabschnitte und Unterunterabschnitte mit der Nachricht Durchzählen(1, 1, 1) begonnen werden. Ein Unterabschnitt würde also nur die mittlere 1 inkrementieren und die anderen unangetastet lassen.
+
+ 
+Das ist ein recht natürlicher Ansatz, um die Benummerungen zu bestimmen. Auf diese Art können Abschnitte sowie Unterabschnitte gleichzeitig mit einer einzigen Nachrichtenkette aktualisiert werden. Der Aufwand bleibt also bei \(|E|\) Nachrichten.
+
+ 
+\subsubsection{Topologie speichern und verarbeiten}\label{}
+
+ 
+In einer JSON Datenstruktur wird die Topologie des Dokuments festgehalten. Als Schlüssel dient die ID des Dokumentelements und als Wert ein Verweis auf sein nächstes Geschwister bzw. sein erstes Kind (vgl. Abbildung \ref{astimpl}):
+
+ 
+\begin{verbatim}
+{
+  "root": {
+    "next": "",
+    "firstChild": "front matter"
+  },
+
+  "front matter": {
+    "next": "body matter",
+    "firstChild": "sec a"
+  },
+
+  "sec a": {
+    "next": "par a",
+    "firstChild": ""
+  },
+  ...
+}
+\end{verbatim}
+ 
+Die (flache) Reihenfolge der Dokumentelemente kann mit dieser Datenstruktur, mit Tiefensuche in die Kinder und anschließende Breitensuche in die Geschwister, bestimmt werden. Diese Information ist wichtig für die Benutzeroberfläche, um das Dokument in der richtigen Reihenfolge anzuzeigen. Weiß die Benutzeroberfläche einmal die Dokumentelement-Reihung, reichen einfache Deltas über die Hierarchieänderungen aus. Der Algorithmus ist exemplarisch als JavaScript Code im REPO/TODO verfügbar. Der Root Aktor enthält eine entsprechende Scala Implementierung dieses Algorithmus.
+
+ 
+\subsubsection{Code Generierung für Verweise}\label{}
+
+ 
+In Abschnitt \ref{verweise-aufloesen} wurde bereits angesprochen wie das Vorgehen ist, um Verweise, die zwischen Dokumentelementen bestehen, aufzulösen.
+
+ 
+\section{Erreichter Funktionsumfang}\label{}
+ 
+Mit dem Prototyp ist es möglich eine Masterarbeit zu schreiben. Das heißt dass von der prinzipiellen Funktionalität alles da ist, um wissenschaftliche Texte zu verfassen. Durch die Möglichkeit Projektionen in andere Formate zu erhalten, kann auch LaTeX Code generiert werden, um (noch) fehlende Funktionalität (insb. Paginierung) auszugleichen. Jedoch hat LaTeX nur eine beschränkte Menge an „Dokumentelementen“ im Vergleich zum Prototyp -- es fehlen nunmal die domänenspezifischen Inhalte. Wenn diese Benutzt werden sollen, müssen diese mehr oder weniger von Hand an LaTeX nachgereicht werden, z.B. in Form von statischen Bildern. Beispiel: Das Chemiemolekül wird auch als SVG-Bild bereitgestellt, damit LaTeX dieses verarbeiten kann, muss es aus der Datenbank geholt und in ein pdf konvertiert werden. Rein vom Konzept her ist es aber leicht möglich solche Aufgaben besser zu automatisieren. Beispielsweise holt ein Shell-Skript via curl das SVG-Bild aus der Datenbank und legt es in einen Ordner ab, damit der LaTeX-Compiler es verwenden kann. Es macht Spaß mit den Prototyp Dokumente zu erstellen und zu sehen, wie von Zauberhand gleichzeitig auch der passende LaTeX-Code generiert wird. Er bietet eine übersichtliche Darstellung des Dokuments und ist bereits einigermaßen bequem zu bedienen, insbesondere dank der Autovervollständigung. Die Basiskonzepte aus Abschnitt \ref{basiskonzepte} konnten somit umgesetzt werden.
+
+ 
+Am Anfang der Masterarbeit war noch nicht klar, ob das Vorhaben überhaupt gelingt. In dieser Phase ist ein erster Prototyp entstanden. Dieser hat gezeigt, dass das Konzept Potential hat, tragfähig zu sein. Ein zweiter Prototyp ist entstanden, mit einer deutlich klareren und verbesserten Architektur. In die zwei Prototypen ist insgesamt ca. 4 Monate Entwicklungsarbeit und Konzeption geflossen, es wurde agil gearbeitet, um verschiedene Konzepte „unbürokratisch“ ausprobieren zu können. Der zweite Prototyp hat die Konzepte immer klarer werden lassen, so dass daraus eine gut strukturierte Theorie gefolgert und nachvollzogen werden kann. Aber die neuen Erkenntnisse zeigen auch, dass der Prototyp nicht an allen Stellen die Theorien konsequent umsetzt.
+
+ 
+\begin{itemize}
+
+\item Jedes Dokumentelemente repräsentiert ein Modell.
+\item Jedes Modell kann als DSL ausgedrückt werden. Textuell oder grafisch.
+\item Ein Modell kann in Form von Attributen (des Dokumentelements) gespeichert werden. Die Attribute entsprechen quasi der ausgewerteten DSL. Die DSL selbst wird auch als Attribut gespeichert.
+\end{itemize}
+ 
+Jedoch stößt der Prototyp an einigen Stellen auch auf seine Grenzen, gerade hinsichtlich der Performanz bei großen Dokumenten. Eine Vermutung ist, dass die eingesetzte JSON-Bibliothek, die intern sehr oft aufgerufen wird, nicht sonderlich schnell ist --  im Fokus stand zunächst eine Bibliothek mit einer übersichtlichen und flexiblen API zu verwenden. Die Architektur selbst ist auch noch nicht modular genug, d.h. der Basis Aktor sowie Wurzel Aktor sind zu monolithisch. Wenn das Metamodell verändert wird, muss das System neu kompiliert werden. Und z.Z. kann nur ein Dokument geladen werden; eine Unterscheidung zwischen verschiedenen Benutzern gibt es auch noch nicht. Wenn die hier vorgestellten Konzepte in einer Produktiven Umgebung eingesetzt werden sollen, ist eine Neuauflage der Software empfehlenswert.
+
+ 
+Jedoch hat der Prototyp das gezeigt, was er zeigen soll: Es ist möglich mit Akka Aktoren einen abstrakten Syntaxbaum zu bauen, welcher als Modellgrundlage für Dokumente dient. Zudem ist es sehr nützlich auch domänenspzifische Inhalte als spezialisierte Dokumentelemente zu modellieren. Dadurch erhält der Autor mehr Konsistenz und Semantik im Dokument -- dadurch wird einem Dokument ermöglicht sich selbst zu einem gewissen Grad zu verifizieren und damit weniger fehleranfällig zu machen. Außerdem ist es sehr für einen Autor sehr bequem, wenn ein von ihm häufig verwendetes Modell als fertiges und sorgenfreies Dokumentelement vorliegt; welches gleichzeitig Visualisierungen in Veröffentlichungsqualität liefert.
+
+ 
+\subsection{Codestatistik}\label{}
+ 
+Zirka 4 Monate intensive Entwicklung am Prototypen, danach nur noch kleine Bugfixes oder Einführung neuer Dokumentelemente. Insgesamt wurden über 150 git commits gemacht. 41 Testspezifikationen bestehend aus rund 1600 Code Zeilen werden dem Aktorsystem abverlangt. Die resultierende Software besteht aus: Zirka 500 Zeilen Code gehen an die in JavaScript geschriebene Benutzeroberfläche (ohne Template- oder Style-Code). Aus zirka 1000 Zeilen Code besteht das Aktorsystem, ohne Dokumentelement-Definitionen und ohne Server Code. Es wurden insgesamt sechs Releases erstellt, welche in diversen (internen) Vorträgen vorgeführt wurden.
+
