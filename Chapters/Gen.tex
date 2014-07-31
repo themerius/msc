@@ -45,6 +45,35 @@ Mangel an Metamodellierung: Es fehlen\footnote{~Oder gehen nicht weit genug, wie
 Das wirft die folgende Frage auf: Kann man ein Autorensystem erschaffen, welches die o.g. Defizite aufhebt?
 
  
+\section{Stand der Technik}\label{stand-der-technik}
+ 
+Es folgt eine kurze Vorstellung einiger Softwaresysteme die zum erstellen von wissenschaftlichen Dokumenten eingesetzt werden, oder Forschungsprojekte die bestimmte Aspekte der Wissenskonservierung verbessern wollen.
+
+ 
+\begin{enumerate}
+
+\item Textverarbeitungen
+\item Textsatzsysteme
+\item SALT
+\item OCA
+\item Wolfram CDF
+\end{enumerate}
+ 
+(1) Sehr weit verbreitet sind Microsoft Word, Apache OpenOffice oder Google Docs. Dabei handelt es sich um WYSIWYG-Editoren für Dokumente. Sie sind für gewöhnlich als Projektionsedtioren für Markup realisiert.
+
+ 
+(2) Weit verbreitet in den Naturwissenschaften ist TeX bzw. LaTeX (Sammlung an TeX-Makros). Ein Dokument wird in Form von TeX-Quellcode geschrieben und kann zu einer PDF-Datei kompiliert werden. Zur Klasse der Textsatzysteme gehören auch Softwaresysteme wie Adobe InDesign, welche sich stärker den gestalterischen Details widmen, als der inhaltlichen Strukturierung von wissenschaftlichen Texten.
+
+ 
+(3) Semantically Annotated LaTeX for Scientific Publications ist ein Forschungsprojekt \citep{Groza}, mit dem Ziel LaTeX Code um semantische Annotationen zu erweitern. Es werden Meta-Informationen in die generierten PDFs eingebettet, zur Nutzung durch das Semantic Web.
+
+ 
+(4) One Click Annotator ist ein Forschungsprojekt \citep{Heese}, welches einen WYSIWYG Web Editor zur entwickelt hat, um Texte um RDFa Annotationen anzureichern.
+
+ 
+(5) Computable Document Format\footnote{~Wolfram CDF Produktwebseite: http://www.wolfram.com/cdf/} ist ein Dokumentformat für dynamisch generierte, interaktive Inhalte basierend auf der wissensbasierten Wolfram Language. Es handelt sich um ein proprietäres Format, welches zum Betrachten von Dokumenten zumindest den Wolfram Player (oder ein spezielles Browser Plugin) benötigt.
+
+ 
 \section{Methode}\label{}
  
 In erster Linie soll ein Prototyp entwickelt werden, der einen konkreten Lösungsvorschlag für die Problemstellungen aus Abschnitt \ref{problemstellung} vorlegt.
@@ -123,7 +152,7 @@ Diese Baumstruktur kann als abstrakter Syntaxbaum (AST) der Dokumentenstruktur a
  
 \section{Szenario}\label{}
  
-\section{Fragen von wissenschaftlichem Interesse}\label{}
+\section{Fragen von wissenschaftlichem Interesse}\label{wiss-fragen}
  
 Bereiche in denen (wiss.) Fragestellungen durch den Prototypen beantwortet werden können:
 
@@ -698,7 +727,7 @@ Um die wissenschaftlichen Fragen zu beantworten wurde als Methode die Entwicklun
 Zunächst wird das Vorgehen mit den Test-Spezifikationen erläutert. Gefolgt von den Basiskonzepten, die dem Prototypen inne wohnen. Daraus ergibt sich eine Architektur, die von Grob zu Detailreich beleuchtet wird. Am Ende des Kapitels wird der erreichte Funktionsumfang diskutiert und mit einer kleinen Statistik über den Codeumfang des Prototypen abgeschlossen.
 
  
-Der Quellcode ist auf GitHub öffentlich zugänglich und wird via Zendodo.org zitierbar gemacht, d.h. Version 0.6.0 des Prototypen erhält eine DOI (digital object identifier) und liegt im Langzeitarchiv von Zenodo. Im Quellcode ist eine README Datei welche als Anhang für die Masterarbeit dient. Dort ist u.a. beschrieben, wie die Software installiert werden kann, welche Releases (Meist Zwischenstände für Vorträge) es gegeben hat.
+Der Quellcode \citep{HodappScaltex} ist auf GitHub öffentlich zugänglich und wird via Zendodo.org zitierbar gemacht, d.h. Version 0.6.0 des Prototypen erhält eine DOI (digital object identifier) und liegt im Langzeitarchiv von Zenodo. Im Quellcode ist eine README Datei welche als Anhang für die Masterarbeit dient. Dort ist u.a. beschrieben, wie die Software installiert werden kann, welche Releases (Meist Zwischenstände für Vorträge) es gegeben hat.
 
  
 \section{Vorgehen}\label{}
@@ -1113,7 +1142,7 @@ In einer JSON Datenstruktur wird die Topologie des Dokuments festgehalten. Als S
 }
 \end{verbatim}
  
-Die (flache) Reihenfolge der Dokumentelemente kann mit dieser Datenstruktur, mit Tiefensuche in die Kinder und anschließende Breitensuche in die Geschwister, bestimmt werden. Diese Information ist wichtig für die Benutzeroberfläche, um das Dokument in der richtigen Reihenfolge anzuzeigen. Weiß die Benutzeroberfläche einmal die Dokumentelement-Reihung, reichen einfache Deltas über die Hierarchieänderungen aus. Der Algorithmus ist exemplarisch als JavaScript Code im REPO/TODO verfügbar. Der Root Aktor enthält eine entsprechende Scala Implementierung dieses Algorithmus.
+Die (flache) Reihenfolge der Dokumentelemente kann mit dieser Datenstruktur, mit Tiefensuche in die Kinder und anschließende Breitensuche in die Geschwister, bestimmt werden. Diese Information ist wichtig für die Benutzeroberfläche, um das Dokument in der richtigen Reihenfolge anzuzeigen. Weiß die Benutzeroberfläche einmal die Dokumentelement-Reihung, reichen einfache Deltas über die Hierarchieänderungen aus. Der Algorithmus ist exemplarisch als JavaScript Code in \citep{HodappScaltex} unter misc/topology verfügbar. Der Root Aktor enthält eine entsprechende Scala Implementierung dieses Algorithmus.
 
  
 \subsubsection{Code Generierung für Verweise}\label{}
@@ -1137,7 +1166,7 @@ Am Anfang der Masterarbeit war noch nicht klar, ob das Vorhaben überhaupt gelin
 \item Ein Modell kann in Form von Attributen (des Dokumentelements) gespeichert werden. Die Attribute entsprechen quasi der ausgewerteten DSL. Die DSL selbst wird auch als Attribut gespeichert.
 \end{itemize}
  
-Jedoch stößt der Prototyp an einigen Stellen auch auf seine Grenzen, gerade hinsichtlich der Performanz bei großen Dokumenten. Eine Vermutung ist, dass die eingesetzte JSON-Bibliothek, die intern sehr oft aufgerufen wird, nicht sonderlich schnell ist --  im Fokus stand zunächst eine Bibliothek mit einer übersichtlichen und flexiblen API zu verwenden. Die Architektur selbst ist auch noch nicht modular genug, d.h. der Basis Aktor sowie Wurzel Aktor sind zu monolithisch. Wenn das Metamodell verändert wird, muss das System neu kompiliert werden. Und z.Z. kann nur ein Dokument geladen werden; eine Unterscheidung zwischen verschiedenen Benutzern gibt es auch noch nicht. Wenn die hier vorgestellten Konzepte in einer Produktiven Umgebung eingesetzt werden sollen, ist eine Neuauflage der Software empfehlenswert.
+Kritik: Der Prototyp stößt an einigen Stellen auch auf seine Grenzen, gerade hinsichtlich der Performanz bei großen Dokumenten. Eine Vermutung ist, dass die eingesetzte JSON-Bibliothek, die intern sehr oft aufgerufen wird, nicht sonderlich schnell ist --  im Fokus stand zunächst eine Bibliothek mit einer übersichtlichen und flexiblen API zu verwenden. Zudem ist es bei großen Dokumenten sehr aufwendig, wenn der DOM über JavaScript in der Browser-Benutzeroberfläche aufgebaut wird. Die Architektur selbst ist auch noch nicht modular genug, d.h. der Basis Aktor sowie Wurzel Aktor sind zu monolithisch. Wenn das Metamodell verändert wird, muss das System neu kompiliert werden. Und z.Z. kann nur ein Dokument geladen werden; eine Unterscheidung zwischen verschiedenen Benutzern gibt es auch noch nicht. Wenn die hier vorgestellten Konzepte in einer Produktiven Umgebung eingesetzt werden sollen, ist eine Neuauflage der Software empfehlenswert.
 
  
 Jedoch hat der Prototyp das gezeigt, was er zeigen soll: Es ist möglich mit Akka Aktoren einen abstrakten Syntaxbaum zu bauen, welcher als Modellgrundlage für Dokumente dient. Zudem ist es sehr nützlich auch domänenspzifische Inhalte als spezialisierte Dokumentelemente zu modellieren. Dadurch erhält der Autor mehr Konsistenz und Semantik im Dokument -- dadurch wird einem Dokument ermöglicht sich selbst zu einem gewissen Grad zu verifizieren und damit weniger fehleranfällig zu machen. Außerdem ist es sehr für einen Autor sehr bequem, wenn ein von ihm häufig verwendetes Modell als fertiges und sorgenfreies Dokumentelement vorliegt; welches gleichzeitig Visualisierungen in Veröffentlichungsqualität liefert.
@@ -1146,4 +1175,158 @@ Jedoch hat der Prototyp das gezeigt, was er zeigen soll: Es ist möglich mit Akk
 \subsection{Codestatistik}\label{}
  
 Zirka 4 Monate intensive Entwicklung am Prototypen, danach nur noch kleine Bugfixes oder Einführung neuer Dokumentelemente. Insgesamt wurden über 150 git commits gemacht. 41 Testspezifikationen bestehend aus rund 1600 Code Zeilen werden dem Aktorsystem abverlangt. Die resultierende Software besteht aus: Zirka 500 Zeilen Code gehen an die in JavaScript geschriebene Benutzeroberfläche (ohne Template- oder Style-Code). Aus zirka 1000 Zeilen Code besteht das Aktorsystem, ohne Dokumentelement-Definitionen und ohne Server Code. Es wurden insgesamt sechs Releases erstellt, welche in diversen (internen) Vorträgen vorgeführt wurden.
+
+ 
+\chapter{Analyse der Ergebnisse}\label{}
+ 
+In diesem Kapitel werden zunächst die Ergebnisse und die daraus gefolgerten Erkenntnisse zusammengetragen. Danach wird der Versuch unternommen die wissenschaftlichen Fragen zu beantworten, jeweils mit einer kurzen Begründung. Anschließend wird der Prototyp bzw. die Konzepte mit ähnlichen Arbeiten verglichen. Zum Schluss erfolgt eine Diskussion zum Prototypen.
+
+ 
+\section{Ergebnisse und Erkenntnisse}\label{}
+ 
+Aus den vier Mängeln (siehe Abschnitt \ref{problemstellung}) Mangel an Konsistenz, Mangel an Domänenwissen, Mangel an Semantik und Mangel an Metamodellierung ist ein Prototyp entstanden, welcher versucht diese Mängel zu entschärfen und versucht Theorien daraus zu entwickeln:
+
+ 
+Es gibt ein sinnvolles Modell für Dokumente. Als natürliche Realisierung eignet sich der abstrakte Syntaxbaum, bekannt aus den Theorien zum Bau von Übersetzern (Compiler). Jedes Dokumentelement, wie z.B. Kapitel, Absätze, Abbildungen, etc., wird als Knoten des Syntaxbaumes betrachtet. Es gibt zwei Arten von Kanten: Zum einen Kanten die die Topologie des Dokuments vorgeben und zum anderen die Verweisungen zwischen Dokumentelementen ermöglichen.
+
+ 
+Der abstrakte Syntaxbaum wird mit dem Akka Aktoren Toolkit umgesetzt. Jeder Knoten bzw. Dokumentelement wird in Form eines Aktors abgebildet. Die Aktoren versenden untereinander Nachrichten, um das Dokument aufzubauen, dazu gehört auch Verweisungen zwischen Dokumentelementen auflösen (z.B. Absatz verweist auf eine bestimmte Abbildung) oder um topologische Informationen zu verarbeiten (Herausfinden der korrekten Benummerung eines Abschnitts).
+
+ 
+Mit Projektionseditoren (projectional editing) wird direkt der abstrakte Syntaxbaum manipuliert. Der Autor bearbeitet also direkt das Modell des Dokuments. Das ermöglicht quasi beliebig viele konkrete Syntaxen oder Repräsentationen eines Dokuments bzw. eines Dokumentelements. Ein Dokument kann dadurch in beliebige Formate transformiert werden. Das heißt hier werden Inhalt, Struktur und Layout/Präsentation sauber voneinander getrennt. Der intellektuelle Inhalt des Dokuments liegt in den Attributen der Dokumentelemente, die Struktur entspricht der Topologie des Syntaxbaumes und die Präsentation wird von verschiedenen Templates, die vom Projektionseditor gerendert werden, beigesteuert.
+
+ 
+Die Analyse der Dokumentelement-Semiotik hat gezeigt, dass jedes Dokumentelement selbst ein Modell einer spezifische Domäne enthält. Das Modell wird in Form von Attributen im Dokumentelement gespeichert. Autoren können eine textuelle DSL an das Dokumentelement übermitteln, daraus werden dann die Attribute des Modells gewonnen. Oder das Dokumentelement bietet einen grafischen Editor zur Modellierung an; der Editor kann dann die Attribute des Modells extrahieren. Daher verfügt das Dokumentelement über explizite Semantik der Domäne und kann verschiedene Repräsentationen des Modells anbieten oder zusätzliche Informationen (durch Berechnung) bereitstellen.
+
+ 
+Es wurde eine allgemeingültige Taxonomie für den inneren Aufbau von (wissenschaftlichen) Dokumenten ausgearbeitet. Sie ordnet die Dokumentelemente in drei Kategorien (mit beliebigen Unterkategorien) ein: Container, Struktur und Meta. Containerelem. enthalten andere Dokumentelemente, Strukturelem. enthalten den intellektuellen Inhalt und Metaelem. beschreiben wiederum andere Dokumentelemente oder Daten. Aus der Taxonomie können zwei Matrizen abgeleitet werden, diese deklarieren die erlaubten Verschachtelungen bzw. Reihenfolgen der Dokumentelemente. Die Taxonomie bzw. Matrizen spezifizieren formal den Aufbau einer Dokumentklasse, wie z.B. EU-Patent, Masterarbeit, Jahresbericht, etc.
+
+ 
+Aus der Taxonomie kann ein Metamodell für den abstrakten Syntaxbaum, das Dokumentmodell, abgeleitet werden. In einem solchen Metamodell sind die einzelnen Dokumentelemente die in einem Dokument vorkommen können definiert. In Verbindung mit den vorgestellten Matrizen, kann der Projektionseditor den Autor durch die Erstellung seines Dokuments, in einer speziellen Dokumentklasse, führen. Der Autor macht mutmaßlich weniger Fehler durch diesen Wegweiser und Dokumentelemente die ihre Domäne verstehen und zum gewissen Graf verifizieren können.
+
+ 
+Wie sich herausgestellt hat, ist das Konzept sehr flexibel, denn dem, noch relativ primitiven, Prototyp gelingt es bereits sehr unterschiedliche Anwendungsfälle zu lösen: Erstellung \emph{dieser} Masterarbeit als Beispiel für ein wissenschaftliches Dokument, ein UIMA CAS Editor zur Annotation von Texten, die Dokumentation von Spray-Softwaremodellen und die Transformation andere Formate am Beispiel von LaTeX-Code.
+
+ 
+\section{Analyse im Detail}\label{}
+ 
+Zunächst sollen die wissenschaftlichen Fragen aus Abschnitt \ref{wiss-fragen} aufgegriffen und  ein Versuch der Beantwortung unternommen werden:
+
+ 
+\begin{itemize}
+
+\item Ist es sinnvoll Dokumente als Modell aufzufassen? Ja, dadurch ergibt sich eine bessere Verarbeitung durch formale Methoden.
+\item Wie könnte eine sinnvolle Modellierung von Dokumenten aussehen? Eine natürliche und mächtige Realisierung ist als abstrakter Syntaxbaum / Graph, denn ein Dokument entspricht vom prinzipiellen Aufbau her einem (hierarchischen) Graphen.
+\item Gibt es ein gemeinsames Metamodell? Ja, die Dokumentelemente sind die kleinste Einheit im Dokument, die sich weiter in einer Taxonomie kategorisieren lassen.
+\item Kann ein Aktorsystem verwendet werden, um einen abstrakten Syntaxbaum zu implementieren? Ja es ist möglich, z.B. mit dem Akka Toolkit. Knoten sind Aktoren und Kanten die Nachrichten zwischen den Aktoren.
+\item Taugt dieser abstrakte Syntaxbaum als sinnvolle Architekturgrundlage für einen Projektionseditor, und damit auch als Code Generator? Ja, der Code für die Benutzeroberfläche ist sehr kompakt/generisch und trotz Prototypenstadium recht benutzerfreundlich. Ein einfaches Template pro Dokumentelement genügt, um eine LaTeX-Code-Projektion zu generieren.
+\item Brauchen wir mehr explizite Semantik innerhalb von Dokumenten? Ja, damit Dokumente sich selbst verifizieren können und Autor, Leser oder Dienste zusätzliche Informationen zum betrachteten Objekt erhalten.
+\item Ergeben sich Vorteile, wenn diese Semantik direkt vom Autor transportiert wird? Ja, der Autor kann sein Dokument leichter konsistent halten und Dienste erhalten Objekte mit kurierten Informationen und deren Bedeutung.
+\item Ist es möglich, dass sich Dokumente zu einem gewissen Grad selbst verifizieren und damit konsistenter machen? Ja, da jedes Dokumentelement beherbergt Wissen aus seiner Domäne und kann Eingaben des Autors mit einem formalen Modell (z.B. vorliegend als Softwarebibliothek oder XML-Schema) auf Korrektheit prüfen.
+\item Gibt es eine allgemeingültige Taxonomie für wiss. Publikationen? Ja, sie kennt drei Kategorien von Dokumentelementen.
+\end{itemize}
+ 
+\subsection{Ähnliche Arbeiten}\label{}
+ 
+In Abschnitt \ref{stand-der-technik} wurde verschiedene Systeme vorgestellt, die im Bereich der Dokumenterstellung etabliert sind oder Verbesserungsansätze liefern. Hier werden diese Systeme mit dem hier entstanden Prototyp bzw. dessen konzeptuellen Überlegungen kurz verglichen.
+
+ 
+Textverarbeitungen wie Microsoft Word haben Formatvorlagen, welche als primitive Dokumentelemente bezeichnet werden könnten. Diese Formatvorlagen bringen jedoch keinerlei Wissen über deren Domäne mit, und somit auch keine ausgefeilten Repräsentationen oder Editoren, wie z.B. das hier gezeigte Chemiemolekül-Dokumentelement es tut. Eine Spezifikation, welche Elemente aneinander gereiht werden dürfen gibt es nicht. Dies ist eine Fehlerquelle für den Autor, sowohl was die Konsistenz des Dokuments betrifft, als auch den formal korrekten Aufbau der Dokumentklasse.
+
+ 
+Das Textsatzsystem LaTeX spezifiziert explizit Dokumentklassen, welche passende TeX-Makros anbietet, um ein Dokument in der vorliegenden Klasse zu bauen. Diese Makros entsprechen quasi den Dokumentelementen. Jedoch prüft keine Taxonomie bzw. Metamodell die korrekte Aneinanderreihung der Dokumentklasse. Zudem wird direkt mit dem Quellcode gearbeitet, was Kopilierzeiten zum generieren des PDFs erfordert. Interaktive grafische Domäneneditoren sind damit also nicht ohne weiteres möglich. SALT \citep{Groza} bort LaTeX so auf, dass semantische Annotationen zum PDF hinzugefügt werden können. Um dies zu tun, erhält der Autor eine zusätzliche Menge an TeX-Makros für die Annotation. Diese Annotationen sind für die spätere Verarbeitung durch Semantic Web Dienste nützlich, bringen aber dem Autor selbst noch keinen Vorteil. Beim hier vorgestellten Prototyp hat der Autor auch etwas davon, diese Informationen zu übermitteln; denn er kann direkt auf die Domänenmodelle zurückgreifen und sich so Schreibarbeit und Fehler ersparen.
+
+ 
+Der One Click Annotator \citep{Heese} soll es z.B. Journalisten einfach machen einen Text für das Semantic Web aufzubereiten. Sinn ist, dass auch nicht-Ontologie-Experten auf einfache weise eine Wissensbasis aufbauen und durchsuchbar machen. Das primäre Ziel sind hier nicht zwangsweise wissenschaftliche Texte. Auch mit dem hier vorgestellten Konzepten ist es möglich Annotationen zu Texten hinzuzufügen. Es steht jedoch noch aus, diese Annotationen an RDF-Systeme anzukoppeln. Durch Projektion bzw. Transformation in andere Formate sollte es jedoch durchaus möglich sein, mit solchen Systemen zu interagieren. Jedoch ist es mit dem Prototypen noch relativ umständlich eine Annotation hinzuzufügen. Anzeigen und bearbeiten von Annotationen funktioniert schon recht zuverlässig.
+
+ 
+Das Wolfram CDF ist wohl die stärkste Konkurrenz für das hier vorgestellte System. Denn es bietet auch interaktive Dokumentelemente, auch wenn Wolfram diese nicht so nennt, die mit einer Programmiersprache (Wolfram Language) generiert werden. Zudem bedient sich diese Programmiersprache an der Wissensbasis der semantischen Suchmaschine Wolfram Alpha -- ist jedoch zugleich sehr stark an diese Plattform gebunden. Zudem benötigt das Format zwingend eine Wolfram Runtime; es basiert also nicht auf offenen Standards. Die Geschlossenheit des proprietären Wolfram CDF verhindert vermutlich den richtigen Durchbruch bzw. eine breite Anwenderbasis.
+
+ 
+\section{Diskussion zum Prototyp}\label{}
+ 
+Am Anfang der Masterarbeit stand die Idee Dokumentelemente auf Aktoren abzubilden. Es sollte geprüft werden, ob diese Idee sinnvoll ist und umsetzbar. Daraus hat sich der hier vorgestellte Prototyp entwickelt. Von Anfang an war es klar, dass es ein Projektionseditor werden soll, was bedingt, dass das Softwaresystem einen abstrakten Syntaxbaum in irgendeiner Form vorweisen muss. Die Benutzerschnittstelle ist mit Web Standars umgesetzt, so dass über einen Browser das Dokument betrachtet sowie bearbeitet werden kann.
+
+ 
+Der Prototyp hat das gezeigt, was er zeigen sollte: Es ist möglich einen Projektionseditor auf Basis von Web Standards und ein abstrakten Syntaxbaum im Aktoren-Modell umzusetzen. Der Prototyp läuft bereits recht stabil, so dass auch diese Masterarbeit damit, ohne große Hürden, verfasst werden konnte. Zudem ist es recht leicht, neue Dokumentelemente hinzuzufügen. Der Prototyp hat zudem Licht ins Dunkel gebracht: Nur so konnten die Theorien weiterentwickelt werden, so dass sie eine solide Basis für eine produktiv einsetzbare Neuentwicklung bilden.
+
+ 
+Jedoch gibt es auch noch Verbesserungspotential für das Softwaresystem: (1) Die Architektur ist zu monolithisch, d.h. insbesondere der Basis Aktor ist nicht modular genug aufgebaut. (2) Große Dokumente bringen das System an die Performanzgrenzen, da der DOM im Browser rein durch JavaScript aufgebaut wird und (vermutlich) eine ineffiziente Implementierung der eingesetzten JSON-Bibliothek\footnote{~Ein Sampling über das Zeitverhalten von Methodenaufrufen mit VisualVM ergab, dass die Aktoren oft schlafen gelegt werden,und das recht viel Rechenzeit für das Parsing von JSON und das Interpretieren des Scala Codes (Verweise) aufgewendet wird.Der Interpeter muss auch JSON verarbeiten.} die Aktoren bremst. (3) Es gibt weitere Limitierungen, wie z.B. keine Benutzerverwaltung, die jedoch zum Zeigen der Anwendungsfälle nicht nötig sind.
+
+ 
+\chapter{Zusammenfassung}\label{}
+ 
+Heutige Textverarbeitungen die zum Erstellen von wissenschaftlichen Dokumenten verwendet werden, weisen noch einige Defizite auf. Im Dokument schleichen sich leicht Fehler ein, durch Inkonsistenten zwischen Text und z.B. einem beschriebenen Modell. Das beschriebene Modell bringt Domänenwissen mit, welches jedoch dem Autor, in heutigen Systemen, nicht zur direkten Nutzung vorliegt. Das System kann also dadurch nicht explizit mit der Semantik der Domäne umgehen. Zudem liegen oftmals keine formal spezifizierten Dokumentklassen vor, welche es dem Autor ermöglichen sich stärker auf den Inhalt zu konzentrieren.
+
+ 
+Ziel dieser Arbeit ist es, herauszufinden, ob und wie diese Defizite abgefedert werden können. Dazu wird ein Prototyp entwickelt, anhand dessen theoretische Konzepte zur Beseitigung der Defizite erarbeitet und auf praktische Tauglichkeit hin untersucht werden. Die praktische Tauglichkeit wird anhand verschiedenartiger Anwendungsfälle überprüft.
+
+ 
+Die prinzipielle Idee ist es den prototypischen Dokumenteditor als Projektionseditor (projectional editor) zu gestalten. Dabei wird zur Darstellung verstärkt auf Web Standards gesetzt und zur serverseitigen Programmierung wird Scala eingesetzt. Der Autor bearbeitet das Dokument, indem er direkt dessen abstrakten Syntaxbaum manipuliert, wobei die Benutzeroberfläche ihm eine mögliche konkrete, möglichst übersichtliche, Repräsentation des Dokuments anzeigt. Ein Dokument ist aus einzelnen Dokumentelementen (z.B. Abschnitt, Absatz, Abbildung, etc.) aufgebaut, ein jedes dieser Dokumentelemente wird in einen Knoten des Syntaxbaumes abgebildet. Die konkrete Implementierung des abstrakten Syntaxbaums wird mit dem Aktoren-Modell realisiert, wobei jeder Syntaxbaum-Knoten als Aktor abgebildet wird.
+
+ 
+\section{Fazit der Ergebnisse}\label{}
+ 
+Erstes Ergebnis ist der Prototyp, der in der Lage ist verschiedenartige Anwendungsfälle zu realisieren. Damit beweist er die Tauglichkeit und den praktischen Nutzen der hier vorgestellten Konzepte. Bei den beispielhaft umgesetzten Anwendungsfällen handelt es sich um (1) die Erstellung \emph{dieses} wissenschaftlichen Dokuments, (2) die Anzeige, Bearbeitung von Annotationen in wissenschaftlichen Texten, (3) die Dokumentation von Spray-Softwaremodellen und (4) die Transformation \emph{dieser} Masterarbeit in ein anderes Format, namentlich LaTeX-Code.
+
+ 
+Zweites Ergebnis ist eine Reihe von Theorien, die das Verfassen von wissenschaftlichen Dokumenten geordneter und formaler gestalten. Ein abstrakter Syntaxbaum bzw. Graph dient als natürliches Modell für ein Dokument. Die einzelnen Bauteile eines Dokuments, die Dokumentelemente, werden auf Graph-Knoten abgebildet. Für formale Modelle können auch Metamodelle (Modell eines Modells) gefunden werden. Dort enthalten sind u.a. Definitionen zu den einzelnen Dokumentelementen. Dieses Dokumentmodell passt zudem wunderbar in die Gesetzmäßigkeiten der Semiotik. Daraus wird ersichtlich, dass jedes Dokumentelement selbst, wiederum ein Modell seiner Domäne kapselt.
+
+ 
+Drittes Ergebnis ist die Erkenntnis, dass es eine gewisse, allgemein gültige Gesetzmäßigkeit für den inneren Aufbau von Dokumenten gibt. Diese können als eine Taxonomie aufgeschrieben werden. Eine Dokumentklasse, wie z.B. naturwiss. Aufsatz oder EU-Patent etc., kann genau spezifiziert werden, indem Matrizen über die erlaubten Abfolgen bzw. Verschachtelungen der Dokumentelemente aufgestellt wird. Dies kann als ein Teil des Metamodells verstanden werden. Zudem ermöglicht dies dem Softwaresystem, einem Autor bei der Erstellung eines korrekt aufgebauten Dokuments zu unterstützen.
+
+ 
+\section{Ausblick}\label{}
+ 
+Im Ausblick werden noch einige Ideen oder Visionen für die Zukunft des Projekts vorgestellt. Zunächst werden technische Verbesserungen bzw. konzeptuelle Erweiterungen vorgestellt. Gefolgt von Visionen, die zum Ausbau des Systems zu einer vollwertigen Platform zur Erstellung und Verwaltung von akademischen Dokumenten anstiften. Damit könnte der vorgestellte Prototyp bzw. seine Konzepte zum Kern eines nützlichen Werkzeuges für die Wissenschaft werden.
+
+ 
+\subsection{Technische Verbesserungen}\label{}
+ 
+Überlegungen und Ideen zur Verbesserung der Architektur: XML statt JSON, da XML durch DTDs etc. validiert werden kann? Eine andere Programmiersprache für die reichhaltigen Verweise, mit besserer Möglichkeit zur Metaprogrammierung? Modularere Architektur durch Aufspaltung in mehrere kleine Aktoren? Ecore bzw. MOF als Metamodell-Implementierung? Neue bzw. Veränderte Dokumentelemente zur Laufzeit injizieren, z.B. als Plugin? Eine DOM-Implementierung als Topologie-Datenstruktur? Oder gar eine DOM-Implementierung statt Aktoren?
+
+ 
+Wenn Templates auf serverseite gerendert werden und die Dokumentelemente via REST-Schnittstelle direkt abrufbar sind, ermöglicht das z.B. generierten LaTeX-Code direkt von einem Shell-Programm abholen zu lassen. Einzelne Dokumentelemente können zudem in verschiedenen Formaten abgerufen werden, beispielsweise das Chemiemolekül als SVG-Bild. Zudem muss der Browser den DOM nicht mehr ausschließlich mit JavaScript aufbauen, sondern muss dieses nur noch bei erfolgten Editier-Operationen tun.
+
+ 
+Realisierung der Annotationen. Beim Verfassen der Masterarbeit ist aufgefallen, dass es neben einfachen Inline-Annotationen auch so etwas wie schwebende Annotationen geben sollte. Ein Beispiel dafür sind die Fußnoten, denn diese werden im Text, den sie ergänzen, verkürzt dargestellt, aber an einer anderen Stelle im Dokument vollständig angezeigt. Solche schwebenden Annotationen können auch für anderen Szenerien nützlich sein: Beispielsweise eine Annotation die einen Teil einer Grafik vergrößert (Lupe) und diese Hervorhebung entsprechend erklärt. Momentan wird Scala Programmcode zum Verweisen auf Inhalte anderer Dokumentelemente (betrifft insbesondere Inline-Annotationen) verwendet, hierbei wird von der entsprechenden Scala-Methode des Dokumentelements ein statischer String ausgegeben. Jedoch möchte man in anderen Projektionen des Dokuments diesen String eventuell mit z.B. einem speziellen Markup umhüllen. Das ist im hiesigen Prototypen noch nicht sauber umgesetzt.
+
+ 
+Schnelle Erstellung von Annotationen. Beispielsweise entscheidet sich der Autor nun doch, einen Textteil als Fußnote auszulagern (d.h. ins Metadokument aufnehmen). Er markiert den betreffenden Text und erhält eine Auswahlbox, in welche Dokumentelemente er den betreffenden Text stecken kann. Er wählt die Fußnote, danach wird der Text automatisch ausgeschnitten, in das neue Fußnoten-Dokumentelement verschoben, und ein Verweis wird an der Textstelle wird zur Fußnote hinerlassen.
+
+ 
+Weiterentwicklung der semantischen Ansicht für Dokumentelemente, siehe Abb. \ref{semanticeditor}. Das Modell eines Dokumentelements kann auf verschiedene weise eingegeben werden. Zum einen als textuelle DSL, zum anderen durch einen grafischen Editor. Aus diesen Eingaben können die Attribute extrahiert werden, welche für die Weiterverarbeitung gut geeignet sind. Die Attribute können z.B. durch Templates eine bestimmte Repräsentation annehmen. Es ist wohl nützlich, wenn zwischen Makro-Repräsentation und Mikro-Repräsentation des Dokumentelements unterschieden wird. Beispiel Chemiemolekül: Die Mikro-Repräsentation ist z.B. der Verweis auf die Masse des Moleküls innerhalb eines anderen Dokumentelements und die Makro-Repräsentation ist eine Darstellung des gesamten Dokumentelements, also z.B. die Zeichnung der chemischen Struktur. Weiteres Beispiel Fußnote: die Mikro-Repräsentation ist die hochgestellte Zahl im Text, d.h. ein einzelnes Attribut wird inline innerhalb eines anderen Dokumentelements dargestellt; die Makro-Repräsentation ist eine Abbildung des gesamten Dokumentelements, also die Fußnote im Ganzen. Diese Unterscheidung könnte ein weiterführendes Konzept sein.
+
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/semanticeditor.svg.pdf} }
+\caption{ Konzept für eine Weiterentwicklung des semantischen Editors für Dokumentelemente, anhand des Beispiels Chemiemolekül-Dokumentelement. }\label{semanticeditor}
+\end{figure}
+ 
+\subsection{Visionen neuer Ausbaustufen und Anwendungsfälle}\label{}
+ 
+Ein Marktplatz für Dokumentelemente. Dort können Dokumentelemente z.B. als Software-Bibliotheken, oder direkt als SaaS via REST-Schnittstelle, zur Verfügung gestellt werden. Zur Konservierung und Wiederauffindbarkeit von Dokumentelementen, kann der Markplatz diese mit einem DOI (digital object identifier) versehen. Das kann auch als Geschäftsmodell dienlich sein: z.B. indem SaaS-Dokumentelemente, bei Laufzeit, Geld kosten. Oder Autoren können wie in einem App-Store Dokumentelemente durch einmaliges bezahlen zukaufen (Account/Firmagebunden), oder mit Bezahlung pro Dokument.
+
+ 
+Positionierung als Open Access Platform, zum schreiben sowie publizieren von akademischen Werken. Dieser Dienst kann z.B. Dokumentelemente aus dem Marktplatz anbieten. Dokumentelemente können auch assistieren, z.B. ein Abschnitt kann abhängig von seinem Kontext selbständig nach Zitaten suchen und Werke, die mutmaßlich darin vorkommen, vorschlagen und diese auf Wunsch automatisch ins Literaturverzeichnis aufnehmen. Zudem können Autoren gegenseitig ihre Werke begutachten oder lektorieren. Ein Reputationssystem aus Zitaten und Begutachtungen kann besonders gute Gutachter herausheben. Ein Geschäftsmodell kann sein, dass Autoren bezahlte Gutachter oder Lektoren suchen bzw. beauftragen können und die Platform erhält eine entsprechende Transaktionsgebühr pro Gutachten.
+
+ 
+Erweiterte Autorenfunktionen. Ein Autor kann um das Dokument zugehörige Metadokumente aufbauen, wie beispielsweise Exzerpte. Aus diesen Exzerpten kann er direkt entsprechende Dokumentelemente in das Hauptdokument übernehmen. Ein kollaboratives Lektorat wird es vereinfachen, dass verschiedene Gutachter gleichzeitig zum Dokument Korrekturvorschläge und Kommentare einreichen.
+
+ 
+Projektion von und in andere Formate, die Platform als Format-Zentrale. Quasi ein Reißwolf für Dokumente, es werden digitalisierte Handaufschriebe, Textdateien, PDFs etc. eingegeben; ein Klassifikator (der eventuell vom Dokumentelement direkt mitgeliefert wird) erkennt die verschiedenen Dokumentelemente die darin vorkommen. Der Autor bekommt vom System einen Gliederungsüberblick, der die aufgefunden Dokumentelemente anzeigt -- dadurch kann er sie bequem in sein Dokument einbauen. Beispiel: Ein Chemiker kann seine im Labor von Hand aufgeschriebenen Tabellen automatisch in ein Tabellen-Dokumentelement übersetzen lassen und dieses weiterverarbeiten. Auf diese weise können auch historische Dokumente aufbereitet werden. Dadurch, dass das Dokument als abstrakter Syntaxbaum vorliegt, kann es in beliebige andere Formate transformiert werden. So könnte auch die Lektoratfunktion davon profitieren: Das Dokument wird z.B. in eine Word-Datei transformiert, der Lektor kann in seinem gewohnten Format Korrekturvorschläge machen; danach wird die annotierte Word-Datei in den Reißwolf gesteckt, dieser fusioniert die Korrekturvorschläge mit denen aus dem eigenen Lektorat. Ein Geschäftsmodell könnte sein: Die Benutzung des Reißwolfs kostet jeweils ein paar Cent, oder aufgefundene Dokumentelemente in das Dokument einzubauen kostet ein paar Cent.
+
+ 
+Durch präzise definierte Dokumentklassen, kann der Editor dem Autor assistierend zur Seite stehen. Der Editor kann den Autor wie ein Sherpa durch die verschiedenen Vorgehensmodelle, die es bei der Erstellung von wissenschaftlicher Dokumentation zu beachten gibt, führen. So kann der Editor als ein Lernprogramm fungieren, welches die einzelnen Dokumentteile und ihre Bedeutungen erklärt und welche Aussagen darin vorkommen sollten.
+
+ 
+Durch Projektionen kann ein Dokument auf beliebige Art dargestellt werden. Es müssen auch nicht alle Bestandteile darin vorkommen oder können verkürzt dargestellt werden, oder mit zusätzlichen Anmerkungen versehen werden. Das ermöglicht es, dass der Dokumenteditor Strukturhilfen anbietet, wie z.B. eine Ansicht als Mindmap, zum schnellen Umstrukturieren des Dokuments. Oder auch die Anzeige aller im Dokument vorkommenden Fußnoten, zur schnellen Überprüfung, ob diese gut ausformuliert sind.
+
+ 
+Modellierung von Dokumentelementen, durch schreiben eines einfachen Dokuments. Ein Autor schreibt ein (formales) Dokument, welches ein spezielles Dokumentelement beschreibt. Dieses Dokument dient quasi direkt als Modell für das Dokumentelement. Darin wird beschrieben welche Attribute vorkommen oder wie die Repräsentationen gestaltet sein sollen. Danach kann das dort beschriebene Dokumentelement in einem anderen Dokument verwendet werden. Eventuell kann dieser Vorgang mit Knowledge Discovery und durch Natural Language Programming verbessert werden, so dass sogar aus dem Text in natürlicher Sprache weitere Erkenntnisse über das Dokumentelement, bzw. dessen Modell, extrahiert werden können. Auf diese Art könnten Wissenschaftler ihre Modelle immer weiter verfeinern. Beispiel: Atommodelle. Es gäbe ein Dokument, welches formal das Teilchenmodell von Demokrit beschreibt. Resultat ist ein entsprechendes Dokumentelement. Dalton bezieht sich nun darauf bzw. verwendet in seinem Dokument das Demokrit-Modell und entwickelt es entsprechend weiter. Resultat seines Dokuments ist ein Dokumentelement mit dem Dalton-Modell. Es basiert nun sogar direkt auf dem Demokrit-Modell. Das ist mutmaßlich bis zum Orbitalmodell ausbaubar. Damit gäbe es eine formale semantische Verknüpfung zwischen den Modellen. Ob dies umsetzbar oder überhaupt nützlich ist, müsste jedoch erst noch geklärt werden.
+
+ 
+\citep[S.~3]{Segaran} trifft es sehr präzise, wenn er behauptet, dass natürliche Sprache wohl die beste API für Wissen ist, die wir Menschen kennen. \citep[S.~1]{Knuth} hat dies in etwa auch so erkannt und daraus das programmiersprachenübergreifende Programmierparadigma des Literate Programming entwickelt. Dort soll Software wie ein Literaturwerk behandelt werden, d.h. Dokumentation und Programmcode werden in einer Datei simultan untergebracht. Die hier vorgestellten Konzepte eigenen sich mutmaßlich hervorragend, um diese Programmierweise umzusehen. Beispielsweise können einzelne größere Programmkomponenten wie z.B. ein For-Schleifen-Block auf spezielle Dokumentelemente abgebildet werden. Eine Funktionsdekleration wäre mit einem Kapitel vergleichbar, etc. Gemischt mit normalen Dokumentelementen, die beschreibend zur Seite stehen, könnte somit auch mit diesem System Literate Programming umgesetzt werden. Zudem kann jedes Programm-Dokumentelement eine passende Visualisierung von Datenstrukturen oder Programmflüssen darstellen. Durch den Modellcharakter der Dokumentelemente wäre es somit möglich, ein Programm sogar in verschiedene Programmiersprachen zu transformieren. Anwendungsfall: Ein DSL-Skript kann durch ein Wissenschaftler mit dem System programmiert, visualisiert und gleichzeitig dokumentiert werden kann.
 
