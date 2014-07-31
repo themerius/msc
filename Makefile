@@ -9,6 +9,7 @@ BUILDNAME = S.Hodapp_2014_Masterarbeit
 pdf:
 	$(MAKE) once
 	$(MAKE) bib
+	$(MAKE) glossar
 	$(MAKE) once
 	$(MAKE) once
 	$(MAKE) move
@@ -23,6 +24,9 @@ once:
 bib:
 	bibtex $(MAINTEX).aux 1> /dev/null
 
+glossar:
+	makeindex -s $(MAINTEX).ist -o $(MAINTEX).gls $(MAINTEX).glo
+
 move:
 	mkdir -p $(BUILDPATH)
 	mv $(MAINTEX).pdf $(BUILDPATH)$(BUILDNAME).pdf
@@ -35,3 +39,4 @@ clean:
 	rm -f $(TITLEPAGES)*.aux
 	rm -f $(MAINTEX).aux $(MAINTEX).toc $(MAINTEX).log $(MAINTEX).out
 	rm -f $(MAINTEX).lof $(MAINTEX).bbl $(MAINTEX).blg
+	rm -f $(MAINTEX).glo $(MAINTEX).gls $(MAINTEX).ilg $(MAINTEX).ist
