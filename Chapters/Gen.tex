@@ -584,10 +584,10 @@ Wenn man also ein Set an Dokumentelementen definiert und in die Taxonomie eingeg
 In erster Linie soll das System Autoren bei der Erstellung hochwertiger wissenschaftlicher Berichte helfen.
 
  
-Diese Masterarbeit selbst, wurde mit dem mit dem in ihr beschriebenen Prototypen erstellt. Dies veranschaulicht die Tragfähigkeit der Konzepte, bzw. die Stabilität der momentanen Prototypen-Implementierung.
+Diese Masterarbeit selbst wurde mit dem in ihr beschriebenen Prototypen erstellt. Dies veranschaulicht die Tragfähigkeit der Konzepte, bzw. die Stabilität der momentanen Prototypen-Implementierung.
 
  
-Damit das Dokument später auch der Hochschule bzw. Fakultät vorgelegt werden kann, muss es auch noch in einem printfähigen Format (insb. mit Paginierung) vorliegen.  Da zur Zeit noch keine Paginierung der Web-Ansicht erfolgt, muss auch noch auf ein anderes Werkzeug zurückgegriffen werden, um ein printfähiges Format zu erhalten. Da das System, dank des abstrakten Syntaxbaumes, fähig ist das Dokument in verschiedene Ansichten zu präsentieren, kann auch LaTeX-Code generiert werden.  Nähere Erklärungen zu solchen Transformationen in Abschnitt \ref{transformation}. Das heißt die Print-Version der Masterarbeit kann zudem noch via LaTeX erzeugt werden. In Zukunft sollte es jedoch kein Problem darstellen eine Print-Paginierung in die Web-Ansicht zu integrieren, dazu kann der Layouter „scaltex.js“, welcher in der Bachelorarbeit \citep{Hodapp} entstanden ist, eingesetzt werden.
+Damit das Dokument später auch der Hochschule bzw. Fakultät vorgelegt werden kann, muss es auch noch in einem printfähigen Format (insb. mit Paginierung) vorliegen.  Da zur Zeit noch keine Paginierung der Web-Ansicht erfolgt, muss auch noch auf ein anderes Werkzeug zurückgegriffen werden, um ein printfähiges Format zu erhalten. Da das System, dank des abstrakten Syntaxbaumes fähig ist, das Dokument in verschiedene Ansichten zu präsentieren, kann auch LaTeX-Code generiert werden.  Nähere Erklärungen zu solchen Transformationen in Abschnitt \ref{transformation}. Das heißt die Print-Version der Masterarbeit kann zudem noch via LaTeX erzeugt werden. In Zukunft sollte es jedoch kein Problem darstellen eine Print-Paginierung in die Web-Ansicht zu integrieren, dazu kann der Layouter „scaltex.js“, welcher in der Bachelorarbeit \citep{Hodapp} entstanden ist, eingesetzt werden.
 
  
 Um einen wissenschaftlichen Text, wie eine Masterarbeit, verfassen zu können, müssen einige (Basis) Dokumentelemente vom Prototyp bereitgestellt werden, zudem müssen Verweise unter den Dokumentelementen möglich sein. Beispielsweise (mit den Implementierungsnamen): Chapter, Section, SubSection, SubSubSection und Figure mit automatischer Benummerung; Paragraph, List, ArabicList, RomanList, Quotation, Footnote; FrontMatter, BodyMatter, BackMatter.
@@ -598,7 +598,7 @@ Um einen wissenschaftlichen Text, wie eine Masterarbeit, verfassen zu können, m
 Für Demonstrationszwecke wurde auch ein Chemie-Dokumentelement erstellt, welches einen Moleküleditor anbietet. Damit wäre der Autor komfortabel in der Lage in seinem Dokument direkt chemische Moleküle zu zeichnen und darauf zu verweisen. Der Moleküleditor produziert Molfiles\footnote{~Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe de.wikipedia.org/wiki/Chemoinformatik „Repräsentation chemischer Strukturen“.} als Ausgabe- bzw. Austauschformat, dieses Molfile ist also ein (persistentes) Modell für ein Molekül. Das Chemie-Dokumentelement könnte noch an eine Chemie-Bibliothek, die Molfiles verarbeiten kann, angebunden werden. Eine solche Programmbibliothek kann weitere Informationen zu den verwiesenen Molekülen bereitstellen, und damit einen erheblichen Beitrag zur expliziten Semantik und Konsistenz des Dokument beitragen.
 
  
-Auf Abbildung \ref{Aspirin} ist ein durch das Chemie-Dokumentelement generiertes Molekül abgebildet. Wenn man darauf klickt, wird der Domäneneditor Ketcher geöffnet (s. Abb. \ref{chemieeditieren}). Ketcher\footnote{~Webseite des Ketcher Projekts: http://ggasoftware.com/opensource/ketcher} ist ein in Javascript geschriebener Moleküleditor für den Webbrowser. Das Chemie-Dokumentelement umhüllt diesen Moleküleditor lediglich und verwendet die Ketcher-API, um ein svg-Bild aus dem Molekül für die reine Ansicht zu generieren.
+In Abbildung \ref{Aspirin} ist ein durch das Chemie-Dokumentelement generiertes Molekül abgebildet. Wenn man darauf klickt, wird der Domäneneditor Ketcher geöffnet (s. Abb. \ref{chemieeditieren}). Ketcher\footnote{~Webseite des Ketcher Projekts: http://ggasoftware.com/opensource/ketcher} ist ein in Javascript geschriebener Moleküleditor für den Webbrowser. Das Chemie-Dokumentelement umhüllt (Wrapper) diesen Moleküleditor lediglich und verwendet die Ketcher-API, um ein svg-Bild aus dem Molekül für die reine Ansicht zu generieren.
 
  
 \begin{figure}[h!]
@@ -617,13 +617,13 @@ Auf Abbildung \ref{Aspirin} ist ein durch das Chemie-Dokumentelement generiertes
  
 \section{UIMA CAS Editor}\label{uima-cas-kapitel}
  
-Apache UIMA\footnote{~Webseite des Apache UIMA (Unstructured Information Management Architecture) Projekts: uima.apache.org } ist ein Softwaresystem mit dessen Hilfe neues, für den Benutzer relevantes, Wissen aus großen unstrukturierten Datenmengen gewonnen werden kann.
+Apache UIMA\footnote{~Webseite des Apache UIMA (Unstructured Information Management Architecture) Projekts: uima.apache.org } ist ein Softwaresystem, mit dessen Hilfe neues, für den Benutzer relevantes, Wissen aus großen unstrukturierten Datenmengen gewonnen werden kann.
 
  
-Ein einfacher Text kann um Anmerkungen, den Annotationen, angereichert werden. Diese Annotationen sorgen dafür einzelne Entitäten des Texts zu identifizieren, wie z.B. Personen, Orte, Organisationen etc. oder Relationen wie „arbeitet für“.
+Ein einfacher Text kann um Anmerkungen, sogenannte Annotationen, angereichert werden. Diese Annotationen sind dafür zuständig, einzelne Entitäten des Texts zu identifizieren, wie z.B. Personen, Orte, Organisationen etc. oder Relationen wie „arbeitet für“.
 
  
-CAS (Common Analysis System) Objekte bieten Zugriff auf das Typsystem, Indexe, Iteratoren und Filter von UIMA. Insbesondere ist es möglich Annotationen mit dem CAS Objekt zu erstellen. Das heißt in einem CAS Objekt kann ein Dokument mit Annotationen gespeichert werden. Ein solches CAS Objekt kann in das XML Metadata Interchange (XMI) Format serialisiert werden, wodurch es möglich ist annotierte Dokumente zu persistieren und auszutauschen.
+CAS (Common Analysis System) Objekte bieten Zugriff auf das Typsystem, Indexe, Iteratoren und Filter von UIMA. Insbesondere ist es möglich, Annotationen mit dem CAS Objekt zu erstellen. Das heißt: In einem CAS Objekt kann ein Dokument mit Annotationen gespeichert werden. Ein solches CAS Objekt kann in das XML Metadata Interchange (XMI) Format serialisiert werden, wodurch es möglich ist, annotierte Dokumente zu persistieren und auszutauschen.
 
  
 Mit einem CAS\footnote{~UIMA CAS Objekt Dokumentation: uima.apache.org/downloads/releaseDocs/2.3.0-incubating/docs/api/org/apache/uima/cas/CAS.html} Editor würde ein Autor also gerne im betrachteten Dokument mit Annotationen arbeiten:
@@ -651,7 +651,7 @@ Das heißt, Annotationen sind nicht zwingender Bestandteil des eigentlichen Doku
 Für diesen Zweck wurde im Prototyp ein Metadokument implementiert. Dieses enthält Zusätze oder Aussagen, die vom eigentlichen Dokument separiert sein sollen. Das Metadokument erbt die gesamte Infrastruktur des Hauptdokuments. Sie haben einen  gemeinsamen Dokumentelement-Pool und können daher gegenseitig auf die vorkommenden Dokumentelemente zugreifen (z.B. via Verweis). Schöner Nebeneffekt: Die Annotationen können im Metadokument übersichtlich angeordnet und dort ggf. dokumentiert werden.
 
  
-Annotationen werden durch ein „mouse over“ im Browser farbig hervorgehoben (s. Abb. \ref{annotation}). Im Metadokument können neue Annotationen hinzugefügt werden und via Verweis in ein beliebiges Dokumentelement gebracht werden. Im Metadokument können sie auch bearbeitet werden. Für Demonstrationszwecke wurde das Dokumentelement „Annotation“ implementiert. Als Beispieldokumente dienen Patentschriften die durch das vom Fraunhofer SCAI geleitete Projekt \emph{UIMA-HPC}\footnote{~Webseite des UIMA-HPC Projekts: uima-hpc.org} digitalisiert, durchsuchbar und annotiert wurden. Das SCAI.BIO abteilungsinterne Werkzeug „The Interfacer“ kann CAS Objekte (in denen die Patentschriften u.a. vorliegen) in Datenstrukturen des Prototypen übersetzen und somit für den Prototypen mühelos nutzbar machen.
+Annotationen werden durch ein „mouse over“ im Browser farbig hervorgehoben (s. Abb. \ref{annotation}). Im Metadokument können neue Annotationen hinzugefügt werden und via Verweis in ein beliebiges Dokumentelement gebracht werden. Im Metadokument können sie auch bearbeitet werden. Für Demonstrationszwecke wurde das Dokumentelement „Annotation“ implementiert. Als Beispieldokumente dienen Patentschriften, die durch das vom Fraunhofer SCAI geleitete Projekt \emph{UIMA-HPC}\footnote{~Webseite des UIMA-HPC Projekts: uima-hpc.org} digitalisiert, durchsuchbar und annotiert wurden. Das SCAI.BIO abteilungsinterne Werkzeug „The Interfacer“ kann CAS Objekte (in denen die Patentschriften u.a. vorliegen) in Datenstrukturen des Prototypen übersetzen und somit für den Prototypen mühelos nutzbar machen.
 
  
 \begin{figure}[h!]
@@ -666,15 +666,15 @@ Annotationen werden durch ein „mouse over“ im Browser farbig hervorgehoben (
 Spray\footnote{~Webseite des Spray Projekts: eclipselabs.org/p/spray/} ist ein Forschungsprojekt im Bereich der modellgetriebenen Softwareentwicklung, an der HTWG Konstanz. Spray erstellt Editoren für visuelle domänenspezifische Sprachen (DSL). Das heißt mit Spray können z.B. Diagramme wie Petrinetze, UML, etc. formal definiert werden und aus diesen Definitionen kann ein Editor generiert werden. Mit einem solchen Editor kann dann das jeweilige Diagramm gezeichnet bzw. modelliert werden kann. Vorteil ist, dass durch die Grammatik der visuellen DSL genau spezifiziert ist, welche Verbindungen zwischen den einzelnen Knoten erlaubt sind und welche nicht, d.h. der Diagramm Editor kann zu einem gewissen Grad die Korrektheit des Modells überprüfen.
 
  
-Das heißt ein mit Spray generierter Editor arbeitet auf einer abstrakteren Ebene -- der Modellebene. Das Modell selbst sollte jedoch auf einer noch abstrakteren Ebene beschrieben werden: in einer natürlichen Sprache. Andernfalls ist es einem Menschen kaum möglich ein Modell und dessen Zweckbezug, ohne große Hürden, zu verstehen. Einfacher ausgedrückt: das Modell muss dokumentiert werden, damit andere Projektbeteiligte auch etwas damit anfangen können. Man kann also argumentieren, dass Dokumentation in der Abstraktionsebene nochmals über dem eigentlichen Modell liegt, und das Modell um benötigte sprachliche Erklärungen anreichert. Die Dokumentation fügt also explizit den Pragmatismus zum Modell hinzu: für wen, wann und wozu gibt es das Modell?
+Das heißt, ein mit Spray generierter Editor arbeitet auf einer abstrakteren Ebene -- der Modellebene. Das Modell selbst sollte jedoch auf einer noch abstrakteren Ebene beschrieben werden: in einer natürlichen Sprache. Andernfalls ist es einem Menschen kaum möglich, ein Modell und dessen Zweckbezug, ohne große Hürden, zu verstehen. Einfacher ausgedrückt: das Modell muss dokumentiert werden, damit andere Projektbeteiligte auch etwas damit anfangen können. Man kann also argumentieren, dass Dokumentation in der Abstraktionsebene nochmals über dem eigentlichen Modell liegt, und das Modell um benötigte sprachliche Erklärungen anreichert. Die Dokumentation fügt also explizit den Pragmatismus zum Modell hinzu: für wen, wann und wozu gibt es das Modell?
 
  
 \subsection{Erhoffter Nutzen}\label{}
  
-Die hier vorgestellten Konzepte bzw. Prototyp ermöglichen quasi das gleichzeitige Modellieren und Dokumentieren. Die Dokumentationssoftware ist in der Lage direkt mit dem Modell zu interagieren und daher ist die Dokumentation in einem sehr hohen Maß konsistent. Zudem ist das Dokumentieren dann kein isolierter Prozess mehr „den man machen muss“, sondern gehört zum Arbeitsablauf der Modellierung dazu. Das heißt von der Idee bis zum fertigen Modell kann die Dokumentation das Gedankengebäude des Entwicklers sinnvoll unterstützen.
+Die hier vorgestellten Konzepte bzw. Prototyp ermöglichen quasi das gleichzeitige Modellieren und Dokumentieren. Die Dokumentationssoftware ist in der Lage, direkt mit dem Modell zu interagieren und daher ist die Dokumentation in einem sehr hohen Maß konsistent. Zudem ist das Dokumentieren dann kein isolierter Prozess mehr „den man machen muss“, sondern gehört zum Arbeitsablauf der Modellierung dazu. Das heißt: Von der Idee bis zum fertigen Modell kann die Dokumentation das Gedankengebäude des Entwicklers sinnvoll unterstützen.
 
  
-Und ich persönlich denke, dass sich durch ein solches Dokumentationswerkzeug ein System wie Spray von anderen Lösungen absetzt und daher ein großes Erfolgspotential entwickeln kann. Oder um es etwas drastischer mit den Worten von Dick Brandon zu formulieren:
+Ich persönlich denke, dass sich durch ein solches Dokumentationswerkzeug ein System wie Spray von anderen Lösungen absetzt und daher ein großes Erfolgspotential entwickeln kann. Oder um es etwas drastischer mit den Worten von Dick Brandon zu formulieren:
 
  
 \begin{quote}
@@ -689,10 +689,10 @@ Gibt es bereits ein solches Werkzeug im Bereich der modellgetriebenen Softwareen
 Der vorgestellte Anwendungsfall wurde beispielhaft im hier entwickelten Prototypen umgesetzt. Das Forschungsteam um Spray hat die Software von einer reinen Java/Eclipse Implementierung ins Web gebracht, das heißt die generierten Diagramm-Editoren liegen auch als Webanwendung\footnote{~Momentan liegt die Spray Online Webanwendung nur intern im VPN-Netz der HTWG Konstanz vor.} mit REST-Schnittstelle vor. Der Prototyp selbst ist auch mit Web Standards gebaut und kann daher recht mühelos mit „Spray Online“ interagieren.
 
  
-Es wurde in Wrapper entwickelt, der es ermöglicht den Spray Online Editor in Form eines Dokumentelements anzubieten. Jedes Dokumentelement kann beliebige Ansichten oder Projektionen haben. Hier gibt es zum einen eine Editierungsansicht (dort können DSLs oder Domäneneditoren platziert werden) und zum anderen eine reine Anzeigeansicht (z.B. als Webseite). Das Spray-Dokumentelement bettet den originalen Spray-Editor in Form einen iframes in die Editierungsansicht ein. Der Benutzer kann dann direkt Änderungen an seinem Spray-Modell vornehmen. Wenn der Benutzer die Änderungen speichert, holt sich das Spray-Dokumentelement den aktuellen Zustand des Modells aus der Spray-Persistenz via REST-Schnittstelle. Im Zustand des Modells sind alle Informationen über das Modell gespeichert, wie z.B. die Namen der einzelnen Diagramm-Knoten. Dadurch dass das Spray-Dokumentelement Zugriff auf die Attribute des Spray-Modells hat, kann im Dokument auf diese Attribute durch Verweisungen zugegriffen werden. Mit diesem Zugriff kann das Dokument mit dem Modell konsistent gehalten werden und es besteht die Möglichkeit Semantik explizit zu machen, indem zusätzliche Informationen über die Bedeutung des referenzierten Attributes angezeigt werden. Für die Anzeigeansicht holt sich das Spray-Dokumentelement ein svg-Bild des Diagramms -- dieses kann über einen HTTP-Request vom Spray Online Editor abgefragt werden.
+Es wurde in Wrapper entwickelt, der es ermöglicht, den Spray Online Editor in Form eines Dokumentelements anzubieten. Jedes Dokumentelement kann beliebige Ansichten oder Projektionen haben. Hier gibt es zum einen eine Editierungsansicht (dort können DSLs oder Domäneneditoren platziert werden) und zum anderen eine reine Anzeigeansicht (z.B. als Webseite). Das Spray-Dokumentelement bettet den originalen Spray-Editor in Form einen iframes in die Editierungsansicht ein. Der Benutzer kann dann direkt Änderungen an seinem Spray-Modell vornehmen. Wenn der Benutzer die Änderungen speichert, holt sich das Spray-Dokumentelement den aktuellen Zustand des Modells aus der Spray-Persistenz via REST-Schnittstelle. Im Zustand des Modells sind alle Informationen über das Modell gespeichert, wie z.B. die Namen der einzelnen Diagramm-Knoten. Dadurch, dass das Spray-Dokumentelement Zugriff auf die Attribute des Spray-Modells hat, kann im Dokument auf diese Attribute durch Verweisungen zugegriffen werden. Mit diesem Zugriff kann das Dokument mit dem Modell konsistent gehalten werden und es besteht die Möglichkeit, Semantik explizit zu machen, indem zusätzliche Informationen über die Bedeutung des referenzierten Attributes angezeigt werden. Für die Anzeigeansicht holt sich das Spray-Dokumentelement ein svg-Bild des Diagramms -- dieses kann über einen HTTP-Request vom Spray Online Editor abgefragt werden.
 
  
-Auf Abbildung \ref{sprayanzeigen} ist das Szenario aufgezeigt. Ziel ist es, Attribute aus dem Spray-Modell als Verweis innerhalb des Textes anzuzeigen. Hier im Beispiel soll der Name einer Stelle aus einem Petrinetz im Text referenziert werden.
+In Abbildung \ref{sprayanzeigen} ist das Szenario aufgezeigt. Ziel ist es, Attribute aus dem Spray-Modell als Verweis innerhalb des Textes anzuzeigen. Hier im Beispiel soll der Name einer Stelle aus einem Petrinetz im Text referenziert werden.
 
  
 \begin{figure}[h!]
@@ -727,10 +727,19 @@ In Abbildung \ref{sprayreferenzieren} wird die Editieransicht eines Abschnitts g
 Dokumente in andere Formate zu überführen war schon immer notwendig, und in modernen Zeiten immer wichtiger. Beispielsweise werden von wissenschaftlichen Berichten (wie Diplomarbeiten) Manuskripte angefertigt. Diese werden später vom Verleger überarbeitet und in ein Buch (oder eBook) gesetzt, vgl. \citep{DIN1422-1}. Daran hat sich nichts geändert, nur dass die Schreibmaschine durch ein Textverarbeitungsprogramm ersetzt wurde und der Vorgang dadurch etwas komfortabler geworden ist.
 
  
-Für Format Transformationen gibt es in jüngster Zeit auch noch andere Anwendungsgebiete. Beispielsweise möchte man historische Dokumente digitalisieren und mit möglichst vielen Zusatzinformationen anreichern (vgl. Abschnitt \ref{uima-cas-kapitel}). Oder möchte Dokumente in digitalen Langzeitarchiven speichern. Oder möchte Dokumente von alten Layout-Konventionen in die Neuen überführen. Oder möchte gleichzeitig Dokumente sowohl für legacy Software als auch für aktuelle Software zugänglich halten. Oder möchte das Dokument für andere Arbeitsgebiete aufbrechen, wie z.B. Knowledge Discovery, Semantic Web. Oder möchte ein Dokument auf ein bestimmtes Publikum spezialisieren oder in eine andere Dokumentklasse überführen (Journal Artikel in eine Präsentation). All das erfordert u.U. vollkommen unterschiedliche Formate!
+Für Format Transformationen gibt es in jüngster Zeit auch noch andere Anwendungsgebiete. Beispielsweise möchte man historische Dokumente digitalisieren und mit möglichst vielen Zusatzinformationen anreichern (vgl. Abschnitt \ref{uima-cas-kapitel}). Es gibt auch noch andere Szenarien, in denen Transformationen in u.U. vollkommen unterschiedliche Formate nützlich sein kann:
 
  
-Hier kommt der abstrakte Syntaxbaum (AST) ins Spiel: Ein AST ist innerhalb eines Übersetzers eine Zwischenrepräsentation für ein Programm, woraus schlussendlich Maschinencode produziert wird -- Details in Abschnitt \ref{ast-sec}. Hier wird direkt auf dem AST gearbeitet (Projektionseditor). Der AST repräsentiert zudem auch direkt das Modell des Dokuments. Und jedes Dokumentelement hat wiederum Wissen über seine Domäne. Es sind also genügend Informationen vorhanden, um quasi beliebige Formate zu produzieren. Es muss also nur eine weitere Projektion zum AST hinzugefügt werden (als Template), damit ein entsprechendes Format erzeugt werden kann. Das heißt statt klassisch Maschinencode zu produzieren, kann hier auch ein anderes Dokumentformat produziert werden, wie z.B. \citep{NISO} konformes XML, XMI für CAS Objekte, ePub, etc.
+\begin{itemize}
+
+\item Format zur Speicherung von Dokumente in digitalen Langzeitarchiven.
+\item Überführung von Dokumenten mit alten Layout-Konventionen in die Neuen.
+\item Dokumente gleichzeitig sowohl für legacy Software als auch für aktuelle Software zugänglich halten.
+\item Ein Dokument für andere Arbeitsgebiete aufbrechen: wie z.B. Knowledge Discovery, Semantic Web.
+\item Ein Dokument auf ein bestimmtes Publikum spezialisieren oder in eine andere Dokumentklasse überführen (Journal Artikel in eine Präsentation transformieren).
+\end{itemize}
+ 
+Hier kommt der abstrakte Syntaxbaum (AST) ins Spiel: Ein AST ist innerhalb eines Übersetzers eine Zwischenrepräsentation für ein Programm, woraus schlussendlich Maschinencode produziert wird -- Details in Abschnitt \ref{ast-sec}. Hier wird direkt auf dem AST gearbeitet (Projektionseditor). Der AST repräsentiert zudem auch direkt das Modell des Dokuments und jedes Dokumentelement hat wiederum Wissen über seine Domäne. Es sind also genügend Informationen vorhanden, um quasi beliebige Formate zu produzieren. Es muss somit nur eine weitere Projektion zum AST hinzugefügt werden (als Template), damit ein entsprechendes Format erzeugt werden kann. Das heißt: Statt klassisch Maschinencode zu produzieren, kann hier auch ein anderes Dokumentformat produziert werden, wie z.B. \citep{NISO} konformes XML, XMI für CAS Objekte, ePub, etc.
 
  
 Hier wurde beispielhaft, neben der HTML-Projektion mit Editier-Funktion, LaTeX-Code als Projektion umgesetzt. Aus diesem LaTeX-Code kann wiederum ein (paginiertes) PDF generiert werden. Dies wird auch so genutzt, um diese Masterarbeit zu schreiben -- siehe Abschnitt \ref{wiss-dok-abschnitt}.
@@ -738,18 +747,18 @@ Hier wurde beispielhaft, neben der HTML-Projektion mit Editier-Funktion, LaTeX-C
  
 \chapter{Entwicklung des Prototypen}\label{}
  
-Um die wissenschaftlichen Fragen zu beantworten wurde als Methode die Entwicklung eines Prototypen gewählt. Anhand des Prototypen können Aussagen getroffen werden, ob die vorgestellten Ideen und Konzepte tragfähig sind. Zudem können die Konzepte verfeinert und neue Impulse für neue Ideen bzw. Theorien gefunden werden.
+Um die wissenschaftlichen Fragen zu beantworten, wurde als Methode die Entwicklung eines Prototypen gewählt. Anhand des Prototypen können Aussagen getroffen werden, ob die vorgestellten Ideen und Konzepte tragfähig sind. Zudem können die Konzepte verfeinert und Impulse für neue Ideen bzw. Theorien gefunden werden.
 
  
-Zunächst wird das Vorgehen mit den Test-Spezifikationen erläutert. Gefolgt von den Basiskonzepten, die dem Prototypen inne wohnen. Daraus ergibt sich eine Architektur, die von Grob zu Detailreich beleuchtet wird. Am Ende des Kapitels wird der erreichte Funktionsumfang diskutiert und mit einer kleinen Statistik über den Codeumfang des Prototypen abgeschlossen.
+Zunächst wird das Vorgehen mit den Test-Spezifikationen erläutert. Dann folgen Basiskonzepte, die dem Prototypen inne wohnen. Daraus ergibt sich eine Architektur, die von Grob zu Detailreich beleuchtet wird. Am Ende des Kapitels wird der erreichte Funktionsumfang diskutiert und mit einer kleinen Statistik über den Codeumfang des Prototypen abgeschlossen.
 
  
-Der Quellcode \citep{HodappScaltex} ist auf GitHub öffentlich zugänglich und wird via Zendodo.org zitierbar gemacht, d.h. Version 0.6.0 des Prototypen erhält eine DOI (digital object identifier) und liegt im Langzeitarchiv von Zenodo. Im Quellcode ist eine README Datei welche als Anhang für die Masterarbeit dient. Dort ist u.a. beschrieben, wie die Software installiert werden kann, welche Releases (Meist Zwischenstände für Vorträge) es gegeben hat.
+Der Quellcode \citep{HodappScaltex} ist auf GitHub öffentlich zugänglich und wird via Zendodo.org zitierbar gemacht, d.h. Version 0.6.0 des Prototypen erhält eine DOI (digital object identifier) und liegt im Langzeitarchiv von Zenodo. Im Quellcode ist eine README Datei, welche als Anhang für die Masterarbeit dient. Dort ist u.a. beschrieben, wie die Software installiert werden kann, welche Releases (Meist Zwischenstände für Vorträge) es gegeben hat.
 
  
 \section{Vorgehen}\label{}
  
-Als Entwicklungsmethode wird das Behavior-Driven development (BDD) eingesetzt, welches von \citep{North} geprägt wurde. (Unit) Tests werden dort in Form von Spezifikationen verfasst. Jede Spezifikation soll ein bestimmtes Verhalten der Software dokumentieren und verifizieren. Das Framework ScalaTest\footnote{~Tests als Spezifikationen aus der Dokumentation von ScalaTest: http://www.scalatest.org/user\_guide/tests\_as\_specifications} bietet die Möglichkeit nach BDD Softwaresysteme zu entwickeln. Die Aktoren-Implementierung des Prototypen wird mit ScalaTest getestet.
+Als Entwicklungsmethode wird das Behavior-Driven development (BDD) eingesetzt, welches von \citep{North} geprägt wurde. (Unit) Tests werden dort in Form von Spezifikationen verfasst. Jede Spezifikation soll ein bestimmtes Verhalten der Software dokumentieren und verifizieren. Das Framework ScalaTest\footnote{~Tests als Spezifikationen aus der Dokumentation von ScalaTest: http://www.scalatest.org/user\_guide/tests\_as\_specifications} bietet die Möglichkeit, nach BDD Softwaresysteme zu entwickeln. Die Aktoren-Implementierung des Prototypen wird mit ScalaTest getestet.
 
  
 Bei jedem git push auf GitHub wird automatisch Travis CI aktiv. Hierbei handelt es sich um eine Continuous Integration Platform, welche die richtige Umgebung zum Ausführen von ScalaTest\footnote{~Travis CI für das Git Repositorium des Prototypen: https://travis-ci.org/themerius/scaltex-2} einrichtet. Es werden automatisch die benötigen Scala Abhängigkeiten herunterladen und kompiliert, sowie eine CouchDB für die Tests zur Persistenz bereitgestellt. Ob die Tests fehlschlagen oder glücken, wird in einem Protokoll festgehalten.
@@ -757,7 +766,7 @@ Bei jedem git push auf GitHub wird automatisch Travis CI aktiv. Hierbei handelt 
  
 \subsection{Getestete Spezifikationen}\label{}
  
-Hier sind die 41 Spezifikationen die an den Prototypen gestellt sind aufgelistet. Die Spezifikationen sind in englischer Sprache gehalten, da dies die übliche Weise ist, Software zu dokumentieren. Die Spezifikationen sind so formuliert, dass sie möglichst selbsterklärend sind. Nachfolgend die Ausgabe von ScalaTest:
+Hier sind die 41 Spezifikationen die an den Prototypen gestellt wurden aufgelistet. Die Spezifikationen sind in englischer Sprache gehalten, da dies die übliche Weise ist, Software zu dokumentieren. Die Spezifikationen sind so formuliert, dass sie möglichst selbsterklärend sind. Nachfolgend die Ausgabe von ScalaTest:
 
  
 \begin{verbatim}
@@ -766,7 +775,7 @@ The Root Actor
 - should hold topological informations about the document
 - should digg for the firstChilds
 - should digg for the next references
-- should be able to claculate the correct order of the document elements
+- should be able to calculate the correct order of the document elements
 - should be able to insert (new) elements and remove elements from topology
 - should setup the document actors with a given topology
 - should be able to initiate the Update through the entire document
@@ -856,10 +865,10 @@ Der Prototyp versucht die Anforderungen aus Abschnitt \ref{anforderungen-sec} um
 \item Projektionseditor für Dokumente, mit Web Standards umgesetzt
 \end{enumerate}
  
-(1) Es ist möglich ein Dokument als abstrakten Syntaxbaum darzustellen, wobei jeder Knoten einem Dokumentelement entspricht. (2) Jedes Dokumentelement kann Teile seiner Domäne in den Attributen abspeichern und einen Domäneneditor, der im Browser ausgeführt wird, bereitstellen. (3) Dokumentelemente können durch Nachrichtenaustausch Attribute eines anderen Dokumentelements abfragen und in den eigenen Kontext einbauen. Diese Abfragen werden in der Programmiersprache Scala notiert und von einem Scala-Interpreter ausgewertet. (4) Jedes Dokumentelement implementiert eine Scala Klasse wodurch es repräsentiert wird. Der Scala-Interpreter kann diese Klassen instanziieren und ausführen. Das Resultat kann z.B. an ein anderes Dokumentelement geschickt werden. (5) Nachrichten aus einem Websocket können zum abstrakten Syntaxbaum geleitet werden, und umgekehrt. Dieser kann darauf reagieren bzw. entsprechende Maßnahmen ausführen. Beispielsweise kann er sich selbst modifizieren (Knoten hinzufügen/entfernen) oder analysieren (Neue Attribute der Knoten entdecken, wie z.B. Benummerungen zu Abschnitten hinzufügen).
+(1) Es ist möglich ein Dokument als abstrakten Syntaxbaum darzustellen, wobei jeder Knoten einem Dokumentelement entspricht. (2) Jedes Dokumentelement kann Teile seiner Domäne in den Attributen abspeichern und einen Domäneneditor, der im Browser ausgeführt wird, bereitstellen. (3) Dokumentelemente können durch Nachrichtenaustausch Attribute eines anderen Dokumentelements abfragen und in den eigenen Kontext einbauen. Diese Abfragen werden in der Programmiersprache Scala notiert und von einem Scala-Interpreter ausgewertet. (4) Jedes Dokumentelement implementiert eine Scala Klasse, wodurch es repräsentiert wird. Der Scala-Interpreter kann diese Klassen instanziieren und ausführen. Das Resultat kann z.B. an ein anderes Dokumentelement geschickt werden. (5) Nachrichten aus einem Websocket können zum abstrakten Syntaxbaum geleitet werden, und umgekehrt. Dieser kann darauf reagieren bzw. entsprechende Maßnahmen ausführen. Beispielsweise kann er sich selbst modifizieren (Knoten hinzufügen/entfernen) oder analysieren (Neue Attribute der Knoten entdecken, wie z.B. Benummerungen zu Abschnitten hinzufügen).
 
  
-Bedient wird die Textverarbeitung über den Browser. Es spiegelt direkt eine Repräsentation des abstrakten Syntaxbaumes des Dokuments wieder. Der Benutzer arbeitet also direkt mit abstrakten Syntaxbaum, bekommt jedoch nur ausgewählte bzw. relevante Attribute als „konkrete Syntax“ angezeigt. Der Autor bekommt also eine möglichst komfortable Ansicht des Dokuments. Wenn er auf ein Dokumentelement klickt, wird ein Fenster geöffnet. Dort werden nähere Informationen zum Dokumentelement eingeblendet und das Dokumentelement kann dort bearbeitet werden. In dieser Ansicht können neben textuellen Eingaben (z.B. in Form von DSLs) auch domänenspezifische Editoren (wie z.B. ein chemischer Moleküleditor) angezeigt werden.
+Bedient wird die Textverarbeitung über den Browser. Diese stellt den abstrakten Syntaxbaum des Dokuments übersichtlich dar. Der Benutzer arbeitet also direkt mit abstrakten Syntaxbaum, bekommt jedoch nur ausgewählte bzw. relevante Attribute als „konkrete Syntax“ angezeigt. Der Autor bekommt also eine möglichst komfortable Ansicht des Dokuments. Wenn er auf ein Dokumentelement klickt, wird ein Fenster geöffnet. Dort werden nähere Informationen zum Dokumentelement eingeblendet und das Dokumentelement kann dort bearbeitet werden. In dieser Ansicht können neben textuellen Eingaben (z.B. in Form von DSLs) auch domänenspezifische Editoren (wie z.B. ein chemischer Moleküleditor) angezeigt werden.
 
  
 \section{Architektur}\label{}
@@ -867,10 +876,10 @@ Bedient wird die Textverarbeitung über den Browser. Es spiegelt direkt eine Rep
 Auf Abbildung \ref{architektur-fig} ist eine Übersicht über die Architektur des Prototypen. Der Dreh- und Angelpunkt ist das Dokumentmodell (vgl. Abschnitt \ref{dokumentModell}), mit dem der Autor quasi direkt kommunizieren kann. Das Dokumentmodell wird von seinem Metamodell (vgl. Abbildung \ref{metamodell}) abgeleitet, dort sind u.a. die einzelnen Dokumentelemente definiert.
 
  
-Jedes einzelne Dokumentelement, also Aktor, persistiert bei Änderungen des Zustandes diesen in CouchDB. CouchDB ist eine dokumentenorientierte NoSQL-Datenbank, welche JSON-Objekte speichern kann. Eine Besonderheit der Datenbank ist, dass jede Änderung am JSON-Objekt mit einer neuen Version versehen wird, d.h. es ist möglich die Entstehungsgeschichte eines jeden Dokumentelements nachzuvollziehen. Es ist also möglich ein Dokument zerstörungsfrei zu erstellen. Neben der Versionskontrolle ist die REST-Schnittstelle zur Datenbank ein Basiskonzept von CouchDB, s. \citep{Anderson}.
+Jedes einzelne Dokumentelement, also jeder Aktor, persistiert bei Änderungen des Zustandes diesen in CouchDB. CouchDB ist eine dokumentenorientierte NoSQL-Datenbank, welche JSON-Objekte speichern kann. Eine Besonderheit der Datenbank ist, dass jede Änderung am JSON-Objekt mit einer neuen Version versehen wird, d.h. es ist möglich die Entstehungsgeschichte eines jeden Dokumentelements nachzuvollziehen. Es ist also möglich, ein Dokument zerstörungsfrei zu erstellen. Neben der Versionskontrolle ist die REST-Schnittstelle zur Datenbank ein Basiskonzept von CouchDB, s. \citep{Anderson}.
 
  
-Xitrum ist ein controller-first Web Framework geschrieben in Scala. Die Aufgabe von Xitrum ist Websockets für die Kommunikation mit dem Browser bereitzustellen und die statische Dateien, wie HTML-Templates, CSS, JavaScript oder Bilder auszuliefern. Das Dokumentmodell hat einen Update Aktor, welcher die Änderungen vom Browser bzw. vom Modell handhabt. Der Update Aktor kann mit mehreren Websockets gleichzeitig sprechen. Dies ermöglicht es, das mehrere Browser das gleiche Dokument betrachten können und live die Änderungen der anderen Parteien mitbekommen. Jeder Browser ist mit einem Websocket verbunden.
+Xitrum ist ein controller-first Web Framework, geschrieben in Scala. Die Aufgabe von Xitrum ist es, Websockets für die Kommunikation mit dem Browser bereitzustellen und statische Dateien, wie HTML-Templates, CSS, JavaScript oder Bilder auszuliefern. Das Dokumentmodell hat einen Update Aktor, welcher die Änderungen vom Browser bzw. vom Modell handhabt. Der Update Aktor kann mit mehreren Websockets gleichzeitig sprechen. Dies ermöglicht es, das mehrere Browser das gleiche Dokument betrachten können und live die Änderungen der anderen Parteien mitbekommen. Jeder Browser ist mit einem Websocket verbunden.
 
  
 \begin{figure}[h!]
@@ -882,7 +891,7 @@ Xitrum ist ein controller-first Web Framework geschrieben in Scala. Die Aufgabe 
  
 \subsection{Wurzel Aktor}\label{}
  
-Der Wurzel oder Root Aktor enthält die Topologie des Dokuments. Zudem werden hier alle Aufgaben die mit der Topologie zusammenhängen verarbeitet, da der Root Aktor als einziger Aktor die Gesamtübersicht über das Dokument hat. Zwar speichert jeder Dokumentelement-Aktor seine lokalen Beziehungen (Kinder, Geschwister), aber diese werden nicht in die Datenbank geschrieben. Somit wird verhindert, dass durch eine Wiederherstellung einer Version eines Dokumentelements irgendwelche Topologie-Lücken aufgerissen werden. Nur der Root Aktor speichert topologische Informationen in der Datenbank ab. Wenn Versionen des Root Aktors wiederherstellt werden, wird somit ausschließlich die Topologie wiederhergestellt. Das heißt die Topologie kann unabhängig von den aktuellen Inhalten der einzelnen Dokumentelemente restauriert werden. Stichwortartig zusammengefasst:
+Der Wurzel oder Root Aktor enthält die Topologie des Dokuments. Zudem werden hier alle Aufgaben, die mit der Topologie zusammenhängen, verarbeitet. Der Root Aktor hat als einziger Aktor die Gesamtübersicht über das Dokument. Zwar speichert jeder Dokumentelement-Aktor seine lokalen Beziehungen (Kinder, Geschwister), aber diese werden nicht in die Datenbank geschrieben. Somit wird verhindert, dass durch eine Wiederherstellung einer Version eines Dokumentelements irgendwelche Topologie-Lücken aufgerissen werden. Nur der Root Aktor speichert topologische Informationen in der Datenbank ab. Wenn Versionen des Root Aktors wiederherstellt werden, wird somit ausschließlich die Topologie wiederhergestellt. Das heißt, die Topologie kann unabhängig von den aktuellen Inhalten der einzelnen Dokumentelemente restauriert werden. Stichwortartig zusammengefasst:
 
  
 \begin{itemize}
@@ -938,7 +947,7 @@ class Figure extends DocumentElement {
 }
 \end{verbatim}
  
-Im o.g. Quelltext wird ein Dokumentelement „Figure“ (Abbildung) spezifiziert. Es hat (1) ein Menge an Attributen festgelegt, die während der z.B. der Analysephase ändern können. Wenn der Basis Aktor über Änderungen benachrichtig wird, teilt er das über Methode (2) auch dem Dokumentelement mit. Es erhält Zugriff auf den Zustand des Basis Aktors (hier ist z.B. contentSrc gespeichert, also die rohen Eingaben des Autors) und auf die Referenzen die der Aktor zu anderen Aktoren pflegt. Auf diese Weise kann das Dokumentelement Anfragen an andere Aktoren bzw. Dokumentelemente, im Form von Nachrichten, stellen. Zudem kann es vorkommen, dass es Nachrichten gibt, die an das betreffende Dokumentelement gerichtet sind. Diese werden in (3) verarbeitet. Beispielsweise kann Methode (2) einer Abbildung eine Nachricht an alle anderen Abbildungen schicken, um die korrekte Benummerung herauszufinden. Diese Nachricht würde bei jeder anderen Abbildung in Methode (3) zur weiteren Verarbeitung landen.
+Im o.g. Quelltext wird ein Dokumentelement „Figure“ (Abbildung) spezifiziert. Es hat (1) ein Menge an Attributen festgelegt, die während der z.B. der Analysephase ändern können. Wenn der Basis Aktor über Änderungen benachrichtigt wird, teilt er das über Methode (2) auch dem Dokumentelement mit. Es erhält Zugriff auf den Zustand des Basis Aktors (hier ist z.B. contentSrc gespeichert, also die rohen Eingaben des Autors) und auf die Referenzen die der Aktor zu anderen Aktoren pflegt. Auf diese Weise kann das Dokumentelement Anfragen an andere Aktoren bzw. Dokumentelemente, im Form von Nachrichten, stellen. Zudem kann es vorkommen, dass es Nachrichten gibt, die an das betreffende Dokumentelement gerichtet sind. Diese werden in (3) verarbeitet. Beispielsweise kann Methode (2) einer Abbildung eine Nachricht an alle anderen Abbildungen schicken, um die korrekte Benummerung herauszufinden. Diese Nachricht würde bei jeder anderen Abbildung in Methode (3) zur weiteren Verarbeitung landen.
 
  
 Beliebige weitere Methoden, die für das Dokumentelement bzw. dessen Domäne nützlich sein könnten, können an diese Scala Klasse hinzugefügt werden. Das ermöglicht den Aktoren reichhaltige Verweisungen untereinander durchzuführen. Es wird also ermöglicht, dass ein Dokumentelement aus den Attributen eine Information berechnen kann und diese an den anfragenden Aktor weitergibt.
@@ -956,11 +965,11 @@ Dokumentelemente liegen als Scala Klasse vor und eine Verweisung greift darauf d
 
 \item Ein Basis Aktor findet einen Programmausdruck in seinem, durch den Autor eingegeben, Text (contentSrc).
 \item Der Basis Aktor findet heraus, an welche anderen Basis Aktoren der Programmausdruck gerichtet ist.
-\item Die anderen Basis Aktor schicken ihren jeweils aktuellen Zustand, in Form von generiertem Scala Code, an den anfragenden Aktor.
-\item Der Basis Aktor sammelt den Code der anderen Aktoren ein. Das heißt er hat nun den Code, um alle Verweise die er gefunden hat aufzulösen. Der aggregierte Code wird an einen Scala Interpreter (auch ein Aktor) weitergeleitet.
+\item Die anderen Basis Aktoren schicken ihren jeweils aktuellen Zustand, in Form von generiertem Scala Code, an den anfragenden Aktor.
+\item Der Basis Aktor sammelt den Code der anderen Aktoren ein. Das heißt, er hat nun den Code, um alle Verweise, die er gefunden hat, aufzulösen. Der aggregierte Code wird an einen Scala Interpreter (auch ein Aktor) weitergeleitet.
 \item Der Scala Interpreter instanziiert die Scala Klassen mit dem Zustand der anderen Aktoren.
-\item Das Resultat des Interpreters wird, bei gelingen, an die Stelle des Programmausdrucks kopiert.
-\item Wenn alle Programmausdrücke aufgelöst sind wird der neue String als contentRepr bereitgestellt.
+\item Das Resultat des Interpreters wird an die Stelle des Programmausdrucks kopiert. Beispiel: contentSrc ist „siehe Abbildung {actor.nummer}“, der Interpreter wertes es aus und speichert in contentRepr „siehe Abbildung 3“ ab.
+\item Wenn alle Programmausdrücke aufgelöst sind, wird der neue String als contentRepr bereitgestellt.
 \item Neben contentRepr gibt es contentUnified. Dies ist eine JSON-Struktur, welche den Text, die Programmausdrücke sowie die jeweiligen Resultate enthält. (An dieser Stelle könnten, für mehr Semantik, Scala Typesystem Informationen bereitgestellt werden.)
 \item Die Anzeige im Browser kann contentSrc, contentRepr, contentUnified und alle anderen Attribute des Dokumentelements nach belieben verwenden. (In einem Template.)
 \end{enumerate}
@@ -972,7 +981,7 @@ Hier soll geklärt werden, welche Technologien eingesetzt werden, um den Prototy
  
 \subsection{Scala}\label{}
  
-Scala ist eine statisch typisierte Sprache, welche auf der Java Virtual Machine ausgeführt wird. Scala verheiratet auf sehr geschickte weise das funktionale mit dem objektorientierten Programmierparadigma. Es ergibt sich eine an Java angelehnte, aber sehr aufgeräumte Sprachsyntax. Das ermöglicht sehr mächtige und abstrakte Programmierkonstrukte. Die Besonderheiten dabei sind, dass Methoden wie Operatoren auftreten können, Klammern, Semikolons oder Punkte können oftmals weggelassen werden. Dies ermöglicht ein sehr klares und sauberes Sprachbild und eignet sich wunderbar für interne DSLs, s. \citep{Hodapp}.
+Scala ist eine statisch typisierte Sprache, welche auf der Java Virtual Machine ausgeführt wird. Scala verheiratet auf sehr geschickte Weise das funktionale mit dem objektorientierten Programmierparadigma. Es ergibt sich eine an Java angelehnte, aber sehr aufgeräumte Sprachsyntax. Das ermöglicht sehr mächtige und abstrakte Programmierkonstrukte. Die Besonderheiten dabei sind, dass Methoden wie Operatoren auftreten können, Klammern, Semikolons oder Punkte können oftmals weggelassen werden. Dies ermöglicht ein sehr klares und sauberes Sprachbild und eignet sich wunderbar für interne DSLs, s. \citep{Hodapp}.
 
  
 Zudem gibt es für Scala noch das Akka Toolkit für Aktoren. Diese Implementierung ist neben der bekannten Aktoren-Implementierung aus Erlang die Erfolgreichste auf dem Markt. Scala hat ein ausgesprochen mächtiges Typsystem, welches für zusätzliche Informationen (u.a. Semantik) angezapft werden kann. Diese Eigenschaft könnte für die Zukunft des Projektes interessant sein.
@@ -987,7 +996,7 @@ Akka ist ein in Scala geschriebenen Toolkit. Es bietet Lösungen zur nebenläufi
 
 \item Senden von Nachrichten an Adressen von Aktoren
 \item Erstellen von neuen Aktoren
-\item Entscheiden wie mit den nächsten Nachrichten die empfangen werden umgegangen wird
+\item Entscheiden, wie mit den nächsten Nachrichten die empfangen werden umgegangen wird
 \end{itemize}
  
 Daraus ergeben sich die Kernoperationen der Akka Aktoren \citep[S.~23]{Roestenburg}:
@@ -1170,7 +1179,7 @@ In Abschnitt \ref{verweise-aufloesen} wurde bereits angesprochen wie das Vorgehe
  
 \section{Erreichter Funktionsumfang}\label{}
  
-Mit dem Prototyp ist es möglich eine Masterarbeit zu schreiben. Das heißt dass von der prinzipiellen Funktionalität alles da ist, um wissenschaftliche Texte zu verfassen. Durch die Möglichkeit Projektionen in andere Formate zu erhalten, kann auch LaTeX Code generiert werden, um (noch) fehlende Funktionalität (insb. Paginierung) auszugleichen. Jedoch hat LaTeX nur eine beschränkte Menge an „Dokumentelementen“ im Vergleich zum Prototyp -- es fehlen nunmal die domänenspezifischen Inhalte. Wenn diese Benutzt werden sollen, müssen diese mehr oder weniger von Hand an LaTeX nachgereicht werden, z.B. in Form von statischen Bildern. Beispiel: Das Chemiemolekül wird auch als SVG-Bild bereitgestellt, damit LaTeX dieses verarbeiten kann, muss es aus der Datenbank geholt und in ein pdf konvertiert werden. Rein vom Konzept her ist es aber leicht möglich solche Aufgaben besser zu automatisieren. Beispielsweise holt ein Shell-Skript via curl das SVG-Bild aus der Datenbank und legt es in einen Ordner ab, damit der LaTeX-Compiler es verwenden kann. Es macht Spaß mit den Prototyp Dokumente zu erstellen und zu sehen, wie von Zauberhand gleichzeitig auch der passende LaTeX-Code generiert wird. Er bietet eine übersichtliche Darstellung des Dokuments und ist bereits einigermaßen bequem zu bedienen, insbesondere dank der Autovervollständigung. Die Basiskonzepte aus Abschnitt \ref{basiskonzepte} konnten somit umgesetzt werden.
+Mit dem Prototyp ist es möglich, eine Masterarbeit zu schreiben. Das heißt, dass von der prinzipiellen Funktionalität alles da ist, um wissenschaftliche Texte zu verfassen. Durch die Möglichkeit, Projektionen in andere Formate zu erhalten, kann auch LaTeX Code generiert werden, um (noch) fehlende Funktionalität (insb. Paginierung) auszugleichen. Jedoch hat LaTeX nur eine beschränkte Menge an „Dokumentelementen“ im Vergleich zum Prototyp -- es fehlen nunmal die domänenspezifischen Inhalte. Wenn diese Benutzt werden sollen, müssen diese mehr oder weniger von Hand an LaTeX nachgereicht werden, z.B. in Form von statischen Bildern. Beispiel: Das Chemiemolekül wird auch als SVG-Bild bereitgestellt, damit LaTeX dieses verarbeiten kann, muss es aus der Datenbank geholt und in ein pdf konvertiert werden. Rein vom Konzept her ist es aber leicht möglich, solche Aufgaben besser zu automatisieren. Beispielsweise holt ein Shell-Skript via curl das SVG-Bild aus der Datenbank und legt es in einen Ordner ab, damit der LaTeX-Compiler es verwenden kann. Es macht Spaß, mit den Prototyp Dokumente zu erstellen und zu sehen, wie von Zauberhand gleichzeitig auch der passende LaTeX-Code generiert wird. Er bietet eine übersichtliche Darstellung des Dokuments und ist bereits einigermaßen bequem zu bedienen, insbesondere dank der Autovervollständigung. Die Basiskonzepte aus Abschnitt \ref{basiskonzepte} konnten somit umgesetzt werden.
 
  
 Am Anfang der Masterarbeit war noch nicht klar, ob das Vorhaben überhaupt gelingt. In dieser Phase ist ein erster Prototyp entstanden. Dieser hat gezeigt, dass das Konzept Potential hat, tragfähig zu sein. Ein zweiter Prototyp ist entstanden, mit einer deutlich klareren und verbesserten Architektur. In die zwei Prototypen ist insgesamt ca. 4 Monate Entwicklungsarbeit und Konzeption geflossen, es wurde agil gearbeitet, um verschiedene Konzepte „unbürokratisch“ ausprobieren zu können. Der zweite Prototyp hat die Konzepte immer klarer werden lassen, so dass daraus eine gut strukturierte Theorie gefolgert und nachvollzogen werden kann. Aber die neuen Erkenntnisse zeigen auch, dass der Prototyp nicht an allen Stellen die Theorien konsequent umsetzt.
@@ -1178,7 +1187,7 @@ Am Anfang der Masterarbeit war noch nicht klar, ob das Vorhaben überhaupt gelin
  
 \begin{itemize}
 
-\item Jedes Dokumentelemente repräsentiert ein Modell.
+\item Jedes Dokumentelement repräsentiert ein Modell.
 \item Jedes Modell kann als DSL ausgedrückt werden. Textuell oder grafisch.
 \item Ein Modell kann in Form von Attributen (des Dokumentelements) gespeichert werden. Die Attribute entsprechen quasi der ausgewerteten DSL. Die DSL selbst wird auch als Attribut gespeichert.
 \end{itemize}
@@ -1186,7 +1195,7 @@ Am Anfang der Masterarbeit war noch nicht klar, ob das Vorhaben überhaupt gelin
 Kritik: Der Prototyp stößt an einigen Stellen auch auf seine Grenzen, gerade hinsichtlich der Performanz bei großen Dokumenten. Eine Vermutung ist, dass die eingesetzte JSON-Bibliothek, die intern sehr oft aufgerufen wird, nicht sonderlich schnell ist --  im Fokus stand zunächst eine Bibliothek mit einer übersichtlichen und flexiblen API zu verwenden. Zudem ist es bei großen Dokumenten sehr aufwendig, wenn der DOM über JavaScript in der Browser-Benutzeroberfläche aufgebaut wird. Die Architektur selbst ist auch noch nicht modular genug, d.h. der Basis Aktor sowie Wurzel Aktor sind zu monolithisch. Wenn das Metamodell verändert wird, muss das System neu kompiliert werden. Und z.Z. kann nur ein Dokument geladen werden; eine Unterscheidung zwischen verschiedenen Benutzern gibt es auch noch nicht. Wenn die hier vorgestellten Konzepte in einer Produktiven Umgebung eingesetzt werden sollen, ist eine Neuauflage der Software empfehlenswert.
 
  
-Jedoch hat der Prototyp das gezeigt, was er zeigen soll: Es ist möglich mit Akka Aktoren einen abstrakten Syntaxbaum zu bauen, welcher als Modellgrundlage für Dokumente dient. Zudem ist es sehr nützlich auch domänenspzifische Inhalte als spezialisierte Dokumentelemente zu modellieren. Dadurch erhält der Autor mehr Konsistenz und Semantik im Dokument -- dadurch wird einem Dokument ermöglicht sich selbst zu einem gewissen Grad zu verifizieren und damit weniger fehleranfällig zu machen. Außerdem ist es sehr für einen Autor sehr bequem, wenn ein von ihm häufig verwendetes Modell als fertiges und sorgenfreies Dokumentelement vorliegt; welches gleichzeitig Visualisierungen in Veröffentlichungsqualität liefert.
+Jedoch hat der Prototyp das gezeigt, was er zeigen soll: Es ist möglich, mit Akka Aktoren einen abstrakten Syntaxbaum zu bauen, welcher als Modellgrundlage für Dokumente dient. Zudem ist es sehr nützlich, auch domänenspzifische Inhalte als spezialisierte Dokumentelemente zu modellieren. Dadurch erhält der Autor mehr Konsistenz und Semantik im Dokument -- dadurch wird einem Dokument ermöglicht sich selbst zu einem gewissen Grad zu verifizieren und damit weniger fehleranfällig zu machen. Außerdem ist es für einen Autor sehr bequem, wenn ein von ihm häufig verwendetes Modell als fertiges und sorgenfreies Dokumentelement vorliegt; welches gleichzeitig Visualisierungen in Veröffentlichungsqualität liefert.
 
  
 \subsection{Codestatistik}\label{}
