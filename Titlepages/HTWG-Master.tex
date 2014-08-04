@@ -41,6 +41,9 @@
 
   \end{titlepage}
 
+\setcounter{page}{2}
+\intentionallyBlankPage
+
 % Title
 
   \thispagestyle{empty}
@@ -63,26 +66,30 @@
 
   \begin{center}
 
-  \vspace*{2.5cm}
+  \vspace*{2cm}
 
   \begin{tabular}{p{3cm}p{10cm}}
-  Thema: & \textbf{\large \thema} \\[3ex]
-  Masterkandidat: & \autor, \autorStrasse, \autorPLZ ~ \autorOrt \\[3ex]
-  Firma: & \firma \\[3ex]
+  Thema: & \textbf{\large \thema} \\[2.5ex]
+  Masterkandidat: & \autor, \autorStrasse, \autorPLZ ~ \autorOrt \\[2.5ex]
+  Firma: & \firma \\[2.5ex]
   1. Prüfer: & \prueferA \\
-  2. Prüfer: & \prueferB \\[7ex]
-  Schlagworte: & \keywords \\[7ex]
+  2. Prüfer: & \prueferB \\[5.5ex]
+  Schlagworte: & \keywords \\[5.5ex]
   Ausgabedatum: & \ausgabedatum \\
   \ifdraft Entwurf-Version: \else Abgabedatum: \fi & \abgabedatum \\
   \end{tabular}
   \end{center}
 
+\intentionallyBlankPage
+
 % Abstract
 
   \newpage
-  \setcounter{page}{3}  % Count the title pages (Conform with DIN 1422-4 Section 4.1)
-  \sectionchapter{Kurzreferat (Abstract)}
+  %\setcounter{page}{3}  % Count the title pages (Conform with DIN 1422-4 Section 4.1)
+  \sectionchapter{Kurzreferat}
   \abstract
+  \sectionchapter{Abstract}
+  \abstractEngl
 
 % Affidavit
 
@@ -110,5 +117,7 @@
 
   \noindent
   Konstanz, \abgabedatum \hfill \begin{tabular}{c} \\ \\ \rule{5cm}{1pt} \\ (Unterschrift)\end{tabular}
+
+  \intentionallyBlankPage
 
 }

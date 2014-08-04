@@ -15,8 +15,52 @@ mit domänenspezifischen Inhalten}
     Version: & \today
   \end{tabular}
 }
-\newcommand{\keywords}{expose}
-\renewcommand{\abstract}{Maximal 1200 Anschläge, alles in einem Abschnitt. (Nach DIN 1422-1).}
+
+% Schlagworte: http://xgnd.bsz-bw.de
+\newcommand{\keywords}{
+Wissenschaftliches Manuskript,
+Textverarbeitung,
+Modelltheorie,
+Taxnomomie,
+%Metamodell,
+%Wissenschaftlich-technische Software,
+Software Engineering,
+%Rich Internet Application,
+%Wissenschaftliche Literatur,
+%Dokumentation,
+%Druckwerk,
+%Gute wissenschaftliche Praxis,
+Projectional Editing,
+Domain-Specific Languages,
+Domain Modelling
+}
+
+% Maximal 1200 Anschläge, alles in einem Abschnitt. (Nach DIN 1422-1).
+\renewcommand{\abstract}{
+Aktuelle Textverarbeitungssysteme weisen beim Erstellen von wissenschaftlichen Texten
+noch Defizite auf:
+Dokumente haben keine Kenntnisse über das Wissensfeld, welches sie beschreiben.
+Das fördert Inkonsistenzen im Text.
+Bedeutungen einzelner Bestandteile eines Dokuments sind dem System nicht bewusst,
+jeder Autor muss sich erneut um den formal korrekten Aufbau des Dokuments kümmern.
+In dieser Arbeit ist ein browserbasierter prototypischer Dokumenteditor entstanden,
+der diese Defizite abfedert und anhand drei konrekter Anwendungsfälle die Praxistauglichkeit prüft.
+Daraus sind allgemeine Theorien über Dokumente entstanden:
+Ein natürliches Modell für Dokumente ist der Graph bzw. abstrakte Syntaxbaum.
+Dokumentelemente (z.B. Absätze, Abbildungen, etc.) sind die einzelnen Bestandteile eines Dokuments und werden als Graph-Knoten abgebildet.
+Dokumentelemente kapseln ein Modell einer spezifischen Domäne.
+Es gibt eine allgemeingültige Taxonomie für den inneren Aufbau von Dokumenten.
+Dadruch kann eine Dokumentklasse formal spezifiziert werden, worin
+Vorgaben über erlaube Abfolgen und Verschachtelungen von Dokumentelementen
+enthalten sind.
+Dies fungiert als ein passendes Metamodell.
+}
+
+\newcommand{\abstractEngl}{
+English Abstract...
+}
+
+\newcommand{\intentionallyBlankPage}{\clearpage\mbox{}\clearpage}
 
 \input{Titlepages/HTWG-Master}  % Choose one Titlepage (must provide \typesetTitle)
 
@@ -40,9 +84,6 @@ mit domänenspezifischen Inhalten}
   \begin{singlespace}
   \tableofcontents
   \end{singlespace}
-  \onehalfspacing
-  \newpage
-  \pagenumbering{arabic}
 }
 \newcommand{\bibliographyAreal}{
   \newpage

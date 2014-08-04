@@ -7,11 +7,27 @@
 
 \titlepageAreal
 
+\tableOfContentsAreal
+
+% \intentionallyBlankPage
+% \listoffigures
+
+\begin{flushleft}
 \input{Glossar}
 \glsaddall
 \printglossary[title=Glossar,toctitle=Glossar]
+\end{flushleft}
 
-\tableOfContentsAreal
+% \intentionallyBlankPage
+
+\sectionchapter{Vorwort}
+\input{Chapters/Vorwort}
+
+\intentionallyBlankPage
+
+\onehalfspacing
+\newpage
+\pagenumbering{arabic}
 
 \input{Chapters/Gen}
 
