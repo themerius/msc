@@ -150,7 +150,7 @@ Der hier mit den Aktoren umgesetzte AST könnte als „reaktiver AST“\footnote
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/idee.svg.pdf} }
-\caption{ Modell für ein Dokument. Jeder Aktor (Raute) repräsentiert ein Dokumentelement. Die Aktoren kennen sich (graue Pfeile) und spannen somit einen Graphen auf. Die Aktoren können Nachrichten (grüne Pfeile) austauschen, z.B. um Benummerungen aufzulösen. }\label{idee}
+\caption[Idee eines Modells für Dokumente]{ Idee eines Modells für Dokumente. Jeder Aktor (Raute) repräsentiert ein Dokumentelement. Die Aktoren kennen sich (graue Pfeile) und spannen somit einen Graphen auf. Die Aktoren können Nachrichten (grüne Pfeile) austauschen, z.B. um Benummerungen aufzulösen. }\label{idee}
 \end{figure}
  
 \section{Szenario}\label{}
@@ -162,7 +162,7 @@ Ein motivierendes Szenario ist auf Abbildung \ref{szenario} visualisiert. Hierbe
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/szenario.svg.pdf} }
-\caption{ Motivierendes Szenario. Auf der linken Seite ist die Editier-Ansicht zu sehen, dort werden die einzelnen Dokumentelemente und ihre Beziehungen (Verweise untereinander) ersichtlich. Die Verweise zwischen den Dokumentelementen sind blau markiert. Auf der rechten Seite ist die durch ein Satzsystem gesetzte Ansicht, welche aus der Editier-Ansicht hervorgeht. }\label{szenario}
+\caption[Motivierendes Szenario]{ Motivierendes Szenario. Auf der linken Seite ist die Editier-Ansicht zu sehen, dort werden die einzelnen Dokumentelemente und ihre Beziehungen (Verweise untereinander) ersichtlich. Die Verweise zwischen den Dokumentelementen sind blau markiert. Auf der rechten Seite ist die durch ein Satzsystem gesetzte Ansicht, welche aus der Editier-Ansicht hervorgeht. }\label{szenario}
 \end{figure}
  
 \section{Fragen von wissenschaftlichem Interesse}\label{wiss-fragen}
@@ -226,7 +226,7 @@ In \citep[S.~9]{Ludewig} ist eine griffige Zusammenfassung der drei zwingenden M
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/modell.svg.pdf} }
-\caption{ Schematische Zeichnung der Original-Modell-Beziehung. Entnommen aus (Ludewig, 2002, S. 9). }\label{modell}
+\caption[Original-Modell-Beziehung]{ Schematische Zeichnung der Original-Modell-Beziehung. Entnommen aus (Ludewig, 2002, S. 9). }\label{modell}
 \end{figure}
  
 \subsection{Modell eines Dokuments}\label{dokumentModell}
@@ -274,7 +274,7 @@ Wärend der Syntaxanalyse (parsing) werden Syntaxbaum-Knoten erstellt, welche wi
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/ast.svg.pdf} }
-\caption{ Abstrakter Syntaxbaum für den Ausdruck 9-5+2. Entnommen aus (Aho, 2007, S. 70). }\label{ast}
+\caption[Abstrakter Syntaxbaum Beispiel]{ Abstrakter Syntaxbaum für den Ausdruck 9-5+2. Entnommen aus (Aho, 2007, S. 70). }\label{ast}
 \end{figure}
  
 \subsection{Allgemeine Implementierung}\label{}
@@ -286,7 +286,7 @@ Wenn ein Operator, also ein innerer Knoten, beliebig viele Operanden, also Kinde
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/astimpl.svg.pdf} }
-\caption{ Generellste Implementierung eines AST. Entnommen aus (Edwards, 2003). }\label{astimpl}
+\caption[Generellste Implementierung eines AST]{ Generellste Implementierung eines AST. Entnommen aus (Edwards, 2003). }\label{astimpl}
 \end{figure}
  
 \subsection{Übertragung auf den Prototypen}\label{}
@@ -311,7 +311,7 @@ Für gewöhnlich arbeiten Programmierer mit Quellcode-Editoren, das heißt es we
 Projektionseditoren gehen anders vor: Der Editor arbeitet direkt auf dem abstrakten Syntaxbaum (s. Abschnitt \ref{ast-sec}), d.h. der Programmierer editiert nicht mehr eine Datei die durch den Übersetzer in eine Baumstruktur umgewandelt wird, sondern seine editier-Operationen verändern direkt die Baumstruktur des Programms. \citep[S.~68]{Voelter} Nun kann aus der abstrakten Syntax (entspricht der Baumstruktur) eine Variation an konkreten Syntaxen erstellt werden, die sogenannten Projektionen. Diese Projektionen können wieder textuell sein, aber auch grafisch -- jedoch sind diese in ihrer Darstellung deutlich flexibler als bei parserbasierten Editoren. Eine kurze schematische Grafik (Abb. \ref{parserprojectional}) verdeutlicht den Unterschied zwischen Quellcode-Editoren und Projektionseditoren.
 
  
-Im englischen\footnote{~Projectional Editing in Wikipedia: \url{http://en.wikipedia.org/wiki/Projectional\_editor}} Sprachraum gibt es mehrere Bezeichnungen: structure editor, structured editor oder projectional editor. Man kann diese mit Struktureditor oder Projetkionseditor übersetzten.
+Im englischen\footnote{~vgl. Wikipedia: \url{http://en.wikipedia.org/wiki/Projectional\_editor}} Sprachraum gibt es mehrere Bezeichnungen: structure editor, structured editor oder projectional editor. Man kann diese mit Struktureditor oder Projetkionseditor übersetzten.
 
  
 Die Idee von Projektionseditoren ist nicht neu, bereits 1971 hat Wilfred J. Hansen ein System entwickelt, welches auf solch einem Ansatz beruht. Jedoch haben sich zur damaligen Zeit diese Editor-Formen nicht durchgesetzt, wegen der unzureichenden Benutzerfreundlichkeit. \citep[S.~91]{Gomolka} In heutigen Zeiten (insbesondere mit den fortgeschrittenen Web Standards) sollte es aber möglich sein, einen benutzerfreundlichen Projektionseditor zu bauen, der die Produktivität und den Komfort erhöht.
@@ -321,7 +321,7 @@ Die Idee von Projektionseditoren ist nicht neu, bereits 1971 hat Wilfred J. Hans
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/parserprojectional.svg.pdf} }
-\caption{ Parserbasierte Editierung / Quellcode-Edior (links) verglichen mit projektionsbasierter Editierung / Projektionseditor (rechts). Im parserbasierten Ansatz sieht und bearbeitet der Programmierer die konkrete Syntax eines Programms. Ein Übersetzer gewinnt aus der konkreten Syntax einen AST. Beim projektionsbasierten Ansatz sieht der Programmierer eine (von vielen) konkrete Syntax, und bearbeitet jedoch unmittelbar den AST. Im Allgemeinen kann aus dem AST eine konkrete Syntax gewonnen werden, das kann z.B. Quellcode einer Programmiersprache sein, aber auch direkt Maschinencode. Grafiken aus (Voelter, 2013, S. 68) entnommen. }\label{parserprojectional}
+\caption[Parserbasierte versus projektionsbasierte Editierung]{ Parserbasierte Editierung / Quellcode-Edior (links) verglichen mit projektionsbasierter Editierung / Projektionseditor (rechts). Im parserbasierten Ansatz sieht und bearbeitet der Programmierer die konkrete Syntax eines Programms. Ein Übersetzer gewinnt aus der konkreten Syntax einen AST. Beim projektionsbasierten Ansatz sieht der Programmierer eine (von vielen) konkrete Syntax, und bearbeitet jedoch unmittelbar den AST. Im Allgemeinen kann aus dem AST eine konkrete Syntax gewonnen werden, das kann z.B. Quellcode einer Programmiersprache sein, aber auch direkt Maschinencode. Grafiken aus (Voelter, 2013, S. 68) entnommen. }\label{parserprojectional}
 \end{figure}
  
 \subsection{Übertragung auf den Prototypen}\label{}
@@ -355,7 +355,7 @@ Wird „die Sprachstufentheorie auf die Modellbildung [...] übertragen, so“ (
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/metamodellbegriff.svg.pdf} }
-\caption{ Der sprachbasierte Metamodellbegriff. Die „Miniwelt“ entspricht dem Original. Grafik entnommen aus (Strahringer, 1998, S. 3). }\label{metamodellbegriff}
+\caption[Der sprachbasierte Metamodellbegriff]{ Der sprachbasierte Metamodellbegriff. Die „Miniwelt“ entspricht dem Original. Grafik entnommen aus (Strahringer, 1998, S. 3). }\label{metamodellbegriff}
 \end{figure}
  
 \subsection{Metamodell des Dokumentmodells}\label{metamodell_dokument}
@@ -370,7 +370,7 @@ Auf Abbildung \ref{docmodell} ist das eigentliche Modell visualisiert. Dieses so
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/docmodell.svg.pdf} }
-\caption{ Das hier verwendete Dokumentmodell. Das Dreieck symbolisiert die Wurzel. Die Rauten symbolisieren jeweils einen Aktor bzw. ein Dokumentelement. Die stark gezeichneten Pfeile symbolisieren das erste Kind, die gestrichelte Linie symoblisiert die zugehörigen anderen Kinder. Die schwach gezeichneten Pfeile symbolisieren die nächsten Geschwister. Dadurch wird die Hierarchie des Dokuments aufgespannt. }\label{docmodell}
+\caption[Allgemeines Dokumentmodell]{ Das hier verwendete allgemeine Dokumentmodell. Das Dreieck symbolisiert die Wurzel. Die Rauten symbolisieren jeweils einen Aktor bzw. ein Dokumentelement. Die stark gezeichneten Pfeile symbolisieren das erste Kind, die gestrichelte Linie symoblisiert die zugehörigen anderen Kinder. Die schwach gezeichneten Pfeile symbolisieren die nächsten Geschwister. Dadurch wird die Hierarchie des Dokuments aufgespannt. }\label{docmodell}
 \end{figure}
  
 Abbildung \ref{metamodell} zeigt das Modell welches das Dokumentmodell beschreibt, also das „Metamodell“. In der Mitte liegt der Basis Aktor, dieser hält Referenzen zu seinem ersten Kind und zu seinem unmittelbaren Geschwister. Zudem hält der Basis Aktor Inststanzen aller verfügbaren Dokumentelemente, wovon jedoch immer nur eine aktiv ist. Welche Dokumentelemente verfügbar sind, wird vom Programmierer spezifiziert -- dazu muss er ein Scala Trait (entspricht einem Interface) implementieren und dem Basis Aktor bekannt machen. Man kann sagen, dass er das Metamodell an dieser Stelle (gewollt) verändert. Der Wurzel Aktor hält nochmals alle Topologieinformationen, daher kennt er alle im System vorhandenen Basis Aktoren. Jeder Basis Aktor kennt auch seine zugehörige Wurzel, welche er bei ggf. anstehenden lokalen Topologieveränderungen benachrichtigen muss.
@@ -380,7 +380,7 @@ Abbildung \ref{metamodell} zeigt das Modell welches das Dokumentmodell beschreib
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/metamodell.svg.pdf} }
-\caption{ Das Metamodell des Dokumentmodells. }\label{metamodell}
+\caption[Metamodell des Dokumentmodells]{ Das Metamodell des Dokumentmodells. }\label{metamodell}
 \end{figure}
  
 \subsubsection{Beweis}\label{}
@@ -396,7 +396,7 @@ Das Modell indem wiederum die Objektsprache modelliert ist, muss ein Beschreibun
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/metamodellschema.svg.pdf} }
-\caption{ Übersicht der Zusammenhänge des Dokumentmodells und Dokumentmetamodells. Grafik nach (Strahringer, 1998). Die erweiterte Backus-Naur-Form (EBNF) kann als Metametamodell dienen -- denn mit EBNF können Programmiersprachen beschrieben werden und zudem ist EBNF in der Lage sich selbst zu beschreiben. }\label{metamodellschema}
+\caption[Modellebenen des Dokumentmodells]{ Die Modellebenen des Dokumentmodells, verdeutlichen die Zusammenhänge zwischen Dokumentmodell und Dokumentmetamodell. Grafik nach (Strahringer, 1998). Die erweiterte Backus-Naur-Form (EBNF) kann als Metametamodell dienen -- denn mit EBNF können Programmiersprachen beschrieben werden und zudem ist EBNF in der Lage sich selbst zu beschreiben. }\label{metamodellschema}
 \end{figure}
  
 \section{Semiotik}\label{semiotik-sec}
@@ -435,7 +435,7 @@ Wenn ein Zeichen, Signal, Symbol, etc. alle der oben genannten vier Aspekte aufz
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/semiotik.svg.pdf} }
-\caption{ Die vier Hauptteile der Semiotik grafisch dargestellt mit Beispielen aus der analytischen Chemie. Allgemein: Visualisierung der Semiotik eines Zeichens. Beispiel „Ba“: Ba ist ein Zeichen, dessen Bedeutung Barium ist und ein chemisches Molekül bezeichnet. Das ist zumindest dann der Fall, wenn dies von einem Chemiker gelesen wird. Strukturell ordnen sich Barium Moleküle als ein geordneter Kristall an. Analog ist es bei der chemischen Verbindung dargestellt als NaCl. Beispiel „pH“: Im Kontext einer Neutralisierungsreaktion, hat das Symbol pH die Bedeutung des der umgekehrten Logarithmusfunktion über die Konzentration der positiv geladenen Wasserstoffionen. Dies bezeichnet den Säuregrad einer Flüssigkeit. Strukturell kann es als Plot dargestellt werden. Visualisierung mit einigen Anpassungen aus (Malissa, 1971, S. 9). }\label{semiotik}
+\caption[Semiotik grafisch dargestellt]{ Die vier Hauptteile der Semiotik grafisch dargestellt mit Beispielen aus der analytischen Chemie. Allgemein: Visualisierung der Semiotik eines Zeichens. Beispiel „Ba“: Ba ist ein Zeichen, dessen Bedeutung Barium ist und ein chemisches Molekül bezeichnet. Das ist zumindest dann der Fall, wenn dies von einem Chemiker gelesen wird. Strukturell ordnen sich Barium Moleküle als ein geordneter Kristall an. Analog ist es bei der chemischen Verbindung dargestellt als NaCl. Beispiel „pH“: Im Kontext einer Neutralisierungsreaktion, hat das Symbol pH die Bedeutung des der umgekehrten Logarithmusfunktion über die Konzentration der positiv geladenen Wasserstoffionen. Dies bezeichnet den Säuregrad einer Flüssigkeit. Strukturell kann es als Plot dargestellt werden. Visualisierung mit einigen Anpassungen aus (Malissa, 1971, S. 9). }\label{semiotik}
 \end{figure}
  
 \subsection{Anwendung auf (wiss.) Dokumente}\label{}
@@ -484,15 +484,22 @@ Mechanik: Der Programmierausdruck „koffein.masse“ („koffein“ wäre der N
 In Recherchen ist aufgefallen, dass es schon (wenn auch wenige) Versuche gegeben hat, eine möglichst allgemeingültige Systematik (z.T. formal) des inneren Dokumentenaufbaus herauszudestillieren. Jedoch sind diese Konzepte bisher kaum verbreitet, insbesondere bei der direkten Erstellung von (wiss.) Texten durch den Autor. Heutige Textverarbeitungen unterstützen kaum explizite Semantik über das Domänenwissen, mit dem sie gerade arbeiten -- dies fördert Fehler und Inkonsistenzen im Dokument.
 
  
-Die DIN-Normen \citep{DIN1421}, \citep{DIN1422-1}, \citep{DIN1422-3} und \citep{DIN1422-4} geben Empfehlungen, wie Texte gegliedert und benummert werden sollen bzw. wie im allgemeinen Manuskripte oder Forschungsberichte gestaltet werden sollen. Dies sind keine formalen Vorgaben, sondern vielmehr eine Zusammenfassung der hiesigen guten fachlichen Praxis in Wissenschaft, Technik, Wirtschaft und Verwaltung. Anders hingegen geht \citep{NISO} vor, hier wird formal mittels XML Schemas eine allgemein gültige Menge an XML-Tags für den Aufbau von Fachzeitschriftenartikeln zusammengestellt. Jedoch haben diese auch für anderen Publikationen ihre Gültigkeit, wie z.B. Briefe, Leitartikel oder Buchkritiken. \citep{Peroni} stellt eine Ontologie (in OWL 2) über einzelnen Komponenten, die in einem Dokument vorkommen können, zur Verfügung. Hier werden die Beziehungen die die Komponenten untereinander pflegen sichtbar gemacht. Es wird dabei zwischen strukturierenden (z.B. Abschnitt, Absatz) und rhetorischen Komponenten (z.B. Einleitung, Abbildung, Anhang) unterschieden.
+Die DIN-Normen \citep{DIN1421}, \citep{DIN1422-1}, \citep{DIN1422-3} und \citep{DIN1422-4} geben Empfehlungen, wie Texte gegliedert und benummert werden sollen bzw. wie im allgemeinen Manuskripte oder Forschungsberichte gestaltet werden sollen. Dies sind keine formalen Vorgaben, sondern vielmehr ein Glossar der hiesigen guten fachlichen Praxis in Wissenschaft, Technik, Wirtschaft und Verwaltung. Anders hingegen geht \citep{NISO} vor, hier wird formal mittels XML Schemas eine allgemein gültige Menge an XML-Tags für den Aufbau von Fachzeitschriftenartikeln zusammengestellt. Jedoch haben diese auch für anderen Publikationen ihre Gültigkeit, wie z.B. Briefe, Leitartikel oder Buchkritiken. Es handelt sich also um ein formal gestaltetes Glossar. \citep{Peroni} stellt eine Ontologie (im formalen OWL 2 Format) über einzelnen Komponenten, die in einem Dokument vorkommen können, zur Verfügung. Hier werden die Beziehungen, die die Komponenten untereinander pflegen, sichtbar gemacht. Es wird dabei zwischen strukturierenden (z.B. Abschnitt, Absatz) und rhetorischen Komponenten (z.B. Einleitung, Abbildung, Anhang) unterschieden. In der Tabelle auf Abbildung \ref{dokumentelemente-fig} werden die verschiedenen Systematiken miteinander verglichen.
 
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/dokumentelemente.svg.pdf} }
+\caption[Dokumentelemente im Vergleich]{ Dokumentelemente im Vergleich. In der ersten Spalte sind die wichtigsten Dokumentelemente herausgegriffen, welche auch z.T. im Prototypen vorkommen implementiert sind (daher englische Bezeichnungen). Die Dokumentelemente sind aus den verschiedenen Systematiken von DIN, NISO, DoCO und LaTeX (Dokumentklasse Report) entstanden und werden hier nochmals übersichtlich dargestellt. Die mit Tilde (~) markierten Einträge treffen nur ungefähr das gemeinte Dokumentelement. Wenn das Dokumentelement in einer Systematik nicht vorkommt, wir das Feld leer gelassen. Es gibt in der jeweiligen Systematik u.U. noch mehr Dokumentelemente bzw. Bestandteile aus denen Dokumentelemente zusammengesetzt sind, welche hier der Einfachheit halber nicht modelliert wurden, aber in die theoretischen Überlegungen eingeflossen sind. }\label{dokumentelemente-fig}
+\end{figure}
  
 Hier soll versucht werden die Erkenntnisse der o.g. Quellen zu generalisieren, in der Hoffnung die Basis für ein formaleres bzw. präskriptiveres Textverarbeitungssystem zu schaffen.
 
  
 \subsection{Dokumentelemente}\label{dokumentelemente}
  
-Dokumentelemente bilden das Grundgerüst eines jeden Dokuments. Hier wird versucht den Begriff genauer zu fassen und zu definieren. Es ergeben sich drei abstrakte Ausprägungen der Dokumentelemente:
+Dokumentelemente bilden das Grundgerüst eines jeden Dokuments. Eine Tabelle über die wichtigsten Dokumentelemente, die in wissenschaftlichen Texten vorkommen, ist auf Abbildung \ref{dokumentelemente-fig} zu sehen. Hier wird versucht den Begriff genauer zu fassen und zu definieren. Es ergeben sich drei abstrakte Ausprägungen der Dokumentelemente:
 
  
 \begin{itemize}
@@ -535,7 +542,7 @@ Mit den in der Tabelle (Abb. \ref{taxonomie}) aufgelisteten Dokumentelementen ka
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/taxonomie.svg.pdf} }
-\caption{ Taxonomie des inneren Aufbaus von wissenschaftlichen Dokumenten. Sortiert von abstrakt zu konkret. Anmerkung: Die Tabelle ist in englischer Sprache gehalten, da die Namen den Implementierungsnamen im Prototyp entsprechen. }\label{taxonomie}
+\caption[Taxonomie über den inneren Dokumentenaufbau]{ Taxonomie des inneren Aufbaus von wissenschaftlichen Dokumenten. Sortiert von abstrakt zu konkret. Anmerkung: Die Tabelle ist in englischer Sprache gehalten, da die Namen den Implementierungsnamen im Prototyp entsprechen. }\label{taxonomie}
 \end{figure}
  
 \subsection{Dokumentstruktur Matrix}\label{}
@@ -556,7 +563,7 @@ Auf Abbildung \ref{matrixkind} sind die erlaubten Eltern-Kind-Beziehungen der vo
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/matrixkind.svg.pdf} }
-\caption{ Stellt die erlaubten Eltern-Kind-Beziehungen zwischen den Dokumentelementen dar. Hier wird also definiert mit welchen Elementen die Hierarchie des Dokuments aufgespannt werden darf. Gelesen wird es z.B. von links nach oben: Body Matter darf als Kind Section haben. Oder von oben nach rechts: Section darf als Eltern Body Matter haben. Es fällt auf, dass die Matrix unterhalb der Determinanten leer ist. Das liegt daran, dass Containerelemente keine Strukturelemente als Eltern haben dürfen. }\label{matrixkind}
+\caption[Matrix über Eltern-Kind-Beziehungen]{ Stellt die erlaubten Eltern-Kind-Beziehungen zwischen den Dokumentelementen dar. Hier wird also definiert mit welchen Elementen die Hierarchie des Dokuments aufgespannt werden darf. Gelesen wird es z.B. von links nach oben: Body Matter darf als Kind Section haben. Oder von oben nach rechts: Section darf als Eltern Body Matter haben. Es fällt auf, dass die Matrix unterhalb der Determinanten leer ist. Das liegt daran, dass Containerelemente keine Strukturelemente als Eltern haben dürfen. }\label{matrixkind}
 \end{figure}
  
 \subsubsection{Erlaube Abfolgen}\label{}
@@ -569,7 +576,7 @@ Auf Abbildung \ref{matrixgeschwister} sind die erlauben Nachfolger-Vorgänger-Be
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/matrixgeschwister.svg.pdf} }
-\caption{ Stellt die erlaubten Geschwister-Beziehungen (Nachfolger/Vorgänger) zwischen den Dokumentelementen dar. Hier wird also definiert welche Elementen aneinandergereiht werden dürfen. Es fällt auf, dass Strukturelemente eine Gruppe bilden, da sie nur als Blätter vorkommen. }\label{matrixgeschwister}
+\caption[Matrix über Geschwister-Beziehungen]{ Stellt die erlaubten Geschwister-Beziehungen (Nachfolger/Vorgänger) zwischen den Dokumentelementen dar. Hier wird also definiert welche Elementen aneinandergereiht werden dürfen. Es fällt auf, dass Strukturelemente eine Gruppe bilden, da sie nur als Blätter vorkommen. }\label{matrixgeschwister}
 \end{figure}
  
 \subsection{Deutung}\label{}
@@ -612,7 +619,7 @@ In Abbildung \ref{Aspirin} ist ein durch das Chemie-Dokumentelement generiertes 
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/chemieeditieren.png.pdf} }
-\caption{ Bildschirmaufnahme der Editier-Ansicht des Chemie-Dokumentelements. Es ist der Domäneneditor „Ketcher“ (1) zu sehen, der gerade das Aspirin Molekül anzeigt und zum editieren einlädt. Zudem wird das Modell (2) des Aspirin Moleküls im Molfile-Format angezeigt. }\label{chemieeditieren}
+\caption[Bildschirmaufnahme Chemie-Dokumentelement]{ Bildschirmaufnahme der Editier-Ansicht des Chemie-Dokumentelements. Es ist der Domäneneditor „Ketcher“ (1) zu sehen, der gerade das Aspirin Molekül anzeigt und zum editieren einlädt. Zudem wird das Modell (2) des Aspirin Moleküls im Molfile-Format angezeigt. }\label{chemieeditieren}
 \end{figure}
  
 \section{UIMA CAS Editor}\label{uima-cas-kapitel}
@@ -658,7 +665,7 @@ Annotationen werden durch ein „mouse over“ im Browser farbig hervorgehoben (
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/annotation.png.pdf} }
-\caption{ Entnommen aus Screenshots des Prototypen. Es wird dargestellt, wie Annotationen vom Meta Dokument in das Haupt Dokument (über Verweisung) fließen können. Im Haupt Dokument werden bei „mouse over“ alle Annotationen vom gleichen Annotations-Typ „Annotation“ farbig hervorgehoben. Es ist möglich beliebige Annotations-Typen (als Dokumentelement) zu kreieren. }\label{annotation}
+\caption[Hauptdokument und Metadokument]{ Entnommen aus Screenshots des Prototypen. Es wird dargestellt, wie Annotationen vom Meta Dokument in das Haupt Dokument (über Verweisung) fließen können. Im Haupt Dokument werden bei „mouse over“ alle Annotationen vom gleichen Annotations-Typ „Annotation“ farbig hervorgehoben. Es ist möglich beliebige Annotations-Typen (als Dokumentelement) zu kreieren. }\label{annotation}
 \end{figure}
  
 \section{Dokumentation von Spray-Modellen}\label{doku-spray}
@@ -699,7 +706,7 @@ In Abbildung \ref{sprayanzeigen} ist das Szenario aufgezeigt. Ziel ist es, Attri
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/sprayanzeigen.png.pdf} }
-\caption{ Im blau gestrichelten Kasten ist das Spray-Dokumentelement in seiner Anzeigeansicht zu sehen. Szenario: Der Name einer Stelle des Petrinetz-Diagramms soll im Text erwähnt werden (roter Pfeil). }\label{sprayanzeigen}
+\caption[Spray-Dokumentelement Repräsentation]{ Im blau gestrichelten Kasten ist das Spray-Dokumentelement in seiner Anzeigeansicht zu sehen. Szenario: Der Name einer Stelle des Petrinetz-Diagramms soll im Text erwähnt werden (roter Pfeil). }\label{sprayanzeigen}
 \end{figure}
  
 Wenn der Benutzer das Spray-Dokumentelement anklickt, öffnet sich eine Editieransicht in der das Modell manipuliert werden kann. (Dargestellt auf Abbildung \ref{sprayeditieren}) Dort wird der (1) Domäneneditor „Spray Online“ dargestellt. Der Editor hat ein Petrinetz-Modell geladen, welches vom Benutzer manipuliert werden kann. Das Spray-Dokumentelement kann (2) einen Namen erhalten, um es später beim Verweisen auf das Modell (komfortabel) wieder zu finden. Wenn der Benutzer (3) die Änderungen speichert, holt sie das Spray-Dokumentelement die aktuellen Informationen über den momentanen Zustand des Modells (wie z.B. die Namen der einzelnen Diagramm-Komponenten).
@@ -709,7 +716,7 @@ Wenn der Benutzer das Spray-Dokumentelement anklickt, öffnet sich eine Editiera
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/sprayeditieren.png.pdf} }
-\caption{ Ansicht zum Bearbeiten des Spray-Dokumentelement. In (1) ist der Domäneneditor, welcher das Modell in Diagrammform anzeigt und durch den Benutzer manipulierbar macht. Das Modell kann benannt werden für die spätere Verweisung im Text (2). Speichern der Veränderungen (3) veranlassen das Spray-Dokumentelement die aktuellen Modell-Informationen zu laden. }\label{sprayeditieren}
+\caption[Spray-Dokumentelement editieren]{ Ansicht zum Bearbeiten des Spray-Dokumentelement. In (1) ist der Domäneneditor, welcher das Modell in Diagrammform anzeigt und durch den Benutzer manipulierbar macht. Das Modell kann benannt werden für die spätere Verweisung im Text (2). Speichern der Veränderungen (3) veranlassen das Spray-Dokumentelement die aktuellen Modell-Informationen zu laden. }\label{sprayeditieren}
 \end{figure}
  
 In Abbildung \ref{sprayreferenzieren} wird die Editieransicht eines Abschnitts gezeigt. Dieser Abschnitt soll auf das Modell verweisen, und sich bei Änderungen des Modells selbst aktualisieren zu können. Der Programmausdruck holt sich die entsprechenden Informationen über das Modell direkt beim Spray-Dokumentelement ab. Der rot unterstrichene Teil-Programmausdruck zeigt alle verfügbaren Modell-Informationen (s. Pfeil),  die es gerade über alle Stellen im Petrinetz gibt, an. So kann sich der Autor auch eine einzelne Stelle des Petrinetzes herauspicken und ihren (aktuellen) Namen abfragen. Abbildung \ref{sprayanzeigen} zeigt das Resultat.
@@ -719,7 +726,7 @@ In Abbildung \ref{sprayreferenzieren} wird die Editieransicht eines Abschnitts g
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/sprayreferenzieren.png.pdf} }
-\caption{ Hier wird auf das Spray-Dokumentelement verwiesen. Mit einem Programmausdruck kann der aktuelle Zustand des Modells abgefragt werden und bei Bedarf auf einzelne Attribute verwiesen werden. Bei Modelländerungen (z.B. Umbenennungen eines Diagrammknotens) bleibt der Text konsistent. }\label{sprayreferenzieren}
+\caption[Spray-Dokumentelement verweisen]{ Hier wird auf das Spray-Dokumentelement verwiesen. Mit einem Programmausdruck kann der aktuelle Zustand des Modells abgefragt werden und bei Bedarf auf einzelne Attribute verwiesen werden. Bei Modelländerungen (z.B. Umbenennungen eines Diagrammknotens) bleibt der Text konsistent. }\label{sprayreferenzieren}
 \end{figure}
  
 \section{Transformation in andere Formate}\label{transformation}
@@ -886,7 +893,7 @@ Xitrum ist ein controller-first Web Framework, geschrieben in Scala. Die Aufgabe
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/architektur.svg.pdf} }
-\caption{ Die Architektur des Prototypen. Die Pfeile stellen die Kommunikation zwischen den einzelnen Komponenten dar. Die Kommunikation läuft zum einen über das Websocket-Protokoll und zum anderen über HTTP-Calls. Die Daten werden stets als JSON-String übertragen, außer bei der Auslieferung der statischen Daten durch Xitrum. Der gestrichelte Pfeil ist eine einmalige Kommunikation, die nur zum Initialisieren des Aktor Systems (bzw. abstrakten Syntaxbaumes) verwendet wird. Bei der Initialisierung holt sich jedes Dokumentelement den gespeicherten Zustand aus der Datenbank. Wenn sich der Zustand eines Dokumentelements ändert, wird dies in der Datenbank als neue Version gespeichert. }\label{architektur-fig}
+\caption[Architektur des Prototypen]{ Die Architektur des Prototypen. Die Pfeile stellen die Kommunikation zwischen den einzelnen Komponenten dar. Die Kommunikation läuft zum einen über das Websocket-Protokoll und zum anderen über HTTP-Calls. Die Daten werden stets als JSON-String übertragen, außer bei der Auslieferung der statischen Daten durch Xitrum. Der gestrichelte Pfeil ist eine einmalige Kommunikation, die nur zum Initialisieren des Aktor Systems (bzw. abstrakten Syntaxbaumes) verwendet wird. Bei der Initialisierung holt sich jedes Dokumentelement den gespeicherten Zustand aus der Datenbank. Wenn sich der Zustand eines Dokumentelements ändert, wird dies in der Datenbank als neue Version gespeichert. }\label{architektur-fig}
 \end{figure}
  
 \subsection{Wurzel Aktor}\label{}
@@ -1013,7 +1020,7 @@ Daraus ergeben sich die Kernoperationen der Akka Aktoren \citep[S.~23]{Roestenbu
 Ein Aktor entspricht also quasi einem leichtgewichtigen Thread. Ein Betriebsystem (Linux x64) kann ca. 4096 normale Threads pro ein Gigabyte Arbeitsspeicher halten, aber jedoch ca. 2.7 Millionen Akka Aktoren \citep[S.~20]{Roestenburg}. Das Aktoren Modell wurde erstmals sehr erfolgreich von Ericsons Programmiersprache Erlang eingesetzt, im ADX301 switch mit einer Verfügbarkeit von 99.9999999 Prozent \citep[S.~12]{Roestenburg}. Daher ähnelt die API der Akka Aktoren auch der API der erfolgreichen Erlang Aktoren \citep[S.~69]{Typesave}. Laut Akka-Projektwebseite http://akka.io/ setzen viele Firmen das Toolkit produktiv ein, was die Reife des Projekts verdeutlicht.
 
  
-\citep[S.~7]{Typesave} nennt einige Anwendungsszenarien von Akka, aber der Einsatz als Fundament für einen abstrakten Syntaxbaum ist dort nicht aufgeführt. Das Aktoren-Modell sollte sich jedoch für den Bau eines abstrakten Syntaxbaumes eignen, da die Aktoren selbst ein hierarchisches System organisieren können bzw. im Fall von Akka auch explizit eines sind \citep[S.~22]{Roestenburg}. Der hier entwickelte Prototyp wird Akka verwenden, um einen abstrakten Syntaxbaum zu bauen und prüfen, ob das eine gute Idee ist.
+\citep[S.~7]{Typesave} nennt einige Anwendungsszenarien von Akka, aber der Einsatz als Fundament für einen abstrakten Syntaxbaum ist dort nicht aufgeführt. Das Aktorenmodell sollte sich jedoch für den Bau eines abstrakten Syntaxbaumes eignen, da die Aktoren selbst ein hierarchisches System organisieren können bzw. im Fall von Akka auch explizit eines sind \citep[S.~22]{Roestenburg}. Der hier entwickelte Prototyp wird Akka verwenden, um einen abstrakten Syntaxbaum zu bauen und prüfen, ob das eine gute Idee ist.
 
  
 \subsection{Xitrum}\label{}
@@ -1274,7 +1281,7 @@ Das Wolfram CDF ist wohl die stärkste Konkurrenz für das hier vorgestellte Sys
 Am Anfang der Masterarbeit stand die Idee Dokumentelemente auf Aktoren abzubilden. Es sollte geprüft werden, ob diese Idee sinnvoll ist und umsetzbar. Daraus hat sich der hier vorgestellte Prototyp entwickelt. Von Anfang an war es klar, dass es ein Projektionseditor werden soll, was bedingt, dass das Softwaresystem einen abstrakten Syntaxbaum in irgendeiner Form vorweisen muss. Die Benutzerschnittstelle ist mit Web Standars umgesetzt, so dass über einen Browser das Dokument betrachtet sowie bearbeitet werden kann.
 
  
-Der Prototyp hat das gezeigt, was er zeigen sollte: Es ist möglich einen Projektionseditor auf Basis von Web Standards und ein abstrakten Syntaxbaum im Aktoren-Modell umzusetzen. Der Prototyp läuft bereits recht stabil, so dass auch diese Masterarbeit damit, ohne große Hürden, verfasst werden konnte. Zudem ist es recht leicht, neue Dokumentelemente hinzuzufügen. Der Prototyp hat zudem Licht ins Dunkel gebracht: Nur so konnten die Theorien weiterentwickelt werden, so dass sie eine solide Basis für eine produktiv einsetzbare Neuentwicklung bilden.
+Der Prototyp hat das gezeigt, was er zeigen sollte: Es ist möglich einen Projektionseditor auf Basis von Web Standards und ein abstrakten Syntaxbaum im Aktorenmodell umzusetzen. Der Prototyp läuft bereits recht stabil, so dass auch diese Masterarbeit damit, ohne große Hürden, verfasst werden konnte. Zudem ist es recht leicht, neue Dokumentelemente hinzuzufügen. Der Prototyp hat zudem Licht ins Dunkel gebracht: Nur so konnten die Theorien weiterentwickelt werden, so dass sie eine solide Basis für eine produktiv einsetzbare Neuentwicklung bilden.
 
  
 Jedoch gibt es auch noch Verbesserungspotential für das Softwaresystem: (1) Die Architektur ist zu monolithisch, d.h. insbesondere der Basis Aktor ist nicht modular genug aufgebaut. (2) Große Dokumente bringen das System an die Performanzgrenzen, da der DOM im Browser rein durch JavaScript aufgebaut wird und (vermutlich) eine ineffiziente Implementierung der eingesetzten JSON-Bibliothek\footnote{~Ein Sampling über das Zeitverhalten von Methodenaufrufen mit VisualVM ergab, dass die Aktoren oft schlafen gelegt werden, und das recht viel Rechenzeit für das Parsing von JSON und das Interpretieren des (generierten) Scala Codes (Verweise) aufgewendet wird. Dieser Scala Code selbst setzt wiederum auch auf diese JSON-Bibliothek.} die Aktoren bremst. (3) Es gibt weitere Limitierungen, wie z.B. keine Benutzerverwaltung, die jedoch zum Zeigen der Anwendungsfälle nicht nötig sind.
@@ -1288,7 +1295,7 @@ Heutige Textverarbeitungen die zum Erstellen von wissenschaftlichen Dokumenten v
 Ziel dieser Arbeit ist es, herauszufinden, ob und wie diese Defizite abgefedert werden können. Dazu wird ein Prototyp entwickelt, anhand dessen theoretische Konzepte zur Beseitigung der Defizite erarbeitet und auf praktische Tauglichkeit hin untersucht werden. Die praktische Tauglichkeit wird anhand verschiedenartiger Anwendungsfälle überprüft.
 
  
-Die prinzipielle Idee ist es den prototypischen Dokumenteditor als Projektionseditor (projectional editor) zu gestalten. Dabei wird zur Darstellung verstärkt auf Web Standards gesetzt und zur serverseitigen Programmierung wird Scala eingesetzt. Der Autor bearbeitet das Dokument, indem er direkt dessen abstrakten Syntaxbaum manipuliert, wobei die Benutzeroberfläche ihm eine mögliche konkrete, möglichst übersichtliche, Repräsentation des Dokuments anzeigt. Ein Dokument ist aus einzelnen Dokumentelementen (z.B. Abschnitt, Absatz, Abbildung, etc.) aufgebaut, ein jedes dieser Dokumentelemente wird in einen Knoten des Syntaxbaumes abgebildet. Die konkrete Implementierung des abstrakten Syntaxbaums wird mit dem Aktoren-Modell realisiert, wobei jeder Syntaxbaum-Knoten als Aktor abgebildet wird.
+Die prinzipielle Idee ist es den prototypischen Dokumenteditor als Projektionseditor (projectional editor) zu gestalten. Dabei wird zur Darstellung verstärkt auf Web Standards gesetzt und zur serverseitigen Programmierung wird Scala eingesetzt. Der Autor bearbeitet das Dokument, indem er direkt dessen abstrakten Syntaxbaum manipuliert, wobei die Benutzeroberfläche ihm eine mögliche konkrete, möglichst übersichtliche, Repräsentation des Dokuments anzeigt. Ein Dokument ist aus einzelnen Dokumentelementen (z.B. Abschnitt, Absatz, Abbildung, etc.) aufgebaut, ein jedes dieser Dokumentelemente wird in einen Knoten des Syntaxbaumes abgebildet. Die konkrete Implementierung des abstrakten Syntaxbaums wird mit dem Aktorenmodell realisiert, wobei jeder Syntaxbaum-Knoten als Aktor abgebildet wird.
 
  
 \section{Fazit der Ergebnisse}\label{}
@@ -1328,7 +1335,7 @@ Weiterentwicklung der semantischen Ansicht für Dokumentelemente, siehe Abb. \re
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/semanticeditor.svg.pdf} }
-\caption{ Konzept für eine Weiterentwicklung des semantischen Editors für Dokumentelemente, anhand des Beispiels Chemiemolekül-Dokumentelement. }\label{semanticeditor}
+\caption[Weiterentwicklung der Dokumentelement Editoransicht]{ Konzept für eine Weiterentwicklung des semantischen Editors für Dokumentelemente, anhand des Beispiels Chemiemolekül-Dokumentelement. }\label{semanticeditor}
 \end{figure}
  
 \subsection{Visionen neuer Ausbaustufen und Anwendungsfälle}\label{}
