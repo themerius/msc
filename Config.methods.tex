@@ -37,27 +37,47 @@ Domain Modelling
 
 % Maximal 1200 Anschläge, alles in einem Abschnitt. (Nach DIN 1422-1).
 \renewcommand{\abstract}{
-Aktuelle Textverarbeitungssysteme weisen beim Erstellen von wissenschaftlichen Texten
-noch Defizite auf:
-Dokumente haben keine Kenntnisse über das Wissensfeld, welches sie beschreiben.
-Das fördert Inkonsistenzen im Text.
-Bedeutungen einzelner Bestandteile eines Dokuments sind dem System nicht bewusst,
-jeder Autor muss sich erneut um den formal korrekten Aufbau des Dokuments kümmern.
-In dieser Arbeit ist ein browserbasierter prototypischer Dokumenteditor entstanden,
-der diese Defizite abfedert und anhand drei konrekter Anwendungsfälle die Praxistauglichkeit prüft.
-Daraus sind allgemeine Theorien über Dokumente entstanden:
-Ein natürliches Modell für Dokumente ist der Graph bzw. abstrakte Syntaxbaum.
-Dokumentelemente (z.B. Absätze, Abbildungen, etc.) sind die einzelnen Bestandteile eines Dokuments und werden als Graph-Knoten abgebildet.
-Dokumentelemente kapseln ein Modell einer spezifischen Domäne.
-Es gibt eine allgemeingültige Taxonomie für den inneren Aufbau von Dokumenten.
-Dadruch kann eine Dokumentklasse formal spezifiziert werden, worin
-Vorgaben über erlaube Abfolgen und Verschachtelungen von Dokumentelementen
-enthalten sind.
-Dies fungiert als ein passendes Metamodell.
+Aktuelle Textverarbeitungsprogramme haben gerade bei der Erstellung von
+wissenschaftlichen Dokumenten große Defizite, da dort oft formale Modelle,
+wie z.B. Chemie-Moleküle, aus dem jeweiligen Fachgebiet (Domäne) benutzt werden müssen.
+Heutige Systeme können mit diesen Modellen nicht direkt interagieren,
+was oft zu Inkonsistenzen im Dokument führt.
+In dieser Arbeit wird der Prototyp eines Dokumenteditors entwickelt,
+welcher domänenspezifische Dokumentelemente einführt,
+und so formale Modelle direkt bei der Bearbeitung des Dokuments verwendbar macht.
+Die Dokumentelemente (z.B. Absätze, Abbildungen etc.) können auch domänenspezifische Inhalte
+repräsentieren, z.B. ein Molekül.
+Wenn ein Dokumentelement auf ein Anderes verweist,
+kann direkt auf Attribute des darunterliegenden Modells zugegriffen werden;
+bspw. auf den Namen eines Moleküls.
+Der Prototyp beweist seine Praxistauglichkeit anhand von vier konkreten Anwendungsfällen.
+Aus dem Prototyp ist eine allgemeine Theorie über den inneren Aufbau von Dokumenten entwickelt
+worden und tangiert die Bereiche (Meta) Modellierung, Projektionseditoren, Semiotik und Taxonomie.
+Es gibt vielfältige Weiterentwicklungsmöglichkeiten, wie Ausbau zur Open Access Platform mit
+erweiterten Autorenfunktionen, Zentrale für Format-Transformationen oder Literate Programming IDE.
 }
 
+
+
 \newcommand{\abstractEngl}{
-English Abstract...
+Current word processors have deficits for creating academic writings,
+because they use often formal models of a specifig domain, like chemical molecules.
+But todays systems don't interact with these models, which oftens leads
+to inconsisty within the document.
+In this work a document editor prototype is developed,
+which introduces domain specific document elements,
+to enable direct usage of such models within the document.
+Document elements (e.g. paragraphs, figures, etc.) could represend
+domain specific content, such as a molecule.
+If a document elements refers to another,
+it can directly access model attributes of the other, like the name of the molecule.
+The prototype proofes it's practial benefit by four different use cases.
+With the help of the prototype it was possible to retrieve general theories
+about the inner construction of documents, it covers the areas:
+(meta) modelling, projectional editing, semiotics and taxonomy.
+It is possible to envolve this thoughts to build a open access platfom
+with extended authoring abilities, central for format transformations or
+literate programming IDE.
 }
 
 \newcommand{\intentionallyBlankPage}{\clearpage\mbox{}\clearpage}
