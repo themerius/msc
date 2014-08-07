@@ -960,6 +960,21 @@ Im o.g. Quelltext wird ein Dokumentelement „Figure“ (Abbildung) spezifiziert
 Beliebige weitere Methoden, die für das Dokumentelement bzw. dessen Domäne nützlich sein könnten, können an diese Scala Klasse hinzugefügt werden. Das ermöglicht den Aktoren reichhaltige Verweisungen untereinander durchzuführen. Es wird also ermöglicht, dass ein Dokumentelement aus den Attributen eine Information berechnen kann und diese an den anfragenden Aktor weitergibt.
 
  
+\subsection{Analysephase}\label{}
+ 
+Die Analysephase des AST wird ausgelöst, wenn eine Update-Nachricht durch den Baum, der aus Aktoren besteht, geschickt wird. Visualisiert ist das Verhalten als Petrinetz auf Abbildung \ref{Analysephase}. Anmerkung: Das Petrinetz liegt als lebendiges Spray Modell vor, d.h. alle Verweise auf das Modell werden auch direkt aus diesem bezogen!
+
+ 
+Eine Update-Nachricht entsteht hauptsächlich dann, wenn der Benutzer ein Dokumentelement modifiziert. Vom Wurzel Aktor aus wird die Nachricht an die Kinder und Geschwister weitergeleitet. Wenn eine Update-Nachricht eingeht landet sie in der Stelle "onUpdate". Die Variable contentSrc, also die textuelle Eingabe des Autors, wird aus dem aktuellen Zustand des Aktors geholt und es wird analysiert, ob darin Referenzen zu anderen Aktoren enthalten sind oder nicht. Je nach dem wird eine Marke in "noRef" oder "hasRef" gelegt. Wenn Verweisungen aufzulösen sind, wird die Code Generierung getriggert ("triggerCodeGen"), um die angefragten Attribute aus dem Dokumentelement zu holen. Der genaue Ablauf ist in Abschnitt \ref{verweise-aufloesen} beschrieben. Wenn keine Verweisungen im contentSrc aufzufinden sind, wird das Dokumentelement direkt aufgefordert sich zu aktualisieren ("gotUpdate"). Hier kann es beispielsweise seine aktuelle Benummerung herausfinden. Dann wird der aktuelle Zustand des Aktors an die Anzeige geschickt ("sendState").
+
+ 
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/Analysephase.svg.pdf} }
+\caption{ Spray Modell Analysephase. }\label{Analysephase}
+\end{figure}
+ 
 \subsection{Verweisungen auflösen}\label{verweise-aufloesen}
  
 Reichhaltige Verweisungen sind ein grundlegendes Konzept des Prototypen. Hieraus entstehen neben den üblichen Verweisungen, wie man sie aus wiss. Dokumenten kennt (Verw. auf Abbildungen, Abschnitte oder Literatur), neue Möglichkeiten für Semantik und Konsistenz.
