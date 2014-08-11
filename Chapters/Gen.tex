@@ -8,13 +8,13 @@
 Die Erstellung von qualitativ hochwertigen (wissenschaftlichen) Dokumenten ist keine einfache Sache. Das Computerzeitalter konnte zwar schon viel verbessern, aber es gibt noch immer Situationen, in denen die Dokumentenerstellung sehr mühselig werden kann.
 
  
-Zum einen kostet es u.U. sehr viel Zeit, Querreferenzierungen, wie z.B. Verweise im Text auf die korrekten Benummerungen von Abbildungen, im Dokument zu pflegen und konsistent zu halten. Hierfür hat insbesondere LaTeX eine solide Lösung, jedoch stößt man auf der Metaebene, beim LaTeX Code selbst, wieder auf das Problem: Der Autor definiert ein Label und verweist an anderen Stellen darauf. Wird das Label nun irgendwann umbenannt, z.B. weil die Überschrift angepasst wurde, muss es an allen referenzierten Stellen auch umbenannt werden -- manuelles Refactoring des Quelltextes ist notwendig.
+Zum einen kostet es u.U. sehr viel Zeit, Querreferenzierungen, wie z.B. Verweise im Text auf die korrekten Benummerungen von Abbildungen, im Dokument zu pflegen und konsistent zu halten. Hierfür hat insbesondere LaTeX eine solide Lösung, jedoch stößt man auf der Metaebene, beim LaTeX Code selbst, wieder auf das Problem: Der Autor definiert ein Label und verweist an anderen Stellen darauf. Wird das Label nun irgendwann umbenannt, z.B. weil die Überschrift angepasst wurde, muss es an allen referenzierten Stellen auch umbenannt werden -- manuelles Refactoring des LaTeX-Quelltextes ist notwendig.
 
  
-Zum anderen verstehen die Anwendungen oft nur die Domäne „Dokument“, wenn man z.B. chemische Formeln zeichnen will, müssen diese über externe Ressourcen hinzugefügt werden. Dabei gibt es keinen wirklichen Zugriff mehr auf die Meta-Informationen, die eigentlich durch das Domänenmodell -- die chemische Formel -- mitgeliefert wird. Das kann wiederum zu inkonsistenten Dokumenten führen. Wenn z.B. nachträglich an der chemischen Formel etwas geändert wird und nur die Abbildung vom Benutzer aktualisiert wurde, dann sind u.U. die Verweise (z.B. auf die Masse des chemischen Moleküls) in den beschreibenden Sätzen nicht mehr korrekt. Es fehlt das semantische Verständnis seitens des Dokuments, es weiß also nicht, was die chemische Formel zu bedeuten hat.
+Zum anderen verstehen die Anwendungen oft nur die Domäne „Dokument“, wenn man z.B. chemische Formeln zeichnen will, müssen diese über externe Ressourcen hinzugefügt werden. Dabei gibt es keinen wirklichen Zugriff mehr auf die Meta-Informationen, die eigentlich durch das Domänenmodell -- die chemische Formel -- mitgeliefert wird. Das kann wiederum zu inkonsistenten Dokumenten führen. Wenn z.B. nachträglich an der chemischen Formel etwas geändert wird und nur die Abbildung vom Benutzer aktualisiert wurde, dann sind u.U. die Verweise (z.B. auf die Masse des chemischen Moleküls) in den beschreibenden Sätzen nicht mehr korrekt. Es fehlt das semantische Verständnis seitens des Dokuments; es weiß also nicht, was die chemische Formel zu bedeuten hat.
 
  
-Zudem liegt hinter keinem derzeit verfassten Dokument ein sauberes \emph{Metamodell}. Das heißt ein Modell, welches eine Struktur vorschreibt, wann welche Dokumentelemente zulässig sind. Eine solche Struktur kann jedoch einen Autor dabei helfen, ein Dokument (wie z.B. ein Bericht der Fraunhofer Gesellschaft) gemäß definierter Vereinbarungen\footnote{~Man kann argumentieren, dass Formatvorlagen von z.B. Microsoft Word auch eine Art Metamodell für ein Dokument sind. Jedoch formalisieren diese nicht, wie eine insgesamte Dokumentklasse korrekt aufgebaut sein soll. Zudem können Autoren sehr leicht, durch manuelle Änderungen, unbeabsichtigt an den Formatvorlagen vorbei arbeiten.} aufzubauen, dabei braucht er kein Wissen über die genaue Vereinbarung und kann dennoch ein formal korrektes Dokument erstellen. Solche Vereinbarungen können z.B. ein Corporate Design oder eine spezielle Aneinanderreihung von Dokumentelementen sein. Weiterhin kann man so ganze Dokumentklassen aus einem solchen Metamodell ableiten: All jene Dokumente, die dem gleichen Metamodell übergeordnet sind, gehören somit ganz formal zur gleichen Dokumentklasse. Beispiele für solche Klassen sind: Masterarbeit, Journal-Paper oder EU-Patent etc.
+Zudem liegt hinter keinem derzeit verfassten Dokument ein sauberes \emph{Metamodell}. Das heißt ein Modell, welches eine Struktur vorschreibt, wann welche Dokumentelemente zulässig sind. Eine solche Struktur kann jedoch einem Autor dabei helfen, ein Dokument (wie z.B. ein Bericht der Fraunhofer Gesellschaft) gemäß definierter Vereinbarungen\footnote{~Man kann argumentieren, dass Formatvorlagen von z.B. Microsoft Word auch eine Art Metamodell für ein Dokument sind. Jedoch formalisieren diese nicht, wie eine insgesamte Dokumentklasse korrekt aufgebaut sein soll. Zudem können Autoren sehr leicht, durch manuelle Änderungen, unbeabsichtigt an den Formatvorlagen vorbei arbeiten.} aufzubauen. Er braucht also kein Wissen über die genaue Vereinbarung und kann dennoch ein formell korrektes Dokument erstellen. Solche Vereinbarungen können z.B. ein Corporate Design oder eine erlaubte Aneinanderreihung von Dokumentelementen sein. Weiterhin können aus einem solchen Metamodell ganze Dokumentklassen abgeleitet werden: All jene Dokumente, die dem gleichen Metamodell übergeordnet sind, gehören somit ganz formal zur gleichen Dokumentklasse. Beispiele für solche Klassen sind: Masterarbeit, Journal-Paper oder EU-Patent etc.
 
  
 \section{Problemstellung}\label{problemstellung}
@@ -42,12 +42,12 @@ Mangel an Metamodellierung: Es fehlen\footnote{~Oder gehen nicht weit genug, wie
 
 \end{enumerate}
  
-Das wirft die folgende Frage auf: Kann man eine Textverarbeitung erschaffen, welches die o.g. Defizite aufhebt?
+Das wirft die folgende Frage auf: Kann man eine Textverarbeitung erschaffen, welche die o.g. Defizite aufhebt?
 
  
 \section{Stand der Technik}\label{stand-der-technik}
  
-Es folgt eine kurze Vorstellung einiger Softwaresysteme die zum erstellen von wissenschaftlichen Dokumenten eingesetzt werden, oder Forschungsprojekte die bestimmte Aspekte der Wissenskonservierung verbessern wollen.
+Es folgt eine kurze Vorstellung einiger Softwaresysteme die zum Erstellen von wissenschaftlichen Dokumenten eingesetzt werden, oder Forschungsprojekte die bestimmte Aspekte der Wissenskonservierung verbessern wollen.
 
  
 \begin{enumerate}
@@ -65,10 +65,10 @@ Es folgt eine kurze Vorstellung einiger Softwaresysteme die zum erstellen von wi
 (2) Weit verbreitet in den Naturwissenschaften ist TeX bzw. LaTeX (Sammlung an TeX-Makros). Ein Dokument wird in Form von TeX-Quellcode geschrieben und kann zu einer PDF-Datei kompiliert werden. Zur Klasse der Textsatzysteme gehören auch Softwaresysteme wie Adobe InDesign, welche sich stärker den gestalterischen Details widmen, als der inhaltlichen Strukturierung von wissenschaftlichen Texten.
 
  
-(3) Semantically Annotated LaTeX for Scientific Publications ist ein Forschungsprojekt \citep{Groza}, mit dem Ziel LaTeX Code um semantische Annotationen zu erweitern. Es werden Meta-Informationen in die generierten PDFs eingebettet, zur Nutzung durch das Semantic Web.
+(3) Semantically Annotated LaTeX for Scientific Publications ist ein Forschungsprojekt \citep{Groza}, mit dem Ziel LaTeX Code um semantische Annotationen zu erweitern. Es werden Meta-Informationen in die generierten PDFs eingebettet, zur Nutzung durch Semantic Web Technologien.
 
  
-(4) One Click Annotator ist ein Forschungsprojekt \citep{Heese}, welches einen WYSIWYG Web Editor zur entwickelt hat, um Texte um RDFa Annotationen anzureichern.
+(4) One Click Annotator ist ein Forschungsprojekt \citep{Heese}, welches einen WYSIWYG Web Editor entwickelt hat, um Texte mit RDFa Annotationen anzureichern.
 
  
 (5) Computable Document Format\footnote{~Wolfram CDF Produktwebseite: http://www.wolfram.com/cdf/} ist ein Dokumentformat für dynamisch generierte, interaktive Inhalte basierend auf der wissensbasierten Wolfram Language. Es handelt sich um ein proprietäres Format, welches zum Betrachten von Dokumenten zumindest den Wolfram Player (oder ein spezielles Browser Plugin) benötigt.
@@ -116,7 +116,7 @@ Um die Software benutzbar zu machen, gibt es folgende Nebenbedingungen:
 \item Es soll ein Einheimischer des WWW werden, d.h. Web Standards sind das Ausgabeformat. Sie übernehmen das Setzen des Dokuments, bieten dem Benutzer eine Editierschnittstelle, ermöglichen Kollaboration und bieten eine ubiquitäre Wissensrepräsentation.
 \end{itemize}
  
-Durch einige dieser Anforderungen zielen implizit auf die Implementierung eines Projektionseditors und haben sogar Potential für ein „Dokument Query Interface“. Das heißt das Dokument im Ganzen oder ein Dokumentelement im Speziellen, kann befragt werden einen bestimmten Sachverhalt herauszufinden. Beispielsweise können so komfortabel alle Abschnitte nach ihrer Benummerung abgefragt werden.
+Einige dieser Anforderungen zielen implizit auf die Implementierung eines Projektionseditors (siehe Abschnitt \ref{Projektionseditoren-sec}) und haben sogar Potential für ein „Dokument Query Interface“. Das heißt das Dokument im Ganzen oder ein Dokumentelement im Speziellen, kann befragt werden, einen bestimmten Sachverhalt herauszufinden. Beispielsweise können so komfortabel alle Abschnitte nach ihrer Benummerung abgefragt werden, um ein Inhaltsverzeichnis zu bauen.
 
  
 \section{Idee}\label{}
@@ -124,7 +124,7 @@ Durch einige dieser Anforderungen zielen implizit auf die Implementierung eines 
 Im Vordergrund stand die Idee, meine Bachelorarbeit \citep{Hodapp} so weiter zu entwickeln, dass Dokumente in einem Projektionseditor (mehr dazu in Abschnitt \ref{Projektionseditoren-sec}) verfasst werden können und mit domänenspezifischen Dokumentelementen interagiert werden kann. Die Bachelorarbeit hat sich damit beschäftigt, (1) ein Dokument im Browser zu layouten und zu paginieren und (2) eine interne DSL für Dokumente zu entwickeln, welche eine Datenstruktur zur Verarbeitung für den Layouter ausgibt.
 
  
-In diesem Kapitel wird also kurz die prinzipielle Idee umrissen, wie man die Problemstellung unter den gegebenen Anforderungen lösen könnte.
+In diesem Kapitel wird also kurz die prinzipielle Idee umrissen, wie man die Problemstellung unter den gegebenen Anforderungen lösen kann.
 
  
 Grundsatz der Idee ist, dass jedes Dokumentelement auf einen Aktor abgebildet wird. Ein Aktor kann Nachrichten senden und empfangen, zudem kapselt er einen Zustand und ein Verhalten.
@@ -192,7 +192,7 @@ Bibliotheks- und Informationswissenschaften: Gibt es eine allgemeingültige Taxo
  
 \chapter{Theorie der Dokumente}\label{}
  
-In diesem Kapitel wird überlegt, was der modelltheoretische Hintergrund von (wiss.) Dokumenten im Allgemeinen ist. Und wie sich domänenspezifische Inhalte darauf auswirken. Die hier erarbeiteten Theorien sind das Destillat dessen, was aus dem Prototyp gelernt wurde.
+In diesem Kapitel wird überlegt, was der modelltheoretische Hintergrund von (wiss.) Dokumenten im Allgemeinen ist und wie sich domänenspezifische Inhalte darauf auswirken. Die hier erarbeiteten Theorien sind das Destillat dessen, was aus dem Prototyp gelernt wurde.
 
  
 Zunächst wird der Modellbegriff erläutert, um anhand dessen ein geeignetes Modell für Dokumente abzuleiten. Daraus folgt, dass eine natürliche Repräsentation der Graph aus der Graphentheorie ist (siehe Abschnitt \ref{modellbegriff-sec}). Eine spezielle Form von Graphen ist der abstrakte Syntaxbaum, welcher in der Informatik als abstrakte Repräsentation für Programmcode dient (siehe Abschnitt \ref{ast-sec}). Auf diese Weise kann ein Dokument auch als Programm aufgefasst und verarbeitet werden. Projektionseditoren geben einem Programmierer (oder hier Autor) die Möglichkeit, direkt einen abstrakten Syntaxbaum (grafisch) zu editieren (siehe Abschnitt \ref{Projektionseditoren-sec}).
@@ -207,7 +207,7 @@ Um ein Modell formal besser fassbar zu machen, ist es dienlich ein Metamodell da
  Modellierung ist das uns angeborene Verfahren, das komplexe Universum auf eine überschaubare Welt zu reduzieren. Indem wir sichtbare und unsichtbare Phänomene auf Begriffe abbilden und nur noch mit diesen umgehen, wird die Gesamtzahl der zu betrachtenden Gegenstände beherrschbar[...] \citep[S.~7]{Ludewig}
 \end{quote}
  
-Gerade auch in der Wissenschaft spielen Modelle die zentrale Rolle, denn „Das Resultat einer Forschung ist in jedem Falle ein Modell, eine Theorie.“ \citep[S.~8]{Ludewig} Warum sollte man also nicht den Weg ganz konsequent gehen, und ebenfalls die wissenschaftliche Dokumentation selbst als Modellierung betrachten? Warum sollte das Dokument selbst nicht Modelle aus einer Wissenschaft bereitstellen? Das heißt, dass eine Wissenschaftlerin bzw. ein Wissenschaftler seine Modelle direkt im Dokument verwenden kann?
+Gerade auch in der Wissenschaft spielen Modelle die zentrale Rolle, denn „Das Resultat einer Forschung ist in jedem Falle ein Modell, eine Theorie.“ \citep[S.~8]{Ludewig} Warum sollte man also nicht den Weg ganz konsequent gehen, und ebenfalls die wissenschaftliche Dokumentation selbst als Modellierung betrachten? Warum sollte das Dokument selbst nicht Modelle aus einer Wissenschaft bereitstellen? Warum sollte eine Wissenschaftlerin bzw. ein Wissenschaftler seine Modelle nicht direkt im Dokument verwenden können? Es folgt zunächst die genaue Definition eines Modells.
 
  
 \subsection{Modellmerkmale}\label{modellmerkmale}
@@ -251,9 +251,9 @@ Hier wird der abstrakte Syntaxbaum als Modell für das Dokument dienen, indem je
  
 \begin{itemize}
 
-\item Abbildungsmerkmal: Der abstrakte Syntaxbaum („das Modell“) ist z.B. ein Abbild eines gedruckten Buches, da Dokumentelemente als Knoten im Syntaxbaum vorkommen.
+\item Abbildungsmerkmal: Der abstrakte Syntaxbaum („das Modell“) ist z.B. ein Abbild eines gedruckten Buches, da Dokumentelemente als Knoten des Syntaxbaums abgebildet werden.
 \item Verkürzungsmerkmal: Nur die Attribute aus dem Original werden modelliert, die den maßgeblichen Inhalt des Dokuments transportieren (z.B. Text). Diese Inhalte werden als Dokumentelemente modelliert.
-\item Pragmatischen Merkmal: Der Autor greift auf das Modell zurück, um daran die herausgelösten und essentiellen Dokumentelemente zu untersuchen bzw. zu manipulieren.
+\item Pragmatisches Merkmal: Der Autor greift auf das Modell zurück, um daran die herausgelösten und essentiellen Dokumentelemente zu untersuchen bzw. zu manipulieren.
 \end{itemize}
  
 Alle Bedingungen für den Modellbegriff nach \citep{Stachowiak} sind erfüllt. ■
@@ -264,10 +264,10 @@ Alle Bedingungen für den Modellbegriff nach \citep{Stachowiak} sind erfüllt. �
 In diesem Abschnitt werden die prinzipiellen Eigenschaften von abstrakten Syntaxbäumen, kurz AST, beschrieben.
 
  
-Laut \citep{Aho} ist der AST eine Datenstruktur, die von einem Übersetzer als Zwischenrepräsentation eines Quellcodes generiert wird. Er repräsentiert die hierarchische syntaktische Struktur eines Programms. Aus einer solchen Zwischenrepräsentation wird schlussendlich das Zielprogramm generiert.
+Laut \citep{Aho} ist der AST eine Datenstruktur, die von einem Übersetzer (Compiler) als Zwischenrepräsentation eines Quellcodes generiert wird. Er repräsentiert die hierarchische syntaktische Struktur eines Programms. Aus einer solchen Zwischenrepräsentation wird schlussendlich das Zielprogramm (z.B. Maschinencode) generiert.
 
  
-Wärend der Syntaxanalyse (parsing) werden Syntaxbaum-Knoten erstellt, welche wiederum signifikate Programmkonstrukte repräsentieren. Die Kinder des Knoten sind die bedeutungstragenden Komponenten des Konstrukts. Beispielsweise (s. Abb. \ref{ast}): Gegeben ist ein AST für einen Ausdruck (expression), dann repräsentiert jeder innere Knoten einen Operator und die Kinder des Knoten sind die Operanden. Man beachte jedoch, dass Syntaxbäume für beliebige Konstrukte erstellt werden können und nicht auf Ausdrücke beschränkt sind. Jedes Konstrukt ist durch einen Knoten repräsentiert, dessen Kinder semantisch bedeutungsvolle Komponenten des Konstruktes sind. Durch fortschreitende Analyse können Informationen vom Übersetzer zu den Knoten als Attribute hinzugefügt werden. (ebd.)
+Wärend der Syntaxanalyse (parsing) werden Syntaxbaum-Knoten erstellt, welche wiederum signifikate Programmkonstrukte repräsentieren. (ebd.) Die Kinder des Knoten sind die bedeutungstragenden Komponenten des Konstrukts. Beispielsweise (s. Abb. \ref{ast}): Gegeben ist ein AST für einen Ausdruck (expression), dann repräsentiert jeder innere Knoten einen Operator und die Kinder des Knoten sind die Operanden. Man beachte jedoch, dass Syntaxbäume für beliebige Konstrukte erstellt werden können und nicht nur auf Ausdrücke beschränkt sind. Jedes Konstrukt ist durch einen Knoten repräsentiert, dessen Kinder semantisch bedeutungsvolle Komponenten des Konstruktes sind. Durch fortschreitende Analyse können Informationen vom Übersetzer zu den Knoten als Attribute hinzugefügt werden. (ebd.)
 
  
 \begin{figure}[h!]
@@ -297,15 +297,15 @@ Die zentrale Struktur des hier vorgestellten Prototyps ist ebenfalls ein abstrak
 In einer solche Analysephase werden u.U. weitere Informationen zu den Knoten hinzugefügt. Beispiel: Eine Hierarchie von Kapiteln kann während der Analyse die jeweils richtige Benummerung ermitteln und jeder Aktor (also Knoten) speichert sich diese Benummerung intern als Attribut ab.
 
  
-Der Basis Aktor aus Abbildung \ref{metamodell} entspricht quasi 1:1 der generellen Implementierung aus Abbildung \ref{astimpl}. Das hier vorgestellte Metamodell (s. Abschnitt \ref{metamodell_dokument}) beschreibt auch eindeutig einen AST. Die Knoten entsprechen den Aktoren, welche wiederum die einzelnen Dokumentelemente des Dokuments repräsentieren. Dieser AST, gesehen als Programmsyntax, beschreibt somit den hierarchischen Aufbau des Dokuments.
+Der Basis Aktor aus Abbildung \ref{metamodell} entspricht quasi 1:1 der generellen Implementierung aus Abbildung \ref{astimpl}. Das hier vorgestellte Metamodell (s. Abschnitt \ref{metamodell_dokument}) beschreibt auch eindeutig einen AST. Die Knoten entsprechen also den Aktoren, welche wiederum die einzelnen Dokumentelemente des Dokuments repräsentieren. Dieser AST, gesehen als Programmsyntax, beschreibt somit den hierarchischen Aufbau des Dokuments.
 
  
-Die inneren Knoten, die z.B. Operatoren repräsentieren können, entsprechen hier hierarchiebildenden oder gliedernden Elementen. Diese können (müssen aber nicht) im Dokument sichtbar sein. Beispiele dafür sind z.B. Kapitel, Abschnitte oder die Titelei. Die Kinder dieser Knoten sind bedeutungsvolle Komponenten für den Knoten dahingehend, dass sie entweder weiter die Hierarchie des Dokuments aufspannen und somit das Dokument weiter gliedern oder im Falle von Blättern, die eigentlich inhaltstragenden Elemente sind. Die Blätter müssen auf jeden Fall im Dokument sichtbar sein. Beispiele dafür sind z.B. Absätze oder Abbildungen.
+Die inneren Knoten, die z.B. Operatoren repräsentieren können, entsprechen hier hierarchiebildenden oder gliedernden Elementen. Diese können (müssen aber nicht) im Dokument sichtbar sein. Beispiele dafür sind z.B. Kapitel, Abschnitte oder die gesamte Titelei. Die Kinder dieser Knoten sind bedeutungsvolle Komponenten für den Knoten dahingehend, dass sie entweder weiter die Hierarchie des Dokuments aufspannen und somit das Dokument weiter gliedern oder im Falle von Blättern, die eigentlich inhaltstragenden Elemente sind. Die Blätter müssen auf jeden Fall im Dokument sichtbar sein. Beispiele dafür sind z.B. Absätze oder Abbildungen.
 
  
 \section{Projektionseditoren}\label{Projektionseditoren-sec}
  
-Für gewöhnlich arbeiten Programmierer mit Quellcode-Editoren, das heißt es werden Schriftzeichen direkt in eine Datei geschrieben. Diese Schriftzeichen bilden die konkrete Syntax einer Programmiersprache. Der Editor kann das arbeiten mit Quellcode erleichtern, indem er z.B. die Schlüsselwörter einer Programmiersprache farbig hervorhebt. Um ein Programm aus der Datei zu generieren, muss ein Übersetzer zunächst eine Syntaxanalyse (parsing) durchführen. Bei dieser Analyse wird die Datei in Wörter, die es in der Programmiersprache gibt, zerhackt. Anhand dieser Wörter kann der Übersetzer z.B. eine Baumstruktur aufbauen, um die syntaktische Korrektheit des Programms zu prüfen. Das heißt der Übersetzer kann anhand es Baumes feststellen, ob es sich um ein korrektes Programm handelt. Dann kann aus der, als korrekt befundenen, Baumstruktur der eigentliche Maschinencode erzeugt werden.
+Für gewöhnlich arbeiten Programmierer mit Quellcode-Editoren, das heißt es werden Schriftzeichen direkt in eine Datei geschrieben. Diese Schriftzeichen bilden die konkrete Syntax einer Programmiersprache. Der Editor kann das arbeiten mit Quellcode erleichtern, indem er z.B. die Schlüsselwörter einer Programmiersprache farbig hervorhebt. Um ein Programm aus der Datei zu generieren, muss ein Übersetzer zunächst eine Syntaxanalyse (parsing) durchführen. Bei dieser Analyse wird die Datei in Wörter, die es in der Programmiersprache gibt, zerhackt. Anhand dieser Wörter kann der Übersetzer eine Baumstruktur aufbauen, um die syntaktische Korrektheit des Programms zu prüfen. Das heißt der Übersetzer kann anhand es Baumes feststellen, ob es sich um ein korrektes Programm handelt. Dann kann aus der, als korrekt befundenen, Baumstruktur der eigentliche Maschinencode erzeugt werden.
 
  
 Projektionseditoren gehen anders vor: Der Editor arbeitet direkt auf dem abstrakten Syntaxbaum (s. Abschnitt \ref{ast-sec}), d.h. der Programmierer editiert nicht mehr eine Datei die durch den Übersetzer in eine Baumstruktur umgewandelt wird, sondern seine editier-Operationen verändern direkt die Baumstruktur des Programms. \citep[S.~68]{Voelter} Nun kann aus der abstrakten Syntax (entspricht der Baumstruktur) eine Variation an konkreten Syntaxen erstellt werden, die sogenannten Projektionen. Diese Projektionen können wieder textuell sein, aber auch grafisch -- jedoch sind diese in ihrer Darstellung deutlich flexibler als bei parserbasierten Editoren. Eine kurze schematische Grafik (Abb. \ref{parserprojectional}) verdeutlicht den Unterschied zwischen Quellcode-Editoren und Projektionseditoren.
@@ -314,7 +314,7 @@ Projektionseditoren gehen anders vor: Der Editor arbeitet direkt auf dem abstrak
 Im englischen\footnote{~vgl. Wikipedia: \url{http://en.wikipedia.org/wiki/Projectional\_editor}} Sprachraum gibt es mehrere Bezeichnungen: structure editor, structured editor oder projectional editor. Man kann diese mit Struktureditor oder Projetkionseditor übersetzten.
 
  
-Die Idee von Projektionseditoren ist nicht neu, bereits 1971 hat Wilfred J. Hansen ein System entwickelt, welches auf solch einem Ansatz beruht. Jedoch haben sich zur damaligen Zeit diese Editor-Formen nicht durchgesetzt, wegen der unzureichenden Benutzerfreundlichkeit. \citep[S.~91]{Gomolka} In heutigen Zeiten (insbesondere mit den fortgeschrittenen Web Standards) sollte es aber möglich sein, einen benutzerfreundlichen Projektionseditor zu bauen, der die Produktivität und den Komfort erhöht.
+Die Idee von Projektionseditoren ist nicht neu, bereits 1971 hat Wilfred J. Hansen ein System entwickelt, welches auf solch einem Ansatz beruht. \citep[S.~91]{Gomolka} Jedoch haben sich zur damaligen Zeit diese Editor-Formen nicht durchgesetzt, wegen der unzureichenden Benutzerfreundlichkeit. (ebd.) In heutigen Zeiten (insbesondere mit den fortgeschrittenen Web Standards) sollte es aber möglich sein, einen benutzerfreundlichen Projektionseditor zu bauen, der die Produktivität und den Komfort sogar erhöht.
 
  
 \begin{figure}[h!]
@@ -326,7 +326,7 @@ Die Idee von Projektionseditoren ist nicht neu, bereits 1971 hat Wilfred J. Hans
  
 \subsection{Übertragung auf den Prototypen}\label{}
  
-Der hier vorgestellte Prototyp ist augenscheinlich ein Projektionseditor. Sein Basiskonzept ist Dokumente als ein Modell zu sehen. Und das Modell eines Dokuments erscheint hier in Form eines abstrakten Syntaxbaumes. (s. Kapitel \ref{dokumentModell}) Der Editor arbeitet also „per Design“ als Projektionseditor. Die Projektionen entsprechen einfachen HTML-Templates, die jedem Dokumentelement sein Aussehen verleihen. Werden die Templates ausgetauscht, können ganz andere Repräsentationen bzw. konkrete Syntaxen des vorliegenden abstrakten Syntaxbaumes möglich sein. Beispielsweise kann der Prototyp aktuell neben der „gesetzten“ Web-Ansicht auch noch LaTeX-Code als Projektion anbieten -- das gleiche Dokument in verschiedenen Ansichten oder Projektionen.
+Der hier vorgestellte Prototyp ist augenscheinlich ein Projektionseditor. Sein Basiskonzept ist Dokumente als ein Modell wahrzunehmen. Und das Modell eines Dokuments erscheint hier in Form eines abstrakten Syntaxbaumes. (s. Kapitel \ref{dokumentModell}) Der Editor arbeitet also per Design als Projektionseditor. Die Projektionen entsprechen einfachen HTML-Templates, die jedem Dokumentelement sein Aussehen verleihen. Werden die Templates ausgetauscht, ermöglicht das ganz andere Repräsentationen bzw. konkrete Syntaxen des vorliegenden abstrakten Syntaxbaumes. Beispielsweise kann der Prototyp aktuell neben der „gesetzten“ Web-Ansicht auch noch LaTeX-Code als Projektion anbieten -- das gleiche Dokument in verschiedenen Ansichten oder Projektionen.
 
  
 \section{Metamodellbegriff}\label{metamodellbegriff-sec}
@@ -360,10 +360,7 @@ Wird „die Sprachstufentheorie auf die Modellbildung [...] übertragen, so“ (
  
 \subsection{Metamodell des Dokumentmodells}\label{metamodell_dokument}
  
-Damit das Modell formal und damit nicht verschwommen spezifiziert ist, brauchen wir ein Metamodell. Das Metamodell schafft somit auf einer abstrakteren Ebene Klarheit über das Modell.
-
- 
-Auf Abbildung \ref{docmodell} ist das eigentliche Modell visualisiert. Dieses soll vom Metamodell beschrieben werden.
+Das Metamodell schafft auf einer abstrakteren Ebene Klarheit über das Modell, denn es beschreibt aus welchen Entitäten und Beziehungen ein konformes Modell besteht. Auf Abbildung \ref{docmodell} ist das eigentliche Modell visualisiert. Dieses soll vom Metamodell beschrieben werden.
 
  
 \begin{figure}[h!]
@@ -373,7 +370,7 @@ Auf Abbildung \ref{docmodell} ist das eigentliche Modell visualisiert. Dieses so
 \caption[Allgemeines Dokumentmodell]{ Das hier verwendete allgemeine Dokumentmodell. Das Dreieck symbolisiert die Wurzel. Die Rauten symbolisieren jeweils einen Aktor bzw. ein Dokumentelement. Die stark gezeichneten Pfeile symbolisieren das erste Kind, die gestrichelte Linie symoblisiert die zugehörigen anderen Kinder. Die schwach gezeichneten Pfeile symbolisieren die nächsten Geschwister. Dadurch wird die Hierarchie des Dokuments aufgespannt. }\label{docmodell}
 \end{figure}
  
-Abbildung \ref{metamodell} zeigt das Modell welches das Dokumentmodell beschreibt, also das „Metamodell“. In der Mitte liegt der Basis Aktor, dieser hält Referenzen zu seinem ersten Kind und zu seinem unmittelbaren Geschwister. Zudem hält der Basis Aktor Inststanzen aller verfügbaren Dokumentelemente, wovon jedoch immer nur eine aktiv ist. Welche Dokumentelemente verfügbar sind, wird vom Programmierer spezifiziert -- dazu muss er ein Scala Trait (entspricht einem Interface) implementieren und dem Basis Aktor bekannt machen. Man kann sagen, dass er das Metamodell an dieser Stelle (gewollt) verändert. Der Wurzel Aktor hält nochmals alle Topologieinformationen, daher kennt er alle im System vorhandenen Basis Aktoren. Jeder Basis Aktor kennt auch seine zugehörige Wurzel, welche er bei ggf. anstehenden lokalen Topologieveränderungen benachrichtigen muss.
+Abbildung \ref{metamodell} zeigt das Modell welches das Dokumentmodell beschreibt, also das Metamodell. In der Mitte liegt der Basis Aktor, dieser hält Referenzen zu seinem ersten Kind und zu seinem unmittelbaren Geschwister. Zudem hält der Basis Aktor Inststanzen aller verfügbaren Dokumentelemente, wovon jedoch immer nur eine aktiv ist. Welche Dokumentelemente verfügbar sind, wird vom Programmierer spezifiziert -- dazu muss er ein Scala Trait (entspricht einem Interface) implementieren und dem Basis Aktor bekannt machen. Man kann sagen, dass er das Metamodell an dieser Stelle (gewollt) verändert. Der Wurzel Aktor hält nochmals alle Topologieinformationen, daher kennt er alle im Dokument vorhandenen Basis Aktoren. Jeder Basis Aktor kennt auch seine zugehörige Wurzel, welche er bei ggf. anstehenden lokalen Topologieveränderungen benachrichtigen muss.
 
  
 \begin{figure}[h!]
@@ -386,10 +383,10 @@ Abbildung \ref{metamodell} zeigt das Modell welches das Dokumentmodell beschreib
 \subsubsection{Beweis}\label{}
 
  
-Die Besonderheit bei dem hier entstandenen System ist, dass das Modell gleichzeitig die Sprache ist, in der es modelliert wird. Dies ist möglich, da das System als Projektionseditor designed ist. Die Objektsprache in der das Modell formuliert ist, entspricht somit quasi der Projektion die direkt aus dem abstrakten Syntaxbaum entspringt. Man könnte von einem „Modell-Objektsprache-Dualismus“ sprechen -- es ist gleichzeitig Modell und Objektsprache, je nach Betrachtungspunkt.
+Eine konkrete Modellinstanz wird in der zugehörigen Objektsprache beschrieben, siehe Abbildung \ref{metamodellbegriff}. Beispiel: Mit Scala als Objektsprache wird ein Modell, das konkrete Scala Programm, beschrieben. Die Besonderheit bei dem hier entstandenen System ist, dass dasModell gleichzeitig die Sprache ist, in der es modelliert wird. Dies ist möglich, da das System als Projektionseditor designed ist. Die Objektsprache in der das Modell formuliert ist, entspricht somit quasi der Projektion die direkt aus dem abstrakten Syntaxbaum entspringt. Man könnte von einem „Modell-Objektsprache-Dualismus“ sprechen -- es ist gleichzeitig Modell und Objektsprache, je nach Betrachtungspunkt.
 
  
-Das Modell indem wiederum die Objektsprache modelliert ist, muss ein Beschreibungsmodell sein, damit dies einem Metamodell entspricht. Das hier vorgestellte Metamodell spezifiziert die Eigenschaften des Originals (dies geschieht in den einzelnen Dokumentelementen) und die prinzipielle Struktur (anschaulich gemacht durch Wurzel/Basis Aktor) des abstrakten Syntaxbaumes. Der betrachtete Gegenstandsbereich ist der abstrakte Syntaxbaum, dieser in seiner Gesamtheit, ist wiederum das Modell des Dokuments. Auf Abbildung \ref{metamodellschema} ist nochmals eine Übersichtsgrafik der Zusammenhänge von Modell und Metamodell. Somit genügt es dem Metamodellbegriff. ■
+Das Modell, indem die Objektsprache modelliert ist, muss ein Beschreibungsmodell sein, damit dies einem Metamodell entspricht. Das hier vorgestellte Metamodell spezifiziert die Eigenschaften des Originals (dies geschieht in den einzelnen Dokumentelementen) und die prinzipielle Struktur (anschaulich gemacht durch Wurzel/Basis Aktor) des abstrakten Syntaxbaumes. Der betrachtete Gegenstandsbereich ist der abstrakte Syntaxbaum, dieser in seiner Gesamtheit, ist wiederum das Modell des Dokuments. Auf Abbildung \ref{metamodellschema} ist nochmals eine Übersichtsgrafik der Zusammenhänge von Modell und Metamodell. Somit genügt es dem Metamodellbegriff. ■
 
  
 \begin{figure}[h!]
@@ -435,7 +432,7 @@ Wenn ein Zeichen, Signal, Symbol, etc. alle der oben genannten vier Aspekte aufz
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/semiotik.svg.pdf} }
-\caption[Semiotik grafisch dargestellt]{ Die vier Hauptteile der Semiotik grafisch dargestellt mit Beispielen aus der analytischen Chemie. Allgemein: Visualisierung der Semiotik eines Zeichens. Beispiel „Ba“: Ba ist ein Zeichen, dessen Bedeutung Barium ist und ein chemisches Molekül bezeichnet. Das ist zumindest dann der Fall, wenn dies von einem Chemiker gelesen wird. Strukturell ordnen sich Barium Moleküle als ein geordneter Kristall an. Analog ist es bei der chemischen Verbindung dargestellt als NaCl. Beispiel „pH“: Im Kontext einer Neutralisierungsreaktion, hat das Symbol pH die Bedeutung des der umgekehrten Logarithmusfunktion über die Konzentration der positiv geladenen Wasserstoffionen. Dies bezeichnet den Säuregrad einer Flüssigkeit. Strukturell kann es als Plot dargestellt werden. Visualisierung mit einigen Anpassungen aus (Malissa, 1971, S. 9). }\label{semiotik}
+\caption[Semiotik grafisch dargestellt]{ Die vier Hauptteile der Semiotik grafisch dargestellt mit Beispielen aus der analytischen Chemie. Allgemein: Visualisierung der Semiotik eines Zeichens. Beispiel „Ba“: Ba ist ein Zeichen, dessen Bedeutung Barium ist und ein chemisches Molekül bezeichnet. Das ist zumindest dann der Fall, wenn dies von einem Chemiker gelesen wird. Strukturell ordnen sich Barium Moleküle als ein geordneter Kristall an. Analog ist es bei der chemischen Verbindung dargestellt als NaCl. Beispiel „pH“: Im Kontext einer Neutralisierungsreaktion, hat das Symbol pH die Bedeutung der umgekehrten Logarithmusfunktion über die Konzentration der positiv geladenen Wasserstoffionen. Dies bezeichnet den Säuregrad einer Flüssigkeit. Strukturell kann es als Plot dargestellt werden. Visualisierung mit einigen Anpassungen aus (Malissa, 1971, S. 9). }\label{semiotik}
 \end{figure}
  
 \subsection{Anwendung auf (wiss.) Dokumente}\label{}
@@ -443,37 +440,33 @@ Wenn ein Zeichen, Signal, Symbol, etc. alle der oben genannten vier Aspekte aufz
 Diese vier Aspekte wirken auch implizit in jedem Text, da insbesondere wissenschaftliche Dokumente ein klassischer Informationsträger sind. In der Wissenschaft ist es üblich mit Modellen zu arbeiten. Diese Modelle sollen von anderen Wissenschaftlern möglichst leicht verstanden und benutzt werden. Für das Verstehen eines Modells ist es unerlässlich, die Bedeutungen jedes einzelnen Aspekts des Modells zu erfassen. Damit ein Leser einfach und gezielt Wissen aus dem Dokument ziehen kann, wäre es sicher nützlich, wenn diese Semantik möglichst explizit zur Verfügung stünde. Die Mechanik dazu könnte folgendermaßen aussehen: „Man fährt mit dem Mauszeiger über ein interessantes Objekt und erhält sofort weitere Informationen dazu, um mehr über die Bedeutung des Objektes zu erfahren.“
 
  
-Wenn man die vier Konzepte allgemein auf den hier vorgestellten Prototypen überträgt, stellt man fest wie sich die Konzepte innerhalb eines Dokuments auswirken. Betrachtet wird ein einzelnes Dokumentelement:
+Wenn man die vier Konzepte allgemein auf den hier vorgestellten Prototypen überträgt, stellt man fest, wie sich die Konzepte innerhalb eines Dokuments auswirken. Auf Abbildung \ref{semiotikmakro} wird ein einzelnes Dokumentelement herausgegriffen. Das Dokumentelement ist spezialisiert auf den Umgang mit chemischen Strukturformeln. Die konkrete Instanz des Dokumentelements zeigt die chemische Verbindung Aspirin an -- dies entspricht dem Zeichen. Das Zeichen ist also eine Projektion des abstrakten Syntaxbaumes. Das Aspirin wird mit einer DSL beschrieben -- dies entspricht der Syntax. Der so vorgestellte Syntaxbegriff vertritt hier also das Domänenmodell. In der Chemie-Domäne hat das Zeichen die Bedeutung „Aspirin“ und bezeichnet eine Strukturformel.
 
  
-\begin{itemize}
-
-\item Zeichen: Entspricht einer Projektion des abstrakten Syntaxbaumes (z.B. ein Abschnitt-Dokumentelement gesetzt als „Kapitel 1. Einleitung“)
-\item Bezeichnetes: Ist ein Dokumentelement.
-\item Bedeutung: Erster gliedernder Abschnitt des Dokuments.
-\item Funktion: Der Autor fungiert während des Schreibens als Sender und Empfänger.
-\item Struktur: Entspricht dem abstrakten Syntaxbaum selbst bzw. dessen Metamodell.
-\end{itemize}
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/semiotikmakro.svg.pdf} }
+\caption[Semiotik der Makro-Ansicht eines Dokumentelements]{ Semiotik am Beispiel der Instanz eines Chemischen-Strukturformel-Dokumentelements. Das ist analog übertragbar auf Dokumentelemente beliebigen Typs. Hier im Beispiel wird das Dokumentelement in seiner Gänze angezeigt, man könnte von einer Makro-Ansicht des Dokumentelements sprechen. }\label{semiotikmakro}
+\end{figure}
  
-Man kann argumentieren, dass hinter jedem Dokumentelement (z.B. Abschnitt, Absatz, Tabelle, ...) ein entsprechendes Domänenmodell steckt. Beispielsweise hinter einem Chemie-Dokumentelement stecke ein Moleküleditor, der ein entsprechendes Modell eines Moleküls produziert, sowie eine grafische Repräsentation (Bild eines Moleküls). Idealerweise liegt das Domänenmodell als domänenspezifische Sprache (DSL) vor. Im Bezug auf das Chemie-Dokumentelement könnte das die IUPAC-, Molfile-\footnote{~Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe „Repräsentation chemischer Strukturen“ unter http://de.wikipedia.org/wiki/Chemoinformatik } oder SMILES-Molekülnotation sein. Das würde bedeuten, dass der hier vorgestellte Syntaxbegriff auch gleichzeitig das Domänenmodell vertritt.
+Hinter jedem Dokumentelement, sei es ein Abschnitt, Absatz, Tabelle oder eine chemische Strukturformel, steckt also ein entsprechendes Domänenmodell. Wird das Konzept weitergedacht, könnten die einzelnen Modell-Attribute der Dokumentelemente mit passenden Semantic Web Ontologien verknüpft werden. Vorteil hierbei wäre, dass kuriertes Wissen, welches im Dokument steckt, explizit sichtbar und benutzbar gemacht wird.
 
  
-Das heißt, dass bei der Erstellung eines Dokuments Dokumentelemente vom Autor entworfen werden können, welche Modelle der jeweiligen Wissenschaft enthalten können. Das ermöglicht dem Autor deutlich strukturierter, formaler und konsistenter an die Dokumentation seins Projektes heranzugehen. Zudem werden dem Leser dadurch explizite semantische Informationen bereitgestellt, welche direkt vom dahinterstehenden Modell stammen. Der Leser kann ggf. das Modell seines Kollegen in eigenen Dokumenten wiederverwenden. Vorteil hierbei wäre, dass weniger Fehler entstehen, da direkt auf die Gedanken (welche in das Modell gegossen wurden) des Original-Autors zurückgegriffen werden kann.
+Das heißt, dass bei der Erstellung eines Dokuments, Dokumentelemente vom Autor entworfen werden können, welche Modelle der jeweiligen Wissenschaft enthalten. Das ermöglicht dem Autor deutlich strukturierter, formaler und konsistenter an die Dokumentation seins Projektes heranzugehen. Zudem werden dem Leser dadurch explizite semantische Informationen bereitgestellt, welche direkt vom dahinterstehenden Modell stammen. Der Leser kann ggf. das Modell eines Autors in eigenen Dokumenten wiederverwenden. Vorteil hierbei wäre, dass weniger Fehler entstehen, da direkt auf die Gedanken (welche in das Modell gegossen wurden) des Original-Autors zurückgegriffen werden kann.
 
  
-Üblicherweise gibt es unter Dokumentelementen Verweise. Zum Beispiel ein Absatz-Dokumentelement möchte auf die Molekülmasse des Chemie-Dokumentelements verweisen. Dann sieht die Semiotik folgendermaßen aus:
+Üblicherweise gibt es unter Dokumentelementen Verweise. Beispiel: Ein Absatz-Dokumentelement möchte auf die atomare Masse einer chemischen Verbindung, die im Strukturformel-Dokumentelement angezeigt wird, verweisen. Auf Abbildung \ref{semiotikmikro} ist dieses Beispiel veranschaulicht. Im Beispiel: Der Autor schreibt einen Absatz z.B. „Die Masse beträgt { aspirinReference.mass } ...“, dann wertet das System den Absatz aus, und es wird „Die Masse beträgt 180,16 u ...“ angezeigt. Als „Zeichen“ dient also das Ergebnis des Programmausdrucks, welcher direkt auf die Modell-Attribute des chem. Strukturformel-Dokumentelements zugreifen kann. Der Programmausdruck ist Syntax, um das gewünschte Zeichen zu genieren. Hier bedeutet das Zeichen „Atomare Masseneinheit“. Die chemische Verbindung Aspirin ist das Bezeichnete. Im Falle des Verweises ist es möglich die Semantik z.B. aus den Informationen des Typsystems des Programmausdrucks zu ziehen -- also „aspirinReference.mass“ evaluiert zum Datentyp „AtomicMassUnit“. Schaut man auf Abbildung \ref{semiotikmakro}, fällt auf, dass die Sigmatik gleich der Semantik des Objekts, auf welches referenziert wird, ist.
 
  
-\begin{itemize}
-
-\item Zeichen: „Die Molekülmasse ist 144 g/mol.“ (So angezeigt durch den Absatz)
-\item Bezeichnetes: Chemie(molekül)-Dokumentelement. (Welches das Modell des Moleküls enthält)
-\item Bedeutung: Masse von Koffein in Gramm pro Mol. (Interessantes Objekt wäre „144 g/mol“)
-\item Funktion: Verweis
-\item Struktur: „{ koffein.masse }“ (hieraus folgt „144 g/mol“)
-\end{itemize}
+\begin{figure}[h!]
+\centering
+\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1.45\textwidth]{figures/semiotikmikro.svg.pdf} }
+\caption[Semiotik der Mikro-Ansicht eines Dokumentelements]{ Semiotik am Beispiel eines Verweises auf ein chem. Strukturformel-Dokumentelement innerhalb eines Absatzes. Die Auslassungspunkte entsprechen den Rest des Absatzes, im Fokus steht der Verweis in Form der Maßeinheit „Atomare Masseneinheit“. Es wird lediglich auf ein spezifisches Attribut des Strukturformel-Dokumentelements zugegriffen, daher könnte man von der Mikro-Ansicht des Dokumentelements sprechen. }\label{semiotikmikro}
+\end{figure}
  
-Mechanik: Der Programmierausdruck „koffein.masse“ („koffein“ wäre der Name des Chemie-Dokumentelements und „masse“ eine bereitgestellte Methode des Chemie-Dokumentelement-Objektes) liefert ein semantisches Objekt, z.B. in Form eines Scala-Objekts des Typs Moleculemass. Moleculemass könnte mit den Properties mass, name, unit ausgestattet sein, um mehr Informationen über seine Bedeutung(en) bereitstellen zu können. Zudem könnte es noch an eine SI-Einheiten-Onologie angekoppelt sein, um die semantischen Informationen mit dem Semantic Web zu teilen. Wenn der Leser mit seinem Mauszeiger über „144 g/mol“ fährt, kann diese Information aus dem Moleculemass-Objekt geholt werden und in Form einer farbigen Annotation angezeigt werden.
+Wird dieses Konzept weitergedacht, scheint es sinnvoll Typsystem der Programmiersprache, die zur Auflösung der Verweisungen genutzt wird, mit passenden Onotologien zu verweben. Das ist nützlich, wenn mehrere Programmanweisungen kombiniert werden, so dass sie zu anderen Datentypen führen. Beispiel: Der Programmausdruck „Newton(10) / Meter(3)“ hat als Resultat den Typ NewtonMeter. Damit wäre es möglich, Verweisungen mit Semantik auszustatten, obwohl diese so nicht durch das entsprechende Dokumentelement vorgesehen bzw. modelliert ist. Das erspart dem Autor manuelle Annotationen!
 
  
 \section{Taxonomie wissenschaftlicher Publikationen}\label{taxonomie-sec}
@@ -484,14 +477,14 @@ Mechanik: Der Programmierausdruck „koffein.masse“ („koffein“ wäre der N
 In Recherchen ist aufgefallen, dass es schon (wenn auch wenige) Versuche gegeben hat, eine möglichst allgemeingültige Systematik (z.T. formal) des inneren Dokumentenaufbaus herauszudestillieren. Jedoch sind diese Konzepte bisher kaum verbreitet, insbesondere bei der direkten Erstellung von (wiss.) Texten durch den Autor. Heutige Textverarbeitungen unterstützen kaum explizite Semantik über das Domänenwissen, mit dem sie gerade arbeiten -- dies fördert Fehler und Inkonsistenzen im Dokument.
 
  
-Die DIN-Normen \citep{DIN1421}, \citep{DIN1422-1}, \citep{DIN1422-3} und \citep{DIN1422-4} geben Empfehlungen, wie Texte gegliedert und benummert werden sollen bzw. wie im allgemeinen Manuskripte oder Forschungsberichte gestaltet werden sollen. Dies sind keine formalen Vorgaben, sondern vielmehr ein Glossar der hiesigen guten fachlichen Praxis in Wissenschaft, Technik, Wirtschaft und Verwaltung. Anders hingegen geht \citep{NISO} vor, hier wird formal mittels XML Schemas eine allgemein gültige Menge an XML-Tags für den Aufbau von Fachzeitschriftenartikeln zusammengestellt. Jedoch haben diese auch für anderen Publikationen ihre Gültigkeit, wie z.B. Briefe, Leitartikel oder Buchkritiken. Es handelt sich also um ein formal gestaltetes Glossar. \citep{Peroni} stellt eine Ontologie (im formalen OWL 2 Format) über einzelnen Komponenten, die in einem Dokument vorkommen können, zur Verfügung. Hier werden die Beziehungen, die die Komponenten untereinander pflegen, sichtbar gemacht. Es wird dabei zwischen strukturierenden (z.B. Abschnitt, Absatz) und rhetorischen Komponenten (z.B. Einleitung, Abbildung, Anhang) unterschieden. In der Tabelle auf Abbildung \ref{dokumentelemente-fig} werden die verschiedenen Systematiken miteinander verglichen.
+Die DIN-Normen \citep{DIN1421}, \citep{DIN1422-1}, \citep{DIN1422-3} und \citep{DIN1422-4} geben Empfehlungen, wie Texte gegliedert und benummert werden sollen bzw. wie im allgemeinen Manuskripte oder Forschungsberichte gestaltet werden sollen. Dies sind keine formalen Vorgaben, sondern vielmehr ein Glossar der hiesigen guten fachlichen Praxis in Wissenschaft, Technik, Wirtschaft und Verwaltung. Anders hingegen geht \citep{NISO} vor, hier wird formal mittels XML Schemas eine allgemein gültige Menge an XML-Tags für den Aufbau von Fachzeitschriftenartikeln zusammengestellt. Jedoch haben diese auch für andere Publikationen ihre Gültigkeit, wie z.B. Briefe, Leitartikel oder Buchkritiken. Es handelt sich also um ein formal gestaltetes Glossar. \citep{Peroni} stellt eine Ontologie (im formalen OWL 2 Format) über einzelnen Komponenten, die in einem Dokument vorkommen können, zur Verfügung. Hier werden die Beziehungen, die die Komponenten untereinander pflegen, sichtbar gemacht. Es wird dabei zwischen strukturierenden (z.B. Abschnitt, Absatz) und rhetorischen Komponenten (z.B. Einleitung, Abbildung, Anhang) unterschieden. In der Tabelle auf Abbildung \ref{dokumentelemente-fig} werden die verschiedenen Systematiken miteinander verglichen.
 
  
 \begin{figure}[h!]
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/dokumentelemente.svg.pdf} }
-\caption[Dokumentelemente im Vergleich]{ Dokumentelemente im Vergleich. In der ersten Spalte sind die wichtigsten Dokumentelemente herausgegriffen, welche auch z.T. im Prototypen vorkommen implementiert sind (daher englische Bezeichnungen). Die Dokumentelemente sind aus den verschiedenen Systematiken von DIN, NISO, DoCO und LaTeX (Dokumentklasse Report) entstanden und werden hier nochmals übersichtlich dargestellt. Die mit Tilde (~) markierten Einträge treffen nur ungefähr das gemeinte Dokumentelement. Wenn das Dokumentelement in einer Systematik nicht vorkommt, wir das Feld leer gelassen. Es gibt in der jeweiligen Systematik u.U. noch mehr Dokumentelemente bzw. Bestandteile aus denen Dokumentelemente zusammengesetzt sind, welche hier der Einfachheit halber nicht modelliert wurden, aber in die theoretischen Überlegungen eingeflossen sind. }\label{dokumentelemente-fig}
+\caption[Dokumentelemente im Vergleich]{ Dokumentelemente im Vergleich. In der ersten Spalte sind die wichtigsten Dokumentelemente herausgegriffen, welche auch z.T. im Prototypen implementiert sind (daher englische Bezeichnungen). Die Dokumentelemente sind aus den verschiedenen Systematiken von DIN, NISO, DoCO und LaTeX (Dokumentklasse Report) entstanden und werden hier nochmals übersichtlich dargestellt. Die mit Tilde (~) markierten Einträge treffen nur ungefähr das gemeinte Dokumentelement. Wenn das Dokumentelement in einer Systematik nicht vorkommt, wir das Feld leer gelassen. Es gibt in der jeweiligen Systematik u.U. noch mehr Dokumentelemente bzw. Bestandteile aus denen Dokumentelemente zusammengesetzt sind, welche hier der Einfachheit halber nicht modelliert wurden, aber in die theoretischen Überlegungen eingeflossen sind. }\label{dokumentelemente-fig}
 \end{figure}
  
 Hier soll versucht werden die Erkenntnisse der o.g. Quellen zu generalisieren, in der Hoffnung die Basis für ein formaleres bzw. präskriptiveres Textverarbeitungssystem zu schaffen.
@@ -505,20 +498,20 @@ Dokumentelemente bilden das Grundgerüst eines jeden Dokuments. Eine Tabelle üb
 \begin{itemize}
 
 \item Struktur Elemente: repräsentieren Komponenten, die textuellen bzw. grafischen Inhalt des Dokuments beinhalten. Sie tragen maßgeblich zum gedanklichen Gebäude des Dokuments bei.
-\item Container Elemente: beinhalten andere Dokumentelemente (als Kinder), und haben daher für gewöhnlich keine Repräsentation die aktiv zum eigentlichen intellektuellen Inhalt des Dokuments beiträgt. Sie gruppieren also Elemente zu größeren Dokument-Bestandteilen; dies gibt Vorteile bei der Verarbeitung und Semantik des Dokuments. Beispielsweise werden Dokumente oft in Titelei und Hauptteil unterteilt, wobei die Titelei gerne römisch nummeriert wird und der Hauptteil arabisch. Hat man hier eine explizite Hierarchievorgabe zur Hand, erleichtert das die Verarbeitung; wie im Beispiel die gewollten Nummerierungskonventionen durchzusetzen.
+\item Container Elemente: beinhalten andere Dokumentelemente (als Kinder), und haben daher für gewöhnlich keine Repräsentation die aktiv zum eigentlichen intellektuellen Inhalt des Dokuments beiträgt. Sie gruppieren also Elemente zu größeren Dokument-Bestandteilen; dies gibt Vorteile bei der Verarbeitung und Semantik des Dokuments. Beispielsweise werden Dokumente oft in Titelei und Hauptteil unterteilt, wobei die Titelei gerne römisch nummeriert wird und der Hauptteil arabisch. Hat man hier eine explizite Hierarchievorgabe zur Hand, erleichtert das die computergestützte Verarbeitung; wie im Beispiel die gewollten Nummerierungskonventionen durchzusetzen.
 \item Metadaten Elemente: sind Elemente die andere Elemente beschreiben bzw. allgemein gesprochen enthalten sie Daten über Daten. Beispielsweise ein Literatureintrag beschreibt lediglich einen Original-Artikel; oder eine Fußnote enthält eine Anmerkung über ein anderes Dokumentelement (die Fußnote verändert den Inhalt den das Dokument transportieren will an sich nicht, aber sie macht ihn verständlicher).
 \end{itemize}
  
 Die Dokumentelemente können zudem auch noch Attribute oder Properties enthalten. Diese enthalten Fakten über das betreffende Element, z.B. ob es sich bei einer Liste um eine geordnete Liste oder ungeordnete Liste handelt. Im Falle des hier vorgestellten Prototypen, kann man argumentieren, dass in den Attributen auch das jeweils vorliegende Domänenmodell des Dokumentelements abgelegt wird.
 
  
-In DoCO wird ein Unterschied zwischen strukturierenden (z.B. Abschnitt, Absatz) und rhetorischen Komponenten (z.B. Einleitung, Diskussion, Abbildung) unterschieden. Hier wird jedoch nur das Struktur Element benötigt, da die rhetorische Bedeutung über die Attribute des Elements hinzugefügt werden kann. Allgemein gesprochen gehört die rhetorische Bedeutung zur Semantik des Elements. Die Semantik des Elements wird wiederum maßgeblich über das Domänenmodell gewonnen und dieses ist wiederum in den Attributen ansässig. Daher muss kein Unterschied zwischen strukturierenden und rhetorischen Komponenten gemacht werden.
+In DoCO wird ein Unterschied zwischen strukturierenden (z.B. Abschnitt, Absatz) und rhetorischen Komponenten (z.B. Einleitung, Diskussion, Abbildung) gemacht. Hier wird jedoch nur das Struktur Element benötigt, da die rhetorische Bedeutung über die Attribute des Elements hinzugefügt werden kann. Allgemein gesprochen gehört die rhetorische Bedeutung zur Semantik des Elements. Die Semantik des Elements wird wiederum maßgeblich über das Domänenmodell gewonnen und dieses ist wiederum in den Attributen ansässig. Daher muss kein Unterschied zwischen strukturierenden und rhetorischen Komponenten gemacht werden.
 
  
 \subsubsection{Bedeutung für das Dokumentmodell}\label{}
 
  
-Im Dokumentmodell, also dem abstrakten Syntaxbaum entsprechen die Struktur Elemente den Blättern und die Container Elemente entsprechen den inneren Knoten. Metadaten Elemente kommen entweder wie Struktur Elemente vor oder werden in ein extra „Metadokument“ ausgelagert, falls die Metadaten Elemente nur einzelne Attribute bereitstellen sollen und nicht in Gänze angezeigt werden.
+Im Dokumentmodell, also dem abstrakten Syntaxbaum, entsprechen die Struktur Elemente den Blättern und die Container Elemente entsprechen den inneren Knoten. Metadaten Elemente kommen entweder wie Struktur Elemente vor oder werden in ein extra „Metadokument“ ausgelagert, falls die Metadaten Elemente nur einzelne Attribute bereitstellen sollen und nicht in Gänze angezeigt werden.
 
  
 \subsubsection{Verweisungen}\label{}
@@ -528,6 +521,9 @@ Im Dokumentmodell, also dem abstrakten Syntaxbaum entsprechen die Struktur Eleme
 
  
 Denn hier treten Verweisungen nicht in Form von Knoten auf, sondern sie entsprechen den Kanten des Dokumentengraphs. Wenn ein Knoten (also Dokumentelement) eine Information von einem anderen Knoten erhalten will, werden Nachrichten mit den Informationen ausgetauscht. Durch diesen Mechanismus werden die Verweisungen im Dokument schlussendlich aufgelöst. Wir haben also ein ganz klares Modell: Inhalte in die Blätter, Hierarchie in die inneren Knoten, Semantik und Modelle in die Attribute und Verweisungen fließen über die Kanten, also in der Implementierung des Prototypen als Nachrichten-Kommunikation.
+
+ 
+Was natürlich für die Vorgehensweise von \citep{Peroni} und \citep{NISO} spricht, ist dass alles was in einer (Dokumenten) Programmiersprache ausgedrückt würde, auch als Dokumentelement dargestellt wird. Beispiel: Ein Abschnitt hat die (Modell) Attribute Nummer und Titel. So kann Nummer und Titel jeweils als extra Dokumentelement auftreten, aus denen schlussendlich der Abschnitt besteht. Das macht hier aber nur begrenzt Sinn, da jedes Dokumentelement wiederum eine eigene (mini) DSL kapselt, aus welcher die (Modell) Attribute gewonnen werden. Es ist also nicht unbedingt nötig, jedes dieser Attribute als extra Dokumentelement zu modellieren. Beispiel: Der Autor hat eine kleine DSL für Abschnitte, die es ihm ermöglicht den Titel zu definieren. Das Nummer-Attribut wird vom Abschnitt-Dokumentelement selbstständig bestimmt. Bei komplexeren Dokumentelementen bzw. Modellen ist die DSL entsprechend mächtiger.
 
  
 \subsection{Taxonomie}\label{taxonomiesec}
@@ -569,7 +565,7 @@ Auf Abbildung \ref{matrixkind} sind die erlaubten Eltern-Kind-Beziehungen der vo
 \subsubsection{Erlaube Abfolgen}\label{}
 
  
-Auf Abbildung \ref{matrixgeschwister} sind die erlauben Nachfolger-Vorgänger-Bezeihungen der hier beispielhaft vorliegenden Dokumentklasse als Matrix dargestellt. Hier wird also die Frage geklärt, welches Dokumentelemente aneinander gereiht werden dürfen, um ein wohlgeformtes Dokument der vorliegenden Dokumentklasse zu bilden.
+Auf Abbildung \ref{matrixgeschwister} sind die erlauben Nachfolger-Vorgänger-Bezeihungen der hier beispielhaft vorliegenden Dokumentklasse als Matrix dargestellt. Hier wird also die Frage geklärt, welche Dokumentelemente aneinander gereiht werden dürfen, um ein wohlgeformtes Dokument der vorliegenden Dokumentklasse zu bilden.
 
  
 \begin{figure}[h!]
@@ -980,21 +976,22 @@ Eine Update-Nachricht entsteht hauptsächlich dann, wenn der Benutzer ein Dokume
 Reichhaltige Verweisungen sind ein grundlegendes Konzept des Prototypen. Hieraus entstehen neben den üblichen Verweisungen, wie man sie aus wiss. Dokumenten kennt (Verw. auf Abbildungen, Abschnitte oder Literatur), neue Möglichkeiten für Semantik und Konsistenz.
 
  
-Dokumentelemente liegen als Scala Klasse vor und eine Verweisung greift darauf direkt zu. Das heißt innerhalb eines Textes wird mit einem Scala Programmausdruck notiert, auf welches Attribut oder Methode zugegriffen werden soll und welches Dokumentelement adressiert werden soll. Prinzipieller Ablauf:
+Dokumentelemente liegen als Scala Klasse vor und eine Verweisung greift direkt auf diese zu. Das heißt innerhalb eines Textes wird mit einem Scala Programmausdruck notiert, auf welches Attribut oder Methode zugegriffen werden soll eines Dokumentelement zugegriffen werden soll. Beispiel: „Siehe Abbildung {actor.nummer}.“ wird aufgelöst zu „Siehe Abbildung 3.“ Prinzipieller Ablauf, zum Auflösen von solchen Verweisen:
 
  
 \begin{enumerate}
 
 \item Ein Basis Aktor findet einen Programmausdruck in seinem, durch den Autor eingegeben, Text (contentSrc).
 \item Der Basis Aktor findet heraus, an welche anderen Basis Aktoren der Programmausdruck gerichtet ist.
-\item Die anderen Basis Aktoren schicken ihren jeweils aktuellen Zustand, in Form von generiertem Scala Code, an den anfragenden Aktor.
+\item Die anderen Basis Aktoren schicken ihren jeweils aktuellen Zustand, in Form von generiertem Scala Code, an den anfragenden Aktor zurück.
 \item Der Basis Aktor sammelt den Code der anderen Aktoren ein. Das heißt, er hat nun den Code, um alle Verweise, die er gefunden hat, aufzulösen. Der aggregierte Code wird an einen Scala Interpreter (auch ein Aktor) weitergeleitet.
 \item Der Scala Interpreter instanziiert die Scala Klassen mit dem Zustand der anderen Aktoren.
 \item Das Resultat des Interpreters wird an die Stelle des Programmausdrucks kopiert. Beispiel: contentSrc ist „siehe Abbildung {actor.nummer}“, der Interpreter wertes es aus und speichert in contentRepr „siehe Abbildung 3“ ab.
-\item Wenn alle Programmausdrücke aufgelöst sind, wird der neue String als contentRepr bereitgestellt.
-\item Neben contentRepr gibt es contentUnified. Dies ist eine JSON-Struktur, welche den Text, die Programmausdrücke sowie die jeweiligen Resultate enthält. (An dieser Stelle könnten, für mehr Semantik, Scala Typesystem Informationen bereitgestellt werden.)
-\item Die Anzeige im Browser kann contentSrc, contentRepr, contentUnified und alle anderen Attribute des Dokumentelements nach belieben verwenden. (In einem Template.)
+\item Wenn alle Programmausdrücke aufgelöst sind, wird der neue String als contentRepr abgespeichert.
 \end{enumerate}
+ 
+Die Anzeige im Browser kann contentSrc, contentRepr, contentUnified sowie alle anderen Attribute des Dokumentelements nach belieben verwenden. Details zu contentSrc, contentRepr und contentUnified sind in Abschnitt \ref{contentSrc} zu finden.
+
  
 \section{Eingesetzte Technologien}\label{}
  
@@ -1199,6 +1196,34 @@ Die (flache) Reihenfolge der Dokumentelemente kann mit dieser Datenstruktur, mit
 In Abschnitt \ref{verweise-aufloesen} wurde bereits angesprochen wie das Vorgehen ist, um Verweise, die zwischen Dokumentelementen bestehen, aufzulösen.
 
  
+\subsubsection{Speicherung der Benutzereingabe}\label{contentSrc}
+
+ 
+Wenn der Autor Dokumentelemente erstellt, möchte er diese auch mit entsprechendem Inhalt füllen. Beispielsweise Fließtext oder eine DSL die ein konkretes Modell beschreibt. Diese Eingaben werden innerhalb des Zustands des Basis Aktors abgespeichert, bekannt als contentSrc. Wenn der Autor auf Attribute eines anderen Dokumentelements zugreifen will, schreibt er einen entsprechenden Scala-Programmausdruck. Jeder Aktor kann sein contentSrc untersuchen, ob darin Programmausdrücke vorkommen, um so das entsprechende Dokumentelement nach dem Attribut zu befragen.
+
+ 
+Wenn die Scala-Programmausdrucke erfolgreich ausgewertet werden konnten, werden diese mit dem jeweiligen Auswertungsergebnis ersetzt. Das wird in contentRepr abgespeichert. Beispiel: „Auf Abbildung { pinguin.nr } ist ein Pinguin.“ → „Auf Abbildung 3 ist ein Pinguin.“
+
+ 
+Eine alternative Repräsentation ist contentUnified. Hier werden contentSrc und contentRepr vereinigt. Das heißt an jeder Stelle wo ein Verweis vorkommt, wird die komplette Information in einer JSON-Datenstruktur gehalten. Der Programmausdruck und sein Ergebnis werden festgehalten. Das ist wichtig für die Anzeige, um die UUIDs der einzelnen Aktoren unter einem Kurznamen zu verstecken, aber dennoch den gesamten Programmausdruck übermitteln zu können. Nachfolgend ein kleines Codebeispiel dafür:
+
+ 
+\begin{verbatim}
+[
+  {
+    str: "Auf Abbildung ",
+    expression: [
+      "{ ",
+      {uuid: "id_ 80b4_id", shortName: "pinguin", documentElement: "Figure"},
+      ".nr }"
+    ]
+  },
+  {
+    str: " ist ein Pinguin"
+  }
+]
+\end{verbatim}
+ 
 \section{Erreichter Funktionsumfang}\label{}
  
 Mit dem Prototyp ist es möglich, eine Masterarbeit zu schreiben. Das heißt, dass von der prinzipiellen Funktionalität alles da ist, um wissenschaftliche Texte zu verfassen. Durch die Möglichkeit, Projektionen in andere Formate zu erhalten, kann auch LaTeX Code generiert werden, um (noch) fehlende Funktionalität (insb. Paginierung) auszugleichen. Jedoch hat LaTeX nur eine beschränkte Menge an „Dokumentelementen“ im Vergleich zum Prototyp -- es fehlen nunmal die domänenspezifischen Inhalte. Wenn diese Inhalte benutzt werden sollen, müssen diese mehr oder weniger von Hand an LaTeX nachgereicht werden, z.B. in Form von statischen Bildern. Beispiel: Das Chemiemolekül wird auch als SVG-Bild bereitgestellt, damit LaTeX dieses verarbeiten kann, muss es aus der Datenbank geholt und in ein pdf konvertiert werden. Rein vom Konzept her ist es aber leicht möglich, solche Aufgaben besser zu automatisieren. Beispielsweise holt ein Shell-Skript via curl das SVG-Bild aus der Datenbank und legt es in einen Ordner ab, damit der LaTeX-Compiler es verwenden kann. Es macht Spaß, mit den Prototyp Dokumente zu erstellen und zu sehen, wie von Zauberhand gleichzeitig auch der passende LaTeX-Code generiert wird. Er bietet eine übersichtliche Darstellung des Dokuments und ist bereits einigermaßen bequem zu bedienen, insbesondere dank der Autovervollständigung. Die Basiskonzepte aus Abschnitt \ref{basiskonzepte} konnten somit umgesetzt werden.
@@ -1232,7 +1257,7 @@ In diesem Kapitel werden zunächst die Ergebnisse und die daraus gefolgerten Erk
  
 \section{Ergebnisse und Erkenntnisse}\label{}
  
-Aus den vier Mängeln (siehe Abschnitt \ref{problemstellung}) Mangel an Konsistenz, Mangel an Domänenwissen, Mangel an Semantik und Mangel an Metamodellierung ist ein Prototyp entstanden, welcher versucht diese Mängel zu entschärfen und versucht Theorien daraus zu entwickeln:
+Aus den vier Mängeln (siehe Abschnitt \ref{problemstellung}) Mangel an Konsistenz, Mangel an Domänenwissen, Mangel an Semantik und Mangel an Metamodellierung ist ein Prototyp entstanden, welcher versucht diese Mängel zu entschärfen und Theorien daraus zu entwickeln:
 
  
 Es gibt ein sinnvolles Modell für Dokumente. Als natürliche Realisierung eignet sich der abstrakte Syntaxbaum, bekannt aus den Theorien zum Bau von Übersetzern (Compiler). Jedes Dokumentelement, wie z.B. Kapitel, Absätze, Abbildungen, etc., wird als Knoten des Syntaxbaumes betrachtet. Es gibt zwei Arten von Kanten: Zum einen Kanten die die Topologie des Dokuments vorgeben und zum anderen die Verweisungen zwischen Dokumentelementen ermöglichen.
@@ -1250,10 +1275,10 @@ Die Analyse der Dokumentelement-Semiotik hat gezeigt, dass jedes Dokumentelement
 Es wurde eine allgemeingültige Taxonomie für den inneren Aufbau von (wissenschaftlichen) Dokumenten ausgearbeitet. Sie ordnet die Dokumentelemente in drei Kategorien (mit beliebigen Unterkategorien) ein: Container, Struktur und Meta. Containerelem. enthalten andere Dokumentelemente, Strukturelem. enthalten den intellektuellen Inhalt und Metaelem. beschreiben wiederum andere Dokumentelemente oder Daten. Aus der Taxonomie können zwei Matrizen abgeleitet werden, diese deklarieren die erlaubten Verschachtelungen bzw. Reihenfolgen der Dokumentelemente. Die Taxonomie bzw. Matrizen spezifizieren formal den Aufbau einer Dokumentklasse, wie z.B. EU-Patent, Masterarbeit, Jahresbericht, etc.
 
  
-Aus der Taxonomie kann ein Metamodell für den abstrakten Syntaxbaum, das Dokumentmodell, abgeleitet werden. In einem solchen Metamodell sind die einzelnen Dokumentelemente die in einem Dokument vorkommen können definiert. In Verbindung mit den vorgestellten Matrizen, kann der Projektionseditor den Autor durch die Erstellung seines Dokuments, in einer speziellen Dokumentklasse, führen. Der Autor macht mutmaßlich weniger Fehler durch diesen Wegweiser und Dokumentelemente die ihre Domäne verstehen und zum gewissen Grad verifizieren können.
+Aus der Taxonomie kann ein Metamodell für das Dokumentmodell (AST) abgeleitet werden. In einem solchen Metamodell sind die einzelnen Dokumentelemente, die in einem Dokument vorkommen können, definiert. In Verbindung mit den vorgestellten Matrizen kann der Projektionseditor, den Autor durch die Erstellung seines Dokuments, in einer speziellen Dokumentklasse, führen. Daraus resultiert, dass der Autor mutmaßlich weniger Fehler, durch diesen Wegweiser, macht. Zudem können Dokumentelemente, die ihre Domäne verstehen, sich zu einem gewissen Grad selbst verifizieren. Das ist möglich, da eine DSL, auf syntaktische oder sogar semantische Korrektheit, geprüft werden kann.
 
  
-Wie sich herausgestellt hat, ist das Konzept sehr flexibel, denn dem, noch relativ primitiven, Prototyp gelingt es bereits sehr unterschiedliche Anwendungsfälle zu lösen: Erstellung \emph{dieser} Masterarbeit als Beispiel für ein wissenschaftliches Dokument, ein UIMA CAS Editor zur Annotation von Texten, die Dokumentation von Spray-Softwaremodellen und die Transformation andere Formate am Beispiel von LaTeX-Code.
+Wie sich herausgestellt hat, ist das Konzept sehr flexibel, denn dem Prototypen gelingt es bereits sehr unterschiedliche Anwendungsfälle zu lösen: Erstellung \emph{dieser} Masterarbeit als Beispiel für ein wissenschaftliches Dokument, ein UIMA CAS Editor zur Annotation von Texten, die Dokumentation von Spray-Softwaremodellen und die Transformation andere Formate am Beispiel von LaTeX-Code.
 
  
 \section{Analyse im Detail}\label{}
@@ -1268,18 +1293,18 @@ Zunächst sollen die wissenschaftlichen Fragen aus Abschnitt \ref{wiss-fragen} a
 \item Gibt es ein gemeinsames Metamodell? Ja, die Dokumentelemente sind die kleinste Einheit im Dokument, die sich weiter in einer Taxonomie kategorisieren lassen.
 \item Kann ein Aktorsystem verwendet werden, um einen abstrakten Syntaxbaum zu implementieren? Ja es ist möglich, z.B. mit dem Akka Toolkit. Knoten sind Aktoren und Kanten die Nachrichten zwischen den Aktoren.
 \item Taugt dieser abstrakte Syntaxbaum als sinnvolle Architekturgrundlage für einen Projektionseditor, und damit auch als Code Generator? Ja, der Code für die Benutzeroberfläche ist sehr kompakt/generisch und trotz Prototypenstadium recht benutzerfreundlich. Ein einfaches Template pro Dokumentelement genügt, um eine LaTeX-Code-Projektion zu generieren.
-\item Brauchen wir mehr explizite Semantik innerhalb von Dokumenten? Ja, damit Dokumente sich selbst verifizieren können und Autor, Leser oder Dienste zusätzliche Informationen zum betrachteten Objekt erhalten.
+\item Brauchen wir mehr explizite Semantik innerhalb von Dokumenten? Ja, damit Dokumente sich selbst verifizieren können und Autor, Leser oder Dienste (Stichwort Semantic Web) zusätzliche Informationen zum betrachteten Objekt erhalten.
 \item Ergeben sich Vorteile, wenn diese Semantik direkt vom Autor transportiert wird? Ja, der Autor kann sein Dokument leichter konsistent halten und Dienste erhalten Objekte mit kurierten Informationen und deren Bedeutung.
-\item Ist es möglich, dass sich Dokumente zu einem gewissen Grad selbst verifizieren und damit konsistenter machen? Ja, da jedes Dokumentelement beherbergt Wissen aus seiner Domäne und kann Eingaben des Autors mit einem formalen Modell (z.B. vorliegend als Softwarebibliothek oder XML-Schema) auf Korrektheit prüfen.
+\item Ist es möglich, dass sich Dokumente zu einem gewissen Grad selbst verifizieren und damit konsistenter machen? Ja, jedes Dokumentelement beherbergt Wissen aus seiner Domäne und kann Eingaben des Autors mit einem formalen Modell (z.B. vorliegend als DSL, Softwarebibliothek oder XML-Schema) auf Korrektheit prüfen.
 \item Gibt es eine allgemeingültige Taxonomie für wiss. Publikationen? Ja, sie kennt drei Kategorien von Dokumentelementen.
 \end{itemize}
  
 \subsection{Ähnliche Arbeiten}\label{}
  
-In Abschnitt \ref{stand-der-technik} wurde verschiedene Systeme vorgestellt, die im Bereich der Dokumenterstellung etabliert sind oder Verbesserungsansätze liefern. Hier werden diese Systeme mit dem hier entstanden Prototyp bzw. dessen konzeptuellen Überlegungen kurz verglichen.
+In Abschnitt \ref{stand-der-technik} wurden verschiedene Systeme vorgestellt, die im Bereich der Dokumenterstellung etabliert sind oder Verbesserungsansätze liefern. Hier werden diese Systeme mit dem hier entstanden Prototyp bzw. dessen konzeptuellen Überlegungen kurz verglichen.
 
  
-Textverarbeitungen wie Microsoft Word haben Formatvorlagen, welche als primitive Dokumentelemente bezeichnet werden könnten. Diese Formatvorlagen bringen jedoch keinerlei Wissen über deren Domäne mit, und somit auch keine ausgefeilten Repräsentationen oder Editoren, wie z.B. das hier gezeigte Chemiemolekül-Dokumentelement es tut. Eine Spezifikation, welche Elemente aneinander gereiht werden dürfen gibt es nicht. Dies ist eine Fehlerquelle für den Autor, sowohl was die Konsistenz des Dokuments betrifft, als auch den formal korrekten Aufbau der Dokumentklasse.
+Textverarbeitungen wie Microsoft Word haben Formatvorlagen, welche als primitive Dokumentelemente bezeichnet werden könnten. Diese Formatvorlagen bringen jedoch keinerlei Wissen über deren Domäne mit, und somit auch keine ausgefeilten Repräsentationen oder Editoren, wie z.B. das hier gezeigte Chemiemolekül-Dokumentelement es tut. Eine Spezifikation, welche Elemente aneinander gereiht werden dürfen gibt es nicht. Dies ist eine Fehlerquelle für den Autor, sowohl was die Konsistenz des Dokuments betrifft, als auch den formell korrekten Aufbau der Dokumentklasse.
 
  
 Das Textsatzsystem LaTeX spezifiziert explizit Dokumentklassen, welche passende TeX-Makros anbietet, um ein Dokument in der vorliegenden Klasse zu bauen. Diese Makros entsprechen quasi den Dokumentelementen. Jedoch prüft keine Taxonomie bzw. Metamodell die korrekte Aneinanderreihung der Dokumentklasse. Zudem wird direkt mit dem Quellcode gearbeitet, was Kopilierzeiten zum generieren des PDFs erfordert. Interaktive grafische Domäneneditoren sind damit also nicht ohne weiteres möglich. SALT \citep{Groza} bort LaTeX so auf, dass semantische Annotationen zum PDF hinzugefügt werden können. Um dies zu tun, erhält der Autor eine zusätzliche Menge an TeX-Makros für die Annotation. Diese Annotationen sind für die spätere Verarbeitung durch Semantic Web Dienste nützlich, bringen aber dem Autor selbst noch keinen Vorteil. Beim hier vorgestellten Prototyp hat der Autor auch etwas davon, diese Informationen zu übermitteln; denn er kann direkt auf die Domänenmodelle zurückgreifen und sich so Schreibarbeit und Fehler ersparen.
@@ -1293,7 +1318,7 @@ Das Wolfram CDF ist wohl die stärkste Konkurrenz für das hier vorgestellte Sys
  
 \section{Diskussion zum Prototyp}\label{}
  
-Am Anfang der Masterarbeit stand die Idee Dokumentelemente auf Aktoren abzubilden. Es sollte geprüft werden, ob diese Idee sinnvoll ist und umsetzbar. Daraus hat sich der hier vorgestellte Prototyp entwickelt. Von Anfang an war es klar, dass es ein Projektionseditor werden soll, was bedingt, dass das Softwaresystem einen abstrakten Syntaxbaum in irgendeiner Form vorweisen muss. Die Benutzerschnittstelle ist mit Web Standars umgesetzt, so dass über einen Browser das Dokument betrachtet sowie bearbeitet werden kann.
+Am Anfang der Masterarbeit stand die Idee Dokumentelemente auf Aktoren abzubilden. Es sollte geprüft werden, ob diese Idee sinnvoll und umsetzbar ist. Daraus hat sich der hier vorgestellte Prototyp entwickelt. Von Anfang an war es klar, dass es ein Projektionseditor werden soll, was bedingt, dass das Softwaresystem einen abstrakten Syntaxbaum in irgendeiner Form vorweisen muss. Die Benutzerschnittstelle ist mit Web Standars umgesetzt, so dass über einen Browser das Dokument betrachtet sowie bearbeitet werden kann.
 
  
 Der Prototyp hat das gezeigt, was er zeigen sollte: Es ist möglich einen Projektionseditor auf Basis von Web Standards und ein abstrakten Syntaxbaum im Aktorenmodell umzusetzen. Der Prototyp läuft bereits recht stabil, so dass auch diese Masterarbeit damit, ohne große Hürden, verfasst werden konnte. Zudem ist es recht leicht, neue Dokumentelemente hinzuzufügen. Der Prototyp hat zudem Licht ins Dunkel gebracht: Nur so konnten die Theorien weiterentwickelt werden, so dass sie eine solide Basis für eine produktiv einsetzbare Neuentwicklung bilden.
@@ -1377,4 +1402,3 @@ Modellierung von Dokumentelementen, durch schreiben eines einfachen Dokuments. E
 
  
 \citep[S.~3]{Segaran} trifft es sehr präzise, wenn er behauptet, dass natürliche Sprache wohl die beste API für Wissen ist, die wir Menschen kennen. \citep[S.~1]{Knuth} hat dies in etwa auch so erkannt und daraus das programmiersprachenübergreifende Programmierparadigma des Literate Programming entwickelt. Dort soll Software wie ein Literaturwerk behandelt werden, d.h. Dokumentation und Programmcode werden in einer Datei simultan untergebracht. Die hier vorgestellten Konzepte eigenen sich mutmaßlich hervorragend, um Literate Programming umzusehen. Beispielsweise können einzelne größere Programmkomponenten wie z.B. ein For-Schleifen-Block auf spezielle Dokumentelemente abgebildet werden. Eine Funktionsdekleration wäre mit einem Kapitel vergleichbar, etc. Gemischt mit normalen Dokumentelementen, die beschreibend zur Seite stehen, könnte somit auch mit diesem System Literate Programming umgesetzt werden. Zudem kann jedes Programm-Dokumentelement eine passende Visualisierung von Datenstrukturen oder Programmflüssen darstellen. Durch den Modellcharakter der Dokumentelemente wäre es somit möglich, ein Programm sogar in verschiedene Programmiersprachen zu transformieren. Anwendungsfall: Ein DSL-Skript kann durch einen Wissenschaftler mit dem System programmiert, visualisiert und gleichzeitig dokumentiert werden kann.
-
