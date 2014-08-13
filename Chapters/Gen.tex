@@ -237,13 +237,16 @@ Bevor ein passendes Modell für Dokumente gefunden werden kann, muss man sich be
 Das Original ist in jedem Fall ein gesetztes statisches Dokument, z.B. ein auf Papier gedrucktes Buch oder ein (wiss.) Bericht im PDF-Dateiformat.
 
  
-Dort interessieren uns als Autor in erster Linie aber nur die wirklich inhaltstragenden Attribute des Originals. Auf einer höheren Abstraktionsebene entsprechen diese den Dokumentelementen, wie z.B. Abschnitte, Absätze, Abbildungen etc. Im Falle von z.B. Abschnitten ist nur der Titel maßgeblich, die Benummerung kann auch erst später (durch Berechnung) hinzugefügt werden. Das heißt hier wäre der Titel ein Attribut welches vom Original in das Modell abgebildet wird; die Benummerung wäre jedoch ein abudantes Attribut welches erst innerhalb des Modells erstellt wird. Layoutinformationen, Schriftarten oder Papiersorte spielen dafür keine Rolle und können somit weggelassen werden.
+Dort interessieren uns als Autor in erster Linie aber nur die wirklich inhaltstragenden Attribute des Originals. Auf einer höheren Abstraktionsebene entsprechen diese den Dokumentelementen, wie z.B. Abschnitte, Absätze, Abbildungen etc. Im Falle von z.B. Abschnitten ist nur der Titel maßgeblich, die Benummerung kann auch erst später (durch Berechnung) hinzugefügt werden. Das heißt hier wäre der Titel ein Attribut welches vom Original in das Modell abgebildet wird; die Benummerung wäre jedoch ein abudantes Attribut welches erst innerhalb des Modells hinzugefügt wird. Layoutinformationen, Schriftarten oder Papiersorte spielen dafür keine Rolle und können somit weggelassen werden.
 
  
 Wenn der Autor an seinem Dokument arbeitet, dann stets über das Modell, wo er sich ausschließlich auf die Dokumentelemente konzentrieren kann. Das Modell kann präskriptiv sein, d.h. aus dem Modell kann wieder ein Original entspringen.
 
  
-Hier wird der abstrakte Syntaxbaum als Modell für das Dokument dienen, indem jedes Dokumentelement als ein Knoten des abstrakten Syntaxbaum aufgefasst wird. Mehr zum abstrakten Syntaxbaum in Abschnitt \ref{ast-sec}. Wie man sich eine Abbildung von einem Dokument auf einen abstrakten Syntaxbaum vorstellen kann, ist auf Abbildung \ref{idee} visualisiert.
+Im Allgemeinen ist ein natürliches Modell für ein Dokument ein gerichteter Graph. Die Knoten des Graphen entsprechen den Dokumentelementen. Die Topologie des Dokuments entspricht einer baumartigen gerichteten Graph-Struktur, denn das innere eines Dokuments oder einer Rede ist hierarchisch aufgebaut. Jedoch gibt es in Dokumenten immer wieder Sprünge die auf andere Stellen verweisen -- ein klassisches Beispiel dafür ist „... siehe Abbildung x für ...“. Das bedeutet es gibt zwei Arten von Kanten: Kanten die die Topologie des Dokuments aufspannen, diese bilden einen gerichteten Baum. Kanten die Verweise zwischen Dokumentelementen darstellen, diese bilden einen gerichteten Graph. Wie man sich eine Abbildung von einem Dokument auf einen Baum bzw. Graph vorstellen kann, ist auf Abbildung \ref{idee} visualisiert. Die beiden vorkommenden Kanten-Arten werden in der Grafik vereint dargestellt.
+
+ 
+Hier wird der abstrakte Syntaxbaum als Modell für das Dokument dienen, indem jedes Dokumentelement als ein Knoten des abstrakten Syntaxbaum aufgefasst wird. Mehr zum abstrakten Syntaxbaum in Abschnitt \ref{ast-sec}. Der abstrakte Syntaxbaum repräsentiert also die Hierarchie des Dokuments. Zudem wird angenommen, dass die Knoten des abstrakten Syntaxbaumes miteinander kommunizieren können, auf diese weise können die Verweisungen unter den einzelnen Dokumentelementen aufgelöst werden. visualisiert.
 
  
 \subsubsection{Beweis}\label{}
@@ -251,7 +254,7 @@ Hier wird der abstrakte Syntaxbaum als Modell für das Dokument dienen, indem je
  
 \begin{itemize}
 
-\item Abbildungsmerkmal: Der abstrakte Syntaxbaum („das Modell“) ist z.B. ein Abbild eines gedruckten Buches, da Dokumentelemente als Knoten des Syntaxbaums abgebildet werden.
+\item Abbildungsmerkmal: Der abstrakte Syntaxbaum („das Modell“) ist z.B. ein Abbild eines gedruckten Buches, da Dokumentelemente als Knoten des Syntaxbaums abgebildet werden. Die Hierarchie des inneren Aufbaus des Buches wird beibehalten, was wichtig ist, um die argumentative Kette des Textes zu erhalten.
 \item Verkürzungsmerkmal: Nur die Attribute aus dem Original werden modelliert, die den maßgeblichen Inhalt des Dokuments transportieren (z.B. Text). Diese Inhalte werden als Dokumentelemente modelliert.
 \item Pragmatisches Merkmal: Der Autor greift auf das Modell zurück, um daran die herausgelösten und essentiellen Dokumentelemente zu untersuchen bzw. zu manipulieren.
 \end{itemize}
@@ -582,26 +585,44 @@ Wenn man also ein Set an Dokumentelementen definiert und in die Taxonomie eingeg
  
 \chapter{Anwendungsfälle}\label{}
  
-\section{Erstellung wissenschaftlicher Dokumente}\label{wiss-dok-abschnitt}
- 
-In erster Linie soll das System Autoren bei der Erstellung hochwertiger wissenschaftlicher Berichte helfen.
+Hier werden vier verschiedene Anwendungsfälle vorgestellt. Es gelingt dem Prototypen -- ohne Modifikation -- all diese Anwendungsfälle umzusetzen. Damit beweist der Prototyp die Praxistauglichkeit der hier vorgestellten theoretischen Konzepte und gibt Anwendern gleichzeitig ein Gefühl dafür, wie praktisch mit dem System gearbeitet werden kann.
 
  
-Diese Masterarbeit selbst wurde mit dem in ihr beschriebenen Prototypen erstellt. Dies veranschaulicht die Tragfähigkeit der Konzepte, bzw. die Stabilität der momentanen Prototypen-Implementierung.
+Erster Anwendungsfall ist die Erstellung dieser Masterarbeit, d.h. der Prototyp wurde dazu verwendet diese Masterarbeit zu verfassen. Das zeigt, dass der Prototyp in der Lage ist, Texte zu verfassen die wissenschaftlichen Ansprüchen genügen.
 
  
-Damit das Dokument später auch der Hochschule bzw. Fakultät vorgelegt werden kann, muss es auch noch in einem printfähigen Format (insb. mit Paginierung) vorliegen.  Da zur Zeit noch keine Paginierung der Web-Ansicht erfolgt, muss auch noch auf ein anderes Werkzeug zurückgegriffen werden, um ein printfähiges Format zu erhalten. Da das System, dank des abstrakten Syntaxbaumes fähig ist, das Dokument in verschiedene Ansichten zu präsentieren, kann auch LaTeX-Code generiert werden.  Nähere Erklärungen zu solchen Transformationen in Abschnitt \ref{transformation}. Das heißt die Print-Version der Masterarbeit kann zudem noch via LaTeX erzeugt werden. In Zukunft sollte es jedoch kein Problem darstellen eine Print-Paginierung in die Web-Ansicht zu integrieren, dazu kann der Layouter „scaltex.js“, welcher in der Bachelorarbeit \citep{Hodapp} entstanden ist, eingesetzt werden.
+Zweiter Anwendungsfall ist die Nutzung des Prototypen als UIMA CAS Editor, d.h. der Prototyp wird dazu verwendet Texte mit Annotationen zu versehen und diese darzustellen. Das zeigt, dass der Prototyp in der Lage ist auch mit dokument-spezifischen Metadaten umzugehen und eine sehr spezialisierte Form von Editoren umsetzen kann.
 
  
-Um einen wissenschaftlichen Text, wie eine Masterarbeit, verfassen zu können, müssen einige (Basis) Dokumentelemente vom Prototyp bereitgestellt werden, zudem müssen Verweise unter den Dokumentelementen möglich sein. Beispielsweise (mit den Implementierungsnamen): Chapter, Section, SubSection, SubSubSection und Figure mit automatischer Benummerung; Paragraph, List, ArabicList, RomanList, Quotation, Footnote; FrontMatter, BodyMatter, BackMatter.
+Dritter Anwendungsfall betrifft das Spray-Dokumentelement. Dieses kann formale Spray Softwaremodelle darstellen und bearbeiten. Im Text kann direkt auf einschlägige Attribute des Modells zugegriffen werden (z.B. Name einer Entität). Das zeigt, dass der Prototyp in der Lage ist ein wertvolles Werkzeug zur (technischen) Dokumentation von Softwaremodellen zu werden.
 
  
-\subsection{Szenario: Chemie}\label{chemie-szenario}
- 
-Für Demonstrationszwecke wurde auch ein Chemie-Dokumentelement erstellt, welches einen Moleküleditor anbietet. Damit wäre der Autor komfortabel in der Lage in seinem Dokument direkt chemische Moleküle zu zeichnen und darauf zu verweisen. Der Moleküleditor produziert Molfiles\footnote{~Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe „Repräsentation chemischer Strukturen“ unter http://de.wikipedia.org/wiki/Chemoinformatik } als Ausgabe- bzw. Austauschformat, dieses Molfile ist also ein (persistentes) Modell für ein Molekül. Das Chemie-Dokumentelement könnte noch an eine Chemie-Bibliothek, die Molfiles verarbeiten kann, angebunden werden. Eine solche Programmbibliothek kann weitere Informationen zu den verwiesenen Molekülen bereitstellen, und damit einen erheblichen Beitrag zur expliziten Semantik und Konsistenz des Dokument beitragen.
+Vierter Anwendungsfall ist die Fähigkeit das Dokument in andere Formate zu transformieren. Konkret wird hier LaTeX-Code generiert, um die Masterarbeit aus dem ersten Anwendungsfall als paginiertes PDF zu erhalten. Durch hinzufügen von entsprechenden Templates können also beliebige andere Formate produziert werden. Das zeigt, dass der Prototyp in der Lage ist, durch einfache Anpassung von Templates, quasi beliebige Dokumenten-Formate zu produzieren.
 
  
-In Abbildung \ref{Aspirin} ist ein durch das Chemie-Dokumentelement generiertes Molekül abgebildet. Wenn man darauf klickt, wird der Domäneneditor Ketcher geöffnet (s. Abb. \ref{chemieeditieren}). Ketcher\footnote{~Webseite des Ketcher Projekts: http://ggasoftware.com/opensource/ketcher} ist ein in Javascript geschriebener Moleküleditor für den Webbrowser. Das Chemie-Dokumentelement, ist lediglich ein Wrapper\footnote{~„Wrapper (Software), ein Programm, das als Schnittstelle zwischen zwei anderen Programmen dient“. Aus Wikipedia http://de.wikipedia.org/wiki/Wrapper} für diesen Moleküleditor und verwendet die Ketcher-API, um ein SVG-Bild aus dem Molekül für die Visualisierung zu generieren.
+\section{Erstellung dieser Masterarbeit}\label{wiss-dok-abschnitt}
+ 
+In erster Linie soll das System Autoren bei der Erstellung hochwertiger wissenschaftlicher Berichte helfen. Das heißt im Allgemeinen sollen wissenschaftliche Dokumente mit dem System verfasst werden können. Im Speziellen wurde diese Masterarbeit selbst mit dem, im Zuge der Arbeit entstandenen, Prototyp verfasst. Dies veranschaulicht die Tragfähigkeit der Konzepte, bzw. die Stabilität der momentanen Prototypen-Implementierung.
+
+ 
+Diese Masterarbeit basiert also auf der hier entwickelten Theorie von (wiss.) Dokumenten. Das „Original“ (Dokument), welches Sie in Händen halten, ist also aus einem (formalen) Modell entstanden. Modelle können recht leicht auf bestimmte Aspekte hin untersucht werden: Die Masterarbeit besteht aus 447 Dokumentelementen, jedes Dokumentelement wurde im Durchschnitt 39 mal aktualisiert. Dazu zählen auch automatische Aktualisierungen, wie Benummerung von Kapiteln. Wird nur die neuste Version behalten belegt das Dokument 1.6 MB in der Datenbank (ohne Bilder); werden alle Versionen behalten belegt es knapp 84 MB. Es gibt 25 Fußnoten im Dokument, wobei diese z.T. an mehreren Stellen wiederverwendet werden. Die Aktoren senden untereinander rund 20000 Nachrichten, um dieses Dokument aufzubauen. Dabei werden Verweise aufgelöst, Benummerungen ausgerechnet und es wird mit dem Browser kommuniziert -- wobei manche Aktionen mehrfachen wechselseitigen Nachrichtentausch erfordern.
+
+ 
+Damit das Dokument später auch der Hochschule bzw. Fakultät vorgelegt werden kann, muss es auch noch in einem printfähigen Format (insb. mit Paginierung) vorliegen.  Da zur Zeit noch keine Paginierung in der Web-Ansicht erfolgt, muss auf ein anderes Werkzeug zurückgegriffen werden. Dank des abstrakten Syntaxbaumes ist das System fähig, das Dokument in verschiedene Ansichten zu präsentieren -- so kann auch LaTeX-Code generiert werden.  Nähere Erklärungen zu solchen Transformationen in Abschnitt \ref{transformation}. Das heißt die Print-Version der Masterarbeit wird via LaTeX erzeugt. In Zukunft sollte es kein Problem darstellen eine Print-Paginierung in die Web-Ansicht zu integrieren; dazu kann der Layouter „scaltex.js“, welcher in der Bachelorarbeit \citep{Hodapp} entstanden ist, eingesetzt werden.
+
+ 
+Um einen wissenschaftlichen Text, wie eine Masterarbeit, verfassen zu können, müssen einige (Basis) Dokumentelemente vom Prototyp bereitgestellt werden, zudem müssen Verweise unter den Dokumentelementen möglich sein. Beispielsweise (mit den Implementierungsnamen): Chapter, Section, SubSection, SubSubSection und Figure mit automatischer Benummerung; Paragraph, List, ArabicList, RomanList, Quotation, Footnote für Texte und FrontMatter (Titelei), BodyMatter, BackMatter zur Trennung der großen Bereiche. In der Masterarbeit wurde ausschließlich die BodyMatter, also der Hauptteil, und die BackMatter, also insb. Literaturverzeichnis, mit dem Prototyp geschrieben. Die Titelei (Deckblätter, Inhaltsverzeichnis, Glossar, Vorwort) wurde komplett mit LaTeX erstellt. Der Hauptteil und sowie die BibTeX-Literatur wurde komplett vom Prototyp generiert.
+
+ 
+\subsection{Szenario: Dokumente mit chemischen Strukturformeln}\label{chemie-szenario}
+ 
+Der Gewinn ein solches System einzusetzen liegt in der Fähigkeit, domänenspezifische Inhalte zu verwenden. Beispielsweise in der Domäne Chemie werden immer wieder Strukturformeln von chemischen Verbindungen gezeichnet. Die Chemiker haben entsprechende Modelle von chemischen Verbindungen ausgearbeitet, so dass damit auch formal gerechnet werden kann. Und genau das soll das System: Auf Attribute und Funktionen eines formalen Modells einer spezifischen (Teil-) Domäne zugreifen und nutzen.
+
+ 
+Zur Demonstration wurde ein Strukturformel-Dokumentelement entwickelt, welches den in Strukturformel-Editor Ketcher\footnote{~Webseite des Ketcher Projekts: http://ggasoftware.com/opensource/ketcher} der Firma GGA Software enthält. Damit ist der Autor in der Lage in seinem Dokument direkt chemische Strukturformeln zu zeichnen, und dessen semantische Informationen zu nutzen. Der Moleküleditor produziert Molfiles\footnote{~Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe „Repräsentation chemischer Strukturen“ unter http://de.wikipedia.org/wiki/Chemoinformatik } als Ausgabe- bzw. Austauschformat, dieses Molfile dient als ein (persistentes) Modell für eine chemische Verbindung. Das Chemie-Dokumentelement kann zudem noch an eine Chemie-Bibliothek, die Molfiles verarbeiten kann, angebunden werden. Eine solche Programmbibliothek kann weitere Informationen zur jeweiligen chem. Verbindung bereitstellen, und damit einen erheblichen Beitrag zur expliziten Semantik und Konsistenz des Dokuments beitragen.
+
+ 
+In Abbildung \ref{Aspirin} ist ein durch das Strukturformel-Dokumentelement generiertes Molekül (Modell) abgebildet. Wenn man darauf klickt, wird der Domäneneditor Ketcher geöffnet. Das funktioniert im gedruckten Dokument oder im statischen PDF nicht, daher ist es auch auf Abb. \ref{chemieeditieren}, als Bildschirmaufnahme dargestellt. Das Strukturformel-Dokumentelement, ist lediglich ein Wrapper\footnote{~„Wrapper (Software), ein Programm, das als Schnittstelle zwischen zwei anderen Programmen dient“. Aus Wikipedia http://de.wikipedia.org/wiki/Wrapper} für Ketcher. Es verwendet die Ketcher-API, um ein SVG-Bild aus dem Molekül-Modell für die Visualisierung zu generieren, sowie das Molfile-Format, welches eine portable Modell-Repräsentation für chem. Verbindungen ist. Es handelt sich hierbei also nicht nur um ein simples Zeichenprogramm für chemische Verbindungen, sondern das Dokumentelement hat tatsächlich semantisches Wissen über das chemische Objekt. Daher kann der Autor auch davor bewahrt werden, nicht-konforme Modelle zu zeichnen. Zudem kann der Autor dieses Wissen nutzen, um sein Dokument konsistent zu halten. So kann ein Text, der die Verbindung beschreibt, direkt auf das dahinterliegende Modell der theoretischen Chemie zugreifen. Wird die chemische Verbindung bearbeitet, passen sich entsprechend markierte Textstellen unmittelbar an.
 
  
 \begin{figure}[h!]
@@ -615,46 +636,44 @@ In Abbildung \ref{Aspirin} ist ein durch das Chemie-Dokumentelement generiertes 
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/chemieeditieren.png.pdf} }
-\caption[Bildschirmaufnahme Chemie-Dokumentelement]{ Bildschirmaufnahme der Editier-Ansicht des Chemie-Dokumentelements. Es ist der Domäneneditor „Ketcher“ (1) zu sehen, der gerade das Aspirin Molekül anzeigt und zum editieren einlädt. Zudem wird das Modell (2) des Aspirin Moleküls im Molfile-Format angezeigt. }\label{chemieeditieren}
+\caption[Bildschirmaufnahme Chemie-Dokumentelement]{ Bildschirmaufnahme der Editier-Ansicht des Chemie-Dokumentelements. Es ist der Domäneneditor „Ketcher“ (1) zu sehen, der gerade das Aspirin Molekül anzeigt und zum editieren einlädt. Der Editor ist nicht nur ein einfaches Zeichenprogramm, sondern er kennt seine Domäne und bietet daher entsprechende Semantik (siehe dazu die unterschiedlichen Farben für die chemischen Elemente die auch so im Molekül vorkommen). Zudem wird das Modell (2) des Aspirin Moleküls im Molfile-Format angezeigt. Das alles ermöglicht dem Autor, direkt mit dem chemischen Objekt zu interagieren. }\label{chemieeditieren}
 \end{figure}
+ 
+\subsection{Erhoffter Nutzen}\label{}
+ 
+Die vorgestellten Konzepte ermöglichen es also, einem Dokument mehr explizite Semantik zu verleihen. Das ist nützlich für den Leser, da ihm zusätzliche Informationen bei Bedarf eingeblendet werden können -- das beugt Verständnisprobleme vor. Nützlich ist es auch für Dienste die automatisiert entsprechende Dokumente analysieren -- Wissensnetze wie das Semantic Web, können die Informationen nutzen. Auch für den Autor hat es einen Sinn sich mit diesen Konzepten auseinanderzusetzen, denn es erspart ihm u.U. Schreibarbeit bzw. ärgerliche Inkonsistenzen. All das führt hoffentlich zur Anhebung der Qualität bei der wissenschaftlichen Dokumentation.
+
  
 \section{UIMA CAS Editor}\label{uima-cas-kapitel}
  
 Apache UIMA\footnote{~Webseite des Apache UIMA (Unstructured Information Management Architecture) Projekts: http://uima.apache.org } ist ein Softwaresystem, mit dessen Hilfe neues, für den Benutzer relevantes, Wissen aus großen unstrukturierten Datenmengen gewonnen werden kann.
 
  
-Ein einfacher Text kann um Anmerkungen, sogenannte Annotationen, angereichert werden. Diese Annotationen sind dafür zuständig, einzelne Entitäten des Texts zu identifizieren, wie z.B. Personen, Orte, Organisationen etc. oder Relationen wie „arbeitet für“.
+Ein einfacher Text kann um Anmerkungen, sogenannte Annotationen, angereichert werden. Diese Annotationen sind dafür zuständig, einzelne Entitäten des Texts zu identifizieren, wie z.B. Personen, Orte, Organisationen etc. oder auch Relationen wie „arbeitet für“.
 
  
-CAS (Common Analysis System) Objekte bieten Zugriff auf das Typsystem, Indexe, Iteratoren und Filter von UIMA. Insbesondere ist es möglich, Annotationen mit dem CAS Objekt zu erstellen. Das heißt: In einem CAS Objekt kann ein Dokument mit Annotationen gespeichert werden. Ein solches CAS Objekt kann in das XML Metadata Interchange (XMI) Format serialisiert werden, wodurch es möglich ist, annotierte Dokumente zu persistieren und auszutauschen.
+CAS\footnote{~UIMA CAS Objekt Dokumentation: http://uima.apache.org/downloads/releaseDocs/2.3.0-incubating/docs/api/org/apache/uima/cas/CAS.html} (Common Analysis System) Objekte bieten Zugriff auf das Typsystem, Indexe, Iteratoren und Filter von UIMA, um auf (gewonnene) Informationen programmatisch zuzugreifen. Insbesondere ist es möglich, Annotationen mit dem CAS Objekt zu erstellen. Vereinfacht ausgedrückt: In einem CAS Objekt kann ein Dokument mit Annotationen gespeichert werden. Ein solches CAS Objekt kann in das XML Metadata Interchange (XMI) Format serialisiert werden, wodurch es möglich ist, annotierte Dokumente zu persistieren und auszutauschen.
 
  
-Mit einem CAS\footnote{~UIMA CAS Objekt Dokumentation: http://uima.apache.org/downloads/releaseDocs/2.3.0-incubating/docs/api/org/apache/uima/cas/CAS.html} Editor würde ein Autor also gerne im betrachteten Dokument mit Annotationen arbeiten:
+Mit einem CAS Editor würde ein Autor also gerne ein Dokument betrachten, und darin UIMA Annotationen anzeigen lassen, diese bearbeiten oder neue hinzufügen.
 
- 
-\begin{enumerate}
-
-\item Annotationen anzeigen,
-\item Annotation bearbeiten und
-\item Annotationen hinzufügen.
-\end{enumerate}
  
 \subsection{Konzeptuelle Umsetzung}\label{}
  
-Für jeden Annotations-Typ (z.B. Person, Ort, etc.) müsste ein entsprechendes Dokumentelement angelegt werden, d.h. das Metamodell des Dokuments muss entsprechend erweitert werden. Wenn das Metamodell um die gewünschte Menge an Annotations-Typen erweitert ist, kann der Prototyp automatisch mit den neuen Dokumentelementen bzw. Annotationen umgehen. Da jedes Dokumentelement das Modell seiner Domäne vertritt, können hier auch zusätzliche (semantische) Informationen, die für die jeweilige Annotation wichtig sind, abgelegt werden.
+Für jeden Annotations-Typ (z.B. Person, Ort, etc.) muss ein entsprechendes Dokumentelement angelegt werden, d.h. das Metamodell des Dokuments muss entsprechend erweitert werden. Wenn das Metamodell um die gewünschte Menge an Annotations-Typen erweitert ist, kann der Prototyp automatisch mit den neuen Dokumentelementen bzw. Annotationen umgehen. Da jedes Dokumentelement das Modell seiner Domäne vertritt, können hier auch zusätzliche (semantische) Informationen, die für die jeweilige Annotation wichtig sind, abgelegt werden.
 
  
 \begin{quote}
  Annotation bedeutet „Anmerkung“, „Beifügung“, „Hinzufügung“. In diesem Sinn haben Annotationen bei Stichworten, Begriffsklärungen oder ausführlichen Texten den Charakter der Erklärung beziehungsweise Ergänzung. Annotationen halten Dinge fest, die zwar nicht als wesentlich für das Hauptstichwort oder den Haupttext erachtet werden, aber wichtige Zusatzinformationen darstellen. Sie sind es immerhin wert, ausdrücklich festgehalten zu werden, und auf diese Weise erhalten die bezeichneten Inhalte einen Platz in der Ordnung des Ganzen, ohne die Struktur zu stören oder die Sinnlinie der Aussage zu unterbrechen. \citep{WikiAnnotation}
 \end{quote}
  
-Das heißt, Annotationen sind nicht zwingender Bestandteil des eigentlichen Dokuments, welches den intellektuellen Inhalt liefert. Sie sind eher Stützen welche das Dokument leichter verständlich machen. Daher können sie den Metadaten Dokumentelementen zugeordnet werden.
+Das heißt, Annotationen sind nicht zwingender Bestandteil des eigentlichen Dokuments, welches den intellektuellen Inhalt liefert. Sie sind eher Stützen welche das Dokument leichter verständlich machen. Daher können sie den Metadaten-Dokumentelementen zugeordnet werden.
 
  
-Für diesen Zweck wurde im Prototyp ein Metadokument implementiert, dieses enthält Zusätze oder Aussagen, die vom eigentlichen Dokument separiert sein sollen. Das Metadokument bedient sich der gleichen Infrastruktur, die auch das Hauptdokument nutzt. Sie haben einen  gemeinsamen Dokumentelement-Pool und können daher gegenseitig auf die vorkommenden Dokumentelemente zugreifen, z.B. via Verweis. Schöner Nebeneffekt: Die Annotationen können im Metadokument übersichtlich angeordnet und dort ggf. dokumentiert werden.
+Für diesen Zweck wurde im Prototyp ein Metadokument implementiert, dieses enthält Zusätze oder Aussagen, die vom eigentlichen Dokument separiert sein sollen. Das Metamodell ist quasi ein komplett eigenständiges Dokument, denn es hat eine eigene Wurzel. Daher bedient es sich der gleichen Infrastruktur, die auch das Hauptdokument nutzt. Weil das Metadokument und Hauptdokument in Kontakt stehen, haben sie einen  gemeinsamen Dokumentelement-Pool und können daher gegenseitig auf die vorkommenden Dokumentelemente zugreifen, z.B. via Verweis. Schöner Nebeneffekt: Die Annotationen können im Metadokument übersichtlich angeordnet und dort ggf. dokumentiert werden.
 
  
-Annotationen werden durch ein „mouse over“ im Browser farbig hervorgehoben (s. Abb. \ref{annotation}). Im Metadokument können neue Annotationen hinzugefügt werden und via Verweis in ein beliebiges Dokumentelement gebracht werden. Im Metadokument können sie auch bearbeitet werden. Für Demonstrationszwecke wurde das Dokumentelement „Annotation“ implementiert. Als Beispieldokumente dienen Patentschriften, die durch das vom Fraunhofer SCAI geleitete Projekt \emph{UIMA-HPC}\footnote{~Webseite des UIMA-HPC Projekts: http://uima-hpc.org} digitalisiert, durchsuchbar und annotiert wurden. Das SCAI.BIO abteilungsinterne Werkzeug „The Interfacer“ kann CAS Objekte (in denen die Patentschriften u.a. vorliegen) in Datenstrukturen des Prototypen übersetzen und somit für den Prototypen mühelos nutzbar machen.
+Annotationen werden durch ein „mouse over“ im Browser farbig hervorgehoben (s. Abb. \ref{annotation}). Im Metadokument können neue Annotationen hinzugefügt werden und auf Attribute der Annotation kann via Verweis zugegriffen werden. Im Metadokument können sie auch bearbeitet werden. Für Demonstrationszwecke wurde das Dokumentelement „Annotation“ implementiert. Als Beispieldokumente dienen Patentschriften, die durch das vom Fraunhofer SCAI geleitete Projekt \emph{UIMA-HPC}\footnote{~Webseite des UIMA-HPC Projekts: http://uima-hpc.org} digitalisiert, durchsuchbar und annotiert wurden. Das SCAI.BIO abteilungsinterne Werkzeug „The Interfacer“ kann CAS Objekte (in denen die Patentschriften u.a. vorliegen) in Datenstrukturen des Prototypen übersetzen und somit für den Prototypen mühelos nutzbar machen.
 
  
 \begin{figure}[h!]
@@ -663,6 +682,14 @@ Annotationen werden durch ein „mouse over“ im Browser farbig hervorgehoben (
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/annotation.png.pdf} }
 \caption[Hauptdokument und Metadokument]{ Entnommen aus Screenshots des Prototypen. Es wird dargestellt, wie Annotationen vom Meta Dokument in das Haupt Dokument (über Verweisung) fließen können. Im Haupt Dokument werden bei „mouse over“ alle Annotationen vom gleichen Annotations-Typ „Annotation“ farbig hervorgehoben. Es ist möglich beliebige Annotations-Typen (als Dokumentelement) zu kreieren. }\label{annotation}
 \end{figure}
+ 
+Die größte Patentschrift die mit dem Prototyp bisher geöffnet wurde hat 515 Dokumentelemente, wovon 146 Annotationen sind. Das für Demonstrationszwecke entwickelte Annotation-Dokumentelement enthält zusätzliche Informationen („das Modell“) die aus UIMA stammen. Konkret sind das, neben dem eigentlichen Inhalt der Annotation, die Attribute identifier, source und tool. So könnte ein Leser angezeigt bekommen, aus welcher Quelle die Information stammt bzw. welches Werkzeug die Annotation generiert hat.
+
+ 
+\subsection{Erhoffter Nutzen}\label{}
+ 
+In erster Linie kann es sich für SCAI.BIO zu einem nützlichen Werkzeug entwickeln, um automatisch erzeuge Annotationen zu kurieren. Wenn der Prototyp ausgebaut wird, kann ein komfortabler CAS Editor entstehen, welcher in der UIMA-Gemeinschaft sicher anklang finden wird. Gerade dadurch, dass das System auf einem allgemeinen Modell bzw. Theorie von Dokumenten fußt, bieten die Theorien einen wohl strukturierten Rahmen, um z.B. das Typsystem von UIMA sinnvoll zu erweitern. CAS Objekten wird so ermöglicht, Dokumentelemente zu abstrahieren bzw. diese mit Attributen zu füllen. Anhand der Dokumentelemente die im Dokument vorkommen, kann eine Dokumentklasse geschlussfolgert werden; ein Dokument kann so auch automatisch verschlagwortet (für die Bibliografie) werden. Alte Dokumente können so automatisch zu semantischen Dokumenten aufgewertet werden.
+
  
 \section{Dokumentation von Spray-Modellen}\label{doku-spray}
  
@@ -993,6 +1020,32 @@ Dokumentelemente liegen als Scala Klasse vor und eine Verweisung greift direkt a
 Die Anzeige im Browser kann contentSrc, contentRepr, contentUnified sowie alle anderen Attribute des Dokumentelements nach belieben verwenden. Details zu contentSrc, contentRepr und contentUnified sind in Abschnitt \ref{contentSrc} zu finden.
 
  
+\subsubsection{Zyklische Verweise}\label{}
+
+ 
+Zyklische Verweise sind für die gegenwärtige Implementierung des Prototypen kein Problem. Die Nachrichten werden nach dem Schema „fire and forget“ gesendet. Das vermeidet, dass ein Aktor unendlich lange auf eine Antwort wartet. Am Beispiel von Aktor a und Aktor b soll erklärt werden, warum das Auflösen von Verweisen immer terminiert. Jeder der Aktoren nimmt eine einfache DSL entgegen, woraus die Attribute gewonnen werden. Die DSL sowie die Attribute werden im Zustand des jeweiligen Aktors gespeichert. Die Aktoren verweisen in der DSL auf sich gegenseitig.
+
+ 
+\begin{verbatim}
+a {
+  x: "",
+  y: "",
+  contentSrc: "x = foo, y = {b.z}"
+}
+
+
+b {
+  z: "",
+  contentSrc: "z = {a.y}"
+}
+\end{verbatim}
+ 
+Jeder Aktor hat Attribute die mit einem Vorgabewert initialisiert sind. Wird durch ein Ereignis, wie Benutzereingabe, die Analysephase ausgelöst, so soll die DSL in die Attribute übersetzt werden. Wenn Verweise zu anderen Aktoren in der DSL enthalten sind, wird der andere Aktor nach seinem aktuellen Zustand befragt, um diesen in die DSL einzubauen. Angekommen zeitgleich fragt Aktor a den Aktor b nach seinem aktuellen Zustand und umgekehrt. Dann ist in den Antworten jeweils, der aktuelle Zustand zu finden, also jeweils nur die Vorgabewerte der Attribute. Es folgen keine weiteren Nachrichten, da sich die Aktoren jeweils mit dem Vorgabewert zufrieden geben. Somit entsteht keine endlose Nachrichtenkette; es terminiert also wie bei jedem anderen Verweis.
+
+ 
+Selbst wenn die Aktoren gegenseitig auf das rohe contentSrc (die DSL) gegenseitig zugreifen wollen, ist das kein Problem. Das liegt daran, dass der ausgewertete contentSrc (d.h. die Attribute des anderen Aktors wurden dort eingebaut) nicht wieder in das contentSrc-Attribut zurückgespeichert wird, sondern in dem gesonderten contentRepr-Attribut abgespeichert wird. Das heißt ein Programmcode (hier in den geschweiften Klammern) kann nicht doppelt ausgewertet werden, da nur contentSrc nach entsprechenden Aktor-Referenzen durchsucht und interpretiert wird.
+
+ 
 \section{Eingesetzte Technologien}\label{}
  
 Hier soll geklärt werden, welche Technologien eingesetzt werden, um den Prototypen zu bauen. Zudem wird begründet, warum genau diese Technologien ausgewählt wurden.
@@ -1124,41 +1177,50 @@ Die Buchreferenzen Dokumentelemente nehmen BibTeX als DSL an. Eine Scala BibTeX 
 Hier werden einige wichtige Algorithmen kurz erklärt, die während der Entwicklung entstanden sind. Dazu gehört ein Algorithmus zur effizienten Benummerung von Kapiteln bzw. Abschnitten mittels Nachrichtenaustausch. Eine Datenstruktur zur Speicherung der Dokumenten-Topologie mit einem Algorithmus zur Auswertung der Reihenfolge der einzelnen Elemente der Topologie. Und die Funktionsweise der Code Generierung zur Auflösung der „reichhaltigen“ Verweisungen.
 
  
-\subsubsection{Benummern im gerichteten Graph}\label{}
+\subsubsection{Benummern im Syntaxbaum}\label{}
 
  
-Abbildungen und Kapitel bzw. Abschnitte werden in wissenschaftlichen Dokumenten für gewöhnlich benummert. Der abstrakte Syntaxbaum muss also während der Analysephase die genauen Benummerungen einzelner Dokumentelemente (je nach Typ) bestimmen können. Hier wird ein Algorithmus vorgestellt der durch Nachrichtenaustausch innerhalb eines gerichteten Graphen Benummerungen zuweisen kann.
+Abbildungen und Kapitel bzw. Abschnitte werden in wissenschaftlichen Dokumenten für gewöhnlich benummert. Der abstrakte Syntaxbaum muss also während der Analysephase die genauen Benummerungen einzelner Dokumentelemente (je nach Typ) bestimmen können. Hier wird ein Algorithmus vorgestellt der durch Nachrichtenaustausch innerhalb der baumartigen Hierarchie des Dokuments Benummerungen zuweisen kann.
 
  
-Gegeben ist ein gerichteter Graph \(G = (V, E)\). Wobei \(V = { a, b, x, c }\) die Menge der Knoten (Dokumentelemente) darstellt und \(E = { (a,b), (b,x), (x,c) }\) die Kanten (Nachrichtenkanal). \({ a, b, c }\) sind die Abschnitte die benummert werden sollen.
+Gegeben ist ein gerichteter kreisfreier Graph \(G = (V, E)\). Wobei \(V = { a, b, x, c }\) die Menge der Knoten (Dokumentelemente) darstellt und \(E = { (a,b), (b,x), (x,c) }\) die Kanten (Referenzen zum ersten Kind bzw. nächsten Geschwister). Es werden nur Knoten benummert, die als Kapitel bzw. Abschnitt markiert sind. sind die Abschnitte die benummert werden sollen.
 
  
 \begin{verbatim}
+Jeder Abschnittsknoten hat das Attribut `Nummer`,
+welches mit dem Wert 1 initialisiert ist.
 
-Einfache Visualisierung von G: a → b → x → c.
+Wird die Analysephase angestoßen wird von der Wurzel aus
+die Nachricht "Update" an die Knoten geschickt.
+Das erfolgt hierarchisch, d.h. jeder Knoten reicht
+diese Nachricht nur an sein erstes Kind bzw. seinen
+direkt nachfolgenden Geschweisterknoten weiter.
+Jeder Knoten bekommt pro Analysephase genau einmal
+die Nachricht "Update".
 
-a schickt die Nachricht "Durchzählen(1)" durch G.
+Wird "Update" von einem Abschnittsknoten erhalten,
+schickt dieser die Nachricht "Durchzählen(Nummer)"
+an seinen direkt nachfolgenden Geschwisterknoten.
 
-b erhält eine Nachricht von a.
-b erhöht Durchzählen um 1 auf Durchzählen(2).
-b setzt seinen eigenen Nummerzähler auf Durchzählen(2).
-b schickt "Druchzählen(2)" weiter durch den Graph.
+Erhält ein Knoten die Nachricht "Durchzählen(NummerVorgänger)",
+setzt er sein Attribut Nummer := NummerVorgänger + 1.
 
-x reicht die "Durchzählen" Nachricht weiter, ohne Aktion.
-
-c erhält eine Nachricht die von a und b (etc.) bearbeitet wurden.
-c erhöht Durchzählen um 1 auf Durchzählen(3)
-c setzt seinen eigenen Nummerzähler auf Durchzählen(3).
-Da c keinen Nachfolger mehr hat, kann nichts weitergeleitet werden.
+Erhält ein anderer Knoten-Typ die "Durchzählen" Nachricht,
+leitet er sie unverändert weiter.
 \end{verbatim}
  
-Damit werden maximal \(|E|\) Nachrichten benötigt, um für jeden Abschnitts-Knoten die korrekte Benummerung zu bestimmen. Die Komplexität bezüglich der Laufzeit beträgt also \(O(|E|)\).
+Damit werden maximal \(|E|\) Nachrichten benötigt, um für jeden Abschnitts-Knoten die korrekte Benummerung zu bestimmen. Die Komplexität bezüglich der Laufzeit beträgt also \(O(|E|)\). Notiz: Der Algorithmus benummert also jede Hierarchieebene individuell, das heißt z.B. in der Titelei werden die Kapitel von 1 bis x gezählt und ab dem Hauptteil werden die Kapitel auch wieder von 1 bis y gezählt. Für die Zukunft ist es bestimmt sinnvoll, wenn Kapitel und Abschnitte selbst Teil der Hierarchie sind.
 
+ 
+Dadurch, dass die Update-Nachricht jeden Knoten im Baum erreicht, werden die betreffenden Knoten ihre Durchzählen-Nachricht mehrfach verbreiten. Das hat zur Folge, dass insgesamt deutlich mehr Nachrichten versendet werden. Es werden exakt so viele Nachrichten versendet, wobei \(|E|\) die zu benummernden Abschnitts-Knoten sind, wie in der nachfolgenden Formel angegeben. Dies entspricht einer Komplexität bezüglich der Laufzeit von \(O(|E|^2)\). Hier gibt es also noch Optimierungspotential für die Analysephase.
+
+ 
+$$\sum_{i=1}^{|E|}{\left( |E|-i \right)}=\frac{1}{2}\left( |E|-1 \right)|E|$$
  
 Analog kann für Unterabschnitte und Unterunterabschnitte mit der Nachricht Durchzählen(1, 1, 1) begonnen werden. Ein Unterabschnitt würde also nur die mittlere 1 inkrementieren und die anderen unangetastet lassen.
 
  
-Das ist ein recht natürlicher Ansatz, um die Benummerungen zu bestimmen. Auf diese Art können Abschnitte sowie Unterabschnitte gleichzeitig mit einer einzigen Nachrichtenkette aktualisiert werden. Der Aufwand bleibt also bei \(|E|\) Nachrichten.
+Das ist ein recht natürlicher Ansatz, um die Benummerungen zu bestimmen. Auf diese Art können Abschnitte sowie Unterabschnitte gleichzeitig mit einer einzigen Nachrichtenkette aktualisiert werden. Der Aufwand bleibt also im Idealfall bei \(|E|\) Nachrichten.
 
  
 \subsubsection{Topologie speichern und verarbeiten}\label{}
@@ -1402,3 +1464,4 @@ Modellierung von Dokumentelementen, durch schreiben eines einfachen Dokuments. E
 
  
 \citep[S.~3]{Segaran} trifft es sehr präzise, wenn er behauptet, dass natürliche Sprache wohl die beste API für Wissen ist, die wir Menschen kennen. \citep[S.~1]{Knuth} hat dies in etwa auch so erkannt und daraus das programmiersprachenübergreifende Programmierparadigma des Literate Programming entwickelt. Dort soll Software wie ein Literaturwerk behandelt werden, d.h. Dokumentation und Programmcode werden in einer Datei simultan untergebracht. Die hier vorgestellten Konzepte eigenen sich mutmaßlich hervorragend, um Literate Programming umzusehen. Beispielsweise können einzelne größere Programmkomponenten wie z.B. ein For-Schleifen-Block auf spezielle Dokumentelemente abgebildet werden. Eine Funktionsdekleration wäre mit einem Kapitel vergleichbar, etc. Gemischt mit normalen Dokumentelementen, die beschreibend zur Seite stehen, könnte somit auch mit diesem System Literate Programming umgesetzt werden. Zudem kann jedes Programm-Dokumentelement eine passende Visualisierung von Datenstrukturen oder Programmflüssen darstellen. Durch den Modellcharakter der Dokumentelemente wäre es somit möglich, ein Programm sogar in verschiedene Programmiersprachen zu transformieren. Anwendungsfall: Ein DSL-Skript kann durch einen Wissenschaftler mit dem System programmiert, visualisiert und gleichzeitig dokumentiert werden kann.
+
