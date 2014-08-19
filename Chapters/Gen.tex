@@ -52,11 +52,11 @@ Es folgt eine kurze Vorstellung einiger Softwaresysteme die zum Erstellen von wi
  
 \begin{enumerate}
 
-\item Textverarbeitungen
-\item Textsatzsysteme
-\item SALT
-\item OCA
-\item Wolfram CDF
+\item Textverarbeitungen,
+\item Textsatzsysteme,
+\item SALT,
+\item OCA,
+\item Wolfram CDF.
 \end{enumerate}
  
 (1) Sehr weit verbreitet sind Microsoft Word, Apache OpenOffice oder Google Docs. Dabei handelt es sich um WYSIWYG-Editoren für Dokumente. Sie sind für gewöhnlich als Projektionsedtioren für Markup realisiert.
@@ -84,7 +84,7 @@ Da ein Prototyp wunderbar untersucht werden kann, ist es möglich, theoretische 
  
 \begin{itemize}
 
-\item theoretische Konzepte aufgezeigt und empirisch validiert\footnote{~Funktioniert das Konzept richtig?} werden können, und
+\item Theoretische Konzepte aufgezeigt und empirisch validiert\footnote{~Funktioniert das Konzept richtig?} werden können, und
 \item leicht Anwendungsfälle ausprobiert werden können, um die praktische Tauglichkeit der Softwarearchitektur zu verifizieren\footnote{~Verifikation prüft, ob ein System richtig gebaut ist. Oder im Falle von Dokumenten: Ist das Dokument zu einer Spezifikation konform?}.
 \end{itemize}
  
@@ -116,7 +116,7 @@ Um die Software benutzbar zu machen, gibt es folgende Nebenbedingungen:
 \item Es soll ein Einheimischer des WWW werden, d.h. Web Standards sind das Ausgabeformat. Sie übernehmen das Setzen des Dokuments, bieten dem Benutzer eine Editierschnittstelle, ermöglichen Kollaboration und bieten eine ubiquitäre Wissensrepräsentation.
 \end{itemize}
  
-Einige dieser Anforderungen zielen implizit auf die Implementierung eines Projektionseditors (siehe Abschnitt \ref{Projektionseditoren-sec}) und haben sogar Potential für ein „Dokument Query Interface“. Das heißt das Dokument im Ganzen oder ein Dokumentelement im Speziellen, kann befragt werden, einen bestimmten Sachverhalt herauszufinden. Beispielsweise können so komfortabel alle Abschnitte nach ihrer Benummerung abgefragt werden, um ein Inhaltsverzeichnis zu bauen.
+Einige dieser Anforderungen zielen implizit auf die Implementierung eines Projektionseditors (siehe Abschnitt \ref{Projektionseditoren-sec}) und haben sogar Potenzial für ein „Dokument Query Interface“. Das heißt das Dokument im Ganzen oder ein Dokumentelement im Speziellen, kann befragt werden, einen bestimmten Sachverhalt herauszufinden. Beispielsweise können so komfortabel alle Abschnitte nach ihrer Benummerung abgefragt werden, um ein Inhaltsverzeichnis zu bauen.
 
  
 \section{Idee}\label{}
@@ -148,8 +148,8 @@ Der hier mit den Aktoren umgesetzte AST könnte als „reaktiver AST“\footnote
  
 \begin{figure}[h!]
 \centering
-\advance\leftskip-2.5cm
-\fbox{ \includegraphics[width=1.45\textwidth]{figures/idee.svg.pdf} }
+%\advance\leftskip-2.5cm
+\fbox{ \includegraphics[width=1\textwidth]{figures/idee.svg.pdf} }
 \caption[Idee eines Modells für Dokumente]{ Idee eines Modells für Dokumente. Ein Dokument fängt an seiner Wurzel (Dreieck) an. Jeder Aktor (Raute) repräsentiert ein Dokumentelement, dargestellt durch die orangene Linie. Die Aktoren kennen ihr erstes Kind (fetter Pfeil) und ihren unmittelbaren Nachfolger (dünner Pfeil) und spannen damit einen Baum auf. Die Aktoren können Nachrichten (grüne Pfeile) austauschen, um Verweise, wie z.B. Benummerungen, aufzulösen. Werden alle Pfeile als Kanten verstanden, so handelt es sich um einen gerichteten Graphen. }\label{idee}
 \end{figure}
  
@@ -246,7 +246,7 @@ Wenn der Autor an seinem Dokument arbeitet, dann stets über das Modell, wo er s
 Im Allgemeinen ist ein natürliches Modell für ein Dokument ein gerichteter Graph. Die Knoten des Graphen entsprechen den Dokumentelementen. Die Topologie des Dokuments entspricht einer baumartigen gerichteten Graph-Struktur, denn das innere eines Dokuments oder einer Rede ist hierarchisch aufgebaut. Jedoch gibt es in Dokumenten immer wieder Sprünge die auf andere Stellen verweisen -- ein klassisches Beispiel dafür ist „... siehe Abbildung x für ...“. Das bedeutet es gibt zwei Arten von Kanten: Kanten die die Topologie des Dokuments aufspannen, diese bilden einen gerichteten Baum. Kanten die Verweise zwischen Dokumentelementen darstellen, diese bilden einen gerichteten Graph. Wie man sich eine Abbildung von einem Dokument auf einen Baum bzw. Graph vorstellen kann, ist auf Abbildung \ref{idee} visualisiert. Die beiden vorkommenden Kanten-Arten werden in der Grafik vereint dargestellt.
 
  
-Hier wird der abstrakte Syntaxbaum als Modell für das Dokument dienen, indem jedes Dokumentelement als ein Knoten des abstrakten Syntaxbaum aufgefasst wird. Mehr zum abstrakten Syntaxbaum in Abschnitt \ref{ast-sec}. Der abstrakte Syntaxbaum repräsentiert also die Hierarchie des Dokuments. Zudem wird angenommen, dass die Knoten des abstrakten Syntaxbaumes miteinander kommunizieren können, auf diese weise können die Verweisungen unter den einzelnen Dokumentelementen aufgelöst werden. visualisiert.
+Hier wird der abstrakte Syntaxbaum als Modell für das Dokument dienen, indem jedes Dokumentelement als ein Knoten des abstrakten Syntaxbaums aufgefasst wird. Mehr zum abstrakten Syntaxbaum in Abschnitt \ref{ast-sec}. Der abstrakte Syntaxbaum repräsentiert also die Hierarchie bzw. Gliederung des Dokuments. Zudem wird angenommen, dass die Knoten des abstrakten Syntaxbaumes miteinander kommunizieren können. Auf diese weise können die Verweisungen unter den einzelnen Dokumentelementen aufgelöst werden. Dies wird auf Abbildung \ref{idee} veranschaulicht.
 
  
 \subsubsection{Beweis}\label{}
@@ -462,7 +462,7 @@ Hinter jedem Dokumentelement, sei es ein Abschnitt, Absatz, Tabelle oder eine ch
 Das heißt, dass bei der Erstellung eines Dokuments, Dokumentelemente vom Autor entworfen werden können, welche Modelle der jeweiligen Wissenschaft enthalten. Das ermöglicht dem Autor deutlich strukturierter, formaler und konsistenter an die Dokumentation seins Projektes heranzugehen. Zudem werden dem Leser dadurch explizite semantische Informationen bereitgestellt, welche direkt vom dahinterstehenden Modell stammen. Der Leser kann ggf. das Modell eines Autors in eigenen Dokumenten wiederverwenden. Vorteil hierbei wäre, dass weniger Fehler entstehen, da direkt auf die Gedanken (welche in das Modell gegossen wurden) des Original-Autors zurückgegriffen werden kann.
 
  
-Üblicherweise gibt es unter Dokumentelementen Verweise. Beispiel: Ein Absatz-Dokumentelement möchte auf die atomare Masse einer chemischen Verbindung, die im Strukturformel-Dokumentelement angezeigt wird, verweisen. Auf Abbildung \ref{semiotikmikro} ist dieses Beispiel veranschaulicht. Im Beispiel: Der Autor schreibt einen Absatz z.B. „Die Masse beträgt { aspirinReference.mass } ...“, dann wertet das System den Absatz aus, und es wird „Die Masse beträgt 180,16 u ...“ angezeigt. Als „Zeichen“ dient also das Ergebnis des Programmausdrucks, welcher direkt auf die Modell-Attribute des chem. Strukturformel-Dokumentelements zugreifen kann. Der Programmausdruck ist Syntax, um das gewünschte Zeichen zu genieren. Hier bedeutet das Zeichen „Atomare Masseneinheit“. Die chemische Verbindung Aspirin ist das Bezeichnete. Im Falle des Verweises ist es möglich die Semantik z.B. aus den Informationen des Typsystems des Programmausdrucks zu ziehen -- also „aspirinReference.mass“ evaluiert zum Datentyp „AtomicMassUnit“. Schaut man auf Abbildung \ref{semiotikmakro}, fällt auf, dass die Sigmatik gleich der Semantik des Objekts, auf welches referenziert wird, ist.
+Üblicherweise gibt es unter Dokumentelementen Verweise. Beispiel: Ein Absatz-Dokumentelement möchte auf die atomare Masse einer chemischen Verbindung, die im Strukturformel-Dokumentelement angezeigt wird, verweisen. Auf Abbildung \ref{semiotikmikro} ist dieses Beispiel veranschaulicht. Im Beispiel: Der Autor schreibt einen Absatz z.B. „Die Masse beträgt (aspirinReference.mass) ...“, dann wertet das System den Absatz aus, und es wird „Die Masse beträgt 180,16 u ...“ angezeigt. Als „Zeichen“ dient also das Ergebnis des Programmausdrucks, welcher direkt auf die Modell-Attribute des chem. Strukturformel-Dokumentelements zugreifen kann. Der Programmausdruck ist Syntax, um das gewünschte Zeichen zu genieren. Hier bedeutet das Zeichen „Atomare Masseneinheit“. Die chemische Verbindung Aspirin ist das Bezeichnete. Im Falle des Verweises ist es möglich die Semantik z.B. aus den Informationen des Typsystems des Programmausdrucks zu ziehen -- also „aspirinReference.mass“ evaluiert zum Datentyp „AtomicMassUnit“. Schaut man auf Abbildung \ref{semiotikmakro}, fällt auf, dass die Sigmatik gleich der Semantik des Objekts, auf welches referenziert wird, ist.
 
  
 \begin{figure}[h!]
@@ -631,7 +631,7 @@ Um einen wissenschaftlichen Text, wie eine Masterarbeit, verfassen zu können, m
 Der Gewinn ein solches System einzusetzen liegt in der Fähigkeit, domänenspezifische Inhalte zu verwenden. Beispielsweise in der Domäne Chemie werden immer wieder Strukturformeln von chemischen Verbindungen gezeichnet. Die Chemiker haben entsprechende Modelle von chemischen Verbindungen ausgearbeitet, so dass damit auch formal gerechnet werden kann. Und genau das soll das System: Auf Attribute und Funktionen eines formalen Modells einer spezifischen (Teil-) Domäne zugreifen und nutzen.
 
  
-Zur Demonstration wurde ein Strukturformel-Dokumentelement entwickelt, welches den in Strukturformel-Editor Ketcher\footnote{~Webseite des Ketcher Projekts: http://ggasoftware.com/opensource/ketcher} der Firma GGA Software enthält. Damit ist der Autor in der Lage in seinem Dokument direkt chemische Strukturformeln zu zeichnen, und dessen semantische Informationen zu nutzen. Der Moleküleditor produziert Molfiles\footnote{~Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe „Repräsentation chemischer Strukturen“ unter http://de.wikipedia.org/wiki/Chemoinformatik } als Ausgabe- bzw. Austauschformat, dieses Molfile dient als ein (persistentes) Modell für eine chemische Verbindung. Das Chemie-Dokumentelement kann zudem noch an eine Chemie-Bibliothek, die Molfiles verarbeiten kann, angebunden werden. Eine solche Programmbibliothek kann weitere Informationen zur jeweiligen chem. Verbindung bereitstellen, und damit einen erheblichen Beitrag zur expliziten Semantik und Konsistenz des Dokuments beitragen.
+Zur Demonstration wurde ein Strukturformel-Dokumentelement entwickelt, welches den in Strukturformel-Editor Ketcher\footnote{~Webseite des Ketcher Projekts: http://ggasoftware.com/opensource/ketcher} der Firma GGA Software enthält. Damit ist der Autor in der Lage in seinem Dokument direkt chemische Strukturformeln zu zeichnen, und dessen semantische Informationen zu nutzen. Der Moleküleditor produziert Molfiles\footnote{~Das Molfile der Firma MDL repräsentiert chemische Strukturen. Siehe „Repräsentation chemischer Strukturen“ unter http://de.wikipedia.org/wiki/Chemoinformatik } als Ausgabe- bzw. Austauschformat, dieses Molfile dient als ein (persistentes) Modell für eine chemische Verbindung. Das chem. Strukturformel-Dokumentelement kann zudem noch an eine Chemie-Softwarebibliothek, die Molfiles verarbeiten kann, angebunden werden. Eine solche Programmbibliothek kann weitere Informationen zur jeweiligen chem. Verbindung bereitstellen, und damit einen erheblichen Beitrag zur expliziten Semantik und Konsistenz des Dokuments beitragen.
 
  
 In Abbildung \ref{Aspirin} ist ein durch das Strukturformel-Dokumentelement generiertes Molekül (Modell) abgebildet. Wenn man darauf klickt, wird der Domäneneditor Ketcher geöffnet. Das funktioniert im gedruckten Dokument oder im statischen PDF nicht, daher ist es auch auf Abb. \ref{chemieeditieren}, als Bildschirmaufnahme dargestellt. Das Strukturformel-Dokumentelement, ist lediglich ein Wrapper\footnote{~„Wrapper (Software), ein Programm, das als Schnittstelle zwischen zwei anderen Programmen dient“. Aus Wikipedia http://de.wikipedia.org/wiki/Wrapper} für Ketcher. Es verwendet die Ketcher-API, um ein SVG-Bild aus dem Molekül-Modell für die Visualisierung zu generieren, sowie das Molfile-Format, welches eine portable Modell-Repräsentation für chem. Verbindungen ist. Es handelt sich hierbei also nicht nur um ein simples Zeichenprogramm für chemische Verbindungen, sondern das Dokumentelement hat tatsächlich semantisches Wissen über das chemische Objekt. Daher kann der Autor auch davor bewahrt werden, nicht-konforme Modelle zu zeichnen. Zudem kann der Autor dieses Wissen nutzen, um sein Dokument konsistent zu halten. So kann ein Text, der die Verbindung beschreibt, direkt auf das dahinterliegende Modell der theoretischen Chemie zugreifen. Wird die chemische Verbindung bearbeitet, passen sich entsprechend markierte Textstellen unmittelbar an.
@@ -648,7 +648,7 @@ In Abbildung \ref{Aspirin} ist ein durch das Strukturformel-Dokumentelement gene
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/chemieeditieren.png.pdf} }
-\caption[Bildschirmaufnahme Chemie-Dokumentelement]{ Bildschirmaufnahme der Editier-Ansicht des Chemie-Dokumentelements. Es ist der Domäneneditor „Ketcher“ (1) zu sehen, der gerade das Aspirin Molekül anzeigt und zum editieren einlädt. Der Editor ist nicht nur ein einfaches Zeichenprogramm, sondern er kennt seine Domäne und bietet daher entsprechende Semantik (siehe dazu die unterschiedlichen Farben für die chemischen Elemente die auch so im Molekül vorkommen). Zudem wird das Modell (2) des Aspirin Moleküls im Molfile-Format angezeigt. Das alles ermöglicht dem Autor, direkt mit dem chemischen Objekt zu interagieren. }\label{chemieeditieren}
+\caption[Bildschirmaufnahme Strukturformel-Dokumentelement]{ Bildschirmaufnahme der Editier-Ansicht des Strukturformel-Dokumentelements. Es ist der Domäneneditor „Ketcher“ (1) zu sehen, der gerade das Aspirin Molekül anzeigt und zum editieren einlädt. Der Editor ist nicht nur ein einfaches Zeichenprogramm, sondern er kennt seine Domäne und bietet daher entsprechende Semantik (siehe dazu die unterschiedlichen Farben für die chemischen Elemente die auch so im Molekül vorkommen). Zudem wird das Modell (2) des Aspirin Moleküls im Molfile-Format angezeigt. Das alles ermöglicht dem Autor, direkt mit dem chemischen Objekt zu interagieren. }\label{chemieeditieren}
 \end{figure}
  
 \subsection{Erhoffter Nutzen}\label{}
@@ -716,7 +716,7 @@ Das heißt, ein mit Spray generierter Editor arbeitet auf einer abstrakteren Ebe
 Die hier vorgestellten Konzepte bzw. Prototyp ermöglichen quasi das gleichzeitige Modellieren und Dokumentieren. Die Dokumentationssoftware ist in der Lage, direkt mit dem Modell zu interagieren und daher ist die Dokumentation in einem sehr hohen Maß konsistent. Zudem ist das Dokumentieren dann kein isolierter Prozess mehr „den man machen muss“, sondern gehört zum Arbeitsablauf der Modellierung dazu. Das heißt: Von der Idee bis zum fertigen Modell kann die Dokumentation das Gedankengebäude des Entwicklers sinnvoll unterstützen.
 
  
-Ich persönlich denke, dass sich durch ein solches Dokumentationswerkzeug ein System wie Spray von anderen Lösungen absetzt und daher ein großes Erfolgspotential entwickeln kann. Oder um es etwas drastischer mit den Worten von Dick Brandon zu formulieren:
+Ich persönlich denke, dass sich durch ein solches Dokumentationswerkzeug ein System wie Spray von anderen Lösungen absetzt und daher ein großes Erfolgspotenzial entwickeln kann. Oder um es etwas drastischer mit den Worten von Dick Brandon zu formulieren:
 
  
 \begin{quote}
@@ -1015,7 +1015,7 @@ Eine Update-Nachricht entsteht hauptsächlich dann, wenn der Benutzer ein Dokume
 Reichhaltige Verweisungen sind ein grundlegendes Konzept des Prototypen. Hieraus entstehen neben den üblichen Verweisungen, wie man sie aus wiss. Dokumenten kennt (Verw. auf Abbildungen, Abschnitte oder Literatur), neue Möglichkeiten für Semantik und Konsistenz.
 
  
-Dokumentelemente liegen als Scala Klasse vor und eine Verweisung greift direkt auf diese zu. Das heißt innerhalb eines Textes wird mit einem Scala Programmausdruck notiert, auf welches Attribut oder Methode zugegriffen werden soll eines Dokumentelement zugegriffen werden soll. Beispiel: „Siehe Abbildung {actor.nummer}.“ wird aufgelöst zu „Siehe Abbildung 3.“ Prinzipieller Ablauf, zum Auflösen von solchen Verweisen:
+Dokumentelemente liegen als Scala Klasse vor und eine Verweisung greift direkt auf diese zu. Das heißt innerhalb eines Textes wird mit einem Scala Programmausdruck notiert, auf welches Attribut oder Methode zugegriffen werden soll eines Dokumentelement zugegriffen werden soll. Beispiel: „Siehe Abbildung (actor.nummer).“ wird aufgelöst zu „Siehe Abbildung 3.“ Prinzipieller Ablauf, zum Auflösen von solchen Verweisen:
 
  
 \begin{enumerate}
@@ -1195,7 +1195,7 @@ Hier werden einige wichtige Algorithmen kurz erklärt, die während der Entwickl
 Abbildungen und Kapitel bzw. Abschnitte werden in wissenschaftlichen Dokumenten für gewöhnlich benummert. Der abstrakte Syntaxbaum muss also während der Analysephase die genauen Benummerungen einzelner Dokumentelemente (je nach Typ) bestimmen können. Hier wird ein Algorithmus vorgestellt der durch Nachrichtenaustausch innerhalb der baumartigen Hierarchie des Dokuments Benummerungen zuweisen kann.
 
  
-Gegeben ist ein gerichteter kreisfreier Graph \(G = (V, E)\). Wobei \(V = { a, b, x, c }\) die Menge der Knoten (Dokumentelemente) darstellt und \(E = { (a,b), (b,x), (x,c) }\) die Kanten (Referenzen zum ersten Kind bzw. nächsten Geschwister). Es werden nur Knoten benummert, die als Kapitel bzw. Abschnitt markiert sind. sind die Abschnitte die benummert werden sollen.
+Gegeben ist ein gerichteter kreisfreier Graph \(G = (V, E)\). Wobei \(V\) die Menge der Knoten (Dokumentelemente) darstellt und \(E\) die Kanten (Referenzen zum ersten Kind bzw. nächsten Geschwister). Es werden nur Knoten benummert, die als Kapitel bzw. Abschnitt markiert sind. sind die Abschnitte die benummert werden sollen.
 
  
 \begin{verbatim}
@@ -1224,7 +1224,7 @@ leitet er sie unverändert weiter.
 Damit werden maximal \(|E|\) Nachrichten benötigt, um für jeden Abschnitts-Knoten die korrekte Benummerung zu bestimmen. Die Komplexität bezüglich der Laufzeit beträgt also \(O(|E|)\). Notiz: Der Algorithmus benummert also jede Hierarchieebene individuell, das heißt z.B. in der Titelei werden die Kapitel von 1 bis x gezählt und ab dem Hauptteil werden die Kapitel auch wieder von 1 bis y gezählt. Für die Zukunft ist es bestimmt sinnvoll, wenn Kapitel und Abschnitte selbst Teil der Hierarchie sind.
 
  
-Dadurch, dass die Update-Nachricht jeden Knoten im Baum erreicht, werden die betreffenden Knoten ihre Durchzählen-Nachricht mehrfach verbreiten. Das hat zur Folge, dass insgesamt deutlich mehr Nachrichten versendet werden. Es werden exakt so viele Nachrichten versendet, wobei \(|E|\) die zu benummernden Abschnitts-Knoten sind, wie in der nachfolgenden Formel angegeben. Dies entspricht einer Komplexität bezüglich der Laufzeit von \(O(|E|^2)\). Hier gibt es also noch Optimierungspotential für die Analysephase.
+Dadurch, dass die Update-Nachricht jeden Knoten im Baum erreicht, werden die betreffenden Knoten ihre Durchzählen-Nachricht mehrfach verbreiten. Das hat zur Folge, dass insgesamt deutlich mehr Nachrichten versendet werden. Es werden exakt so viele Nachrichten versendet, wobei \(|E|\) die zu benummernden Abschnitts-Knoten sind, wie in der nachfolgenden Formel angegeben. Dies entspricht einer Komplexität bezüglich der Laufzeit von \(O(|E|^2)\). Hier gibt es also noch Optimierungspotenzial für die Analysephase.
 
  
 $$\sum_{i=1}^{|E|}{\left( |E|-i \right)}=\frac{1}{2}\left( |E|-1 \right)|E|$$
@@ -1276,7 +1276,7 @@ In Abschnitt \ref{verweise-aufloesen} wurde bereits angesprochen wie das Vorgehe
 Wenn der Autor Dokumentelemente erstellt, möchte er diese auch mit entsprechendem Inhalt füllen. Beispielsweise Fließtext oder eine DSL die ein konkretes Modell beschreibt. Diese Eingaben werden innerhalb des Zustands des Basis Aktors abgespeichert, bekannt als contentSrc. Wenn der Autor auf Attribute eines anderen Dokumentelements zugreifen will, schreibt er einen entsprechenden Scala-Programmausdruck. Jeder Aktor kann sein contentSrc untersuchen, ob darin Programmausdrücke vorkommen, um so das entsprechende Dokumentelement nach dem Attribut zu befragen.
 
  
-Wenn die Scala-Programmausdrucke erfolgreich ausgewertet werden konnten, werden diese mit dem jeweiligen Auswertungsergebnis ersetzt. Das wird in contentRepr abgespeichert. Beispiel: „Auf Abbildung { pinguin.nr } ist ein Pinguin.“ → „Auf Abbildung 3 ist ein Pinguin.“
+Wenn die Scala-Programmausdrucke erfolgreich ausgewertet werden konnten, werden diese mit dem jeweiligen Auswertungsergebnis ersetzt. Das wird in contentRepr abgespeichert. Beispiel: „Auf Abbildung (pinguin.nr) ist ein Pinguin.“ → „Auf Abbildung 3 ist ein Pinguin.“
 
  
 Eine alternative Repräsentation ist contentUnified. Hier werden contentSrc und contentRepr vereinigt. Das heißt an jeder Stelle wo ein Verweis vorkommt, wird die komplette Information in einer JSON-Datenstruktur gehalten. Der Programmausdruck und sein Ergebnis werden festgehalten. Das ist wichtig für die Anzeige, um die UUIDs der einzelnen Aktoren unter einem Kurznamen zu verstecken, aber dennoch den gesamten Programmausdruck übermitteln zu können. Nachfolgend ein kleines Codebeispiel dafür:
@@ -1303,7 +1303,7 @@ Eine alternative Repräsentation ist contentUnified. Hier werden contentSrc und 
 Mit dem Prototyp ist es möglich, eine Masterarbeit zu schreiben. Das heißt, dass von der prinzipiellen Funktionalität alles da ist, um wissenschaftliche Texte zu verfassen. Durch die Möglichkeit, Projektionen in andere Formate zu erhalten, kann auch LaTeX Code generiert werden, um (noch) fehlende Funktionalität (insb. Paginierung) auszugleichen. Jedoch hat LaTeX nur eine beschränkte Menge an „Dokumentelementen“ im Vergleich zum Prototyp -- es fehlen nunmal die domänenspezifischen Inhalte. Wenn diese Inhalte benutzt werden sollen, müssen diese mehr oder weniger von Hand an LaTeX nachgereicht werden, z.B. in Form von statischen Bildern. Beispiel: Das Chemiemolekül wird auch als SVG-Bild bereitgestellt, damit LaTeX dieses verarbeiten kann, muss es aus der Datenbank geholt und in ein pdf konvertiert werden. Rein vom Konzept her ist es aber leicht möglich, solche Aufgaben besser zu automatisieren. Beispielsweise holt ein Shell-Skript via curl das SVG-Bild aus der Datenbank und legt es in einen Ordner ab, damit der LaTeX-Compiler es verwenden kann. Es macht Spaß, mit den Prototyp Dokumente zu erstellen und zu sehen, wie von Zauberhand gleichzeitig auch der passende LaTeX-Code generiert wird. Er bietet eine übersichtliche Darstellung des Dokuments und ist bereits einigermaßen bequem zu bedienen, insbesondere dank der Autovervollständigung. Die Basiskonzepte aus Abschnitt \ref{basiskonzepte} konnten somit umgesetzt werden.
 
  
-Am Anfang der Masterarbeit war noch nicht klar, ob das Vorhaben überhaupt gelingt. In dieser Phase ist ein erster Prototyp entstanden. Dieser hat gezeigt, dass das Konzept Potential hat, tragfähig zu sein. Ein zweiter Prototyp ist entstanden, mit einer deutlich klareren und verbesserten Architektur. In die zwei Prototypen ist insgesamt ca. 4 Monate Entwicklungsarbeit und Konzeption geflossen, es wurde agil gearbeitet, um verschiedene Konzepte „unbürokratisch“ ausprobieren zu können. Der zweite Prototyp hat die Konzepte immer klarer werden lassen, so dass daraus eine gut strukturierte Theorie gefolgert und nachvollzogen werden kann. Aber die neuen Erkenntnisse zeigen auch, dass der Prototyp nicht an allen Stellen die Theorien konsequent umsetzt.
+Am Anfang der Masterarbeit war noch nicht klar, ob das Vorhaben überhaupt gelingt. In dieser Phase ist ein erster Prototyp entstanden. Dieser hat gezeigt, dass das Konzept Potenzial hat, tragfähig zu sein. Ein zweiter Prototyp ist entstanden, mit einer deutlich klareren und verbesserten Architektur. In die zwei Prototypen ist insgesamt ca. 4 Monate Entwicklungsarbeit und Konzeption geflossen, es wurde agil gearbeitet, um verschiedene Konzepte „unbürokratisch“ ausprobieren zu können. Der zweite Prototyp hat die Konzepte immer klarer werden lassen, so dass daraus eine gut strukturierte Theorie gefolgert und nachvollzogen werden kann. Aber die neuen Erkenntnisse zeigen auch, dass der Prototyp nicht an allen Stellen die Theorien konsequent umsetzt.
 
  
 \begin{itemize}
@@ -1378,7 +1378,7 @@ Zunächst sollen die wissenschaftlichen Fragen aus Abschnitt \ref{wiss-fragen} a
 In Abschnitt \ref{stand-der-technik} wurden verschiedene Systeme vorgestellt, die im Bereich der Dokumenterstellung etabliert sind oder Verbesserungsansätze liefern. Hier werden diese Systeme mit dem hier entstanden Prototyp bzw. dessen konzeptuellen Überlegungen kurz verglichen.
 
  
-Textverarbeitungen wie Microsoft Word haben Formatvorlagen, welche als primitive Dokumentelemente bezeichnet werden könnten. Diese Formatvorlagen bringen jedoch keinerlei Wissen über deren Domäne mit, und somit auch keine ausgefeilten Repräsentationen oder Editoren, wie z.B. das hier gezeigte Chemiemolekül-Dokumentelement es tut. Eine Spezifikation, welche Elemente aneinander gereiht werden dürfen gibt es nicht. Dies ist eine Fehlerquelle für den Autor, sowohl was die Konsistenz des Dokuments betrifft, als auch den formell korrekten Aufbau der Dokumentklasse.
+Textverarbeitungen wie Microsoft Word haben Formatvorlagen, welche als primitive Dokumentelemente bezeichnet werden könnten. Diese Formatvorlagen bringen jedoch keinerlei Wissen über deren Domäne mit, und somit auch keine ausgefeilten Repräsentationen oder Editoren, wie z.B. das hier gezeigte (chem.) Strukturformel-Dokumentelement es tut. Eine Spezifikation, welche Elemente aneinander gereiht werden dürfen gibt es nicht. Dies ist eine Fehlerquelle für den Autor, sowohl was die Konsistenz des Dokuments betrifft, als auch den formell korrekten Aufbau der Dokumentklasse.
 
  
 Das Textsatzsystem LaTeX spezifiziert explizit Dokumentklassen, welche passende TeX-Makros anbietet, um ein Dokument in der vorliegenden Klasse zu bauen. Diese Makros entsprechen quasi den Dokumentelementen. Jedoch prüft keine Taxonomie bzw. Metamodell die korrekte Aneinanderreihung der Dokumentklasse. Zudem wird direkt mit dem Quellcode gearbeitet, was Kopilierzeiten zum generieren des PDFs erfordert. Interaktive grafische Domäneneditoren sind damit also nicht ohne weiteres möglich. SALT \citep{Groza} erweitert LaTeX, so dass semantische Annotationen zum PDF hinzugefügt werden können. Um dies zu tun, erhält der Autor eine zusätzliche Menge an TeX-Makros, speziell für die Annotation. Diese Annotationen sind für die spätere Verarbeitung durch Semantic Web Dienste nützlich, bringen aber dem Autor selbst noch keinen Vorteil. Beim hier vorgestellten Prototyp hat der Autor auch etwas davon, diese Informationen zu übermitteln; denn er kann direkt auf die Domänenmodelle zurückgreifen und sich so Schreibarbeit und Fehler ersparen.
@@ -1398,7 +1398,7 @@ Am Anfang der Masterarbeit stand die Idee Dokumentelemente auf Aktoren abzubilde
 Der Prototyp hat das gezeigt, was er zeigen sollte: Es ist möglich einen Projektionseditor auf Basis von Web Standards und ein abstrakten Syntaxbaum im Aktorenmodell umzusetzen. Der Prototyp läuft bereits recht stabil, so dass auch diese Masterarbeit damit, ohne große Hürden, verfasst werden konnte. Zudem ist es recht leicht, neue Dokumentelemente hinzuzufügen. Der Prototyp hat zudem Licht ins Dunkel gebracht: Nur so konnten die Theorien weiterentwickelt werden, so dass sie eine solide Basis für eine produktiv einsetzbare Neuentwicklung bilden.
 
  
-Jedoch gibt es auch noch Verbesserungspotential für das Softwaresystem: (1) Die Architektur ist zu monolithisch, d.h. insbesondere der Basis Aktor ist nicht modular genug aufgebaut. (2) Große Dokumente bringen das System an die Performanzgrenzen, da der DOM im Browser rein durch JavaScript aufgebaut wird und (vermutlich) eine ineffiziente Implementierung der eingesetzten JSON-Bibliothek\footnote{~Ein Sampling über das Zeitverhalten von Methodenaufrufen mit VisualVM ergab, dass die Aktoren oft schlafen gelegt werden, und das recht viel Rechenzeit für das Parsing von JSON und das Interpretieren des (generierten) Scala Codes (Verweise) aufgewendet wird. Dieser Scala Code selbst setzt wiederum auch auf diese JSON-Bibliothek.} die Aktoren bremst. (3) Es gibt weitere Limitierungen, wie z.B. keine Benutzerverwaltung, die jedoch zum Zeigen der Anwendungsfälle nicht nötig sind.
+Jedoch gibt es auch noch Verbesserungspotenzial für das Softwaresystem: (1) Die Architektur ist zu monolithisch, d.h. insbesondere der Basis Aktor ist nicht modular genug aufgebaut. (2) Große Dokumente bringen das System an die Performanzgrenzen, da der DOM im Browser rein durch JavaScript aufgebaut wird und (vermutlich) eine ineffiziente Implementierung der eingesetzten JSON-Bibliothek\footnote{~Ein Sampling über das Zeitverhalten von Methodenaufrufen mit VisualVM ergab, dass die Aktoren oft schlafen gelegt werden, und das recht viel Rechenzeit für das Parsing von JSON und das Interpretieren des (generierten) Scala Codes (Verweise) aufgewendet wird. Dieser Scala Code selbst setzt wiederum auch auf diese JSON-Bibliothek.} die Aktoren bremst. (3) Es gibt weitere Limitierungen, wie z.B. keine Benutzerverwaltung, die jedoch zum Zeigen der Anwendungsfälle nicht nötig sind.
 
  
 \chapter{Zusammenfassung}\label{}
@@ -1449,7 +1449,7 @@ Weiterentwicklung der semantischen Ansicht für Dokumentelemente, siehe Abb. \re
 \centering
 \advance\leftskip-2.5cm
 \fbox{ \includegraphics[width=1.45\textwidth]{figures/semanticeditor.svg.pdf} }
-\caption[Weiterentwicklung der Dokumentelement Editoransicht]{ Konzept für eine Weiterentwicklung des semantischen Editors für Dokumentelemente, anhand des Beispiels Chemiemolekül-Dokumentelement. }\label{semanticeditor}
+\caption[Weiterentwicklung der Dokumentelement Editoransicht]{ Konzept für eine Weiterentwicklung des semantischen Editors für Dokumentelemente, anhand des Beispiels chem. Strukturformel-Dokumentelement. }\label{semanticeditor}
 \end{figure}
  
 \subsection{Visionen neuer Ausbaustufen und Anwendungsfälle}\label{}
@@ -1478,7 +1478,7 @@ Modellierung von Dokumentelementen, durch schreiben eines einfachen Dokuments. E
 \citep[S.~3]{Segaran} trifft es sehr präzise, wenn er behauptet, dass natürliche Sprache wohl die beste API für Wissen ist, die wir Menschen kennen. \citep[S.~1]{Knuth} hat dies in etwa auch so erkannt und daraus das programmiersprachenübergreifende Programmierparadigma des Literate Programming entwickelt. Dort soll Software wie ein Literaturwerk behandelt werden, d.h. Dokumentation und Programmcode werden in einer Datei simultan untergebracht. Die hier vorgestellten Konzepte eigenen sich mutmaßlich hervorragend, um Literate Programming umzusehen. Beispielsweise können einzelne größere Programmkomponenten wie z.B. ein For-Schleifen-Block auf spezielle Dokumentelemente abgebildet werden. Eine Funktionsdekleration wäre mit einem Kapitel vergleichbar, etc. Gemischt mit normalen Dokumentelementen, die beschreibend zur Seite stehen, könnte somit auch mit diesem System Literate Programming umgesetzt werden. Zudem kann jedes Programm-Dokumentelement eine passende Visualisierung von Datenstrukturen oder Programmflüssen darstellen. Durch den Modellcharakter der Dokumentelemente wäre es somit möglich, ein Programm sogar in verschiedene Programmiersprachen zu transformieren. Anwendungsfall: Ein DSL-Skript kann durch einen Wissenschaftler mit dem System programmiert, visualisiert und gleichzeitig dokumentiert werden kann.
 
  
-\section{Fazit}\label{}
+\section{Schlussbemerkung}\label{}
  
-???
+Zu Beginn der Masterarbeit war es gar nicht absehbar, welch gewaltiges Potenzial sich hinter der anfänglichen Idee verbarg. Genauer analysiert, ist aus der Idee eine umfassende Theorie über (wiss.) Dokumente im Allgemeinen entstanden, die die Sicht auf Textverarbeitungssysteme bzw. Dokumenteneditoren nachhaltig verändern kann. Der hier entstandene Prototyp läuft bereits sogar so stabil, dass diese Abschlussarbeit -- ohne größere Hürden -- damit verfasst werden konnte. Mit dem Spray-Dokumentelement wurde sogar ein domänenspezifischer Editor eingesetzt, mit dessen Hilfe ein Aspekt der Architektur grafisch dargestellt wird. Im erklärenden Text werden Attribute des Spray-Softwaremodells verwendet, welche Modell und Text semantisch miteinander verknüpfen. In dieser Hinsicht, bleiben Modell und erklärender Text somit konsistent. Das System ist sehr flexibel, d.h. es kann problemlos um beliebige verschiedenartige domänenspezifische Inhalte erweitert werden. Diese Konzepte werden die nächste Evolutionsstufe der Textverarbeitungssoftware einläuten und die Vision des Semantic Web maßgeblich vorantreiben, dessen bin ich mir sicher.
 
