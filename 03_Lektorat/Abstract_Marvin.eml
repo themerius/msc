@@ -1,0 +1,119 @@
+Delivered-To: sven.hodapp@gmail.com
+Received: by 10.180.94.132 with SMTP id dc4csp95853wib;
+        Wed, 6 Aug 2014 08:43:38 -0700 (PDT)
+X-Received: by 10.180.206.38 with SMTP id ll6mr16545771wic.40.1407339818188;
+        Wed, 06 Aug 2014 08:43:38 -0700 (PDT)
+Return-Path: <Ulthwe@maki-arts.de>
+Received: from mo6-p00-ob.smtp.rzone.de (mo6-p00-ob.smtp.rzone.de. [2a01:238:20a:202:5300::5])
+        by mx.google.com with ESMTPS id f10si2360658wjb.84.2014.08.06.08.43.38
+        for <sven.hodapp@gmail.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 06 Aug 2014 08:43:38 -0700 (PDT)
+Received-SPF: none (google.com: Ulthwe@maki-arts.de does not designate permitted sender hosts) client-ip=2a01:238:20a:202:5300::5;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: Ulthwe@maki-arts.de does not designate permitted sender hosts) smtp.mail=Ulthwe@maki-arts.de;
+       dkim=pass header.i=@maki-arts.de
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; t=1407339817; l=5233;
+	s=domk; d=maki-arts.de;
+	h=Content-Type:In-Reply-To:References:Subject:To:MIME-Version:From:
+	Date;
+	bh=/BLCCeElOPo5DnmQfnmtJHASDEU=;
+	b=Bixh/FZI/97xAg6PgnYaWbZRaBU0jmh8L55YedJtG/LUESJwymu3gvRraAe6fGop7P8
+	Oo/xj3tIUbzMhgDITYjgMhXB7Ei4w5BzHmiWlqAZbjsu5TUxxBMs8PsfYLNG42/LEZwBg
+	eehvXJQUYbAs8/a98KZVc1h/yf2+f5VtpZA=
+X-RZG-AUTH: :JWICemClevTwzzfuwTCnnBnVd3nDRTBLZonWIkKXm5yZsfzNDPrMzNBbJs0eH6g=
+X-RZG-CLASS-ID: mo00
+Received: from [192.168.178.44] (dslb-178-002-111-173.178.002.pools.vodafone-ip.de [178.2.111.173])
+	by smtp.strato.de (RZmta 35.3 DYNA|AUTH)
+	with ESMTPSA id j06661q76Fhb38c
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client did not present a certificate)
+	for <sven.hodapp@gmail.com>;
+	Wed, 6 Aug 2014 17:43:37 +0200 (CEST)
+Message-ID: <53E24D27.6030300@maki-arts.de>
+Date: Wed, 06 Aug 2014 17:43:35 +0200
+From: Marvin Kiene <Ulthwe@maki-arts.de>
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.6.0
+MIME-Version: 1.0
+To: Sven Hodapp <sven.hodapp@gmail.com>
+Subject: Re: Abstract =?ISO-8859-1?Q?Verst=E4ndnis?=
+References: <05003545-0A4F-47E8-B7E5-B651639C82FE@googlemail.com>
+In-Reply-To: <05003545-0A4F-47E8-B7E5-B651639C82FE@googlemail.com>
+Content-Type: multipart/alternative;
+ boundary="------------080601090506060407030706"
+
+This is a multi-part message in MIME format.
+--------------080601090506060407030706
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+
+Hey,
+Hab ein paar Kommentare in rot eingefügt. Hoffe du kannst was mit
+anfangen. Sonst meld dich halt^^
+
+lg
+
+Am 06.08.2014 15:25, schrieb Sven Hodapp:
+> Hi Marvin,
+>
+> mich würde interessieren, ob du bzw. Caro das Abstract verständlich geschrieben findet bzw. könnt ihr damit etwas anfangen:
+>
+> Aktuelle Textverarbeitungsprogramme haben gerade für die Erstellung von wissenschaftlichen Dokumenten große Defizite, da dort oft formale Modelle, wie z.B. Chemie-Moleküle würde ich nach hinten im Satz stellen, aus dem jeweiligen Fachgebiet (Domäne) benutzt werden müssen.
+> Heutige Systeme können mit diesen Modellen nicht direkt interagieren, was oft zu Inkonsistenzen ->was meinst du damit? im Dokument führt.
+> In dieser Arbeit wird der Prototyp eines Dokumenteneditors entwickelt, welcher domänenspezifische [Dokument]elemente einführt, und so formale Modelle direkt bei der Bearbeitung des Dokuments verwendbar macht.
+> {Die [Dokument]elemente (z.B. Absätze, Abbildungen, etc.) repräsentieren domänenspezifische Inhalte.
+> Wenn ein Dokumentelement auf ein Anderes verweist, kann direkt auf Attribute des darunterliegenden Modells zugegriffen werden. (Bspw. auf den Namen eines Moleküls)} den Teil würde ich irgendwie anders beschreiben. So ist es recht verwirrend finde ich. Vielleicht ein zwei Sätze mehr verwenden oder ganz anders erklären.
+> Der Prototyp beweist seine Praxistauglichkeit anhand von vier konkreten Anwendungsfällen.
+> Aus dem Prototyp ist eine allgemeine Theorie über den inneren Aufbau von Dokumente entwickelt worden und tangiert die Bereiche (Meta) Modellierung, Projektionseditoren, Semiotik und Taxonomie versteht das jeder von deinem Fach? ich kann mir darunter nur teilweise etwas vorstellen.
+> Es gibt vielfältige Weiterentwicklungsmöglichkeiten, wie den Ausbau zur Open Access Platform mit erweiterten Autorenfunktionen, eine Zentrale für Format-Transformationen oder Literate Programming IDE -> gibts nen deutsches Wort dafür?
+>
+> Vielen Dank!
+>
+> Gruß,
+> Sven
+
+
+--------------080601090506060407030706
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=ISO-8859-1"
+      http-equiv="Content-Type">
+  </head>
+  <body text="#000000" bgcolor="#FFFFFF">
+    <div class="moz-cite-prefix">Hey,<br>
+      Hab ein paar Kommentare in rot eingef&uuml;gt. Hoffe du kannst was mit
+      anfangen. Sonst meld dich halt^^<br>
+      <br>
+      lg<br>
+      <br>
+      Am 06.08.2014 15:25, schrieb Sven Hodapp:<br>
+    </div>
+    <blockquote
+      cite="mid:05003545-0A4F-47E8-B7E5-B651639C82FE@googlemail.com"
+      type="cite">
+      <pre wrap="">Hi Marvin,
+
+mich w&uuml;rde interessieren, ob du bzw. Caro das Abstract verst&auml;ndlich geschrieben findet bzw. k&ouml;nnt ihr damit etwas anfangen:
+
+Aktuelle Textverarbeitungsprogramme haben gerade f&uuml;r die Erstellung von wissenschaftlichen Dokumenten gro&szlig;e Defizite, da dort oft formale Modelle, wie z.B. Chemie-Molek&uuml;le<font color="#ff0000"> w&uuml;rde ich nach hinten im Satz stellen</font>, aus dem jeweiligen Fachgebiet (Dom&auml;ne) benutzt werden m&uuml;ssen.
+Heutige Systeme k&ouml;nnen mit diesen Modellen nicht direkt interagieren, was oft zu Inkonsistenzen<font color="#ff0000"> -&gt;was meinst du damit?</font> im Dokument f&uuml;hrt.
+In dieser Arbeit wird der Prototyp eines Dokument<font color="#ff0000">en</font>editors entwickelt, welcher dom&auml;nenspezifische <font color="#ff0000">[</font>Dokument<font color="#ff0000">]</font>elemente einf&uuml;hrt, und so formale Modelle direkt bei der Bearbeitung des Dokuments verwendbar macht.
+<font color="#ff0000">{</font>Die <font color="#ff0000">[</font>Dokument<font color="#ff0000">]</font>elemente (z.B. Abs&auml;tze, Abbildungen, etc.) repr&auml;sentieren dom&auml;nenspezifische Inhalte.
+Wenn ein Dokumentelement auf ein Anderes verweist, kann direkt auf Attribute des darunterliegenden Modells zugegriffen werden. (Bspw. auf den Namen eines Molek&uuml;ls)<font color="#ff0000">} den Teil w&uuml;rde ich irgendwie anders beschreiben. So ist es recht verwirrend finde ich. Vielleicht ein zwei S&auml;tze mehr verwenden oder ganz anders erkl&auml;ren.</font>
+Der Prototyp beweist seine Praxistauglichkeit anhand von vier konkreten Anwendungsf&auml;llen.
+Aus dem Prototyp ist eine allgemeine Theorie &uuml;ber den inneren Aufbau von Dokumente entwickelt worden und tangiert die Bereiche (Meta) Modellierung, Projektionseditoren, Semiotik und Taxonomie <font color="#ff0000">versteht das jeder von deinem Fach? ich kann mir darunter nur teilweise etwas vorstellen</font>.
+Es gibt vielf&auml;ltige Weiterentwicklungsm&ouml;glichkeiten, wie <font color="#ff0000">den</font> Ausbau zur Open Access Platform mit erweiterten Autorenfunktionen, <font color="#ff0000">eine </font>Zentrale f&uuml;r Format-Transformationen oder Literate Programming IDE <font color="#ff0000">-&gt; gibts nen deutsches Wort daf&uuml;r?</font>
+
+Vielen Dank!
+
+Gru&szlig;,
+Sven</pre>
+    </blockquote>
+    <br>
+  </body>
+</html>
+
+--------------080601090506060407030706--

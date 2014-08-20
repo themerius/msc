@@ -1,0 +1,199 @@
+Delivered-To: sven.hodapp@gmail.com
+Received: by 10.180.94.132 with SMTP id dc4csp228499wib;
+        Fri, 8 Aug 2014 09:06:32 -0700 (PDT)
+Return-Path: <sandy.mombarg@gmail.com>
+Received-SPF: pass (google.com: domain of sandy.mombarg@gmail.com designates 10.50.25.196 as permitted sender) client-ip=10.50.25.196
+Authentication-Results: mr.google.com;
+       spf=pass (google.com: domain of sandy.mombarg@gmail.com designates 10.50.25.196 as permitted sender) smtp.mail=sandy.mombarg@gmail.com;
+       dkim=pass header.i=@gmail.com
+X-Received: from mr.google.com ([10.50.25.196])
+        by 10.50.25.196 with SMTP id e4mr6569655igg.28.1407513991241 (num_hops = 1);
+        Fri, 08 Aug 2014 09:06:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type;
+        bh=RVHPRZV7aqcsJKsDEFG6eOSXlMjNyN+Q1ozNHu8ExCE=;
+        b=AMP49K7uFkXX3USKPitcgfHBfAHpg8mKIazenfApNsY7yD3Pd1vbPJ4rGRM4XjJaIa
+         qamQBUhokfk2FGXR4sj5KswkqCwTM5CAYR8b6CQ62/khNF5C6Ry5wlWH+eWkGAfEjetv
+         bpytFAkb9q4bnOC4zOdaIhtgr5nw+oyABzY45dBfRKhOCFCCW5vl5xOz+Qa76MA0UIPv
+         xIUmpJrB8zQ+kFJplZ2VgXDYGsrgsyomjKw5ZIFw270nFDZJpyQ8dcvGiM6LcIgmfqXv
+         t5aUt4Wu4R7+FZrEnS5Sm6C+V6v7kGd1hTE5NJv+7T5ug5ohrhbXzyFYaUOMkt55ckJX
+         jmvQ==
+MIME-Version: 1.0
+X-Received: by 10.50.25.196 with SMTP id e4mr6569655igg.28.1407513991228; Fri,
+ 08 Aug 2014 09:06:31 -0700 (PDT)
+Received: by 10.107.36.1 with HTTP; Fri, 8 Aug 2014 09:06:31 -0700 (PDT)
+In-Reply-To: <90191507-38B6-4F3A-9D63-021557019292@googlemail.com>
+References: <90191507-38B6-4F3A-9D63-021557019292@googlemail.com>
+Date: Fri, 8 Aug 2014 18:06:31 +0200
+Message-ID: <CANSu+eRqOJOJMGcgq9WMQYvd9vTYHUuowMtiL9WnK589Zig-Bg@mail.gmail.com>
+Subject: =?UTF-8?Q?Re=3A_Abstract_Verst=C3=A4ndnis?=
+From: Sandy Mombarg <sandy.mombarg@gmail.com>
+To: Sven Hodapp <sven.hodapp@gmail.com>
+Content-Type: multipart/alternative; boundary=047d7bb03d2e76d1930500206337
+
+--047d7bb03d2e76d1930500206337
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi Sven,
+
+sorry habe die Mail erst heute gelesen.
+
+Anhand des Absatzes w=C3=BCrde ich das System nicht nutzen, weil mir einfac=
+h die
+Infos fehlen es tats=C3=A4chlich beurteilen zu k=C3=B6nnen ;-)
+Wenn du jemanden =C3=BCberzeugen m=C3=B6chtest w=C3=BCrde ich den Anfang na=
+ch* PIL*
+gestalten.
+Benenne ein vorhandenes *P*roblem, beschreibe ein konkretes kurzes Beispiel
+und erwecke damit das *I*nteresse, bevor du zur *L*=C3=B6sung =C3=BCbergehs=
+t.
+Das erweckt beim Leser ein Gef=C3=BChl von "Ja, das ist ein g=C3=A4ngiges
+Problem...genau so etwas st=C3=B6rt mich auch...oh, er hat eine L=C3=B6sung=
+"
+Und schon wird man interessiert, aber auch kritisch den Text verschlingen.
+
+PIL w=C3=A4re durch Umstellung oder auch Entschachtelung deiner S=C3=A4tze =
+bereits
+gegeben.
+
+Aber ich w=C3=BCrde nat=C3=BCrlich auch so gerne den Rest lesen. =3D)
+
+Viele Gr=C3=BC=C3=9Fe auch an Julia,
+Sandy
+
+
+
+Am 6. August 2014 15:28 schrieb Sven Hodapp <sven.hodapp@gmail.com>:
+
+> Hi Sandy,
+>
+> schon lange nicht mehr geh=C3=B6rt! Ich hoffe dir geht es gut!
+> Hier mal ein Vorgeschmack auf die Masterarbeit, aber vielleicht willst du
+> sie ja danach gar nicht mehr lesen oder erst recht?
+> Was h=C3=A4ltst du von dem Abstract, kann man es verstehen?
+> Gef=C3=A4llt dir die Idee? Macht es Lust darauf die Arbeit zu lesen oder =
+mit
+> einem solchen System zu arbeiten?
+>
+>
+> Aktuelle Textverarbeitungsprogramme haben gerade f=C3=BCr die Erstellung =
+von
+> wissenschaftlichen Dokumenten gro=C3=9Fe Defizite, da dort oft formale Mo=
+delle,
+> wie z.B. Chemie-Molek=C3=BCle, aus dem jeweiligen Fachgebiet (Dom=C3=A4ne=
+) benutzt
+> werden m=C3=BCssen.
+> Heutige Systeme k=C3=B6nnen mit diesen Modellen nicht direkt interagieren=
+, was
+> oft zu Inkonsistenzen im Dokument f=C3=BChrt.
+> In dieser Arbeit wird der Prototyp eines Dokumenteditors entwickelt,
+> welcher dom=C3=A4nenspezifische Dokumentelemente einf=C3=BChrt, und so fo=
+rmale
+> Modelle direkt bei der Bearbeitung des Dokuments verwendbar macht.
+> Die Dokumentelemente (z.B. Abs=C3=A4tze, Abbildungen, etc.) repr=C3=A4sen=
+tieren
+> dom=C3=A4nenspezifische Inhalte.
+> Wenn ein Dokumentelement auf ein Anderes verweist, kann direkt auf
+> Attribute des darunterliegenden Modells zugegriffen werden. (Bspw. auf de=
+n
+> Namen eines Molek=C3=BCls)
+> Der Prototyp beweist seine Praxistauglichkeit anhand von vier konkreten
+> Anwendungsf=C3=A4llen.
+> Aus dem Prototyp ist eine allgemeine Theorie =C3=BCber den inneren Aufbau=
+ von
+> Dokumente entwickelt worden und tangiert die Bereiche (Meta) Modellierung=
+,
+> Projektionseditoren, Semiotik und Taxonomie.
+> Es gibt vielf=C3=A4ltige Weiterentwicklungsm=C3=B6glichkeiten, wie Ausbau=
+ zur Open
+> Access Platform mit erweiterten Autorenfunktionen, Zentrale f=C3=BCr
+> Format-Transformationen oder Literate Programming IDE
+>
+>
+> Vielen Dank f=C3=BCr einen Input!
+>
+> Gru=C3=9F,
+> Sven
+
+
+
+
+--=20
+Sandy Mombarg
+mail:   sandy.mombarg@gmail.com
+mobil: +49 176 - 30361441
+
+--047d7bb03d2e76d1930500206337
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hi Sven,<br><br>sorry habe die Mail erst heute gelesen.=C2=
+=A0<br><br>Anhand des Absatzes w=C3=BCrde ich das System nicht nutzen, weil=
+ mir einfach die Infos fehlen es tats=C3=A4chlich beurteilen zu k=C3=B6nnen=
+ ;-)<br>Wenn du jemanden =C3=BCberzeugen m=C3=B6chtest w=C3=BCrde ich den A=
+nfang nach<b> PIL</b> gestalten.<br>
+Benenne ein vorhandenes <b>P</b>roblem, beschreibe ein konkretes kurzes Bei=
+spiel und erwecke damit das <b>I</b>nteresse, bevor du zur <b>L</b>=C3=B6su=
+ng =C3=BCbergehst.<br>Das erweckt beim Leser ein Gef=C3=BChl von &quot;Ja, =
+das ist ein g=C3=A4ngiges Problem...genau so etwas st=C3=B6rt mich auch...o=
+h, er hat eine L=C3=B6sung&quot;<br>
+Und schon wird man interessiert, aber auch kritisch den Text verschlingen.<=
+br><br>PIL w=C3=A4re durch Umstellung oder auch Entschachtelung deiner S=C3=
+=A4tze bereits gegeben.<br><br>Aber ich w=C3=BCrde nat=C3=BCrlich auch so g=
+erne den Rest lesen. =3D)<br>
+<br>Viele Gr=C3=BC=C3=9Fe auch an Julia,<br>Sandy<br><br></div><div class=
+=3D"gmail_extra"><br><br><div class=3D"gmail_quote">Am 6. August 2014 15:28=
+ schrieb Sven Hodapp <span dir=3D"ltr">&lt;<a href=3D"mailto:sven.hodapp@gm=
+ail.com" target=3D"_blank">sven.hodapp@gmail.com</a>&gt;</span>:<br>
+<blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1p=
+x #ccc solid;padding-left:1ex">Hi Sandy,<br>
+<br>
+schon lange nicht mehr geh=C3=B6rt! Ich hoffe dir geht es gut!<br>
+Hier mal ein Vorgeschmack auf die Masterarbeit, aber vielleicht willst du s=
+ie ja danach gar nicht mehr lesen oder erst recht?<br>
+Was h=C3=A4ltst du von dem Abstract, kann man es verstehen?<br>
+Gef=C3=A4llt dir die Idee? Macht es Lust darauf die Arbeit zu lesen oder mi=
+t einem solchen System zu arbeiten?<br>
+<br>
+<br>
+Aktuelle Textverarbeitungsprogramme haben gerade f=C3=BCr die Erstellung vo=
+n wissenschaftlichen Dokumenten gro=C3=9Fe Defizite, da dort oft formale Mo=
+delle, wie z.B. Chemie-Molek=C3=BCle, aus dem jeweiligen Fachgebiet (Dom=C3=
+=A4ne) benutzt werden m=C3=BCssen.<br>
+
+Heutige Systeme k=C3=B6nnen mit diesen Modellen nicht direkt interagieren, =
+was oft zu Inkonsistenzen im Dokument f=C3=BChrt.<br>
+In dieser Arbeit wird der Prototyp eines Dokumenteditors entwickelt, welche=
+r dom=C3=A4nenspezifische Dokumentelemente einf=C3=BChrt, und so formale Mo=
+delle direkt bei der Bearbeitung des Dokuments verwendbar macht.<br>
+Die Dokumentelemente (z.B. Abs=C3=A4tze, Abbildungen, etc.) repr=C3=A4senti=
+eren dom=C3=A4nenspezifische Inhalte.<br>
+Wenn ein Dokumentelement auf ein Anderes verweist, kann direkt auf Attribut=
+e des darunterliegenden Modells zugegriffen werden. (Bspw. auf den Namen ei=
+nes Molek=C3=BCls)<br>
+Der Prototyp beweist seine Praxistauglichkeit anhand von vier konkreten Anw=
+endungsf=C3=A4llen.<br>
+Aus dem Prototyp ist eine allgemeine Theorie =C3=BCber den inneren Aufbau v=
+on Dokumente entwickelt worden und tangiert die Bereiche (Meta) Modellierun=
+g, Projektionseditoren, Semiotik und Taxonomie.<br>
+Es gibt vielf=C3=A4ltige Weiterentwicklungsm=C3=B6glichkeiten, wie Ausbau z=
+ur Open Access Platform mit erweiterten Autorenfunktionen, Zentrale f=C3=BC=
+r Format-Transformationen oder Literate Programming IDE<br>
+<br>
+<br>
+Vielen Dank f=C3=BCr einen Input!<br>
+<br>
+Gru=C3=9F,<br>
+Sven</blockquote></div><br><br clear=3D"all"><div><br></div>-- <br><div dir=
+=3D"ltr"><div><font face=3D"verdana,sans-serif">Sandy Mombarg<br></font></d=
+iv><div><font face=3D"verdana,sans-serif">mail:=C2=A0=C2=A0 <a href=3D"mail=
+to:sandy.mombarg@gmail.com" target=3D"_blank">sandy.mombarg@gmail.com</a><b=
+r>
+</font></div><div><font face=3D"verdana,sans-serif">mobil: +49 176 - 303614=
+41<br></font></div></div>
+</div>
+
+--047d7bb03d2e76d1930500206337--

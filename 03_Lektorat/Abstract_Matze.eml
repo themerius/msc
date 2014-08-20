@@ -1,0 +1,228 @@
+Delivered-To: sven.hodapp@gmail.com
+Received: by 10.180.94.132 with SMTP id dc4csp209499wib;
+        Sun, 10 Aug 2014 17:16:42 -0700 (PDT)
+X-Received: by 10.194.205.70 with SMTP id le6mr38044888wjc.25.1407716202091;
+        Sun, 10 Aug 2014 17:16:42 -0700 (PDT)
+Return-Path: <matze.s.007@gmx.de>
+Received: from mout.gmx.net (mout.gmx.net. [212.227.17.20])
+        by mx.google.com with ESMTPS id u2si15109910wix.87.2014.08.10.17.16.41
+        for <sven.hodapp@gmail.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 10 Aug 2014 17:16:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of matze.s.007@gmx.de designates 212.227.17.20 as permitted sender) client-ip=212.227.17.20;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of matze.s.007@gmx.de designates 212.227.17.20 as permitted sender) smtp.mail=matze.s.007@gmx.de
+Received: from [192.168.2.102] ([79.234.84.45]) by mail.gmx.com (mrgmx102)
+ with ESMTPSA (Nemesis) id 0MUm1o-1WteLt1o32-00YDCa for
+ <sven.hodapp@gmail.com>; Mon, 11 Aug 2014 02:16:41 +0200
+Message-ID: <53E80B68.4090405@gmx.de>
+Date: Mon, 11 Aug 2014 02:16:40 +0200
+From: Matze <matze.s.007@gmx.de>
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.6.0
+MIME-Version: 1.0
+To: Sven Hodapp <sven.hodapp@gmail.com>
+Subject: Re: Abstract =?windows-1252?Q?Verst=E4dnis?=
+References: <239BB7B1-56F8-4D5D-9CAB-EFD7844F3BB0@googlemail.com>
+In-Reply-To: <239BB7B1-56F8-4D5D-9CAB-EFD7844F3BB0@googlemail.com>
+Content-Type: multipart/alternative;
+ boundary="------------090507090904070709090901"
+X-Provags-ID:  V03:K0:NjHsxbYX9ttLDBM7mR3pLSqt6lQk0dKloTYqQ6JqjhfDpppQX7e
+ 4EBYDjWg/hhwiM9L0K6x9SK5bgrDdrUsLT69oCLELAbjYfqzpbuD/lcC5qVKjEpF6YbrK0F
+ w9kyFuTEwF0D6u/rYBfB2qdnGCa/IcsHdMfMZJsaKRxWJc5nvnMEagXzg+PG43FoE2Ylfur
+ tKMbJ3Q6eItwI9Rq/DTQg==
+X-UI-Out-Filterresults: notjunk:1;
+
+This is a multi-part message in MIME format.
+--------------090507090904070709090901
+Content-Type: text/plain; charset=windows-1252; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Hi Sven,
+entschuldige, dass ich nicht gleich geantwortet habe.
+
+Also ich als Außenstehender Nichtinformatiker habe ehrlich gesagt nicht 
+ganz verstanden was hier entwickelt wurde. Ich habs mir ein paar mal 
+durchgelesen dennoch:
+
+ 1.
+
+    "formale Modelle, wie z.B. Chemie-Moleküle..." - Ich kann mir trotzdem nichts Genaues unter diesen Modellen vorstellen.
+
+ 2.
+
+    "Heutige Systeme können mit diesen Modellen nicht direkt interagieren, was oft zu Inkonsistenzen im Dokument führt" - Wie sollen sie denn interagieren? Was soll den mit diesen Modellen geschehen? Ich glaube ich habe hier etwas grundlegendes nicht verstanden.
+
+ 3.
+
+    "Wenn ein Dokumentelement auf ein Anderes verweist, kann direkt auf Attribute des darunterliegenden Modells zugegriffen werden." - Muss ich mir das jetzt wie einen "Link" im Textdokument vorstellen, der auf ein anderes Dokument (oder einen darin enthaltenen Dokumentenabschnitt) in einer Datenbank verweist? Oder "ziehe" ich mit Abbildungen, Tabellen... direkt aus Anderen Dokumenten in mein Dokument hinein, so dass diese ständig miteinander verknüpft sind?
+    Das ist ja die Lösung des Problems. Das solltest du evtl etwas genauer beschreiben.
+
+ 4.
+
+    Rechtschreibung: "Theorie über den inneren Aufbau von Dokumente entwickelt" - Dokumenten (Plural)
+
+ 5.
+
+    "Aus dem Prototyp ist eine allgemeine Theorie über den inneren Aufbau von Dokumente entwickelt worden" - Für mich hört sich das etwas verkehrt herum an. Man sollte sich doch erst Gedanken machen, wie man Dokumente allgemein aufbaut (was alles berücksichtigt werden muss) und dann mit diesem grundlegenden, inneren Aufbau einen Prototyp entwickeln.
+
+ 6.
+
+    "(Meta) Modellierung, Projektionseditoren, Semiotik und Taxonomie" -
+
+     1.
+
+        Was bedeutet Modellierung im Zusammenhang mit dem inneren Aufbau eines Dokumentes? Das ist für mich irgendwie nichtssagend, da es sehr abstrakt ist.
+
+     2.
+
+        Projektionseditoren? Was ist das?
+
+     3.
+
+        Semiotik und Taxonomie - Evtl. diese Begriffe erklären/Übersetzen. Diese Begriffe sind manchen Menschen nicht geläufig. z.B. Semiotik=Wissenschaft der Zeichensysteme; Taxonomie
+        =Klassifikationsschema
+
+Es ist eigentlich gut geschrieben. Für mich bist du da einfach schon 
+etwas zu tief in der Materie. Es ist sehr kompakt und komprimiert 
+geschrieben. Schon zu kompakt! Du solltest hier vielleicht etwas weiter 
+ausholen und noch etwas einfacher, verständlicher beschreiben. Den Leser 
+vielleicht anhand eines konkreten Problems an das grundlegende Ziel 
+deiner Arbeit, also an eine Lösung dieses Problems, heranführen. Ich 
+habe beim Lesen nicht verstanden, wo momentan das Problem liegt und wie 
+genau es von dir gelöst wurde.
+
+Entschuldige, dass ich nur Negatives schreibe!
+
+Ein Fahrrad welches man rudert... ich werde drüber nachdenken! :)
+
+
+Gruß, Matze
+
+
+
+Am 06.08.2014 15:31, schrieb Sven Hodapp:
+> Hi Matze,
+>
+> ich würde gerne von dir wissen, ob dieses Abstract verständlich ist.
+> Macht es Lust auf „mehr“? Wäre es auch für ein Ingenieur nützlich?
+>
+> Aktuelle Textverarbeitungsprogramme haben gerade für die Erstellung von wissenschaftlichen Dokumenten große Defizite, da dort oft formale Modelle, wie z.B. Chemie-Moleküle, aus dem jeweiligen Fachgebiet (Domäne) benutzt werden müssen.
+> Heutige Systeme können mit diesen Modellen nicht direkt interagieren, was oft zu Inkonsistenzen im Dokument führt.
+> In dieser Arbeit wird der Prototyp eines Dokumenteditors entwickelt, welcher domänenspezifische Dokumentelemente einführt, und so formale Modelle direkt bei der Bearbeitung des Dokuments verwendbar macht.
+> Die Dokumentelemente (z.B. Absätze, Abbildungen, etc.) repräsentieren domänenspezifische Inhalte.
+> Wenn ein Dokumentelement auf ein Anderes verweist, kann direkt auf Attribute des darunterliegenden Modells zugegriffen werden. (Bspw. auf den Namen eines Moleküls)
+> Der Prototyp beweist seine Praxistauglichkeit anhand von vier konkreten Anwendungsfällen.
+> Aus dem Prototyp ist eine allgemeine Theorie über den inneren Aufbau von Dokumente entwickelt worden und tangiert die Bereiche (Meta) Modellierung, Projektionseditoren, Semiotik und Taxonomie.
+> Es gibt vielfältige Weiterentwicklungsmöglichkeiten, wie Ausbau zur Open Access Platform mit erweiterten Autorenfunktionen, Zentrale für Format-Transformationen oder Literate Programming IDE
+>
+>
+> Vielen Dank!
+>
+> Achja wir haben eine neue Konstruktionsidee: Ein Fahrrad welches man rudert statt paddelt. Das wäre doch cool, als Training für die Arme…
+>
+> Gruß,
+> Sven
+
+
+--------------090507090904070709090901
+Content-Type: text/html; charset=windows-1252
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=windows-1252"
+      http-equiv="Content-Type">
+  </head>
+  <body text="#000000" bgcolor="#FFFFFF">
+    <font face="Arial">Hi Sven,<br>
+      entschuldige, dass ich nicht gleich geantwortet habe.<br>
+      <br>
+      Also ich als Außenstehender Nichtinformatiker habe ehrlich gesagt
+      nicht ganz verstanden was hier entwickelt wurde. Ich habs mir ein
+      paar mal durchgelesen dennoch:<br>
+    </font>
+    <ol>
+      <li>
+        <pre wrap=""><font face="Arial">"formale Modelle, wie z.B. Chemie-Moleküle..." - Ich kann mir trotzdem nichts Genaues unter diesen Modellen vorstellen.</font></pre>
+      </li>
+      <li>
+        <pre wrap=""><font face="Arial">"Heutige Systeme können mit diesen Modellen nicht direkt interagieren, was oft zu Inkonsistenzen im Dokument führt" - Wie sollen sie denn interagieren? Was soll den mit diesen Modellen geschehen? Ich glaube ich habe hier etwas grundlegendes nicht verstanden.</font></pre>
+      </li>
+      <li>
+        <pre wrap=""><font face="Arial">"Wenn ein Dokumentelement auf ein Anderes verweist, kann direkt auf Attribute des darunterliegenden Modells zugegriffen werden." - Muss ich mir das jetzt wie einen "Link" im Textdokument vorstellen, der auf ein anderes Dokument (oder einen darin enthaltenen Dokumentenabschnitt) in einer Datenbank verweist? Oder "ziehe" ich mit Abbildungen, Tabellen... direkt aus Anderen Dokumenten in mein Dokument hinein, so dass diese ständig miteinander verknüpft sind? 
+Das ist ja die Lösung des Problems. Das solltest du evtl etwas genauer beschreiben.</font></pre>
+      </li>
+      <li>
+        <pre><font face="Arial">Rechtschreibung: "Theorie über den inneren Aufbau von Dokumente entwickelt" - Dokumenten (Plural)</font></pre>
+      </li>
+      <li>
+        <pre wrap=""><font face="Arial">"Aus dem Prototyp ist eine allgemeine Theorie über den inneren Aufbau von Dokumente entwickelt worden" - Für mich hört sich das etwas verkehrt herum an. Man sollte sich doch erst Gedanken machen, wie man Dokumente allgemein aufbaut (was alles berücksichtigt werden muss) und dann mit diesem grundlegenden, inneren Aufbau einen Prototyp entwickeln.</font></pre>
+      </li>
+      <li>
+        <pre wrap=""><font face="Arial">"(Meta) Modellierung, Projektionseditoren, Semiotik und Taxonomie" - 
+</font></pre>
+      </li>
+      <ol>
+        <li>
+          <pre wrap=""><font face="Arial">Was bedeutet Modellierung im Zusammenhang mit dem inneren Aufbau eines Dokumentes? Das ist für mich irgendwie nichtssagend, da es sehr abstrakt ist.</font></pre>
+        </li>
+        <li>
+          <pre wrap=""><font face="Arial">Projektionseditoren? Was ist das?</font></pre>
+        </li>
+        <li>
+          <pre wrap=""><font face="Arial">Semiotik und Taxonomie - Evtl. diese Begriffe erklären/Übersetzen. Diese Begriffe sind manchen Menschen nicht geläufig. z.B. Semiotik=Wissenschaft der Zeichensysteme; Taxonomie
+=Klassifikationsschema</font></pre>
+        </li>
+      </ol>
+    </ol>
+    <font face="Arial">Es ist eigentlich gut geschrieben. Für mich bist
+      du da einfach schon etwas zu tief in der Materie. Es ist sehr
+      kompakt und komprimiert geschrieben. Schon zu kompakt! Du solltest
+      hier vielleicht etwas weiter ausholen und noch etwas einfacher,
+      verständlicher beschreiben. Den Leser vielleicht anhand eines
+      konkreten Problems an das grundlegende Ziel deiner Arbeit, also an
+      eine Lösung dieses Problems, heranführen. Ich habe beim Lesen
+      nicht verstanden, wo momentan das Problem liegt und wie genau es
+      von dir gelöst wurde.<br>
+    </font><br>
+    Entschuldige, dass ich nur Negatives schreibe!<br>
+    <br>
+    <pre wrap=""><font face="Arial">Ein Fahrrad welches man rudert... ich werde drüber nachdenken! :)</font></pre>
+    <br>
+    <font face="Arial">Gruß, Matze</font><br>
+    <br>
+    <br>
+    <br>
+    <div class="moz-cite-prefix">Am 06.08.2014 15:31, schrieb Sven
+      Hodapp:<br>
+    </div>
+    <blockquote
+      cite="mid:239BB7B1-56F8-4D5D-9CAB-EFD7844F3BB0@googlemail.com"
+      type="cite">
+      <pre wrap="">Hi Matze,
+
+ich würde gerne von dir wissen, ob dieses Abstract verständlich ist.
+Macht es Lust auf „mehr“? Wäre es auch für ein Ingenieur nützlich?
+
+Aktuelle Textverarbeitungsprogramme haben gerade für die Erstellung von wissenschaftlichen Dokumenten große Defizite, da dort oft formale Modelle, wie z.B. Chemie-Moleküle, aus dem jeweiligen Fachgebiet (Domäne) benutzt werden müssen.
+Heutige Systeme können mit diesen Modellen nicht direkt interagieren, was oft zu Inkonsistenzen im Dokument führt.
+In dieser Arbeit wird der Prototyp eines Dokumenteditors entwickelt, welcher domänenspezifische Dokumentelemente einführt, und so formale Modelle direkt bei der Bearbeitung des Dokuments verwendbar macht.
+Die Dokumentelemente (z.B. Absätze, Abbildungen, etc.) repräsentieren domänenspezifische Inhalte.
+Wenn ein Dokumentelement auf ein Anderes verweist, kann direkt auf Attribute des darunterliegenden Modells zugegriffen werden. (Bspw. auf den Namen eines Moleküls)
+Der Prototyp beweist seine Praxistauglichkeit anhand von vier konkreten Anwendungsfällen.
+Aus dem Prototyp ist eine allgemeine Theorie über den inneren Aufbau von Dokumente entwickelt worden und tangiert die Bereiche (Meta) Modellierung, Projektionseditoren, Semiotik und Taxonomie.
+Es gibt vielfältige Weiterentwicklungsmöglichkeiten, wie Ausbau zur Open Access Platform mit erweiterten Autorenfunktionen, Zentrale für Format-Transformationen oder Literate Programming IDE
+
+
+Vielen Dank!
+
+Achja wir haben eine neue Konstruktionsidee: Ein Fahrrad welches man rudert statt paddelt. Das wäre doch cool, als Training für die Arme…
+
+Gruß,
+Sven</pre>
+    </blockquote>
+    <br>
+  </body>
+</html>
+
+--------------090507090904070709090901--
