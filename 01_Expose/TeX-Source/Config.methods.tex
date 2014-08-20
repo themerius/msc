@@ -1,0 +1,41 @@
+\newcommand{\autor}{Sven Hodapp}
+\newcommand{\documenttype}{\char32}
+\newcommand{\thema}{Exposé für eine Masterarbeit}
+\newcommand{\subtitle}{
+  Arbeitstitel: Entwicklung eines Dokumenten-Projektionseditors für Text und Graphen auf Basis von Webtechnologie
+}
+\newcommand{\institute}{
+  \begin{tabular}{r l}
+    Institution: & Hochschule Konstanz \\
+    Bereich: & Fakultät Informatik \\
+    Version: & \today
+  \end{tabular}
+}
+\newcommand{\keywords}{expose}
+
+\input{Titlepages/Default}  % Choose one Titlepage (must provide \typesetTitle)
+
+\newcommand{\titlepageAreal}{
+  \thispagestyle{empty}
+  \typesetTitle
+  \newpage
+  \clearpage
+  \setcounter{page}{1}
+}
+\newcommand{\tableOfContentsAreal}{
+  \pagenumbering{roman}
+  \tableofcontents
+  \newpage
+  \pagenumbering{arabic}
+}
+\newcommand{\bibliographyAreal}{
+  \newpage
+  \addcontentsline{toc}{section}{Literaturverzeichnis}
+  % gerabbrv == [1], [2], ...
+  % apalike == [Autor, 1987], ...
+  % alphadin == [Au87], ...
+  % natdin == DIN 1505 == (Autor 1987), ...
+  %\bibliographystyle{natdin}
+  %\bibliography{Bibliography}
+}
+

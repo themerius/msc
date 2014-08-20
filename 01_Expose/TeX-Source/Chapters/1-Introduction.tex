@@ -1,0 +1,237 @@
+\section{Problemstellung}
+
+Die Erstellung von qualitativ hochwertigen Dokumenten ist keine einfache Sache.
+Das Computerzeitalter konnte zwar schon viel verbessern, aber es gibt noch
+immer Situationen, in denen die Dokumentenerstellung sehr mühselig werden kann.
+
+Zum einen kostet es u.U. sehr viel Zeit, Querreferenzierungen im Dokument zu
+pflegen und konsistent zu halten.
+Hierfür hat insbesondere LaTeX eine solide Lösung, jedoch stößt man auf der Meta-Ebene
+(der LaTeX Code selbst) wieder auf das Problem. Beispiel: Man definiert ein
+Label und referenziert an anderen Stellen darauf. Wird das Label irgendwann umbenannt
+(weil sich z.B. die Überschrift geändert hat), muss es an allen referenzierten
+Stellen auch umbenannt werden (klassisches Refactoring) -- und das geschieht
+leider nicht automatisch.
+
+Zum anderen verstehen die Anwendungen oft nur die Domäne „Dokument“,
+wenn man z.B. chemische Formeln zeichnen will, müssen diese über externe
+Ressourcen hinzugefügt werden. Dabei gibt es keinen wirklichen Zugriff
+mehr auf die Meta-Informationen, die eigentlich durch das Domänenmodell
+-- die chemische Formel -- mitgeliefert wird. Das kann wiederum zu inkonsistenten
+Dokumenten führen. Wenn z.B. nachträglich an der chemischen Formel etwas
+geändert wird und nur die Abbildung von Benutzer aktualisiert wurde,
+dann sind u.U. die Verweise
+(z.B. auf die Masse des Moleküls der chemischen Formel)
+in den beschreibenden Sätzen nicht mehr korrekt;
+also fehlt das semantische Verständnis seitens des Dokuments.
+
+Man beachte auch andere Punkte: z.B. Transformation in Formate wie Markdown,
+welche unter anderem gut für \emph{distraction free writing} sein können,
+aber auch auch eine bessere Versionskontrolle
+mit Werkzeugen wie \emph{git} ermöglichen.
+Zudem wäre Zugänglichkeit und Interaktion ohne zusätzliche Hürden zu einer
+vollwertigen Programmiersprache wünschenswert, um beispielsweise
+direkt während der Dokumentenerstellung Datenbankzugriffe bzw.
+algorithmische Auswertungen vorzunehmen.
+
+Das wirft die Frage folgende Frage auf:
+\emph{Kann man ein System erschaffen,
+welches die o.g. Defizite aufhebt?}
+
+\subsection{Vorhandene Vorarbeit}
+
+In meiner Bachelorarbeit habe ich mich schon mit ähnlichen Fragestellungen
+beschäftigt und möchte diese weiterentwickeln.
+Im Zuge dieser Bachelorarbeit ist bereits eine JavaScript Bibliothek
+entstanden, mit der Printdokumente im Webbrowser
+(weiterhin Browser-Dokument genannt) „gesetzt“ werden können.
+Zudem wurde eine, an TeX angelehnte, interne Scala DSL entwickelt,
+mit der solche Dokumente generiert werden können.
+
+
+\section{Ziele}
+
+Aus den Argumenten der Problemstellung und den vorhandenen Vorarbeiten
+ergeben sich folgende Ziele:
+
+Es soll einen Prototyp erschaffen werden, welcher ermöglicht,
+das Browser-Doku\-ment direkt im Browser ohne Umweg über die DSL
+zu modifizieren bzw. zu erweitern.
+Darüber hinaus soll das Browser-Dokument um Unterstützungen für
+domänenspezifische Editoren erweitert werden.
+Diese Editoren können z.B. eine grafische Repräsentation über ein Objekt
+ihrer Domäne sein und dieses auf (semantische) Korrektheit überprüfen.
+Bei der Dokumenten-Erstellung soll auch eine vollwertige Programmiersprache
+verfügbar sein, um das Dokument semantisch halten zu können.
+
+Schlussendlich soll man ein Dokument erhalten, welches einfach und schnell erstellbar und änderbar ist, wie man es von z.B. Google Docs kennt.
+Jedoch soll es zudem relativ einfach um verschiedene Domänen erweiterbar sein,
+erreicht durch domänenspezifische Editoren.
+Ein Beispiel für einen solchen domänenspezifischen Editor ist
+Ketcher\footnote{JavaScript basierter chemischer Struktureditor. \url{http://ggasoftware.com/opensource/ketcher}}. Er würde einem Dokument die Fähigkeit hinzufügen,
+chemische Strukturformeln darzustellen.
+Da unter der Dokumentengenerierung eine vollwertige
+Programmiersprache liegt, hat der Benutzer auch Zugriff darauf und kann sein
+mit der Domäne angereichertes Dokument beliebig automatisieren.
+
+Es wäre also wie wenn man Google Docs, LaTeX, eine vollwertige Programmiersprache
+mit einer Prise projectional editing in einen Mixer gibt...
+
+\subsection{Konkrete Ziele}
+
+\noindent Primäres Ziel:
+\begin{itemize}
+    \item Funktionstüchtige Schleife, um ein Dokument projektiv zu editieren: Anzeige und Editierung des Dokuments im Browser wird in ein abstraktes Modell abgebildet. Aus dem Modell wird ggf. Code generiert und in das laufende System eingebracht, so dass das aktualisierte Modell wieder im Browser zur weiteren Editierung bereitsteht.
+    \item Aus dem abstrakten Modell heraus sollen auch andere Ausgabeformate produzierbar sein, statt Webtechnologie auch z.B. Markdown oder Quellcode (beispielsweise als Scala DSL), welche gut zur  Versionskontrolle sind. (Projektive Eigenschaft)
+\end{itemize}
+
+\noindent Sekundäres Ziel:
+\begin{itemize}
+    \item Einbindung eines domänenspezifischen Editors mit Anbindung zur darunterliegenden Programmiersprache.
+    \item Einfacher Fall: Ketcher für Chemiedarstellung.
+    \item Komplexer Fall: Spray\footnote{Framework zur Erstellung visueller DSL Editoren (modellgetriebene Softwareentwicklung). \url{https://code.google.com/a/eclipselabs.org/p/spray/}} für beliebige Domänen.
+    Neben dem Eclipse-Plugin existiert hier auch schon eine Arbeit,
+    die den Spray Editor ins Web bringt. Daher wäre eine Verwendung
+    von Spray als Domäneneditor innerhalb eines Dokuments besonders spannend;
+    weil z.B. die Dokumentierung des Modells enorm erleichtert würde.
+\end{itemize}
+
+\noindent Tertiäres Ziel:
+\begin{itemize}
+    \item Erweiterungen und Weiterentwicklungen am Browser-Dokument Framework.
+    \item Eine Umstrukturierung muss es durch die o.g. Anforderungen ohnehin geben, aber gemeint sind eher Zusatzfunktionen wie Fußnoten oder neue konzeptuelle Ideen wie z.B. scala-js\footnote{Scala zu (client-side) JavaScript Compiler. \url{https://github.com/lampepfl/scala-js}}.
+\end{itemize}
+
+
+%%%% (4) Ziele und Hypothesen sowie der (5) Theoriebezug und der (6) Forschungsstand
+
+\subsection{Hypothesen}
+
+\paragraph{1} Aktoren sind ein geeignetes und elegantes Mittel, um einen AST\footnote{Abstract Syntax Tree}
+für projectional editing bereitzustellen.
+
+\paragraph{2} Aktoren sind ideal um die Graphenstruktur des Dokuments
+abzubilden. Das heißt das Aktorensystem kann auch Referenzen\footnote{
+z.B. Verweise auf Bilder automatisch in eine Nummerierung umwandeln vlg. LaTeX.}, die es innerhalb
+des Dokuments gibt, auflösen. Wenn der Dokumentenbearbeiter Dokumentenentitäten\footnote{z.B. Bilder, Textabschnitte, Überschriften, etc.} bearbeitet, bedeutet
+das, dass lediglich ein Knoten im Graphen ausgetauscht werden muss.
+
+% Dokumenten-Vererbung? (Fork)
+% Dokumente als Teilmengen von Graphen
+%     Template
+%     /      \
+%    A        B
+%            / \
+%           C   D
+% Dabei sind C und D nicht gezwungen alle Inhalte zuübernehmen,
+% z.B. C könnten die Präsentationsslides von B sein.
+% z.B. D könnte ein fortführender oder ausführlicherer Bereicht sein der auf B basiert
+
+% In einer Templatesprace von Scala das Dokument speichern?
+% Als Alternative Speicherung zur DSL?
+
+
+\subsection{Wissenschaftliche Fragestellungen}
+
+Fragen die von wissenschaftlichen Interesse sein könnten und während der
+Masterarbeit in Erwägung gezogen werden:
+
+\begin{enumerate}
+    \item Kann eine Semantik, ähnlich der von projectional editing workbenches, auf die Domäne Dokumentenerstellung bzw. Dokumente sinnvoll übertragen werden? Welche Möglichkeiten eröffnen sich dadruch?
+    \item Kann man mehr Semantik schon beim Schreiben des Dokuments erreichen? Mehr Semantik als mit bisherigen Lösungen?
+    \item Können Aktoren\footnote{Ein Software Transactional Memory System. Eine populäre Implementierung ist \url{http://akka.io}.} vernünftig als Modellinstanz\footnote{Ein formales Modell, welches eine Instanz eines Metamodells ist.} für ein solches Dokument dienen?
+    \item Kann diese Modellinstanz zur Laufzeit modifiziert werden, so dass \emph{projectional editing} ermöglicht wird?
+    \item Eignen sich Aktoren als flexibler Codegenerator?
+    \item Ist es möglich, dass zur Laufzeit Code generiert, compiliert und wieder in das laufende (Aktor)-System eingebracht wird?
+    \item Kann ein solches Dokumentenerstellungssystem als Plattform zur Kooperation fungieren? Ist das dann eine neue Klasse von Dokumenten bzw. eine neue Art von Desktop-publishing?
+    \item Wie kann eine Anbindung an domänenspezifische Editoren stattfinden? Wie kann von der Programmiersprache aus auf die Objekte des Editors zugegriffen werden? Was eröffnen sich dadurch für Möglichkeiten?
+    \item Kann der Spray Modellierungseditor so eingebunden werden, dass vom Dokument aus direkt und konsistent auf das Modell referenziert werden kann? Nach Möglichkeit mit den Eigenschaften von projectional editing?
+    \item Da Modelle, die mit Spray modelliert wurden, u.U. sehr große Diagramme ergeben, kann es aus Dokumentationsinteresse wichtig sein, nur Ausschnitte des Diagramms im Dokument aufzuführen, um diese zu erklären. Ist es möglich aus einem großen Modell verschiedene Teilausschnitte im Dokument zu präsentieren und zu referenzieren?
+\end{enumerate}
+
+\paragraph{Zu (1)} Mehr Semantik durch saubere Referenzierung von Objekten (z.B. das Objekt {\tt caffeine} vom Typ {\tt Chemistry}, kann Methoden wie {\tt .editable\_repr} (ergibt einen Moleküleditor direkt im Dokument), {\tt .mass} oder {\tt .IUPACName} anbieten; oder sogar chemisches Rechnen mit anderen Chemisty Objekten ermöglichen).
+Damit die Variablen/Objekte immer bei Änderungen/Refactoring synchron sind, werden diese auch in Aktoren abgebildet, so dass jede Variable intern einem eindeutigen Aktor entspricht. Beispiel: wenn z.B. das {\tt caffeine} Objekt in {\tt caffeine\_x} umbenannt wird, wird überall im Dokument diese Variable transparent umbenannt; das wäre dann eine Eigenschaft des projectional editing.
+
+\paragraph{Zu (2)} Das Dokument kann verschiedene Domänen verstehen, zudem konsistente Referenzierung von z.B. Abbildungen, Erkennung von speziellen Arealen in Dokumenten wie z.B. Titelblatt, Hauptinhalt oder „hier wird gerade zitiert“-Bereichen.  Durch Transformation in verschiedene Formate oder Ansichten, wie Printlayout (mit Webtechnologie), normales Webseitenlayout oder mindmap-artig, kann eine andere Übersicht über das Dokument erhalten werden. Dadurch können ggf. Beziehungen, die es innerhalb des Dokuments oder zu anderen Dokumenten existieren, besser aufgedeckt werden.
+
+\paragraph{Zu (3) und (4)} Aktoren fungieren als Modellinstanz und gleichzeitig als Generatoren in verschiedene Formate wie Markdown, JSON oder Quellcode. Die Aktoren können quasi als AST angesehen werden, welcher als Basis für projectional editing dienen kann.
+
+\paragraph{Zu (6)} Ermöglicht es, in der Dokumentenerstellungsumgebung Technologien wie Python und Scala kooperativ zu nutzen. Das heißt, es wird eine Art Metaprogramming ermöglicht -- der eine Code beeinflusst zu seiner Laufzeit den Quellcode des Anderen. Solch ein Verhalten könnte griffig als „kooperative Codegenerierung“ bezeichnet werden.
+
+
+% Kann ich einen (benutzerfreundlichen) Projektionseditor auf Basis von Webtechnologie
+% mit Anbindung an eine vollwertige Programmiersprache bauen,
+% so dass ein höheres semantisches Verständnis im Dokument verankert wird.
+
+% Was bringt uns das?
+
+% Technologien die noch nie zusammengebracht worden zusammenbringen...
+
+
+%%%% (1) Problemstellung, das (2) Erkenntnisinteresse und die (3) Fragestellung
+
+
+
+
+
+\section{Methode}
+
+%%%% Übersichten über die (7) Methode und das (8) Material
+
+Es soll ein funktionierender Prototyp programmiert werden.
+Bevorzugte Programmiersprachen sind dabei Scala, Python oder JavaScript.
+Darauf folgt eine Analyse des Prototyps, ob und wie die Fragestellungen
+gelöst werden konnten und welche Qualität die gefunde Lösung hat.
+
+Zuvor muss jedoch herausgefunden werden, ob Aktoren sich als AST eignen
+oder ob alternativ dazu eine (NoSQL) Datenbank besser geeignet ist.
+
+
+\section{Gliederungsentwurf}
+
+%%%% (9) Gliederungsentwurf, ein (10) vorläufiges Literaturverzeichnis
+\renewcommand{\labelenumii}{\theenumii}
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
+
+\begin{enumerate}
+    \item Einleitung
+    \item Technologien (Grundlagen und Grundbegriffe)
+    \begin{enumerate}
+        \item Gestaltungsregeln wiss. Dokumente
+        \item Projectional Editing
+        \item Aktoren
+    \end{enumerate}
+    \item Entwicklung des Prototypen (Praxisteil)
+    \begin{enumerate}
+        \item Anforderungen
+        \item Architektur und Design
+        \item Benutzeroberfläche
+        \item Abstrakter Syntax Baum
+        \item Generierung und Persistenz
+        \item Verbindungscode zum Domäneneditor
+    \end{enumerate}
+    \item Ergebnisse und Analyse
+    \item Fazit
+    \item Ausblick
+\end{enumerate}
+
+
+
+\section{Zeitplan}
+
+An unserer Fakultät liegt der vorgesehene Arbeitsaufwand für eine Masterarbeit
+bei vier bis sechs Monaten und darf maximal um drei Monate verlängert werden,
+daher folgender Zeitplan:
+\\\\
+\begin{tabular}{ | c || l | l | }
+  \hline
+  Woche & Phase & Kommentar \\\hline
+  1--4 & Recherche & Literatur, Ideen, Programmierversuche \\
+  4--8 & Architektur & Anforderungsanalyse, Architekturplan \\
+  8--16 & Prototyp & Programmierung, Tests \\
+  16--20 & Niederschrift &  \\
+  20--24 & Abschluss & Korrekturlesen, Ausbessern \\
+  \hline
+\end{tabular}
+
+%%%% (11) grober Zeitplan
